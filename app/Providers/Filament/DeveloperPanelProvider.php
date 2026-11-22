@@ -145,7 +145,7 @@ class DeveloperPanelProvider extends PanelProvider
                 \App\Http\Middleware\LanguageManagerMiddleware::class,
             ])
             ->authMiddleware([
-                Authenticate::class,
+                \App\Http\Middleware\AuthenticatePanel::class,
             ]);
     }
 }
