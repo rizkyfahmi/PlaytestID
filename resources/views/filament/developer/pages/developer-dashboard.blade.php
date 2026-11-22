@@ -133,12 +133,15 @@
     .dark .btn-detail:hover { background: rgba(234,88,12,0.15); border-color: #f97316; color: #fdba74; }
 
     .day-cell {
-      border-radius: 5px;
+      border-radius: 8px;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      padding-bottom: 2px;
-      height: 32px;
+      padding-bottom: 0;
+      aspect-ratio: 1 / 1;
+      height: auto;
+      min-height: 0;
+      transition: all .15s;
     }
 
     .day-done { background: #ffedd5; }
@@ -149,7 +152,7 @@
     .day-future { background: #f1f5f9; }
     .dark .day-future { background: #334155; }
 
-    .day-num { font-size: 8px; font-weight: 600; }
+    .day-num { font-size: 11px; font-weight: 700; line-height: 1; }
 
     .day-done .day-num { color: #c2410c; }
     .dark .day-done .day-num { color: #fdba74; }

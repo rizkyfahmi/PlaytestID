@@ -29,14 +29,14 @@
   .icon-green{background:#f0fdf4;color:#16a34a;}.dark .icon-green{background:rgba(22,163,74,0.2);color:#86efac;}
 
   /* ── Day cells ────────────────────────── */
-  .day-cell{border-radius:5px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:2px;height:32px;transition:all .15s;}
+  .day-cell{border-radius:8px;display:flex;align-items:center;justify-content:center;padding-bottom:0;aspect-ratio:1/1;height:auto;min-height:0;transition:all .15s;}
   .day-done{background:#ffedd5;}.dark .day-done{background:rgba(234,88,12,0.2);}
   .day-today{background:#ea580c;}
   .day-future{background:#f1f5f9;}.dark .day-future{background:#334155;}
   .day-missed{background:#fee2e2;}.dark .day-missed{background:rgba(239,68,68,0.2);}
   .day-pending{background:#fef08a;}.dark .day-pending{background:rgba(234,179,8,0.2);}
   .day-rejected{background:#fecaca;}.dark .day-rejected{background:rgba(220,38,38,0.2);}
-  .day-num{font-size:8px;font-weight:600;}
+  .day-num{font-size:11px;font-weight:700;line-height:1;}
   .day-done .day-num{color:#c2410c;}.dark .day-done .day-num{color:#fdba74;}
   .day-today .day-num{color:#fff;font-weight:800;}
   .day-future .day-num{color:#94a3b8;}.dark .day-future .day-num{color:#64748b;}
