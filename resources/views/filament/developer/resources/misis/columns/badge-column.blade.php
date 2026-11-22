@@ -7,15 +7,15 @@
 
     if ($badgeCount <= 5) {
         $tier = 'Beginner';
-        $icon = '🔵';
-        $color = 'rgb(59, 130, 246)';
+        $icon = '';
+        $color = 'rgb(249, 115, 22)';
     } elseif ($badgeCount <= 50) {
         $tier = 'Intermediate';
-        $icon = '🟡';
+        $icon = '';
         $color = 'rgb(217, 119, 6)';
     } else {
         $tier = 'Master';
-        $icon = '🟣';
+        $icon = '';
         $color = 'rgb(124, 58, 237)';
     }
 @endphp
@@ -33,5 +33,5 @@
     border: 1px solid color-mix(in srgb, {{ $color }} 30%, transparent);
     white-space: nowrap;
 ">
-    {{ $icon }} {{ $tier }}
+    {{ $tier }}
 </span>

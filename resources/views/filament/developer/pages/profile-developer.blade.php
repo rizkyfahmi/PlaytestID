@@ -672,18 +672,17 @@
                 {{ Auth::user()->name }}
               </h1>
               <div class="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-                <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full"
+                <span class="inline-flex items-center text-xs font-bold px-3 py-1.5 rounded-full"
                   style="background:linear-gradient(135deg,rgba(249,115,22,.25),rgba(124,58,237,.25));color:#ffedd5;border:1px solid rgba(249,115,22,.3);">
-                  💻 {{ __('Developer') }}
+                  {{ __('Developer') }}
                 </span>
-                <span class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full"
+                <span class="inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-full"
                   style="background:rgba(255,255,255,0.12);color:#ffedd5;border:1px solid rgba(255,255,255,.15);">
-                  {{ __('Bergabung') }} {{ Auth::user()->created_at->format('M Y') }}
                   {{ __('Bergabung') }} {{ Auth::user()->created_at?->format('M Y') ?? '-' }}
                 </span>
-                <span class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full"
+                <span class="inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-full"
                   style="background:rgba(255,255,255,0.12);color:#ffedd5;border:1px solid rgba(255,255,255,.15);">
-                  ✉️ {{ Auth::user()->email }}
+                  {{ Auth::user()->email }}
                 </span>
               </div>
             </div>

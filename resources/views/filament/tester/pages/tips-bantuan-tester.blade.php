@@ -1558,10 +1558,10 @@
             ],
           ]),
           categories: @js([
-            ['id' => 'semua', 'label' => '🏷️ ' . __('Semua')],
-            ['id' => 'navigasi', 'label' => '🧭 ' . __('Navigasi')],
-            ['id' => 'fitur', 'label' => '⚙️ ' . __('Fitur')],
-            ['id' => 'umum', 'label' => '📌 ' . __('Umum')],
+            ['id' => 'semua', 'label' => __('Semua')],
+            ['id' => 'navigasi', 'label' => __('Navigasi')],
+            ['id' => 'fitur', 'label' => __('Fitur')],
+            ['id' => 'umum', 'label' => __('Umum')],
           ]),
           get filteredTips() {
             let r = this.tips;

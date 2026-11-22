@@ -644,17 +644,17 @@
                 {{ Auth::user()->name }}
               </h1>
               <div class="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-                <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full"
+                <span class="inline-flex items-center text-xs font-bold px-3 py-1.5 rounded-full"
                   style="background:linear-gradient(135deg,rgba(251,191,36,.25),rgba(239,68,68,.25));color:#fef3c7;border:1px solid rgba(251,191,36,.3);">
-                  🛡️ Administrator
+                  Administrator
                 </span>
-                <span class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full"
+                <span class="inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-full"
                   style="background:rgba(255,255,255,0.12);color:#ffedd5;border:1px solid rgba(255,255,255,.15);">
                   {{ __('Bergabung') }} {{ Auth::user()->created_at?->format('M Y') ?? '-' }}
                 </span>
-                <span class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full"
+                <span class="inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-full"
                   style="background:rgba(255,255,255,0.12);color:#ffedd5;border:1px solid rgba(255,255,255,.15);">
-                  ✉️ {{ Auth::user()->email }}
+                  {{ Auth::user()->email }}
                 </span>
               </div>
             </div>

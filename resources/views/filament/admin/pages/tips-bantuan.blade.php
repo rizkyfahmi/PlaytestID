@@ -1731,11 +1731,11 @@
           roleLabel: roleLabels[role],
           tips: tipsData[role] || tipsData.admin,
           categories: [
-            { id: 'semua', label: '🏷️ ' + {!! json_encode(__('Semua')) !!} },
-            { id: 'navigasi', label: '🧭 ' + {!! json_encode(__('Navigasi')) !!} },
-            { id: 'fitur', label: '⚙️ ' + {!! json_encode(__('Fitur')) !!} },
-            { id: 'umum', label: '📌 ' + {!! json_encode(__('Umum')) !!} },
-            { id: 'keamanan', label: '🔐 ' + {!! json_encode(__('Keamanan')) !!} },
+            { id: 'semua', label: {!! json_encode(__('Semua')) !!} },
+            { id: 'navigasi', label: {!! json_encode(__('Navigasi')) !!} },
+            { id: 'fitur', label: {!! json_encode(__('Fitur')) !!} },
+            { id: 'umum', label: {!! json_encode(__('Umum')) !!} },
+            { id: 'keamanan', label: {!! json_encode(__('Keamanan')) !!} },
           ],
           get filteredTips() {
             let r = this.tips;
