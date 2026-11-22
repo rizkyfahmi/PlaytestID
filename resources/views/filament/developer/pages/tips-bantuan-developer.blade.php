@@ -1466,31 +1466,27 @@
 
     {{-- ═══════════ QUICK ACCESS ═══════════ --}}
     <div class="tb-quick-section" id="tb-quick-access">
-      <div class="tb-quick-title">⚡ {{ __('Akses Cepat Developer') }}</div>
+      <div class="tb-quick-title">{{ __('Akses Cepat Developer') }}</div>
       <div class="tb-quick-grid">
         <a href="/developer" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(234,88,12,.1);">🏠</div>
           <div>
             <div class="tb-quick-label">{{ __('Dashboard') }}</div>
             <div class="tb-quick-sublabel">{{ __('Ringkasan aplikasi') }}</div>
           </div>
         </a>
         <a href="/developer/misis/create" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(16,185,129,.1);">📝</div>
           <div>
             <div class="tb-quick-label">{{ __('Test Case Baru') }}</div>
             <div class="tb-quick-sublabel">{{ __('Buat kampanye testing') }}</div>
           </div>
         </a>
         <a href="/developer/pantau-progress" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(245,158,11,.1);">📈</div>
           <div>
             <div class="tb-quick-label">{{ __('Pantau Progress') }}</div>
             <div class="tb-quick-sublabel">{{ __('Monitor testing') }}</div>
           </div>
         </a>
         <a href="/developer/profile-developer" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(20,184,166,.1);">👤</div>
           <div>
             <div class="tb-quick-label">{{ __('Profil') }}</div>
             <div class="tb-quick-sublabel">{{ __('Edit profil Anda') }}</div>
@@ -1820,7 +1816,7 @@
               steps.push({
                 element: '#tb-quick-access',
                 popover: {
-                  title: {!! json_encode(__('⚡ Akses Cepat')) !!},
+                  title: {!! json_encode(__('Akses Cepat')) !!},
                   description: {!! json_encode(__('Shortcut ke semua halaman developer tanpa perlu kembali ke sidebar. Klik untuk langsung membuka halaman yang dituju.')) !!},
                   side: 'top',
                   align: 'center'

@@ -1438,52 +1438,45 @@
 
     {{-- ═══════════ QUICK ACCESS ═══════════ --}}
     <div class="tb-quick-section" id="tb-quick-access">
-      <div class="tb-quick-title">⚡ {{ __('Akses Cepat Admin') }}</div>
+      <div class="tb-quick-title">{{ __('Akses Cepat Admin') }}</div>
       <div class="tb-quick-grid">
         <a href="/admin" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(234,88,12,.1);">📊</div>
           <div>
             <div class="tb-quick-label">{{ __('Dashboard') }}</div>
             <div class="tb-quick-sublabel">{{ __('Ringkasan platform') }}</div>
           </div>
         </a>
         <a href="/admin/manajemen-pengguna" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(16,185,129,.1);">👥</div>
           <div>
             <div class="tb-quick-label">{{ __('Pengguna') }}</div>
             <div class="tb-quick-sublabel">{{ __('Kelola akun') }}</div>
           </div>
         </a>
         <a href="/admin/manajemen-kampanye" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(245,158,11,.1);">🚀</div>
           <div>
             <div class="tb-quick-label">{{ __('Kampanye') }}</div>
             <div class="tb-quick-sublabel">{{ __('Monitor testing') }}</div>
           </div>
         </a>
         <a href="/admin/manajemen-pembayaran" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(139,92,246,.1);">💳</div>
           <div>
             <div class="tb-quick-label">{{ __('Pembayaran') }}</div>
             <div class="tb-quick-sublabel">{{ __('Verifikasi transfer') }}</div>
           </div>
         </a>
         <a href="/admin/manajemen-withdraw" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(236,72,153,.1);">🏦</div>
           <div>
             <div class="tb-quick-label">{{ __('Withdraw') }}</div>
             <div class="tb-quick-sublabel">{{ __('Proses penarikan') }}</div>
           </div>
         </a>
         <a href="/admin/manajemen-paket" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(249,115,22,.1);">📦</div>
           <div>
             <div class="tb-quick-label">{{ __('Paket') }}</div>
             <div class="tb-quick-sublabel">{{ __('Kelola paket') }}</div>
           </div>
         </a>
         <a href="/admin/profile" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(20,184,166,.1);">👤</div>
           <div>
             <div class="tb-quick-label">{{ __('Profil') }}</div>
             <div class="tb-quick-sublabel">{{ __('Edit profil Anda') }}</div>
@@ -1936,7 +1929,7 @@
               steps.push({
                 element: '#tb-quick-access',
                 popover: {
-                  title: {!! json_encode(__('⚡ Akses Cepat')) !!},
+                  title: {!! json_encode(__('Akses Cepat')) !!},
                   description: {!! json_encode(__('Shortcut ke semua halaman admin tanpa perlu kembali ke sidebar. Klik untuk langsung membuka halaman yang dituju.')) !!},
                   side: 'top',
                   align: 'center'

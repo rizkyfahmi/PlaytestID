@@ -1396,31 +1396,27 @@
 
     {{-- ═══════════ QUICK ACCESS ═══════════ --}}
     <div class="tb-quick-section" id="tb-quick-access">
-      <div class="tb-quick-title">⚡ {{ __('Akses Cepat Tester') }}</div>
+      <div class="tb-quick-title">{{ __('Akses Cepat Tester') }}</div>
       <div class="tb-quick-grid">
         <a href="/tester" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(234,88,12,.1);">🏠</div>
           <div>
             <div class="tb-quick-label">{{ __('Dashboard') }}</div>
             <div class="tb-quick-sublabel">{{ __('Ringkasan aktivitas') }}</div>
           </div>
         </a>
         <a href="/tester/misi-saya" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(16,185,129,.1);">🎯</div>
           <div>
             <div class="tb-quick-label">{{ __('Misi Saya') }}</div>
             <div class="tb-quick-sublabel">{{ __('Lihat & kerjakan misi') }}</div>
           </div>
         </a>
         <a href="/tester/dompet" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(245,158,11,.1);">💰</div>
           <div>
             <div class="tb-quick-label">{{ __('Dompet') }}</div>
             <div class="tb-quick-sublabel">{{ __('Tarik pendapatan') }}</div>
           </div>
         </a>
         <a href="/tester/profile-tester" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(20,184,166,.1);">👤</div>
           <div>
             <div class="tb-quick-label">{{ __('Profil') }}</div>
             <div class="tb-quick-sublabel">{{ __('Edit profil Anda') }}</div>
@@ -1717,7 +1713,7 @@
               steps.push({
                 element: '#tb-quick-access',
                 popover: {
-                  title: '{{ __('⚡ Akses Cepat') }}',
+                  title: '{{ __('Akses Cepat') }}',
                   description: '{{ __('Pintasan instan ke seluruh halaman penting tester tanpa perlu membuka navigasi sidebar.') }}',
                   side: 'top',
                   align: 'center'
