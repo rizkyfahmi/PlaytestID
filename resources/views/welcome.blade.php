@@ -616,32 +616,23 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
         <!-- Step 1 -->
-        <div class="reveal bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition duration-300 relative text-center border border-transparent dark:border-slate-800">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg">1</div>
-          <div class="w-16 h-16 bg-brand-100 dark:bg-brand-900/30 rounded-2xl flex items-center justify-center mx-auto mb-5">
-            <i class="fa-solid fa-upload text-brand-600 dark:text-brand-400 text-2xl"></i>
-          </div>
-          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2">{{ __('Daftar & Unggah Aplikasi') }}</h3>
+        <div class="reveal bg-white dark:bg-slate-900 rounded-2xl pt-9 pb-8 px-8 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition duration-300 relative text-center border border-transparent dark:border-slate-800">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 bg-brand-600 text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg ring-4 ring-slate-50 dark:ring-slate-950">1</div>
+          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Daftar & Unggah Aplikasi') }}</h3>
           <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Developer mendaftar, memilih paket, dan mengirimkan tautan aplikasi Google Play untuk closed testing.') }}</p>
         </div>
 
         <!-- Step 2 -->
-        <div class="reveal bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition duration-300 relative text-center border border-transparent dark:border-slate-800" style="transition-delay: 0.15s;">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg">2</div>
-          <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center mx-auto mb-5">
-            <i class="fa-solid fa-users text-green-600 dark:text-green-400 text-2xl"></i>
-          </div>
-          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2">{{ __('20 Tester Bergabung') }}</h3>
+        <div class="reveal bg-white dark:bg-slate-900 rounded-2xl pt-9 pb-8 px-8 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition duration-300 relative text-center border border-transparent dark:border-slate-800" style="transition-delay: 0.15s;">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 bg-brand-600 text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg ring-4 ring-slate-50 dark:ring-slate-950">2</div>
+          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('20 Tester Bergabung') }}</h3>
           <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Our platform automatically connects 20 verified active testers to your app\'s testing session.') }}</p>
         </div>
 
         <!-- Step 3 -->
-        <div class="reveal bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition duration-300 relative text-center border border-transparent dark:border-slate-800" style="transition-delay: 0.3s;">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg">3</div>
-          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mx-auto mb-5">
-            <i class="fa-solid fa-trophy text-purple-600 dark:text-purple-400 text-2xl"></i>
-          </div>
-          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2">{{ __('Lulus & Rilis ke Play Store') }}</h3>
+        <div class="reveal bg-white dark:bg-slate-900 rounded-2xl pt-9 pb-8 px-8 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition duration-300 relative text-center border border-transparent dark:border-slate-800" style="transition-delay: 0.3s;">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 bg-brand-600 text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg ring-4 ring-slate-50 dark:ring-slate-950">3</div>
+          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Lulus & Rilis ke Play Store') }}</h3>
           <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Setelah 14 hari berturut-turut dengan 20 tester aktif, aplikasi Anda siap diluncurkan di Google Play Store.') }}</p>
         </div>
 
@@ -679,29 +670,20 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           <!-- Benefit 1 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <div class="icon-bubble bg-brand-100 dark:bg-brand-900/30 mb-4">
-              <i class="fa-solid fa-magnifying-glass text-brand-600 dark:text-brand-400 text-xl"></i>
-            </div>
-            <h4 class="font-bold text-slate-800 dark:text-white mb-2">{{ __('Cari Tester dengan Mudah') }}</h4>
+          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Cari Tester dengan Mudah') }}</h4>
             <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Tidak perlu mencari manual. Sistem kami secara instan menghubungkan Anda dengan 20 tester aktif terverifikasi.') }}</p>
           </div>
 
           <!-- Benefit 2 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <div class="icon-bubble bg-green-100 dark:bg-green-900/30 mb-4">
-              <i class="fa-solid fa-calendar-check text-green-600 dark:text-green-400 text-xl"></i>
-            </div>
-            <h4 class="font-bold text-slate-800 dark:text-white mb-2">{{ __('Validasi 14 Hari Otomatis') }}</h4>
+          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Validasi 14 Hari Otomatis') }}</h4>
             <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('A real-time dashboard monitors each tester\'s activity for 14 consecutive days as required by Google Play Console.') }}</p>
           </div>
 
           <!-- Benefit 3 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <div class="icon-bubble bg-red-100 dark:bg-red-900/30 mb-4">
-              <i class="fa-solid fa-shield-halved text-red-500 dark:text-red-400 text-xl"></i>
-            </div>
-            <h4 class="font-bold text-slate-800 dark:text-white mb-2">{{ __('Hindari Penolakan Google') }}</h4>
+          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Hindari Penolakan Google') }}</h4>
             <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Our structured process ensures all of Google\'s technical requirements are met so your app won\'t be rejected at launch.') }}</p>
           </div>
 
@@ -712,29 +694,20 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           <!-- Benefit 1 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <div class="icon-bubble bg-yellow-100 dark:bg-yellow-900/30 mb-4">
-              <i class="fa-solid fa-star text-yellow-500 dark:text-yellow-400 text-xl"></i>
-            </div>
-            <h4 class="font-bold text-slate-800 dark:text-white mb-2">{{ __('Akses Awal Aplikasi') }}</h4>
+          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Akses Awal Aplikasi') }}</h4>
             <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Jadilah yang pertama mencoba aplikasi inovatif dari developer Indonesia sebelum resmi diluncurkan ke publik.') }}</p>
           </div>
 
           <!-- Benefit 2 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <div class="icon-bubble bg-purple-100 dark:bg-purple-900/30 mb-4">
-              <i class="fa-solid fa-graduation-cap text-purple-600 dark:text-purple-400 text-xl"></i>
-            </div>
-            <h4 class="font-bold text-slate-800 dark:text-white mb-2">{{ __('Pengalaman Belajar Berbasis Proyek') }}</h4>
+          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Pengalaman Belajar Berbasis Proyek') }}</h4>
             <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Tingkatkan keterampilan QA dan pengujian perangkat lunak Anda melalui proyek nyata — pengalaman yang dapat Anda tambahkan langsung ke portofolio.') }}</p>
           </div>
 
           <!-- Benefit 3 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <div class="icon-bubble bg-brand-100 dark:bg-brand-900/30 mb-4">
-              <i class="fa-solid fa-people-group text-brand-600 dark:text-brand-400 text-xl"></i>
-            </div>
-            <h4 class="font-bold text-slate-800 dark:text-white mb-2">{{ __('Komunitas Aktif') }}</h4>
+          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Komunitas Aktif') }}</h4>
             <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Bergabunglah dengan ribuan tester dan developer di komunitas Testoplay — berbagi pengetahuan, berdiskusi, dan temukan peluang kolaborasi.') }}</p>
           </div>
 
@@ -947,24 +920,11 @@
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <button onclick="window.location.href='{{ route('filament.developer.auth.register') }}'" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand-700 font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300">
-          <i class="fa-solid fa-rocket"></i> {{ __('Mulai sebagai Developer') }}
+          {{ __('Mulai sebagai Developer') }}
         </button>
         <button onclick="window.location.href='{{ route('filament.tester.auth.register') }}'" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/30 text-white font-semibold rounded-2xl hover:bg-white/20 transition duration-300 backdrop-blur-sm">
-          <i class="fa-solid fa-hand-pointer"></i> {{ __('Daftar sebagai Tester') }}
+          {{ __('Daftar sebagai Tester') }}
         </button>
-      </div>
-
-      <!-- Trust indicators -->
-      <div class="flex justify-center gap-8 mt-10 flex-wrap">
-        <div class="flex items-center gap-2 text-orange-200 text-xs font-medium">
-          <i class="fa-solid fa-shield-halved text-green-400"></i> {{ __('Pembayaran Aman') }}
-        </div>
-        <div class="flex items-center gap-2 text-orange-200 text-xs font-medium">
-          <i class="fa-solid fa-rotate-left text-yellow-400"></i> {{ __('Garansi 7 Hari') }}
-        </div>
-        <div class="flex items-center gap-2 text-orange-200 text-xs font-medium">
-          <i class="fa-solid fa-headset text-orange-300"></i> {{ __('Dukungan 24/7') }}
-        </div>
       </div>
 
     </div>
@@ -1028,9 +988,8 @@
       </div>
 
       <!-- Bottom bar -->
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
+      <div class="pt-6 text-center text-xs text-slate-500 dark:text-slate-400">
         <p>© 2026 <span class="text-slate-700 dark:text-slate-400 font-semibold">Testoplay</span>. {{ __('Hak cipta dilindungi undang-undang.') }}</p>
-        <p>{{ __('Dibuat dengan') }} <i class="fa-solid fa-heart text-red-500 mx-1"></i> {{ __('untuk Developer & Tester Indonesia.') }}</p>
       </div>
 
     </div>

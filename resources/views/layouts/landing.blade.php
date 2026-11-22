@@ -469,11 +469,9 @@
 
       <!-- Bottom bar -->
       <div
-        class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
+        class="pt-6 text-center text-xs text-slate-500 dark:text-slate-400">
         <p>© 2026 <span class="text-slate-700 dark:text-slate-400 font-semibold">Testoplay</span>.
           {{ __('Hak cipta dilindungi undang-undang.') }}</p>
-        <p>{{ __('Dibuat dengan') }} <i class="fa-solid fa-heart text-red-500 mx-1"></i>
-          {{ __('untuk Developer & Tester Indonesia.') }}</p>
       </div>
     </div>
   </footer>
