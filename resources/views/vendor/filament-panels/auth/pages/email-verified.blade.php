@@ -24,8 +24,8 @@
         }
 
         :root {
-            --indigo: #4F46E5;
-            --violet: #7c3aed;
+            --indigo: #ea580c;
+            --violet: #f97316;
             --green: #10b981;
             --text-dark: #111827;
             --text-mid: #374151;
@@ -61,7 +61,7 @@
             right: -200px;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(234, 88, 12, 0.15) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -73,7 +73,7 @@
             left: -200px;
             width: 700px;
             height: 700px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -113,7 +113,7 @@
             z-index: 1;
             background: #ffffff;
             border-radius: 1.5rem;
-            box-shadow: 0 24px 80px rgba(79, 70, 229, 0.15), 0 4px 20px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 24px 80px rgba(234, 88, 12, 0.15), 0 4px 20px rgba(0, 0, 0, 0.06);
             padding: 2.25rem 2rem 2rem;
             width: 100%;
             max-width: 460px;
@@ -169,7 +169,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
         }
 
         .brand-icon .material-symbols-outlined {
@@ -200,7 +200,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 12px 24px rgba(79, 70, 229, 0.4);
+            box-shadow: 0 12px 24px rgba(234, 88, 12, 0.4);
             animation: badgePop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s both;
         }
 
@@ -225,7 +225,7 @@
         .success-badge-ring {
             position: absolute;
             inset: -6px;
-            border: 2px solid rgba(79, 70, 229, 0.2);
+            border: 2px solid rgba(234, 88, 12, 0.2);
             border-radius: 1.5rem;
             animation: ringPulse 2s ease-in-out infinite;
         }
@@ -281,8 +281,8 @@
         /* ── Headline ── */
         .headline-label {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
-            border: 1px solid rgba(79, 70, 229, 0.22);
+            background: linear-gradient(135deg, rgba(234, 88, 12, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
+            border: 1px solid rgba(234, 88, 12, 0.22);
             color: var(--indigo);
             font-size: 0.65rem;
             font-weight: 800;
@@ -392,7 +392,7 @@
             font-family: 'Manrope', sans-serif;
             text-decoration: none;
             border-radius: 0.625rem;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
             transition: all 0.2s ease;
             letter-spacing: 0.01em;
             margin-bottom: 0.75rem;
@@ -405,8 +405,8 @@
         }
 
         .cta-btn:hover {
-            background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
-            box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+            background: linear-gradient(135deg, #c2410c 0%, #9a3412 100%);
+            box-shadow: 0 6px 16px rgba(234, 88, 12, 0.4);
             transform: translateY(-1px);
         }
 
@@ -519,9 +519,9 @@
     <div
         style="position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50; display: flex; gap: 0.375rem; background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); padding: 0.25rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
         <a href="{{ route('language.switch', 'en') }}"
-            style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'en' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'en' ? '#4F46E5' : 'transparent' }};">EN</a>
+            style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'en' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'en' ? '#ea580c' : 'transparent' }};">EN</a>
         <a href="{{ route('language.switch', 'id') }}"
-            style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'id' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'id' ? '#4F46E5' : 'transparent' }};">ID</a>
+            style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'id' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'id' ? '#ea580c' : 'transparent' }};">ID</a>
     </div>
 
     <x-auth-mobile-bg />
@@ -618,7 +618,7 @@
 
     <script>
         /* ── Confetti generator ── */
-        const confettiColors = ['#4F46E5', '#7c3aed', '#ec4899', '#f59e0b', '#10b981', '#f97316', '#f43f5e'];
+        const confettiColors = ['#ea580c', '#f97316', '#ec4899', '#f59e0b', '#10b981', '#f97316', '#f43f5e'];
         const wrap = document.getElementById('confetti-wrap');
 
         for (let i = 0; i < 50; i++) {

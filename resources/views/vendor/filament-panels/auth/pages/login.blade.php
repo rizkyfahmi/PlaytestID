@@ -165,7 +165,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            color: #4F46E5;
+            color: #ea580c;
             margin-bottom: 0.5rem;
         }
 
@@ -220,9 +220,9 @@
             align-items: center;
             padding: 0.4rem 0.875rem;
             border-radius: 9999px;
-            border: 1.5px solid rgba(79, 70, 229, 0.3);
-            background: rgba(79, 70, 229, 0.05);
-            color: #4F46E5;
+            border: 1.5px solid rgba(234, 88, 12, 0.3);
+            background: rgba(234, 88, 12, 0.05);
+            color: #ea580c;
             font-size: 0.8125rem;
             font-weight: 700;
             white-space: nowrap;
@@ -247,7 +247,7 @@
             background: #ffffff;
             border-radius: 1.75rem 1.75rem 0 0;
             padding: 2.25rem 1.5rem 2rem;
-            box-shadow: 0 -8px 40px rgba(55, 48, 163, 0.18);
+            box-shadow: 0 -8px 40px rgba(234, 88, 12, 0.18);
             animation: loginSlideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
         }
 
@@ -310,7 +310,7 @@
             position: absolute;
             top: -8px;
             right: -6px;
-            background: linear-gradient(135deg, #4F46E5 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
             color: white;
             font-size: 0.6rem;
             font-weight: 800;
@@ -318,7 +318,7 @@
             border-radius: 99px;
             letter-spacing: 0.04em;
             text-transform: uppercase;
-            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4);
+            box-shadow: 0 2px 8px rgba(234, 88, 12, 0.4);
             z-index: 10;
         }
 
@@ -380,9 +380,9 @@
         }
 
         .login-form-wrapper .fi-input-wrp:focus-within {
-            border-color: #4F46E5 !important;
+            border-color: #ea580c !important;
             background: #ffffff !important;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12) !important;
+            box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.12) !important;
         }
 
         /* Input fields */
@@ -409,7 +409,7 @@
         }
 
         .login-form-wrapper .fi-input-wrp button:hover {
-            color: #4F46E5 !important;
+            color: #ea580c !important;
         }
 
         /* Checkbox */
@@ -417,7 +417,7 @@
             width: 1.25rem !important;
             height: 1.25rem !important;
             border-radius: 0.375rem !important;
-            accent-color: #4F46E5 !important;
+            accent-color: #ea580c !important;
         }
 
         /* Forgot password hint link & all links inside form */
@@ -425,14 +425,14 @@
         .login-form-wrapper .fi-link span,
         .login-form-wrapper .fi-link a,
         .login-form-wrapper a:not(.fi-btn) {
-            color: #4F46E5 !important;
+            color: #ea580c !important;
             font-weight: 600 !important;
             text-decoration: none !important;
         }
 
         /* Submit button — MOBILE: gradient, pill-shaped, full-width, tall */
         .login-form-wrapper .fi-btn {
-            background: linear-gradient(135deg, #4F46E5 0%, #7c3aed 100%) !important;
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%) !important;
             border: none !important;
             border-radius: 0.875rem !important;
             padding: 0.875rem 1.5rem !important;
@@ -440,20 +440,20 @@
             font-weight: 700 !important;
             font-family: 'Manrope', sans-serif !important;
             min-height: 3.25rem !important;
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.38) !important;
+            box-shadow: 0 6px 20px rgba(234, 88, 12, 0.38) !important;
             transition: all 0.2s ease !important;
             color: white !important;
             letter-spacing: 0.01em !important;
         }
 
         .login-form-wrapper .fi-btn:hover {
-            background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%) !important;
-            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.45) !important;
+            background: linear-gradient(135deg, #c2410c 0%, #9a3412 100%) !important;
+            box-shadow: 0 8px 24px rgba(234, 88, 12, 0.45) !important;
         }
 
         .login-form-wrapper .fi-btn:active {
             transform: scale(0.98) !important;
-            box-shadow: 0 3px 10px rgba(79, 70, 229, 0.25) !important;
+            box-shadow: 0 3px 10px rgba(234, 88, 12, 0.25) !important;
         }
 
         /* Actions wrapper */
@@ -482,14 +482,14 @@
         }
 
         .login-register-link a {
-            color: #4F46E5 !important;
+            color: #ea580c !important;
             font-weight: 700 !important;
             text-decoration: none !important;
             transition: color 0.2s ease !important;
         }
 
         .login-register-link a:hover {
-            color: rgba(79, 70, 229, 0.8) !important;
+            color: rgba(234, 88, 12, 0.8) !important;
         }
 
         /* ================================================================
@@ -508,14 +508,14 @@
         }
 
         .login-mobile-pill {
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
-            color: #4F46E5;
+            background: linear-gradient(135deg, rgba(234, 88, 12, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
+            color: #ea580c;
             border-radius: 9999px;
             padding: 0.4rem 0.875rem;
             font-size: 0.75rem;
             font-weight: 700;
             font-family: 'Manrope', sans-serif;
-            border: 1px solid rgba(79, 70, 229, 0.18);
+            border: 1px solid rgba(234, 88, 12, 0.18);
             letter-spacing: 0.01em;
         }
 
@@ -640,18 +640,18 @@
             }
 
             .login-form-wrapper .fi-btn {
-                background: #4F46E5 !important;
+                background: #ea580c !important;
                 border-radius: 0.5rem !important;
                 padding: 0.75rem 1.5rem !important;
                 font-size: 0.9375rem !important;
                 min-height: 3rem !important;
-                box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3) !important;
+                box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3) !important;
                 letter-spacing: 0 !important;
             }
 
             .login-form-wrapper .fi-btn:hover {
-                background: rgba(79, 70, 229, 0.9) !important;
-                box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3) !important;
+                background: rgba(234, 88, 12, 0.9) !important;
+                box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3) !important;
             }
 
             .login-form-wrapper input[type="checkbox"] {
@@ -910,9 +910,9 @@
         <div
             style="position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50; display: flex; gap: 0.375rem; background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); padding: 0.25rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
             <a href="{{ route('language.switch', 'en') }}"
-                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'en' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'en' ? '#4F46E5' : 'transparent' }};">EN</a>
+                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'en' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'en' ? '#ea580c' : 'transparent' }};">EN</a>
             <a href="{{ route('language.switch', 'id') }}"
-                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'id' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'id' ? '#4F46E5' : 'transparent' }};">ID</a>
+                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'id' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'id' ? '#ea580c' : 'transparent' }};">ID</a>
         </div>
 
         {{-- ======================================================= --}}
