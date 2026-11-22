@@ -33,15 +33,17 @@
           },
           colors: {
             brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              200: '#bfdbfe',
-              400: '#60a5fa',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#1e3a8a',
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+              950: '#431407',
             }
           },
           keyframes: {
@@ -89,7 +91,7 @@
     }
 
     #navbar.scrolled {
-      box-shadow: 0 4px 24px 0 rgba(37, 99, 235, 0.08);
+      box-shadow: 0 4px 24px 0 rgba(234, 88, 12, 0.08);
       background: rgba(255, 255, 255, 0.97);
     }
 
@@ -102,14 +104,14 @@
       display: block;
       width: 24px;
       height: 2px;
-      background: #1e40af;
+      background: #ea580c;
       border-radius: 2px;
       transition: all 0.3s ease;
       transform-origin: center;
     }
 
     .dark .ham-line {
-      background: #93c5fd;
+      background: #fdba74;
     }
 
     #hamburger.open .ham-line:nth-child(1) {
@@ -144,7 +146,7 @@
       border: none;
       outline: none;
       transition: background 0.3s ease;
-      background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+      background: linear-gradient(135deg, #fed7aa, #fdba74);
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
     }
 
@@ -183,7 +185,7 @@
     }
 
     .theme-toggle-knob .icon-moon {
-      color: #60a5fa;
+      color: #fb923c;
       position: absolute;
     }
 

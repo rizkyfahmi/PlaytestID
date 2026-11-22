@@ -39,20 +39,20 @@ class DeveloperPanelProvider extends PanelProvider
             ->login(Login::class)
             ->registration(Register::class)
             ->passwordReset(RequestResetPassword::class, ResetPassword::class)
-            // ── Warna sesuai landing page (#2563eb) ──  
+            // ── Warna sesuai landing page (#ea580c) ──  
             ->colors([
                 'primary' => [
-                    50 => '239 246 255',
-                    100 => '219 234 254',
-                    200 => '191 219 254',
-                    300 => '147 197 253',
-                    400 => '96 165 250',
-                    500 => '59 130 246',
-                    600 => '37 99 235',
-                    700 => '29 78 216',
-                    800 => '30 64 175',
-                    900 => '30 58 138',
-                    950 => '23 37 84',
+                    50 => '255 247 237',
+                    100 => '255 237 213',
+                    200 => '254 215 170',
+                    300 => '253 186 116',
+                    400 => '251 146 60',
+                    500 => '249 115 22',
+                    600 => '234 88 12',
+                    700 => '194 65 12',
+                    800 => '154 52 18',
+                    900 => '124 45 18',
+                    950 => '67 20 7',
                 ],
             ])
             ->favicon('/favicon.ico')

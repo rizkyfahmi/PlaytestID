@@ -59,7 +59,7 @@ html.dark .tk-pagi-btn, html.dark .mp-pagi-btn, html.dark .mk-pagi-btn, html.dar
 }
 
 html.dark .tk-input:focus, html.dark .tk-select:focus, html.dark .mp-input:focus, html.dark .mp-select:focus, html.dark .mk-input:focus, html.dark .mk-select:focus, html.dark .mw-input:focus, html.dark .mw-select:focus, html.dark .mp-form-input:focus, html.dark .mp-form-select:focus, html.dark .mp-form-textarea:focus, html.dark .mk-form-input:focus, html.dark .mk-form-select:focus, html.dark .mk-form-textarea:focus {
-    border-color: #3b82f6 !important;
+    border-color: #ea580c !important;
 }
 
 html.dark .tk-btn-secondary, html.dark .tk-btn-ghost, html.dark .mp-btn-secondary, html.dark .mp-btn-ghost, html.dark .mk-btn-secondary, html.dark .mk-btn-ghost, html.dark .mw-btn-secondary, html.dark .mw-btn-ghost, html.dark .tb-tab--inactive:hover {

@@ -35,17 +35,17 @@
         overflow: hidden;
         z-index: 0;
         pointer-events: none;
-        background: linear-gradient(135deg,#0a1850 0%,#13297a 25%,#1d4ed8 55%,#2563eb 80%,#3b82f6 100%);
+        background: linear-gradient(135deg,#431407 0%,#7c2d12 25%,#c2410c 55%,#ea580c 80%,#f97316 100%);
         background-size: 220% 220%;
         animation: prof-gradient 14s ease infinite;
     }
     .prof-aurora {
         position:absolute; inset:-30%;
         background:
-            radial-gradient(40% 35% at 20% 30%, rgba(96,165,250,.55), transparent 60%),
-            radial-gradient(35% 30% at 80% 20%, rgba(167,139,250,.45), transparent 60%),
-            radial-gradient(45% 40% at 60% 80%, rgba(34,211,238,.40), transparent 60%),
-            radial-gradient(30% 25% at 15% 85%, rgba(244,114,182,.35), transparent 60%);
+            radial-gradient(40% 35% at 20% 30%, rgba(251,146,60,.55), transparent 60%),
+            radial-gradient(35% 30% at 80% 20%, rgba(245,158,11,.45), transparent 60%),
+            radial-gradient(45% 40% at 60% 80%, rgba(249,115,22,.40), transparent 60%),
+            radial-gradient(30% 25% at 15% 85%, rgba(253,186,116,.35), transparent 60%);
         filter: blur(40px);
         animation: prof-aurora 22s ease-in-out infinite;
         mix-blend-mode: screen;
@@ -53,13 +53,13 @@
     }
     .prof-conic {
         position:absolute; width:520px; height:520px; left:-160px; bottom:-200px;
-        background: conic-gradient(from 0deg, rgba(59,130,246,0), rgba(96,165,250,.35), rgba(167,139,250,.25), rgba(34,211,238,.30), rgba(59,130,246,0));
+        background: conic-gradient(from 0deg, rgba(249,115,22,0), rgba(251,146,60,.35), rgba(245,158,11,.25), rgba(253,186,116,.30), rgba(249,115,22,0));
         border-radius:50%; filter: blur(30px); animation: prof-conic 28s linear infinite;
         opacity:.7; pointer-events:none;
     }
     .prof-conic-2 {
         position:absolute; width:380px; height:380px; right:-120px; top:-140px;
-        background: conic-gradient(from 180deg, rgba(244,114,182,0), rgba(244,114,182,.30), rgba(96,165,250,.30), rgba(244,114,182,0));
+        background: conic-gradient(from 180deg, rgba(251,146,60,0), rgba(249,115,22,.30), rgba(245,158,11,.30), rgba(251,146,60,0));
         border-radius:50%; filter: blur(30px); animation: prof-spin-rev 34s linear infinite;
         opacity:.6; pointer-events:none;
     }

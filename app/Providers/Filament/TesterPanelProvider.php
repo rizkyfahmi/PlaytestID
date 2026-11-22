@@ -42,20 +42,20 @@ class TesterPanelProvider extends PanelProvider
             ->registration(Register::class)
             ->passwordReset(RequestResetPassword::class, ResetPassword::class)
 
-            // ── Warna primer: Sky/Cyan sesuai design gradient ────  
+            // ── Warna primer: Orange ────  
             ->colors([
                 'primary' => [
-                    50 => '240 249 255',   // #f0f9ff  
-                    100 => '224 242 254',
-                    200 => '186 230 253',
-                    300 => '125 211 252',
-                    400 => '56  189 248',
-                    500 => '14  165 233',   // #0ea5e9  
-                    600 => '2   132 199',
-                    700 => '3   105 161',
-                    800 => '7   89  133',
-                    900 => '12  74  110',
-                    950 => '8   47  73',
+                    50 => '255 247 237',
+                    100 => '255 237 213',
+                    200 => '254 215 170',
+                    300 => '253 186 116',
+                    400 => '251 146 60',
+                    500 => '249 115 22',
+                    600 => '234 88 12',
+                    700 => '194 65 12',
+                    800 => '154 52 18',
+                    900 => '124 45 18',
+                    950 => '67 20 7',
                 ],
             ])
 

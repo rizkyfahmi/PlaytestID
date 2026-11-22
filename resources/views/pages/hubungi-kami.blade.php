@@ -29,7 +29,7 @@
         extend: {
           fontFamily: { sans: ['Inter', 'sans-serif'] },
           colors: {
-            brand: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a', 950: '#172554' }
+            brand: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12', 950: '#431407' }
           }
         }
       }
@@ -113,8 +113,8 @@
     }
 
     .form-input:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+      border-color: #ea580c;
+      box-shadow: 0 0 0 3px rgba(234,88,12, 0.12);
     }
 
     .dark .form-input:focus {
@@ -314,10 +314,10 @@
 
     .prof-hero {
       position: relative;
-      background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #1d4ed8 55%, #2563eb 80%, #3b82f6 100%);
+      background: linear-gradient(135deg, #431407 0%, #7c2d12 25%, #c2410c 55%, #ea580c 80%, #f97316 100%);
       background-size: 220% 220%;
       animation: prof-gradient 14s ease infinite;
-      box-shadow: 0 20px 60px -15px rgba(37, 99, 235, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+      box-shadow: 0 20px 60px -15px rgba(234,88,12, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset;
       isolation: isolate;
       overflow: hidden;
     }
@@ -544,7 +544,7 @@
       <div class="space-y-3">
         <!-- Email -->
         <a href="mailto:support@testoplay.com" class="contact-card flex items-start gap-3 block no-underline">
-          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fff7ed;">
             <i class="fa-solid fa-envelope text-brand-600 text-sm"></i>
           </div>
           <div class="min-w-0">
@@ -568,7 +568,7 @@
         <!-- Telegram -->
         <a href="https://t.me/playtestid" target="_blank"
           class="contact-card flex items-start gap-3 block no-underline">
-          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fff7ed;">
             <i class="fa-brands fa-telegram text-sky-500 text-sm"></i>
           </div>
           <div class="min-w-0">
@@ -647,8 +647,8 @@
             </div>
             <button type="submit" id="submitBtn"
               class="w-full py-2.5 text-white font-bold rounded-xl transition flex items-center justify-center gap-2 text-sm"
-              style="background:#2563eb; box-shadow:0 4px 14px rgba(37,99,235,0.3);"
-              onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
+              style="background:#ea580c; box-shadow:0 4px 14px rgba(234,88,12,0.3);"
+              onmouseover="this.style.background='#c2410c'" onmouseout="this.style.background='#ea580c'">
               <i class="fa-solid fa-paper-plane"></i> {{ __('Kirim Pesan') }}
             </button>
           </form>
