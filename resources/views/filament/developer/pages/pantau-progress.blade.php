@@ -94,7 +94,7 @@
                 <div class="w-12 h-12 rounded-xl bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 flex items-center justify-center font-bold text-xl">{{ strtoupper(substr($m->nama_aplikasi,0,1)) }}</div>
               @endif
               <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>{{ __('BERJALAN') }}
+                {{ __('BERJALAN') }}
               </span>
             </div>
             <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-1">{{ $m->nama_aplikasi }}</h3>
@@ -250,8 +250,8 @@
             </div>
             <div class="flex items-center gap-2">
               <span class="status-badge status-{{ $k['status'] }}">
-                @if($k['status']==='progress')<span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> {{ __('DIPROSES') }}
-                @elseif($k['status']==='accepted')<span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> {{ __('DITERIMA') }}
+                @if($k['status']==='progress'){{ __('DIPROSES') }}
+                @elseif($k['status']==='accepted'){{ __('DITERIMA') }}
                 @elseif($k['status']==='selesai')<x-heroicon-m-check class="w-2.5 h-2.5"/> {{ __('SELESAI') }}
                 @elseif($k['status']==='failed')<x-heroicon-m-x-mark class="w-2.5 h-2.5"/> {{ __('GAGAL') }}
                 @else {{ strtoupper($k['status']) }} @endif
@@ -375,7 +375,7 @@
               {{ $selectedHariKe === null ? 'bg-white dark:bg-slate-700 text-violet-700 dark:text-violet-300 shadow-sm border border-violet-200 dark:border-violet-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/50' }}">
             <x-heroicon-m-squares-2x2 class="w-3.5 h-3.5"/>
             {{ __('Semua Hari') }}
-            @if($sudahAll)<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 ml-0.5"></span>@endif
+            @if($sudahAll)@endif
           </button>
           <div class="w-px h-5 bg-slate-200 dark:bg-slate-600 mx-1"></div>
           @foreach($hariDenganFeedback as $hari)
@@ -384,8 +384,7 @@
             class="inline-flex items-center gap-1 text-xs font-semibold px-3 py-2 rounded-lg whitespace-nowrap transition-all
               {{ $selectedHariKe === $hari ? 'bg-white dark:bg-slate-700 text-violet-700 dark:text-violet-300 shadow-sm border border-violet-200 dark:border-violet-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/50' }}">
             H{{ $hari }}
-            @if($sudahGenerate)<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-            @else<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>@endif
+            @if($sudahGenerate)@else@endif
           </button>
           @endforeach
         </div>
@@ -435,15 +434,12 @@
         <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-4">{{ $report['ringkasan'] ?? '' }}</p>
         <div class="flex gap-3 flex-wrap">
           <div class="flex items-center gap-1.5 bg-red-50 border border-red-200 rounded-lg px-3 py-1.5">
-            <span class="w-2 h-2 rounded-full bg-red-500"></span>
             <span class="text-xs font-semibold text-red-700">{{ $criticalCount }} Critical Bug</span>
           </div>
           <div class="flex items-center gap-1.5 bg-orange-50 border border-orange-200 rounded-lg px-3 py-1.5">
-            <span class="w-2 h-2 rounded-full bg-orange-400"></span>
             <span class="text-xs font-semibold text-orange-700">{{ $majorCount }} Major Bug</span>
           </div>
           <div class="flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg px-3 py-1.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
             <span class="text-xs font-semibold text-emerald-700">{{ count($report['positif'] ?? []) }} {{ __('Hal Positif') }}</span>
           </div>
         </div>
@@ -476,7 +472,6 @@
         <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">{{ __('Masalah UX/UI') }}</p>
         @forelse($report['ux_issues'] ?? [] as $ux)
         <div class="flex gap-2 mb-2">
-          <span class="mt-1 w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0"></span>
           <div>
             <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">{{ $ux['judul'] }}</p>
             @if(!empty($ux['detail']))<p class="text-xs text-slate-500">{{ $ux['detail'] }}</p>@endif
@@ -545,8 +540,7 @@
           <button wire:click="switchAiReport({{ $hari }})"
             class="inline-flex items-center gap-1 text-xs font-semibold px-3 py-2 rounded-lg whitespace-nowrap transition-all
               {{ $selectedHariKe === $hari ? 'bg-white dark:bg-slate-700 text-violet-700 shadow-sm border border-violet-200' : 'text-slate-500 hover:text-slate-700 hover:bg-white/60' }}">
-            H{{ $hari }}<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-          </button>
+            H{{ $hari }}</button>
           @endforeach
         </div>
       </div>

@@ -1369,7 +1369,6 @@
             </div>
             <h1 class="tb-hero-title">{{ __('Tips & Bantuan') }}</h1>
             <div class="tb-hero-sub">
-              <span class="tb-dot"></span>
               {{ __('Panduan lengkap untuk Developer') }}
             </div>
           </div>

@@ -400,9 +400,9 @@
               </div>
             </div>
             <span class="status-badge status-{{ $k['status'] }}">
-              @if($k['status']==='progress')<span class="inline-block w-1.5 h-1.5 bg-green-500 rounded-full"></span> {{ __('DIPROSES') }}
-              @elseif($k['status']==='pending')<span class="inline-block w-1.5 h-1.5 bg-amber-500 rounded-full"></span> {{ __('PENDING') }}
-              @else<x-heroicon-m-check class="w-2.5 h-2.5" /> {{ __('SELESAI') }} @endif
+              @if($k['status']==='progress'){{ __('DIPROSES') }}
+              @elseif($k['status']==='pending'){{ __('PENDING') }}
+              @else{{ __('SELESAI') }}@endif
             </span>
           </div>
           <div class="grid gap-1" style="grid-template-columns:repeat(14,1fr);">
@@ -492,9 +492,6 @@
               <div style="min-width:180px;" class="space-y-2">
                 <div class="flex items-center gap-2">
                   <span class="status-badge status-{{ $a['status'] }}">
-                    @if($a['status']==='progress')<span class="inline-block w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                    @elseif($a['status']==='pending')<span class="inline-block w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                    @else<x-heroicon-m-check class="w-2.5 h-2.5" />@endif
                     {{ $a['label'] }}
                   </span>
                   <span class="text-slate-500 dark:text-slate-400 text-xs">{{ $a['tester'] }} {{ __('Tester') }}</span>

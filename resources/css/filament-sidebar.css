@@ -1567,6 +1567,11 @@
     color: #fca5a5 !important;
 }
 
+/* Hide any remaining status dots */
+.tk-dot, .mw-dot, .prof-status-dot, .prof-mini-dot, .tb-dot, .topbar-net-dot, .topbar-net-ping {
+    display: none !important;
+}
+
 /* Orange tones used in info boxes */
 .dark [style*="color:#7c2d12"],
 .dark [style*="color: #7c2d12"] {

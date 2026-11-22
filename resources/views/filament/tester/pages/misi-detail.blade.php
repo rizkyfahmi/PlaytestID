@@ -564,8 +564,6 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                         @endphp
                         <span class="md-badge"
                             style="background:{{ $statusColor['bg'] }};color:{{ $statusColor['text'] }};border:1px solid {{ $statusColor['border'] }};">
-                            <span class="w-1.5 h-1.5 rounded-full inline-block flex-shrink-0"
-                                style="background:{{ $statusColor['dot'] }};"></span>
                             {{ $statusColor['label'] }}
                         </span>
                         @if($alreadyJoined)

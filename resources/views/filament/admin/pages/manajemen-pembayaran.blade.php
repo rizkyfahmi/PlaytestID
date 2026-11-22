@@ -1180,7 +1180,6 @@
                             <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{{ __('Payment gateway otomatis') }}</div>
                         </div>
                         <div class="flex items-center gap-1.5 bg-green-100 dark:bg-emerald-900/30 text-green-700 dark:text-emerald-400 px-3 py-1.5 rounded-full text-xs font-bold">
-                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                             {{ __('Aktif') }}
                         </div>
                     </div>
@@ -1332,7 +1331,6 @@
                         </td>
                         <td>
                             <span class="tk-badge tk-badge-{{ $statusClass }}">
-                                <span class="tk-dot tk-dot-{{ $statusClass }}"></span>
                                 {{ $t['status'] }}
                             </span>
                         </td>

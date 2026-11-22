@@ -1510,7 +1510,6 @@
                         </td>
                         <td>
                             <span class="mw-badge mw-badge-{{ $w['status'] }}">
-                                <span class="mw-dot mw-dot-{{ $w['status'] }}"></span>
                                 {{ $w['status'] == 'success' ? __('Berhasil') : ($w['status'] == 'pending' ? __('Tertunda') : __('Ditolak')) }}
                             </span>
                         </td>

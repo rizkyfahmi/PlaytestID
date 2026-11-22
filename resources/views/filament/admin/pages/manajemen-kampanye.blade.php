@@ -936,7 +936,6 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                 </div>
                             </div>
                             <span class="mk-badge mk-badge-{{ strtolower($k['raw_status']) }} flex-shrink-0">
-                                <span class="w-1.5 h-1.5 rounded-full" style="background:{{ $borderColor }};"></span>
                                 {{ $k['status'] }}
                             </span>
                         </div>

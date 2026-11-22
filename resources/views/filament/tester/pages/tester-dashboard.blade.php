@@ -690,12 +690,10 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                             </span>
                             <span class="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-full"
                                 style="background:rgba(255,255,255,0.12);color:#e0f2fe;border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(12px);">
-                                <span class="w-1.5 h-1.5 rounded-full inline-block" style="background:#fbbf24;"></span>
                                 {{ $userBadgeCount }} {{ __('lencana diraih') }}
                             </span>
                             <span class="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-full"
                                 style="background:rgba(255,255,255,0.12);color:#e0f2fe;border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(12px);">
-                                <span class="w-1.5 h-1.5 rounded-full inline-block" style="background:#10b981;"></span>
                                 +{{ $poinPending }} {{ __('pts pending') }}
                             </span>
                         </div>

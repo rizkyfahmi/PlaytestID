@@ -398,7 +398,6 @@
                                     </td>
                                     <td>
                                         <span class="mp-badge mp-badge-{{ $t['raw_status'] }}">
-                                            <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#94a3b8;"></span>
                                             {{ $t['status'] }}
                                         </span>
                                     </td>

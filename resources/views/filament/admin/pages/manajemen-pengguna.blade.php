@@ -947,8 +947,6 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                     <td>
                                         <span
                                             class="mp-badge mp-badge-{{ strtolower($user['raw_status'] ?? $user['status']) }}">
-                                            <span class="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                                                style="background:{{ $dotColor }};"></span>
                                             {{ $user['status'] }}
                                         </span>
                                     </td>

@@ -659,9 +659,7 @@
                 class="prof-avatar w-20 h-20 sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center text-white text-3xl sm:text-4xl font-extrabold select-none">
                 {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
               </div>
-              <span class="prof-status-dot absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-white"
-                style="background:#34d399;"></span>
-            </div>
+              </div>
 
             <div class="flex-1">
               <p class="text-[11px] font-bold uppercase mb-1.5 flex items-center justify-center sm:justify-start gap-2"
@@ -680,8 +678,6 @@
                 </span>
                 <span class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full"
                   style="background:rgba(255,255,255,0.12);color:#ffedd5;border:1px solid rgba(255,255,255,.15);">
-                  <span class="w-1.5 h-1.5 rounded-full inline-block prof-status-dot"
-                    style="background:#34d399;"></span>
                   {{ __('Bergabung') }} {{ Auth::user()->created_at->format('M Y') }}
                   {{ __('Bergabung') }} {{ Auth::user()->created_at?->format('M Y') ?? '-' }}
                 </span>
@@ -730,8 +726,6 @@
           @endphp
           @foreach($mini as $m)
             <div class="prof-mini flex items-center gap-3">
-              <span class="prof-mini-dot w-2.5 h-2.5 rounded-full flex-shrink-0"
-                style="background:{{ $m['color'] }};box-shadow:0 0 12px {{ $m['color'] }};"></span>
               <div>
                 @if(isset($m['isText']) && $m['isText'])
                   <p class="font-mono-num text-lg font-bold text-white">{{ $m['textVal'] }}</p>
