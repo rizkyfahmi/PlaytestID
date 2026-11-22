@@ -1499,25 +1499,6 @@
       </div>
     </div>
 
-    {{-- ═══════════ STATS BAR ═══════════ --}}
-    <div class="tb-stats-bar">
-      <div class="tb-stats-item">
-        <span class="tb-stats-num" x-text="filteredTips.length"></span>
-        <span>{{ __('tips ditampilkan') }}</span>
-      </div>
-      <div class="tb-stats-item">
-        <span>{{ __('dari') }}</span>
-        <span class="tb-stats-num" x-text="tips.length"></span>
-        <span>{{ __('total tips') }}</span>
-      </div>
-      <div class="tb-stats-item">
-        <span style="opacity:.5;">•</span>
-        <span>{{ __('Tekan') }} <kbd
-            style="background:rgba(241,245,249,.8);padding:2px 8px;border-radius:5px;border:1px solid rgba(226,232,240,.6);font-size:.7rem;font-weight:600;font-family:'JetBrains Mono',monospace;">Ctrl+K</kbd>
-          {{ __('untuk pencarian global') }}</span>
-      </div>
-    </div>
-
   </div>
 
   @push('scripts')
