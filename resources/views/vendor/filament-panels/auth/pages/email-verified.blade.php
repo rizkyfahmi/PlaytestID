@@ -618,7 +618,7 @@
 
     <script>
         /* ── Confetti generator ── */
-        const confettiColors = ['#4F46E5', '#7c3aed', '#ec4899', '#f59e0b', '#10b981', '#3b82f6', '#f43f5e'];
+        const confettiColors = ['#4F46E5', '#7c3aed', '#ec4899', '#f59e0b', '#10b981', '#f97316', '#f43f5e'];
         const wrap = document.getElementById('confetti-wrap');
 
         for (let i = 0; i < 50; i++) {

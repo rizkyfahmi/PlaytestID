@@ -32,7 +32,7 @@ class ManajemenPengguna extends Page
             ->selectRaw('id_user, count(*) as count')
             ->pluck('count', 'id_user');
 
-        $colors = ['#2563eb', '#f59e0b', '#8b5cf6', '#10b981', '#ef4444', '#0ea5e9', '#7c3aed'];
+        $colors = ['#ea580c', '#f59e0b', '#8b5cf6', '#10b981', '#ef4444', '#0ea5e9', '#7c3aed'];
 
         return [  
             // ── Stat Cards ────────────────────────────────────────  

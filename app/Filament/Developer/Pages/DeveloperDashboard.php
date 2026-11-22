@@ -46,7 +46,7 @@ class DeveloperDashboard extends Page
         $statTester  = MisiAnggota::whereIn('id_misi', $misiIds)->count();
 
         // ── 2. Mapping aplikasiList (Recent Applications) ─────
-        $warnaSiklus = ['blue', 'amber', 'purple', 'green'];
+        $warnaSiklus = ['orange', 'amber', 'purple', 'green'];
         
         $aplikasiList = $misiList->sortByDesc('created_at')->take(5)->map(function ($m, $index) use ($warnaSiklus) {
             $testerCount = $m->misiAnggotas()->count();
@@ -58,7 +58,7 @@ class DeveloperDashboard extends Page
                 'pending' => ['status' => 'pending', 'label' => __('PENDING'), 'warna' => 'amber'],
                 'rejected' => ['status' => 'pending', 'label' => __('DITOLAK'), 'warna' => 'red'],
                 'selesai' => ['status' => 'selesai', 'label' => __('SELESAI'), 'warna' => 'purple'],
-                default    => ['status' => 'progress', 'label' => __('DIPROSES'), 'warna' => 'blue'],
+                default    => ['status' => 'progress', 'label' => __('DIPROSES'), 'warna' => 'orange'],
             };
 
             return [
@@ -83,7 +83,7 @@ class DeveloperDashboard extends Page
 
             $statusUI = match($m->status) {
                 'selesai' => ['status' => 'selesai', 'warna' => 'purple'],
-                default    => ['status' => 'progress', 'warna' => 'blue'],
+                default    => ['status' => 'progress', 'warna' => 'orange'],
             };
 
             return [

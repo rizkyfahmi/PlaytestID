@@ -145,8 +145,8 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                 margin-top: 2px;
             }
 
-            .mp-grad-blue {
-                background: linear-gradient(90deg, #2563eb, #60a5fa);
+            .mp-grad-orange {
+                background: linear-gradient(90deg, #ea580c, #fb923c);
             }
 
             .mp-grad-green {
@@ -161,9 +161,9 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                 background: linear-gradient(90deg, #7c3aed, #a78bfa);
             }
 
-            .mp-bg-blue {
-                background: #eff6ff;
-                color: #2563eb;
+            .mp-bg-orange {
+                background: #fff7ed;
+                color: #ea580c;
             }
 
             .mp-bg-green {
@@ -209,7 +209,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-search-wrap:focus-within .mp-search-icon {
-                color: #2563eb;
+                color: #ea580c;
             }
 
             .mp-input,
@@ -227,9 +227,9 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
 
             .mp-input:focus,
             .mp-select:focus {
-                border-color: #2563eb;
+                border-color: #ea580c;
                 background: #fff;
-                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+                box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
             }
 
             .mp-search-input {
@@ -258,12 +258,12 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-btn-primary {
-                background: linear-gradient(135deg, #2563eb, #1d4ed8);
+                background: linear-gradient(135deg, #ea580c, #c2410c);
                 color: #fff;
             }
 
             .mp-btn-primary:hover {
-                box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+                box-shadow: 0 6px 16px rgba(234, 88, 12, 0.35);
                 transform: translateY(-1px);
             }
 
@@ -299,7 +299,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
 
             .mp-tab.active {
                 color: #1e293b;
-                border-bottom-color: #2563eb;
+                border-bottom-color: #ea580c;
                 font-weight: 600;
             }
 
@@ -339,11 +339,11 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-sort-btn:hover {
-                color: #2563eb;
+                color: #ea580c;
             }
 
             .mp-sort-btn.active {
-                color: #2563eb;
+                color: #ea580c;
             }
 
             .mp-sort-icon {
@@ -403,7 +403,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-table tbody tr:hover td:first-child {
-                border-left-color: #2563eb;
+                border-left-color: #ea580c;
             }
 
             .mp-table tbody tr:last-child td {
@@ -423,8 +423,8 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-badge-developer {
-                background: #dbeafe;
-                color: #1d4ed8;
+                background: #ffedd5;
+                color: #c2410c;
             }
 
             .mp-badge-tester {
@@ -512,12 +512,12 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-action-reactive {
-                background: #eff6ff;
-                border-color: #bfdbfe;
+                background: #fff7ed;
+                border-color: #fed7aa;
             }
 
             .mp-action-reactive:hover {
-                background: #dbeafe;
+                background: #ffedd5;
                 transform: scale(1.05);
             }
 
@@ -548,17 +548,17 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-pagi-btn:hover {
-                background: #eff6ff;
-                border-color: #2563eb;
-                color: #2563eb;
+                background: #fff7ed;
+                border-color: #ea580c;
+                color: #ea580c;
                 transform: translateY(-1px);
             }
 
             .mp-pagi-btn.active {
-                background: #2563eb;
-                border-color: #2563eb;
+                background: #ea580c;
+                border-color: #ea580c;
                 color: #fff;
-                box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+                box-shadow: 0 4px 10px rgba(234, 88, 12, 0.25);
             }
 
             .mp-pagi-btn:disabled {
@@ -723,9 +723,9 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
 
             {{-- Total Pengguna --}}
             <div class="mp-stat">
-                <div class="mp-stat-accent mp-grad-blue"></div>
+                <div class="mp-stat-accent mp-grad-orange"></div>
                 <div class="flex items-start gap-3 mt-1">
-                    <div class="mp-stat-icon mp-bg-blue">
+                    <div class="mp-stat-icon mp-bg-orange">
                         <span class="material-symbols-outlined">group</span>
                     </div>
                     <div class="flex-1 min-w-0">
@@ -788,7 +788,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
 
             <div class="flex items-center justify-between mb-4">
                 <div class="mp-sora font-bold text-slate-900 text-base flex items-center gap-2">
-                    <span class="material-symbols-outlined text-blue-600 text-[1.2rem]">manage_accounts</span>
+                    <span class="material-symbols-outlined text-orange-600 text-[1.2rem]">manage_accounts</span>
                     {{ __('Daftar Pengguna') }}
                 </div>
             </div>
@@ -808,7 +808,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                             @click="setFilter('developer')">
                             {{ __('Developer') }}
                             <span class="mp-count-badge"
-                                style="background:#eff6ff;color:#2563eb;">{{ $statDeveloper }}</span>
+                                style="background:#fff7ed;color:#ea580c;">{{ $statDeveloper }}</span>
                         </button>
                         <button class="mp-tab" :class="filterAktif==='tester'   ? 'active' : 'inactive'"
                             @click="setFilter('tester')">
@@ -994,7 +994,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                             @elseif(($user['raw_status'] ?? '') === 'suspend')
                                                 <button class="mp-action-btn mp-action-reactive">
                                                     <span class="material-symbols-outlined text-[1rem]"
-                                                        style="color:#2563eb;">restart_alt</span>
+                                                        style="color:#ea580c;">restart_alt</span>
                                                     <span class="mp-tooltip">{{ __('Aktifkan Kembali') }}</span>
                                                 </button>
                                             @endif

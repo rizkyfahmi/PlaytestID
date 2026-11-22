@@ -38,7 +38,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
 
             /* ══════════════════ HERO BANNER ══════════════════ */
             .md-hero {
-                background: linear-gradient(135deg, #0a1850 0%, #13297a 30%, #1d4ed8 65%, #3b82f6 100%);
+                background: linear-gradient(135deg, #0a1850 0%, #13297a 30%, #c2410c 65%, #f97316 100%);
                 background-size: 200% 200%;
                 animation: md-gradient 12s ease infinite;
                 border-radius: 1.5rem;
@@ -74,7 +74,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                 position: absolute;
                 inset: -30%;
                 background:
-                    radial-gradient(40% 35% at 20% 30%, rgba(96, 165, 250, .4), transparent 60%),
+                    radial-gradient(40% 35% at 20% 30%, rgba(251, 146, 60, .4), transparent 60%),
                     radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .35), transparent 60%),
                     radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .3), transparent 60%);
                 filter: blur(40px);
@@ -264,14 +264,14 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
             .md-progress-fill {
                 height: 100%;
                 border-radius: 9999px;
-                background: linear-gradient(90deg, #2563eb, #3b82f6);
+                background: linear-gradient(90deg, #ea580c, #f97316);
                 transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1);
             }
 
             /* ══════════════════ CTA SECTION ══════════════════ */
             .md-cta-joined {
-                background: linear-gradient(135deg, #eff6ff, #dbeafe);
-                border: 1px solid #bfdbfe;
+                background: linear-gradient(135deg, #fff7ed, #ffedd5);
+                border: 1px solid #fed7aa;
                 border-radius: 1.25rem;
                 padding: 1.5rem;
             }
@@ -292,8 +292,8 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                 font-size: 0.875rem;
                 font-weight: 700;
                 color: #fff;
-                background: linear-gradient(135deg, #2563eb, #1d4ed8);
-                box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+                background: linear-gradient(135deg, #ea580c, #c2410c);
+                box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3);
                 transition: all 0.2s ease;
                 text-decoration: none;
                 border: none;
@@ -302,9 +302,9 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .md-btn-primary:hover {
-                background: linear-gradient(135deg, #1d4ed8, #1e40af);
+                background: linear-gradient(135deg, #c2410c, #9a3412);
                 transform: translateY(-1px);
-                box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+                box-shadow: 0 6px 20px rgba(234, 88, 12, 0.4);
             }
 
             .md-btn-outline {
@@ -315,9 +315,9 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                 border-radius: 0.875rem;
                 font-size: 0.875rem;
                 font-weight: 700;
-                color: #2563eb;
+                color: #ea580c;
                 background: #fff;
-                border: 1.5px solid #bfdbfe;
+                border: 1.5px solid #fed7aa;
                 transition: all 0.2s ease;
                 text-decoration: none;
                 cursor: pointer;
@@ -325,8 +325,8 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .md-btn-outline:hover {
-                background: #eff6ff;
-                border-color: #93c5fd;
+                background: #fff7ed;
+                border-color: #fdba74;
             }
 
             .md-btn-apply {
@@ -338,8 +338,8 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                 font-size: 0.9rem;
                 font-weight: 700;
                 color: #fff;
-                background: linear-gradient(135deg, #2563eb, #7c3aed);
-                box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+                background: linear-gradient(135deg, #ea580c, #7c3aed);
+                box-shadow: 0 6px 20px rgba(234, 88, 12, 0.35);
                 transition: all 0.2s ease;
                 text-decoration: none;
                 border: none;
@@ -348,7 +348,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
 
             .md-btn-apply:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 10px 28px rgba(37, 99, 235, 0.45);
+                box-shadow: 0 10px 28px rgba(234, 88, 12, 0.45);
             }
 
             .md-btn-disabled {
@@ -399,9 +399,9 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .md-paket-basic {
-                background: linear-gradient(135deg, #eff6ff, #dbeafe);
-                color: #1d4ed8;
-                border: 1px solid #93c5fd;
+                background: linear-gradient(135deg, #fff7ed, #ffedd5);
+                color: #c2410c;
+                border: 1px solid #fdba74;
                 padding: 6px 14px;
                 border-radius: 999px;
                 font-size: 0.75rem;
@@ -430,12 +430,12 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .md-day-box.done {
-                background: #dbeafe;
-                color: #2563eb;
+                background: #ffedd5;
+                color: #ea580c;
             }
 
             .md-day-box.today {
-                background: #2563eb;
+                background: #ea580c;
                 color: #fff;
             }
 
@@ -456,7 +456,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
 
         // Kategori berdasarkan id
         $categories = [
-            ['bg' => '#eff6ff', 'color' => '#2563eb', 'label' => 'Functional Testing'],
+            ['bg' => '#fff7ed', 'color' => '#ea580c', 'label' => 'Functional Testing'],
             ['bg' => '#f5f3ff', 'color' => '#7c3aed', 'label' => 'UX Research'],
             ['bg' => '#ecfdf5', 'color' => '#059669', 'label' => 'Bug Reporting'],
             ['bg' => '#fff7ed', 'color' => '#c2410c', 'label' => 'Performance Testing'],
@@ -548,7 +548,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                         {{-- Reward --}}
                         <div class="text-right flex-shrink-0">
                             <div class="font-mono-num font-bold text-2xl text-white">+{{ $misi->point }}</div>
-                            <div class="text-xs text-blue-200">pts reward</div>
+                            <div class="text-xs text-orange-200">pts reward</div>
                         </div>
                     </div>
 
@@ -557,7 +557,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                         @php
                             $statusColor = match ($misi->status) {
                                 'open' => ['bg' => 'rgba(16,185,129,0.2)', 'border' => 'rgba(16,185,129,0.4)', 'text' => '#a7f3d0', 'dot' => '#10b981', 'label' => 'Menerima Tester'],
-                                'running' => ['bg' => 'rgba(59,130,246,0.2)', 'border' => 'rgba(59,130,246,0.4)', 'text' => '#bfdbfe', 'dot' => '#60a5fa', 'label' => 'Sedang Berjalan'],
+                                'running' => ['bg' => 'rgba(249,115,22,0.2)', 'border' => 'rgba(249,115,22,0.4)', 'text' => '#fed7aa', 'dot' => '#fb923c', 'label' => 'Sedang Berjalan'],
                                 'closed' => ['bg' => 'rgba(239,68,68,0.2)', 'border' => 'rgba(239,68,68,0.4)', 'text' => '#fecaca', 'dot' => '#ef4444', 'label' => 'Penuh / Tertutup'],
                                 default => ['bg' => 'rgba(148,163,184,0.2)', 'border' => 'rgba(148,163,184,0.4)', 'text' => '#cbd5e1', 'dot' => '#94a3b8', 'label' => ucfirst($misi->status)],
                             };
@@ -584,8 +584,8 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
             <div class="md-stats-grid">
                 {{-- Durasi --}}
                 <div class="md-stat-card">
-                    <div class="md-stat-icon" style="background:#eff6ff;">
-                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="2">
+                    <div class="md-stat-icon" style="background:#fff7ed;">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#ea580c" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
@@ -634,11 +634,11 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                         <span class="font-mono-num font-bold" style="color:#1e293b;">{{ $maxCapacity }}</span> tester
                     </span>
                     <span class="font-mono-num font-bold text-xs"
-                        style="color:{{ $kapasitasPersen >= 80 ? '#ef4444' : '#2563eb' }};">{{ $kapasitasPersen }}%</span>
+                        style="color:{{ $kapasitasPersen >= 80 ? '#ef4444' : '#ea580c' }};">{{ $kapasitasPersen }}%</span>
                 </div>
                 <div class="md-progress-track">
                     <div class="md-progress-fill" id="kapasitas-bar" data-target="{{ $kapasitasPersen }}%"
-                        style="width:0%;background:linear-gradient(90deg,{{ $kapasitasPersen >= 80 ? '#ef4444,#f97316' : '#2563eb,#7c3aed' }});">
+                        style="width:0%;background:linear-gradient(90deg,{{ $kapasitasPersen >= 80 ? '#ef4444,#f97316' : '#ea580c,#7c3aed' }});">
                     </div>
                 </div>
                 @if($isFull)
@@ -684,7 +684,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
             ═══════════════════════════ --}}
             <div class="md-card">
                 <div class="md-card-title">
-                    <span class="md-card-title-dot" style="background:#2563eb;"></span>
+                    <span class="md-card-title-dot" style="background:#ea580c;"></span>
                     Instruksi Pengujian
                 </div>
                 @if($misi->instruksi)
@@ -721,14 +721,14 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                 @if($alreadyJoined && $isRunning && $misi->link_aplikasi)
                     <div class="md-cta-joined">
                         <div class="flex items-start gap-3 mb-4">
-                            <div style="background:#dbeafe;border-radius:0.75rem;padding:10px;flex-shrink:0;">
-                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="2">
+                            <div style="background:#ffedd5;border-radius:0.75rem;padding:10px;flex-shrink:0;">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#ea580c" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-bold text-blue-800 font-heading text-base">Misi Sudah Dimulai!</h3>
-                                <p class="text-sm text-blue-700 mt-1">
+                                <h3 class="font-bold text-orange-800 font-heading text-base">Misi Sudah Dimulai!</h3>
+                                <p class="text-sm text-orange-700 mt-1">
                                     Developer telah memulai misi ini. Download aplikasinya, uji sesuai instruksi, lalu kumpulkan
                                     laporan harian selama 14 hari.
                                 </p>
@@ -790,8 +790,8 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                             <p class="text-sm mb-4" style="color:#64748b;">Kapasitas tester sudah terpenuhi. Coba misi lainnya.</p>
                             <a href="/tester" class="md-btn-primary">Lihat Misi Lain</a>
                         @else
-                            <div class="mb-3" style="background:#dbeafe;border-radius:0.875rem;padding:10px;display:inline-flex;">
-                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="2">
+                            <div class="mb-3" style="background:#ffedd5;border-radius:0.875rem;padding:10px;display:inline-flex;">
+                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="#ea580c" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>

@@ -123,7 +123,7 @@ class MisiSaya extends Page implements HasForms
             }
             $persen = min(round(($hari / 14) * 100), 100); // cap persentase maksimal 100%
 
-            $colors = ['#10b981', '#8b5cf6', '#3b82f6', '#f59e0b'];
+            $colors = ['#10b981', '#8b5cf6', '#f97316', '#f59e0b'];
             $color = $colors[$m->id % count($colors)];
 
             $subs = MisiSub::where('id_misi', $m->id)

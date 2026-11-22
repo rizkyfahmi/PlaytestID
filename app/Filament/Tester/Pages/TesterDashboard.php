@@ -116,7 +116,7 @@ class TesterDashboard extends Page
 
                 // Warna & Gradasi berdasarkan ID agar variatif tapi tetap konsisten
                 $gradients = [
-                    ['icon' => 'linear-gradient(135deg,#f59e0b,#ef4444)', 'bar' => 'linear-gradient(90deg,#0ea5e9,#2563eb)'],
+                    ['icon' => 'linear-gradient(135deg,#f59e0b,#ef4444)', 'bar' => 'linear-gradient(90deg,#0ea5e9,#ea580c)'],
                     ['icon' => 'linear-gradient(135deg,#8b5cf6,#6366f1)', 'bar' => 'linear-gradient(90deg,#8b5cf6,#6366f1)'],
                     ['icon' => 'linear-gradient(135deg,#10b981,#0ea5e9)', 'bar' => 'linear-gradient(90deg,#10b981,#0ea5e9)'],
                 ];
@@ -132,7 +132,7 @@ class TesterDashboard extends Page
                     'hari'     => $hari,
                     'maxHari'  => 14,
                     'persen'   => $persen,
-                    'warnaPersen' => '#2563eb',
+                    'warnaPersen' => '#ea580c',
                     'gradientBar' => $gradients[$gId]['bar'],
                     'reward'   => $m->point,
                     'status'   => 'Aktif',
@@ -160,7 +160,7 @@ class TesterDashboard extends Page
             ->map(function ($m) {
                 // Mapping kategori visual
                 $categories = [
-                    ['bg' => '#eff6ff', 'color' => '#2563eb', 'label' => 'Functional Testing'],
+                    ['bg' => '#fff7ed', 'color' => '#ea580c', 'label' => 'Functional Testing'],
                     ['bg' => '#f5f3ff', 'color' => '#7c3aed', 'label' => 'UX Research'],
                     ['bg' => '#ecfdf5', 'color' => '#059669', 'label' => 'Bug Reporting'],
                 ];

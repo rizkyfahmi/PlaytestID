@@ -45,11 +45,11 @@
     .mp-stat-label { font-size: .72rem; color: #64748b; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
     .mp-stat-value { font-size: 1.4rem; font-weight: 800; color: #0f172a; line-height: 1.1; }
     .mp-stat-sub   { font-size: .72rem; color: #94a3b8; margin-top: 2px; }
-    .mp-grad-blue    { background: linear-gradient(90deg, #2563eb, #60a5fa); }
+    .mp-grad-orange    { background: linear-gradient(90deg, #ea580c, #fb923c); }
     .mp-grad-green   { background: linear-gradient(90deg, #10b981, #34d399); }
     .mp-grad-amber   { background: linear-gradient(90deg, #f59e0b, #fcd34d); }
     .mp-grad-purple  { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
-    .mp-bg-blue    { background: #eff6ff; color: #2563eb; }
+    .mp-bg-orange    { background: #fff7ed; color: #ea580c; }
     .mp-bg-green   { background: #d1fae5; color: #10b981; }
     .mp-bg-amber   { background: #fef9c3; color: #f59e0b; }
     .mp-bg-purple  { background: #f5f3ff; color: #7c3aed; }
@@ -59,24 +59,24 @@
     .mp-filter-bar:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
     .mp-search-wrap { position: relative; flex: 2; min-width: 200px; }
     .mp-search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 1.2rem; transition: color 0.2s; }
-    .mp-search-wrap:focus-within .mp-search-icon { color: #2563eb; }
+    .mp-search-wrap:focus-within .mp-search-icon { color: #ea580c; }
     .mp-input, .mp-select { border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 14px; font-size: .85rem; color: #334155; background: #f8fafc; outline: none; transition: all .2s; font-family: 'Inter', sans-serif; }
-    .mp-input:focus, .mp-select:focus { border-color: #2563eb; background: #fff; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+    .mp-input:focus, .mp-select:focus { border-color: #ea580c; background: #fff; box-shadow: 0 0 0 3px rgba(234,88,12,0.1); }
     .mp-search-input { width: 100%; padding-left: 42px !important; }
     .mp-filter-divider { width: 1px; height: 20px; background: #e2e8f0; flex-shrink: 0; }
 
     /* ══ BUTTONS ══ */
     .mp-btn { padding: 8px 16px; border-radius: 8px; font-size: .85rem; font-weight: 600; cursor: pointer; border: none; transition: all .15s cubic-bezier(0.4,0,0.2,1); font-family: 'Inter', sans-serif; display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
     .mp-btn:active { transform: scale(0.95); }
-    .mp-btn-primary { background: #2563eb; color: #fff; }
-    .mp-btn-primary:hover { background: #1d4ed8; box-shadow: 0 6px 16px rgba(37,99,235,0.2); transform: translateY(-1px); }
+    .mp-btn-primary { background: #ea580c; color: #fff; }
+    .mp-btn-primary:hover { background: #c2410c; box-shadow: 0 6px 16px rgba(234,88,12,0.2); transform: translateY(-1px); }
     .mp-btn-ghost { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
     .mp-btn-ghost:hover { background: #e2e8f0; color: #1e293b; }
 
     /* ══ VIEW TOGGLE ══ */
     .mk-view-toggle { display: flex; align-items: center; padding: 4px; border-radius: 10px; background: #f1f5f9; gap: 2px; }
     .mk-view-btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 7px; font-size: .8rem; font-weight: 600; cursor: pointer; transition: all 0.15s ease; border: none; font-family: 'Inter', sans-serif; }
-    .mk-view-active   { background: #2563eb; color: #fff; box-shadow: 0 2px 8px rgba(37,99,235,0.3); }
+    .mk-view-active   { background: #ea580c; color: #fff; box-shadow: 0 2px 8px rgba(234,88,12,0.3); }
     .mk-view-inactive { background: transparent; color: #64748b; }
     .mk-view-inactive:hover { color: #334155; background: #e2e8f0; }
 
@@ -97,7 +97,7 @@
 
     /* Timeline dots */
     .mk-dot { width: 7px; height: 7px; border-radius: 9999px; flex-shrink: 0; }
-    .mk-dot-filled-blue  { background: #2563eb; }
+    .mk-dot-filled-orange  { background: #ea580c; }
     .mk-dot-filled-green { background: #16a34a; }
     .mk-dot-filled-amber { background: #f59e0b; }
     .mk-dot-empty        { background: #e2e8f0; }
@@ -108,26 +108,26 @@
 
     /* Badges */
     .mk-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 8px; font-size: 0.7rem; font-weight: 600; white-space: nowrap; }
-    .mk-badge-running  { background: #eff6ff; color: #1d4ed8; }
+    .mk-badge-running  { background: #fff7ed; color: #c2410c; }
     .mk-badge-completed{ background: #f0fdf4; color: #15803d; }
     .mk-badge-pending  { background: #fffbeb; color: #b45309; }
     .mk-badge-closed   { background: #fff1f2; color: #be123c; }
     .mk-badge-active   { background: #f0fdf4; color: #15803d; }
     .mk-badge-open     { background: #f0fdf4; color: #15803d; }
     .mk-badge-pro      { background: #fffbeb; color: #b45309; }
-    .mk-badge-starter  { background: #eff6ff; color: #1d4ed8; }
+    .mk-badge-starter  { background: #fff7ed; color: #c2410c; }
 
     /* Action buttons (card & list) */
     .mk-action-btn { position: relative; width: 32px; height: 32px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s ease; border: 1px solid transparent; }
     .mk-action-btn:hover { transform: scale(1.08); }
-    .mk-btn-detail  { background: #eff6ff; border-color: #bfdbfe; color: #2563eb; }
-    .mk-btn-detail:hover  { background: #dbeafe; }
+    .mk-btn-detail  { background: #fff7ed; border-color: #fed7aa; color: #ea580c; }
+    .mk-btn-detail:hover  { background: #ffedd5; }
     .mk-btn-edit    { background: #fef9c3; border-color: #fef08a; color: #d97706; }
     .mk-btn-edit:hover    { background: #fef08a; }
     .mk-btn-users   { background: #f0fdf4; border-color: #bbf7d0; color: #16a34a; }
     .mk-btn-users:hover   { background: #dcfce7; }
-    .mk-btn-start   { background: #eff6ff; border-color: #bfdbfe; color: #2563eb; }
-    .mk-btn-start:hover   { background: #dbeafe; }
+    .mk-btn-start   { background: #fff7ed; border-color: #fed7aa; color: #ea580c; }
+    .mk-btn-start:hover   { background: #ffedd5; }
     .mk-btn-delete  { background: #fef2f2; border-color: #fecaca; color: #dc2626; }
     .mk-btn-delete:hover  { background: #fee2f2; }
 
@@ -145,7 +145,7 @@
     }
     .mk-list-row td:first-child { border-left: 3px solid transparent; transition: border-color 0.2s; }
     .mk-list-row:hover { background: #f8fafc; }
-    .mk-list-row:hover { border-left: 3px solid #2563eb; padding-left: calc(1.25rem - 3px); }
+    .mk-list-row:hover { border-left: 3px solid #ea580c; padding-left: calc(1.25rem - 3px); }
     .mk-list-row:last-child { border-bottom: none; }
 
     /* ══ EMPTY STATE ══ */
@@ -228,9 +228,9 @@
 <div class="grid grid-cols-2 xl:grid-cols-4 gap-4 animate-fade-in-up delay-100">
 
     <div class="mp-stat">
-        <div class="mp-stat-accent mp-grad-blue"></div>
+        <div class="mp-stat-accent mp-grad-orange"></div>
         <div class="flex items-start gap-3 mt-1">
-            <div class="mp-stat-icon mp-bg-blue">
+            <div class="mp-stat-icon mp-bg-orange">
                 <span class="material-symbols-outlined">apps</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -339,7 +339,7 @@
     @foreach($kampanyeList as $idx => $k)
     @php
         $borderColor = match($k['raw_status']) {
-            'running' => '#2563eb',
+            'running' => '#ea580c',
             'completed' => '#16a34a',
             'open' => '#16a34a',
             'pending' => '#f59e0b',
@@ -348,7 +348,7 @@
         };
         $progColor   = $borderColor;
         $dotClass    = match($k['raw_status']) {
-            'running' => 'mk-dot-filled-blue',
+            'running' => 'mk-dot-filled-orange',
             'completed' => 'mk-dot-filled-green',
             'open' => 'mk-dot-filled-green',
             'pending' => 'mk-dot-filled-amber',
@@ -526,7 +526,7 @@
     @foreach($kampanyeList as $idx => $k)
     @php
         $borderColor = match($k['raw_status']) {
-            'running' => '#2563eb',
+            'running' => '#ea580c',
             'completed' => '#16a34a',
             'active' => '#16a34a',
             'pending' => '#f59e0b',
@@ -711,7 +711,7 @@
                         </span>
                     </div>
                     <div class="mk-progress-track h-2">
-                        <div class="mk-progress-fill h-2" style="background:#2563eb;"
+                        <div class="mk-progress-fill h-2" style="background:#ea580c;"
                              :style="'width:' + Math.round(((kampanye?.tester??0)/(kampanye?.maxTester??20))*100) + '%'">
                         </div>
                     </div>
@@ -787,7 +787,7 @@
 
         <div class="mk-modal-header">
             <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-[1.5rem]" style="color:#2563eb;">play_circle</span>
+                <span class="material-symbols-outlined text-[1.5rem]" style="color:#ea580c;">play_circle</span>
                 <p class="text-sm font-bold mp-sora" style="color:#1e293b;">{{ __('Mulai Misi') }}</p>
             </div>
             <button @click="modalMulaiTerbuka = false"
@@ -848,7 +848,7 @@
             </div>
             <div class="space-y-2">
                 <label class="text-sm font-semibold text-slate-800 dark:text-slate-200">{{ __('Ketik nama aplikasi untuk mengonfirmasi:') }}</label>
-                <input type="text" class="mp-input w-full dark:bg-slate-900 dark:border-slate-700 dark:text-white dark:focus:border-blue-500" :placeholder="deleteK.nama" x-model="deleteK.konfTeks">
+                <input type="text" class="mp-input w-full dark:bg-slate-900 dark:border-slate-700 dark:text-white dark:focus:border-orange-500" :placeholder="deleteK.nama" x-model="deleteK.konfTeks">
             </div>
         </div>
         <div class="mk-modal-footer flex-col sm:flex-row dark:border-slate-700 dark:bg-slate-900/50">

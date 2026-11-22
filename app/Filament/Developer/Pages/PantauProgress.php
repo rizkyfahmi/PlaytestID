@@ -353,7 +353,7 @@ class PantauProgress extends Page
                 $hariAktif = 1;
             }
 
-            $colors = ['blue', 'amber', 'purple', 'green'];
+            $colors = ['orange', 'amber', 'purple', 'green'];
             $warna = $colors[$misi->id % count($colors)];
 
             $doneCount = $subs->where('status', 'done')->count();

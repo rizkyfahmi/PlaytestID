@@ -168,7 +168,7 @@ class ManajemenWithdraw extends Page
         foreach ($withdrawals as $w) {
             $userName = $w->user ? $w->user->name : 'Unknown';
             $inisial = strtoupper(substr(str_replace(' ', '', $userName), 0, 2));
-            $avatarColors = ['from-blue-500 to-cyan-400', 'from-emerald-500 to-teal-400', 'from-violet-500 to-purple-400', 'from-orange-500 to-amber-400', 'from-pink-500 to-rose-400'];
+            $avatarColors = ['from-orange-500 to-cyan-400', 'from-emerald-500 to-teal-400', 'from-violet-500 to-purple-400', 'from-orange-500 to-amber-400', 'from-pink-500 to-rose-400'];
             $avatarColor = $avatarColors[crc32($userName) % count($avatarColors)];
 
             $metodeLabel = Withdraw::METHODS[$w->metode] ?? $w->metode;

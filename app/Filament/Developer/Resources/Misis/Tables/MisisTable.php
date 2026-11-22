@@ -24,17 +24,17 @@ class MisisTable
                         }
 
                         $inisial = strtoupper(substr($record->nama_aplikasi, 0, 2));
-                        $colors = ['blue', 'amber', 'purple', 'green'];
+                        $colors = ['orange', 'amber', 'purple', 'green'];
                         $warna = $colors[$record->id % count($colors)];
 
                         $bg = match ($warna) {
-                            'blue' => '#eff6ff',
+                            'orange' => '#fff7ed',
                             'amber' => '#fffbeb',
                             'purple' => '#faf5ff',
                             default => '#f0fdf4',
                         };
                         $text = match ($warna) {
-                            'blue' => '#2563eb',
+                            'orange' => '#ea580c',
                             'amber' => '#d97706',
                             'purple' => '#7e22ce',
                             default => '#16a34a',

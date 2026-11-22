@@ -41,11 +41,11 @@
     .mp-stat-label { font-size: .72rem; color: #64748b; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
     .mp-stat-value { font-size: 1.4rem; font-weight: 800; color: #0f172a; line-height: 1.1; }
     .mp-stat-sub   { font-size: .72rem; color: #94a3b8; margin-top: 2px; }
-    .mp-grad-blue    { background: linear-gradient(90deg, #2563eb, #60a5fa); }
+    .mp-grad-orange    { background: linear-gradient(90deg, #ea580c, #fb923c); }
     .mp-grad-green   { background: linear-gradient(90deg, #22c55e, #86efac); }
     .mp-grad-orange  { background: linear-gradient(90deg, #f59e0b, #fcd34d); }
     .mp-grad-emerald { background: linear-gradient(90deg, #10b981, #34d399); }
-    .mp-bg-blue    { background: #eff6ff; color: #2563eb; }
+    .mp-bg-orange    { background: #fff7ed; color: #ea580c; }
     .mp-bg-green   { background: #dcfce7; color: #16a34a; }
     .mp-bg-orange  { background: #fef9c3; color: #f59e0b; }
     .mp-bg-emerald { background: #d1fae5; color: #10b981; }
@@ -53,8 +53,8 @@
     /* ══ CHART ══ */
     .mp-chart-bar-wrap { display: flex; flex-direction: column; align-items: center; flex: 1; gap: 4px; }
     .mp-chart-bar-outer { width: 100%; height: 120px; display: flex; align-items: flex-end; justify-content: center; }
-    .mp-chart-bar { width: 80%; border-radius: 6px 6px 0 0; background: linear-gradient(to top, #2563eb, #93c5fd); height: 0; transition: height 1.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s; position: relative; cursor: pointer; }
-    .mp-chart-bar:hover { box-shadow: 0 0 12px rgba(37,99,235,0.55); transform: scaleY(1.02); transform-origin: bottom; }
+    .mp-chart-bar { width: 80%; border-radius: 6px 6px 0 0; background: linear-gradient(to top, #ea580c, #fdba74); height: 0; transition: height 1.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s; position: relative; cursor: pointer; }
+    .mp-chart-bar:hover { box-shadow: 0 0 12px rgba(234,88,12,0.55); transform: scaleY(1.02); transform-origin: bottom; }
     .mp-chart-bar-tooltip { position: absolute; top: -32px; left: 50%; transform: translateX(-50%) translateY(5px); background: #0f172a; color: #fff; font-size: .65rem; padding: 3px 7px; border-radius: 6px; white-space: nowrap; opacity: 0; pointer-events: none; transition: all .2s cubic-bezier(0.16,1,0.3,1); }
     .mp-chart-bar:hover .mp-chart-bar-tooltip { opacity: 1; transform: translateX(-50%) translateY(0); }
     .mp-chart-label { font-size: .7rem; color: #94a3b8; font-weight: 500; }
@@ -66,16 +66,16 @@
     .mp-filter-bar:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
     .mp-search-wrap { position: relative; flex: 2; min-width: 260px; }
     .mp-search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 1.2rem; transition: color 0.2s; }
-    .mp-search-wrap:focus-within .mp-search-icon { color: #2563eb; }
+    .mp-search-wrap:focus-within .mp-search-icon { color: #ea580c; }
     .mp-input, .mp-select { border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 14px; font-size: .85rem; color: #334155; background: #f8fafc; outline: none; transition: all .2s; font-family: 'Inter', sans-serif; }
-    .mp-input:focus, .mp-select:focus { border-color: #2563eb; background: #fff; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+    .mp-input:focus, .mp-select:focus { border-color: #ea580c; background: #fff; box-shadow: 0 0 0 3px rgba(234,88,12,0.1); }
     .mp-search-input { width: 100%; padding-left: 42px !important; }
 
     /* ══ BUTTONS ══ */
     .mp-btn { padding: 8px 16px; border-radius: 8px; font-size: .85rem; font-weight: 600; cursor: pointer; border: none; transition: all .15s cubic-bezier(0.4,0,0.2,1); font-family: 'Inter', sans-serif; display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
     .mp-btn:active { transform: scale(0.95); }
-    .mp-btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; }
-    .mp-btn-primary:hover { box-shadow: 0 6px 16px rgba(37,99,235,0.35); transform: translateY(-1px); }
+    .mp-btn-primary { background: linear-gradient(135deg, #ea580c, #c2410c); color: #fff; }
+    .mp-btn-primary:hover { box-shadow: 0 6px 16px rgba(234,88,12,0.35); transform: translateY(-1px); }
     .mp-btn-danger { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; }
     .mp-btn-danger:hover { box-shadow: 0 6px 16px rgba(239,68,68,0.35); transform: translateY(-1px); }
     .mp-btn-success { background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; }
@@ -88,8 +88,8 @@
 
     /* ══ SORT HEADER BUTTON ══ */
     .mp-sort-btn { display: inline-flex; align-items: center; gap: 3px; background: none; border: none; cursor: pointer; font-size: .75rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: .07em; padding: 0; transition: color 0.2s; font-family: 'Inter', sans-serif; white-space: nowrap; }
-    .mp-sort-btn:hover  { color: #2563eb; }
-    .mp-sort-btn.active { color: #2563eb; }
+    .mp-sort-btn:hover  { color: #ea580c; }
+    .mp-sort-btn.active { color: #ea580c; }
     .mp-sort-icon { font-size: .95rem !important; line-height: 1; }
 
     /* ══ TABLE ══ */
@@ -101,15 +101,15 @@
     .mp-table tbody tr { transition: all .2s; }
     .mp-table tbody tr td:first-child { border-left: 3px solid transparent; transition: border-color 0.2s; }
     .mp-table tbody tr:hover { background: #f8fafc; }
-    .mp-table tbody tr:hover td:first-child { border-left-color: #2563eb; }
+    .mp-table tbody tr:hover td:first-child { border-left-color: #ea580c; }
     .mp-table tbody tr:last-child td { border-bottom: none; }
 
     /* ══ TOGGLE SWITCH (table) ══ */
     .mp-toggle { width: 36px; height: 20px; border-radius: 20px; background: #e2e8f0; position: relative; transition: background .2s; flex-shrink: 0; border: none; cursor: pointer; display: block; }
     .mp-toggle.is-on       { background: #22c55e; }
-    .mp-toggle.is-on-blue  { background: #2563eb; }
+    .mp-toggle.is-on-orange  { background: #ea580c; }
     .mp-toggle::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: left .2s; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
-    .mp-toggle.is-on::after, .mp-toggle.is-on-blue::after { left: 18px; }
+    .mp-toggle.is-on::after, .mp-toggle.is-on-orange::after { left: 18px; }
 
     /* ══ ACTION BUTTONS ══ */
     .mp-action { padding: 5px 12px; border-radius: 7px; font-size: .76rem; font-weight: 600; cursor: pointer; border: none; transition: all .15s; display: inline-flex; align-items: center; gap: 4px; font-family: 'Inter', sans-serif; }
@@ -121,8 +121,8 @@
     /* ══ PAGINATION ══ */
     .mp-pagi { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-top: 1px solid #f1f5f9; font-size: .8rem; color: #64748b; border-radius: 0 0 14px 14px; }
     .mp-pagi-btn { width: 32px; height: 32px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: .85rem; color: #475569; transition: all .15s; }
-    .mp-pagi-btn:hover { background: #eff6ff; border-color: #2563eb; color: #2563eb; transform: translateY(-1px); }
-    .mp-pagi-btn.active { background: #2563eb; border-color: #2563eb; color: #fff; box-shadow: 0 4px 10px rgba(37,99,235,0.25); }
+    .mp-pagi-btn:hover { background: #fff7ed; border-color: #ea580c; color: #ea580c; transform: translateY(-1px); }
+    .mp-pagi-btn.active { background: #ea580c; border-color: #ea580c; color: #fff; box-shadow: 0 4px 10px rgba(234,88,12,0.25); }
     .mp-pagi-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 
     /* ══ EMPTY STATE ══ */
@@ -143,7 +143,7 @@
     .mp-form-label { display: block; font-size: .8rem; font-weight: 600; color: #374151; margin-bottom: 6px; }
     .mp-form-required { color: #ef4444; }
     .mp-form-input, .mp-form-select, .mp-form-textarea { width: 100%; padding: 9px 12px; border: 1.5px solid #e2e8f0; border-radius: 9px; font-size: .85rem; color: #334155; background: #fff; outline: none; transition: border-color .15s, box-shadow .15s; font-family: 'Inter', sans-serif; box-sizing: border-box; }
-    .mp-form-input:focus, .mp-form-select:focus, .mp-form-textarea:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+    .mp-form-input:focus, .mp-form-select:focus, .mp-form-textarea:focus { border-color: #ea580c; box-shadow: 0 0 0 3px rgba(234,88,12,0.1); }
     .mp-form-textarea { resize: vertical; min-height: 80px; }
     .mp-form-note { font-size: .72rem; color: #94a3b8; margin-top: 4px; }
     .mp-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -154,9 +154,9 @@
     .mp-toggle-row-sub { font-size: .72rem; color: #94a3b8; margin-top: 2px; }
     .mp-form-toggle { width: 42px; height: 24px; border-radius: 20px; background: #e2e8f0; position: relative; transition: background .2s; flex-shrink: 0; border: none; cursor: pointer; }
     .mp-form-toggle.is-on      { background: #22c55e; }
-    .mp-form-toggle.is-on-blue { background: #2563eb; }
+    .mp-form-toggle.is-on-orange { background: #ea580c; }
     .mp-form-toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; transition: left .2s; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
-    .mp-form-toggle.is-on::after, .mp-form-toggle.is-on-blue::after { left: 21px; }
+    .mp-form-toggle.is-on::after, .mp-form-toggle.is-on-orange::after { left: 21px; }
 
     /* ══ CONFIRM MODAL ══ */
     .mp-confirm-overlay { position: fixed; inset: 0; z-index: 9999; background: rgba(15,23,42,.6); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; padding: 1rem; }
@@ -167,20 +167,20 @@
     .mp-confirm-icon.c-danger  { color: #ef4444; background: #fef2f2; }
     .mp-confirm-icon.c-warning { color: #f59e0b; background: #fef9c3; }
     .mp-confirm-icon.c-success { color: #10b981; background: #ecfdf5; }
-    .mp-confirm-icon.c-info    { color: #2563eb; background: #eff6ff; }
+    .mp-confirm-icon.c-info    { color: #ea580c; background: #fff7ed; }
     .mp-confirm-body  { padding: 20px 24px; }
     .mp-confirm-footer { padding: 16px 24px; border-top: 1px solid #f1f5f9; display: flex; gap: 10px; justify-content: flex-end; background: #f8fafc; }
     .mp-alert { border-radius: 12px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 10px; }
     .mp-alert-danger  { background: #fef2f2; border: 1px solid #fecaca; }
     .mp-alert-warning { background: #fefce8; border: 1px solid #fde68a; }
     .mp-alert-success { background: #f0fdf4; border: 1px solid #bbf7d0; }
-    .mp-alert-info    { background: #eff6ff; border: 1px solid #bfdbfe; }
+    .mp-alert-info    { background: #fff7ed; border: 1px solid #fed7aa; }
     .mp-alert-title { font-size: .88rem; font-weight: 600; margin-bottom: 4px; }
     .mp-alert-text  { font-size: .82rem; line-height: 1.55; }
     .c-danger  { color: #991b1b; }
     .c-warning { color: #92400e; }
     .c-success { color: #065f46; }
-    .c-info    { color: #1e40af; }
+    .c-info    { color: #9a3412; }
 
     /* ══ RESPONSIVE ══ */
     @media (max-width: 640px) {
@@ -219,9 +219,9 @@
 {{-- ══ STAT CARDS ══ --}}
 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 animate-fade-in-up delay-100">
     <div class="mp-stat">
-        <div class="mp-stat-accent mp-grad-blue"></div>
+        <div class="mp-stat-accent mp-grad-orange"></div>
         <div class="flex items-start gap-3 mt-1">
-            <div class="mp-stat-icon mp-bg-blue"><span class="material-symbols-outlined">inventory_2</span></div>
+            <div class="mp-stat-icon mp-bg-orange"><span class="material-symbols-outlined">inventory_2</span></div>
             <div class="flex-1 min-w-0">
                 <div class="mp-stat-label">{{ __('Total Paket') }}</div>
                 <div class="mp-stat-value">{{ $statTotalPaket }}</div>
@@ -269,7 +269,7 @@
 
     <div class="flex items-center justify-between mb-4">
         <div class="mp-sora font-bold text-slate-900 text-base flex items-center gap-2">
-            <span class="material-symbols-outlined text-blue-600 text-[1.2rem]">inventory_2</span>
+            <span class="material-symbols-outlined text-orange-600 text-[1.2rem]">inventory_2</span>
             {{ __('Daftar Paket') }}
         </div>
     </div>
@@ -373,7 +373,7 @@
                     </td>
                     <td>
                         <button
-                            class="mp-toggle {{ $p['isTrusted'] ? 'is-on-blue' : '' }}"
+                            class="mp-toggle {{ $p['isTrusted'] ? 'is-on-orange' : '' }}"
                             @click="bukaToggleKonfirmasi('trusted', {{ $p['id'] }}, {{ $p['isTrusted'] ? 'true' : 'false' }}, '{{ addslashes($p['nama']) }}')"
                             title="{{ $p['isTrusted'] ? __('Cabut') : __('Berikan') }} {{ __('lencana terpercaya') }}">
                         </button>
@@ -433,7 +433,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <div class="mp-sora font-bold text-slate-900 text-base flex items-center gap-2">
-                        <span class="material-symbols-outlined text-blue-600 text-[1.1rem]">edit</span>
+                        <span class="material-symbols-outlined text-orange-600 text-[1.1rem]">edit</span>
                         {{ __('Edit Paket') }}
                     </div>
                     <div class="text-xs text-slate-400 mt-0.5" x-text="editForm ? '{{ __('Mengedit') }}: ' + editForm.nama : ''"></div>
@@ -514,7 +514,7 @@
                             <div class="mp-toggle-row-label">{{ __('Lencana Terpercaya') }}</div>
                             <div class="mp-toggle-row-sub">{{ __('Tampilkan badge "Dipercaya" pada paket ini') }}</div>
                         </div>
-                        <button class="mp-form-toggle" :class="editForm.isTrusted ? 'is-on-blue' : ''" @click="editForm.isTrusted = !editForm.isTrusted" type="button"></button>
+                        <button class="mp-form-toggle" :class="editForm.isTrusted ? 'is-on-orange' : ''" @click="editForm.isTrusted = !editForm.isTrusted" type="button"></button>
                     </div>
                     <div class="mp-toggle-row">
                         <div>
@@ -774,7 +774,7 @@ function manajemenPaket() {
                 icon     = 'workspace_premium';
                 cls      = 'c-info';
                 alertCls = 'mp-alert-info';
-                alertIconCls = 'text-blue-600';
+                alertIconCls = 'text-orange-600';
                 txtCls   = 'c-info';
                 btnCls   = 'mp-btn-primary';
             }

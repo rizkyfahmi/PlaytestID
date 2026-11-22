@@ -44,7 +44,7 @@
 
 /* ── Filter tabs ───────────────────────────────── */
 .hist-tab-active {
-    background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe;
+    background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa;
     font-size: 0.75rem; font-weight: 600; padding: 6px 14px;
     border-radius: 9999px; cursor: pointer; transition: all 0.15s;
 }
@@ -90,13 +90,13 @@
         </div>
 
         <div class="hist-stat">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:#3b82f6;">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fff7ed;">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:#f97316;">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                 </svg>
             </div>
             <div>
-                <p class="font-mono-num text-2xl font-bold" style="color:#3b82f6;">{{ $aktif }}</p>
+                <p class="font-mono-num text-2xl font-bold" style="color:#f97316;">{{ $aktif }}</p>
                 <p class="text-xs font-medium" style="color:#64748b;">{{ __('Sedang Aktif') }}</p>
             </div>
         </div>

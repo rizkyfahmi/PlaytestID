@@ -46,7 +46,7 @@ class KelolaTester extends Page
             ->with('user')
             ->get();
 
-        $colors = ['#2563eb', '#f59e0b', '#8b5cf6', '#10b981', '#ef4444', '#0ea5e9', '#7c3aed'];
+        $colors = ['#ea580c', '#f59e0b', '#8b5cf6', '#10b981', '#ef4444', '#0ea5e9', '#7c3aed'];
 
         $testerList = $testers->map(function ($tester, $idx) use ($colors) {
             $user = $tester->user;
@@ -183,7 +183,7 @@ class KelolaTester extends Page
                                     <textarea readonly id="testerEmailList" class="w-full bg-transparent border-none p-0 text-sm font-mono text-slate-700 resize-none focus:ring-0 m-0" rows="8">' . htmlspecialchars($text) . '</textarea>
                                     
                                     <button type="button" onclick="navigator.clipboard.writeText(document.getElementById(\'testerEmailList\').value); const t = this.querySelector(\'.tooltip-text\'); t.classList.remove(\'opacity-0\'); setTimeout(() => t.classList.add(\'opacity-0\'), 2000);" 
-                                            class="absolute top-3 right-3 flex items-center justify-center w-9 h-9 rounded-lg bg-white border border-slate-200 text-slate-500 hover:bg-slate-100 hover:text-blue-600 transition-all shadow-sm focus:outline-none">
+                                            class="absolute top-3 right-3 flex items-center justify-center w-9 h-9 rounded-lg bg-white border border-slate-200 text-slate-500 hover:bg-slate-100 hover:text-orange-600 transition-all shadow-sm focus:outline-none">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                                         <span class="tooltip-text absolute -top-8 bg-slate-800 text-white text-xs font-semibold px-2 py-1 rounded opacity-0 transition-opacity whitespace-nowrap pointer-events-none">' . __('Tersalin!') . '</span>
                                     </button>

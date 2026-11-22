@@ -59,7 +59,7 @@
       border-top: 4px solid #10b981;
     }
 
-    .card-accent-blue {
+    .card-accent-brand {
       border-top: 4px solid #ea580c;
     }
 
@@ -138,7 +138,7 @@
     }
 
     .icon-moon {
-      color: #60a5fa;
+      color: #fb923c;
       position: absolute;
       opacity: 0;
     }
@@ -299,7 +299,7 @@
       position: absolute;
       inset: -30%;
       background:
-        radial-gradient(40% 35% at 20% 30%, rgba(96, 165, 250, .55), transparent 60%),
+        radial-gradient(40% 35% at 20% 30%, rgba(251, 146, 60, .55), transparent 60%),
         radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
         radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
         radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%);
@@ -316,7 +316,7 @@
       height: 520px;
       left: -160px;
       bottom: -200px;
-      background: conic-gradient(from 0deg, rgba(59, 130, 246, 0), rgba(96, 165, 250, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(59, 130, 246, 0));
+      background: conic-gradient(from 0deg, rgba(249, 115, 22, 0), rgba(251, 146, 60, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(249, 115, 22, 0));
       border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 28s linear infinite;
@@ -330,7 +330,7 @@
       height: 380px;
       right: -120px;
       top: -140px;
-      background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(96, 165, 250, .30), rgba(244, 114, 182, 0));
+      background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(251, 146, 60, .30), rgba(244, 114, 182, 0));
       border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 34s linear infinite;
@@ -480,7 +480,7 @@
 
       <!-- Floating decorative blobs -->
       <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-        style="background:radial-gradient(circle,#60a5fa,transparent 70%);"></div>
+        style="background:radial-gradient(circle,#fb923c,transparent 70%);"></div>
       <div class="prof-blob-rev absolute right-20 -bottom-16 w-40 h-40 rounded-full opacity-15"
         style="background:radial-gradient(circle,#a78bfa,transparent 70%);"></div>
 
@@ -507,7 +507,7 @@
         </div>
         <h2 class="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">{{ __('Umum') }}</h2>
       </div>
-      <div class="page-card card-accent-blue">
+      <div class="page-card card-accent-brand">
         @php $faqs_umum = [
           [__('Apa itu Testoplay?'), __('Testoplay adalah platform kolaborasi yang menghubungkan developer aplikasi Android dengan tester berkualitas di Indonesia. Platform ini membantu developer memenuhi persyaratan Google Play Closed Testing dengan lebih mudah dan efisien.')],
           [__('Apakah Testoplay gratis?'), __('Testoplay menawarkan berbagai paket, mulai dari paket gratis dengan fitur terbatas hingga paket premium untuk kebutuhan testing yang lebih besar. Lihat halaman Harga untuk detail lengkap.')],
@@ -537,7 +537,7 @@
         <h2 class="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
           {{ __('Untuk Developer') }}</h2>
       </div>
-      <div class="page-card card-accent-blue">
+      <div class="page-card card-accent-brand">
         @php $faqs_dev = [
           [__('Bagaimana cara membuat kampanye testing?'), __('Setelah login sebagai Developer, masuk ke menu "Kampanye" dan klik "Buat Kampanye Baru". Isi detail aplikasi Anda, termasuk link Play Store, jumlah tester yang dibutuhkan, dan durasi pengujian.')],
           [__('Berapa lama proses Closed Testing berlangsung?'), __('Google mensyaratkan setidaknya 20 tester aktif selama minimal 14 hari. Platform kami membantu Anda mencapai target tersebut dengan menghubungkan Anda ke tester yang tepat.')],

@@ -45,7 +45,7 @@ class HistoryMisi extends Page
             $statusConfig = match ($ma->status) {
                 'selesai'   => ['label' => __('Selesai'),    'color' => '#10b981', 'bg' => '#ecfdf5', 'icon' => '✅'],
                 'progress'  => ['label' => __('Berlangsung'),'color' => '#f59e0b', 'bg' => '#fffbeb', 'icon' => '🔄'],
-                'accepted'  => ['label' => __('Diterima'),   'color' => '#3b82f6', 'bg' => '#eff6ff', 'icon' => '👍'],
+                'accepted'  => ['label' => __('Diterima'),   'color' => '#f97316', 'bg' => '#fff7ed', 'icon' => '👍'],
                 'failed'    => ['label' => __('Gagal'),       'color' => '#ef4444', 'bg' => '#fef2f2', 'icon' => '❌'],
                 'submitted' => ['label' => __('Menunggu'),   'color' => '#8b5cf6', 'bg' => '#f5f3ff', 'icon' => '⏳'],
                 'rejected'  => ['label' => __('Ditolak'),    'color' => '#64748b', 'bg' => '#f8fafc', 'icon' => '🚫'],

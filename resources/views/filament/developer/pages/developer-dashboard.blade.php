@@ -104,8 +104,8 @@
       flex-shrink: 0;
     }
 
-    .icon-blue { background: #eff6ff; color: #2563eb; }
-    .dark .icon-blue { background: rgba(37,99,235,0.2); color: #93c5fd; }
+    .icon-orange { background: #fff7ed; color: #ea580c; }
+    .dark .icon-orange { background: rgba(234,88,12,0.2); color: #fdba74; }
     
     .icon-amber { background: #fffbeb; color: #d97706; }
     .dark .icon-amber { background: rgba(217,119,6,0.2); color: #fcd34d; }
@@ -129,8 +129,8 @@
     }
     .dark .btn-detail { color: #94a3b8; border-color: #475569; }
 
-    .btn-detail:hover { background: #eff6ff; border-color: #bfdbfe; color: #2563eb; }
-    .dark .btn-detail:hover { background: rgba(37,99,235,0.15); border-color: #3b82f6; color: #93c5fd; }
+    .btn-detail:hover { background: #fff7ed; border-color: #fed7aa; color: #ea580c; }
+    .dark .btn-detail:hover { background: rgba(234,88,12,0.15); border-color: #f97316; color: #fdba74; }
 
     .day-cell {
       border-radius: 5px;
@@ -141,18 +141,18 @@
       height: 32px;
     }
 
-    .day-done { background: #dbeafe; }
-    .dark .day-done { background: rgba(37,99,235,0.2); }
+    .day-done { background: #ffedd5; }
+    .dark .day-done { background: rgba(234,88,12,0.2); }
     
-    .day-today { background: #2563eb; }
+    .day-today { background: #ea580c; }
     
     .day-future { background: #f1f5f9; }
     .dark .day-future { background: #334155; }
 
     .day-num { font-size: 8px; font-weight: 600; }
 
-    .day-done .day-num { color: #1d4ed8; }
-    .dark .day-done .day-num { color: #93c5fd; }
+    .day-done .day-num { color: #c2410c; }
+    .dark .day-done .day-num { color: #fdba74; }
 
     .day-today .day-num { color: #fff; font-weight: 800; }
 
@@ -176,11 +176,11 @@
       font-family: 'Inter', sans-serif;
       white-space: nowrap;
     }
-    .dev-sort-btn:hover { color: #2563eb; }
-    .dark .dev-sort-btn:hover { color: #60a5fa; }
+    .dev-sort-btn:hover { color: #ea580c; }
+    .dark .dev-sort-btn:hover { color: #fb923c; }
     
-    .dev-sort-btn.active { color: #2563eb; }
-    .dark .dev-sort-btn.active { color: #60a5fa; }
+    .dev-sort-btn.active { color: #ea580c; }
+    .dark .dev-sort-btn.active { color: #fb923c; }
 
     .dev-sort-icon { font-size: .95rem !important; line-height: 1; }
 
@@ -275,8 +275,8 @@
 
     .form-input:focus,
     .form-textarea:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+      border-color: #ea580c;
+      box-shadow: 0 0 0 3px rgba(234, 88, 12, .12);
     }
 
     .form-input.with-icon {
@@ -288,7 +288,7 @@
     }
 
     .text-brand-gradient {
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      background: linear-gradient(135deg, #c2410c, #ea580c);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -306,14 +306,14 @@
       </div>
       <a href="{{ url('developer/misis/create') }}"
         class="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 text-sm font-bold text-white rounded-xl transition-transform hover:scale-105"
-        style="background:linear-gradient(135deg,#1d4ed8,#2563eb);box-shadow:0 4px 14px rgba(37,99,235,.3);">
+        style="background:linear-gradient(135deg,#c2410c,#ea580c);box-shadow:0 4px 14px rgba(234,88,12,.3);">
         <x-heroicon-o-plus class="w-4 h-4" /> {{ __('Test Case Baru') }}
       </a>
     </div>
 
     {{-- Stat Cards --}}
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-      <div class="dev-stat-card" style="border-top:4px solid #2563eb;">
+      <div class="dev-stat-card" style="border-top:4px solid #ea580c;">
         <div class="mb-3">
           <p class="text-slate-400 font-bold uppercase tracking-widest" style="font-size:10.5px;">{{ __('Pengujian Aktif') }}</p>
         </div>
@@ -323,7 +323,7 @@
           <span class="text-slate-400 text-xs">{{ __('dari bulan lalu') }}</span>
         </div>
         <div class="mt-4 prog-track">
-          <div class="prog-fill bg-blue-500" data-target="{{ $statAktifPercent }}%"></div>
+          <div class="prog-fill bg-orange-500" data-target="{{ $statAktifPercent }}%"></div>
         </div>
         <p class="text-slate-400 mt-1.5" style="font-size:11px;">{{ $statAktifNote }}</p>
       </div>
@@ -432,10 +432,10 @@
       <div class="flex items-center gap-2 flex-wrap">
         <div class="relative">
           <x-heroicon-o-calendar-days class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
-          <input type="date" x-model="filterTanggal" class="text-xs rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300"
+          <input type="date" x-model="filterTanggal" class="text-xs rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-200 dark:focus:ring-orange-900 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300"
             style="padding:7px 12px 7px 30px;background:#f8fafc;border:1px solid #e2e8f0;color:#64748b;width:148px;" />
         </div>
-        <button class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-blue-600 dark:text-blue-400 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 border border-blue-200 dark:border-blue-800 transition">
+        <button class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-orange-600 dark:text-orange-400 rounded-xl hover:bg-orange-50 dark:hover:bg-orange-900/20 border border-orange-200 dark:border-orange-800 transition">
           {{ __('Lihat Semua') }} <x-heroicon-m-arrow-right class="w-3 h-3" />
         </button>
       </div>
@@ -527,7 +527,7 @@
         <button class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 border border-slate-200 dark:border-slate-700 dark:hover:bg-slate-800" disabled>
           <x-heroicon-m-chevron-left class="w-3 h-3" />
         </button>
-        <button class="w-7 h-7 rounded-lg text-white text-xs font-bold flex items-center justify-center" style="background:#2563eb;">1</button>
+        <button class="w-7 h-7 rounded-lg text-white text-xs font-bold flex items-center justify-center" style="background:#ea580c;">1</button>
         <button class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 border border-slate-200 dark:border-slate-700 dark:hover:bg-slate-800" disabled>
           <x-heroicon-m-chevron-right class="w-3 h-3" />
         </button>

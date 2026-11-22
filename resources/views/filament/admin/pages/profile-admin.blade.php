@@ -260,10 +260,10 @@
       }
 
       .prof-hero {
-        background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #1d4ed8 55%, #2563eb 80%, #3b82f6 100%);
+        background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #c2410c 55%, #ea580c 80%, #f97316 100%);
         background-size: 220% 220%;
         animation: prof-gradient 14s ease infinite;
-        box-shadow: 0 20px 60px -15px rgba(37, 99, 235, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+        box-shadow: 0 20px 60px -15px rgba(234, 88, 12, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
         isolation: isolate;
       }
 
@@ -284,7 +284,7 @@
         position: absolute;
         inset: -30%;
         background:
-          radial-gradient(40% 35% at 20% 30%, rgba(96, 165, 250, .55), transparent 60%),
+          radial-gradient(40% 35% at 20% 30%, rgba(251, 146, 60, .55), transparent 60%),
           radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
           radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
           radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%);
@@ -301,7 +301,7 @@
         height: 520px;
         left: -160px;
         bottom: -200px;
-        background: conic-gradient(from 0deg, rgba(59, 130, 246, 0), rgba(96, 165, 250, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(59, 130, 246, 0));
+        background: conic-gradient(from 0deg, rgba(249, 115, 22, 0), rgba(251, 146, 60, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(249, 115, 22, 0));
         border-radius: 50%;
         filter: blur(30px);
         animation: prof-conic 28s linear infinite;
@@ -315,7 +315,7 @@
         height: 380px;
         right: -120px;
         top: -140px;
-        background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(96, 165, 250, .30), rgba(244, 114, 182, 0));
+        background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(251, 146, 60, .30), rgba(244, 114, 182, 0));
         border-radius: 50%;
         filter: blur(30px);
         animation: prof-spin-rev 34s linear infinite;
@@ -487,7 +487,7 @@
       }
 
       .prof-card:hover {
-        box-shadow: 0 12px 40px -12px rgba(37, 99, 235, .18);
+        box-shadow: 0 12px 40px -12px rgba(234, 88, 12, .18);
       }
 
       .prof-fade-1 {
@@ -503,9 +503,9 @@
       }
 
       .prof-btn-save {
-        background: linear-gradient(135deg, #1d4ed8, #2563eb, #3b82f6);
+        background: linear-gradient(135deg, #c2410c, #ea580c, #f97316);
         background-size: 200% 200%;
-        box-shadow: 0 6px 20px rgba(37, 99, 235, .4), 0 0 0 1px rgba(255, 255, 255, .1) inset;
+        box-shadow: 0 6px 20px rgba(234, 88, 12, .4), 0 0 0 1px rgba(255, 255, 255, .1) inset;
         transition: all .3s ease;
         position: relative;
         overflow: hidden;
@@ -514,7 +514,7 @@
       .prof-btn-save:hover {
         background-position: 100% 50%;
         transform: translateY(-2px);
-        box-shadow: 0 10px 28px rgba(37, 99, 235, .5);
+        box-shadow: 0 10px 28px rgba(234, 88, 12, .5);
       }
 
       .prof-btn-save::before {
@@ -616,7 +616,7 @@
 
         {{-- Floating decorative blobs --}}
         <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-          style="background:radial-gradient(circle,#60a5fa,transparent 70%);"></div>
+          style="background:radial-gradient(circle,#fb923c,transparent 70%);"></div>
         <div class="prof-blob-rev absolute right-20 -bottom-16 w-40 h-40 rounded-full opacity-15"
           style="background:radial-gradient(circle,#a78bfa,transparent 70%);"></div>
         <div class="prof-blob absolute right-1/3 top-4 w-20 h-20 rounded-full opacity-10"
@@ -637,8 +637,8 @@
 
             <div class="flex-1">
               <p class="text-[11px] font-bold uppercase mb-1.5 flex items-center justify-center sm:justify-start gap-2"
-                style="color:#bfdbfe;letter-spacing:0.18em;">
-                <span class="w-6 h-px hidden sm:inline-block" style="background:#bfdbfe;"></span>
+                style="color:#fed7aa;letter-spacing:0.18em;">
+                <span class="w-6 h-px hidden sm:inline-block" style="background:#fed7aa;"></span>
                 {{ __('PANEL ADMIN')}}
               </p>
               <h1 class="font-bold text-white mb-2.5 text-2xl sm:text-[34px]"
@@ -651,13 +651,13 @@
                   🛡️ Administrator
                 </span>
                 <span class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full"
-                  style="background:rgba(255,255,255,0.12);color:#dbeafe;border:1px solid rgba(255,255,255,.15);">
+                  style="background:rgba(255,255,255,0.12);color:#ffedd5;border:1px solid rgba(255,255,255,.15);">
                   <span class="w-1.5 h-1.5 rounded-full inline-block prof-status-dot"
                     style="background:#34d399;"></span>
                   {{ __('Bergabung') }} {{ Auth::user()->created_at?->format('M Y') ?? '-' }}
                 </span>
                 <span class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full"
-                  style="background:rgba(255,255,255,0.12);color:#dbeafe;border:1px solid rgba(255,255,255,.15);">
+                  style="background:rgba(255,255,255,0.12);color:#ffedd5;border:1px solid rgba(255,255,255,.15);">
                   ✉️ {{ Auth::user()->email }}
                 </span>
               </div>
@@ -671,21 +671,21 @@
                 data-target="{{ \App\Models\User::count() }}">
                 {{ number_format(\App\Models\User::count(), 0, ',', '.') }}</p>
               <p class="text-[10px] font-semibold uppercase tracking-wider mt-0.5"
-                style="color:#dbeafe;letter-spacing:0.12em;">{{ __('Pengguna') }}</p>
+                style="color:#ffedd5;letter-spacing:0.12em;">{{ __('Pengguna') }}</p>
             </div>
             <div class="prof-stat-pill rounded-2xl px-5 py-3 text-center min-w-[100px] flex-1 sm:flex-none">
               <p class="font-mono-num text-2xl font-bold text-white prof-counter"
                 data-target="{{ \App\Models\Misi::count() }}">
                 {{ number_format(\App\Models\Misi::count(), 0, ',', '.') }}</p>
               <p class="text-[10px] font-semibold uppercase tracking-wider mt-0.5"
-                style="color:#dbeafe;letter-spacing:0.12em;">{{ __('Kampanye') }}</p>
+                style="color:#ffedd5;letter-spacing:0.12em;">{{ __('Kampanye') }}</p>
             </div>
             <div class="prof-stat-pill rounded-2xl px-5 py-3 text-center min-w-[100px] flex-1 sm:flex-none">
               <p class="font-mono-num text-2xl font-bold text-white prof-counter"
                 data-target="{{ \App\Models\Pembayaran::where('status', 'accepted')->count() }}">
                 {{ number_format(\App\Models\Pembayaran::where('status', 'accepted')->count(), 0, ',', '.') }}</p>
               <p class="text-[10px] font-semibold uppercase tracking-wider mt-0.5"
-                style="color:#dbeafe;letter-spacing:0.12em;">{{ __('Transaksi') }}</p>
+                style="color:#ffedd5;letter-spacing:0.12em;">{{ __('Transaksi') }}</p>
             </div>
           </div>
         </div>
@@ -695,7 +695,7 @@
           style="border-top:1px solid rgba(255,255,255,0.15);">
           @php
             $mini = [
-              ['label' => __('Developer'), 'val' => \App\Models\User::where('role', \App\Enums\UserRole::developer)->count(), 'color' => '#60a5fa'],
+              ['label' => __('Developer'), 'val' => \App\Models\User::where('role', \App\Enums\UserRole::developer)->count(), 'color' => '#fb923c'],
               ['label' => __('Admin'), 'val' => \App\Models\User::where('role', \App\Enums\UserRole::admin)->count(), 'color' => '#f472b6'],
               ['label' => __('Tester'), 'val' => \App\Models\User::where('role', \App\Enums\UserRole::tester)->count(), 'color' => '#a78bfa'],
               ['label' => __('Misi Aktif'), 'val' => \App\Models\Misi::whereIn('status', ['open', 'progress'])->count(), 'color' => '#34d399'],
@@ -709,7 +709,7 @@
                 <p class="font-mono-num text-lg font-bold text-white prof-counter" data-target="{{ $m['val'] }}">
                   {{ number_format($m['val'], 0, ',', '.') }}</p>
                 <p class="text-[10px] font-semibold uppercase tracking-wider"
-                  style="color:#dbeafe;letter-spacing:0.12em;">{{ $m['label'] }}</p>
+                  style="color:#ffedd5;letter-spacing:0.12em;">{{ $m['label'] }}</p>
               </div>
             </div>
           @endforeach
@@ -738,8 +738,8 @@
           <div class="absolute inset-0 opacity-50"
             style="background:linear-gradient(90deg,rgba(239,246,255,.6),transparent 60%);"></div>
           <div class="prof-icon-wrap relative w-10 h-10 rounded-xl flex items-center justify-center"
-            style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);box-shadow:0 4px 12px rgba(37,99,235,.15);">
-            <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            style="background:linear-gradient(135deg,#ffedd5,#fed7aa);box-shadow:0 4px 12px rgba(234,88,12,.15);">
+            <svg class="w-5 h-5 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z" />
             </svg>

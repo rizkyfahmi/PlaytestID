@@ -93,7 +93,7 @@ html.dark td, html.dark .tk-detail-row, html.dark .mw-detail-row {
     border-color: #334155 !important;
 }
 
-html.dark .adm-stat-icon[style*="background:#eff6ff;"], html.dark .tk-stat-icon.tk-bg-blue, html.dark .mw-stat-icon.mw-bg-blue, html.dark .mp-stat-icon.mp-bg-blue, html.dark .mk-stat-icon.mk-bg-blue { background: rgba(37, 99, 235, 0.1) !important; }
+html.dark .adm-stat-icon[style*="background:#fff7ed;"], html.dark .tk-stat-icon.tk-bg-orange, html.dark .mw-stat-icon.mw-bg-orange, html.dark .mp-stat-icon.mp-bg-orange, html.dark .mk-stat-icon.mk-bg-orange { background: rgba(234, 88, 12, 0.1) !important; }
 html.dark .adm-stat-icon[style*="background:#f0fdf4;"], html.dark .tk-stat-icon.tk-bg-emerald, html.dark .mw-stat-icon.mw-bg-emerald, html.dark .mp-stat-icon.mp-bg-emerald, html.dark .mk-stat-icon.mk-bg-emerald { background: rgba(16, 185, 129, 0.1) !important; }
 html.dark .adm-stat-icon[style*="background:#fffbeb;"], html.dark .tk-stat-icon.tk-bg-orange, html.dark .mw-stat-icon.mw-bg-orange, html.dark .mp-stat-icon.mp-bg-orange, html.dark .mk-stat-icon.mk-bg-orange { background: rgba(245, 158, 11, 0.1) !important; }
 html.dark .adm-stat-icon[style*="background:#f5f3ff;"], html.dark .tk-stat-icon.tk-bg-purple, html.dark .mw-stat-icon.mw-bg-purple, html.dark .mp-stat-icon.mp-bg-purple, html.dark .mk-stat-icon.mk-bg-purple { background: rgba(139, 92, 246, 0.1) !important; }

@@ -249,10 +249,10 @@ Page : Dompet.php
             }
 
             .prof-hero {
-                background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #1d4ed8 55%, #2563eb 80%, #3b82f6 100%);
+                background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #c2410c 55%, #ea580c 80%, #f97316 100%);
                 background-size: 220% 220%;
                 animation: prof-gradient 14s ease infinite;
-                box-shadow: 0 20px 60px -15px rgba(37, 99, 235, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+                box-shadow: 0 20px 60px -15px rgba(234, 88, 12, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
                 isolation: isolate;
             }
 
@@ -273,7 +273,7 @@ Page : Dompet.php
                 position: absolute;
                 inset: -30%;
                 background:
-                    radial-gradient(40% 35% at 20% 30%, rgba(96, 165, 250, .55), transparent 60%),
+                    radial-gradient(40% 35% at 20% 30%, rgba(251, 146, 60, .55), transparent 60%),
                     radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
                     radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
                     radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%);
@@ -290,7 +290,7 @@ Page : Dompet.php
                 height: 520px;
                 left: -160px;
                 bottom: -200px;
-                background: conic-gradient(from 0deg, rgba(59, 130, 246, 0), rgba(96, 165, 250, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(59, 130, 246, 0));
+                background: conic-gradient(from 0deg, rgba(249, 115, 22, 0), rgba(251, 146, 60, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(249, 115, 22, 0));
                 border-radius: 50%;
                 filter: blur(30px);
                 animation: prof-conic 28s linear infinite;
@@ -304,7 +304,7 @@ Page : Dompet.php
                 height: 380px;
                 right: -120px;
                 top: -140px;
-                background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(96, 165, 250, .30), rgba(244, 114, 182, 0));
+                background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(251, 146, 60, .30), rgba(244, 114, 182, 0));
                 border-radius: 50%;
                 filter: blur(30px);
                 animation: prof-spin-rev 34s linear infinite;
@@ -615,15 +615,15 @@ Page : Dompet.php
             }
 
             .wlt-method:hover {
-                border-color: rgba(14, 165, 233, 0.4);
+                border-color: rgba(249, 115, 22, 0.4);
                 transform: translateY(-4px);
-                box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.05);
+                box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.05);
             }
 
             .wlt-method.active {
                 border-color: #0ea5e9;
                 background: #f0f9ff;
-                box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.1);
+                box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.1);
                 transform: translateY(-2px);
             }
 
@@ -679,14 +679,14 @@ Page : Dompet.php
             }
 
             .wlt-denom:hover {
-                border-color: rgba(14, 165, 233, 0.4);
+                border-color: rgba(249, 115, 22, 0.4);
                 transform: translateY(-2px);
             }
 
             .wlt-denom.active {
                 border-color: #0ea5e9;
                 background: #f0f9ff;
-                box-shadow: 0 4px 12px rgba(14, 165, 233, 0.1);
+                box-shadow: 0 4px 12px rgba(249, 115, 22, 0.1);
                 transform: translateY(-2px);
             }
 
@@ -721,13 +721,13 @@ Page : Dompet.php
                 font-weight: 700;
                 border: none;
                 cursor: pointer;
-                background: linear-gradient(135deg, #0ea5e9, #2563eb);
+                background: linear-gradient(135deg, #0ea5e9, #ea580c);
                 color: #ffffff;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 8px;
-                box-shadow: 0 4px 16px rgba(14, 165, 233, 0.3);
+                box-shadow: 0 4px 16px rgba(249, 115, 22, 0.3);
                 transition: all 0.3s ease;
                 font-family: 'Plus Jakarta Sans', sans-serif;
                 position: relative;
@@ -750,7 +750,7 @@ Page : Dompet.php
             }
 
             .wlt-btn-submit:hover {
-                box-shadow: 0 6px 24px rgba(14, 165, 233, 0.45);
+                box-shadow: 0 6px 24px rgba(249, 115, 22, 0.45);
                 transform: translateY(-2px);
             }
 
@@ -782,7 +782,7 @@ Page : Dompet.php
 
             .wlt-filter-ctrl:focus {
                 border-color: #0ea5e9;
-                box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+                box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
             }
 
             .wlt-search-icon {
@@ -904,8 +904,8 @@ Page : Dompet.php
                 gap: 12px;
                 padding: 16px;
                 border-radius: 12px;
-                background: #eff6ff;
-                border: 1px solid #bfdbfe;
+                background: #fff7ed;
+                border: 1px solid #fed7aa;
                 animation: slideDown 0.4s ease-out;
             }
 
@@ -952,7 +952,7 @@ Page : Dompet.php
 
             .wlt-input:focus {
                 border-color: #0ea5e9;
-                box-shadow: 0 4px 12px rgba(14, 165, 233, 0.1);
+                box-shadow: 0 4px 12px rgba(249, 115, 22, 0.1);
                 transform: translateY(-1px);
             }
 
@@ -962,8 +962,8 @@ Page : Dompet.php
             }
 
             .wlt-step-badge {
-                background: #eff6ff;
-                color: #2563eb;
+                background: #fff7ed;
+                color: #ea580c;
                 width: 24px;
                 height: 24px;
                 display: inline-flex;
@@ -1060,7 +1060,7 @@ Page : Dompet.php
 
                 {{-- Floating decorative blobs --}}
                 <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-                    style="background:radial-gradient(circle,#60a5fa,transparent 70%);"></div>
+                    style="background:radial-gradient(circle,#fb923c,transparent 70%);"></div>
                 <div class="prof-blob-rev absolute right-20 -bottom-16 w-40 h-40 rounded-full opacity-15"
                     style="background:radial-gradient(circle,#a78bfa,transparent 70%);"></div>
                 <div class="prof-blob absolute right-1/3 top-4 w-20 h-20 rounded-full opacity-10"
@@ -1218,11 +1218,11 @@ Page : Dompet.php
                     x-transition:enter-end="opacity-100">
                     <div class="wlt-warning">
                         <span class="material-symbols-outlined"
-                            style="color:#2563eb; font-size:1.5rem; margin-top:2px;">info</span>
+                            style="color:#ea580c; font-size:1.5rem; margin-top:2px;">info</span>
                         <div>
-                            <p class="text-sm font-bold font-heading text-blue-900 mb-1">{{ __('Informasi Penarikan') }}
+                            <p class="text-sm font-bold font-heading text-orange-900 mb-1">{{ __('Informasi Penarikan') }}
                             </p>
-                            <p class="text-sm font-medium" style="color:#1e3a8a; line-height:1.5; opacity: 0.85;">
+                            <p class="text-sm font-medium" style="color:#7c2d12; line-height:1.5; opacity: 0.85;">
                                 {{ __('Proses withdrawal membutuhkan waktu maksimal :hours jam kerja. Pastikan nomor yang dimasukkan sudah benar karena transaksi tidak dapat dibatalkan.', ['hours' => '<strong>24</strong>']) }}
                             </p>
                         </div>
@@ -1425,7 +1425,7 @@ Page : Dompet.php
                             style="padding:24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #f1f5f9; background:#f8fafc;">
                             <h3 class="font-heading" style="font-size:1.1rem; font-weight:800; color:#0f172a; margin:0;">
                                 <span class="material-symbols-outlined"
-                                    style="font-size:1.2rem; vertical-align:middle; margin-right:6px; color:#2563eb;">receipt_long</span>
+                                    style="font-size:1.2rem; vertical-align:middle; margin-right:6px; color:#ea580c;">receipt_long</span>
                                 {{ __('Detail Transaksi') }}
                             </h3>
                             <button @click="open = false; setTimeout(() => $wire.closeInvoice(), 300)"

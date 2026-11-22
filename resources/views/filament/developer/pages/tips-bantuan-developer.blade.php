@@ -256,7 +256,7 @@
     ══════════════════════════════════════ */
       .tb-hero {
         position: relative;
-        background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #1d4ed8 55%, #2563eb 80%, #3b82f6 100%);
+        background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #c2410c 55%, #ea580c 80%, #f97316 100%);
         background-size: 220% 220%;
         animation: tb-gradient 14s ease infinite;
         border-radius: 1.5rem;
@@ -264,7 +264,7 @@
         margin-bottom: 1.5rem;
         overflow: hidden;
         isolation: isolate;
-        box-shadow: 0 20px 60px -15px rgba(37, 99, 235, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+        box-shadow: 0 20px 60px -15px rgba(234, 88, 12, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
       }
 
       /* Aurora mesh */
@@ -272,7 +272,7 @@
         position: absolute;
         inset: -30%;
         background:
-          radial-gradient(40% 35% at 20% 30%, rgba(96, 165, 250, .55), transparent 60%),
+          radial-gradient(40% 35% at 20% 30%, rgba(251, 146, 60, .55), transparent 60%),
           radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
           radial-gradient(25% 20% at 70% 55%, rgba(251, 191, 36, .30), transparent 55%),
           radial-gradient(20% 18% at 40% 10%, rgba(245, 158, 11, .25), transparent 50%),
@@ -291,7 +291,7 @@
         height: 520px;
         left: -160px;
         bottom: -200px;
-        background: conic-gradient(from 0deg, rgba(59, 130, 246, 0), rgba(96, 165, 250, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(59, 130, 246, 0));
+        background: conic-gradient(from 0deg, rgba(249, 115, 22, 0), rgba(251, 146, 60, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(249, 115, 22, 0));
         border-radius: 50%;
         filter: blur(30px);
         animation: tb-conic 28s linear infinite;
@@ -495,7 +495,7 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: .18em;
-        color: #bfdbfe;
+        color: #fed7aa;
         display: flex;
         align-items: center;
         gap: 8px;
@@ -505,7 +505,7 @@
       .tb-hero-label span {
         width: 24px;
         height: 1px;
-        background: #bfdbfe;
+        background: #fed7aa;
       }
 
       .tb-hero-title {
@@ -519,7 +519,7 @@
 
       .tb-hero-sub {
         font-size: .85rem;
-        color: #dbeafe;
+        color: #ffedd5;
         margin-top: 6px;
         font-weight: 500;
         display: flex;
@@ -593,7 +593,7 @@
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: .12em;
-        color: #dbeafe;
+        color: #ffedd5;
         margin-top: 2px;
       }
 
@@ -686,8 +686,8 @@
       }
 
       .tb-search-input:focus {
-        border-color: #2563eb;
-        box-shadow: 0 0 0 4px rgba(37, 99, 235, .1), 0 4px 16px rgba(37, 99, 235, .08);
+        border-color: #ea580c;
+        box-shadow: 0 0 0 4px rgba(234, 88, 12, .1), 0 4px 16px rgba(234, 88, 12, .08);
         background: #fff;
       }
 
@@ -698,8 +698,8 @@
       }
 
       .dark .tb-search-input:focus {
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 4px rgba(59, 130, 246, .12), 0 4px 16px rgba(59, 130, 246, .08);
+        border-color: #f97316;
+        box-shadow: 0 0 0 4px rgba(249, 115, 22, .12), 0 4px 16px rgba(249, 115, 22, .08);
         background: rgba(15, 23, 42, .85);
       }
 
@@ -725,9 +725,9 @@
       }
 
       .tb-tab--active {
-        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        background: linear-gradient(135deg, #ea580c, #7c3aed);
         color: #fff;
-        box-shadow: 0 4px 14px -4px rgba(37, 99, 235, .4);
+        box-shadow: 0 4px 14px -4px rgba(234, 88, 12, .4);
       }
 
       .tb-tab--inactive {
@@ -741,7 +741,7 @@
       .tb-tab--inactive:hover {
         background: #fff;
         color: #1e293b;
-        border-color: rgba(37, 99, 235, .2);
+        border-color: rgba(234, 88, 12, .2);
       }
 
       .dark .tb-tab--inactive {
@@ -783,14 +783,14 @@
       }
 
       .tb-card:hover {
-        border-color: rgba(37, 99, 235, .2);
+        border-color: rgba(234, 88, 12, .2);
         transform: translateY(-3px);
-        box-shadow: 0 12px 40px -12px rgba(37, 99, 235, .15);
+        box-shadow: 0 12px 40px -12px rgba(234, 88, 12, .15);
       }
 
       .tb-card--expanded {
-        border-color: rgba(37, 99, 235, .3) !important;
-        box-shadow: 0 16px 48px -12px rgba(37, 99, 235, .18) !important;
+        border-color: rgba(234, 88, 12, .3) !important;
+        box-shadow: 0 16px 48px -12px rgba(234, 88, 12, .18) !important;
         background: #fff !important;
       }
 
@@ -802,12 +802,12 @@
 
       .dark .tb-card:hover {
         background: rgba(30, 41, 59, .75);
-        border-color: rgba(59, 130, 246, .25);
+        border-color: rgba(249, 115, 22, .25);
       }
 
       .dark .tb-card--expanded {
         background: rgba(30, 41, 59, .9) !important;
-        border-color: rgba(59, 130, 246, .35) !important;
+        border-color: rgba(249, 115, 22, .35) !important;
       }
 
       .tb-card-head {
@@ -913,7 +913,7 @@
         width: 26px;
         height: 26px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        background: linear-gradient(135deg, #ea580c, #7c3aed);
         color: #fff;
         font-size: .7rem;
         font-weight: 700;
@@ -922,7 +922,7 @@
         justify-content: center;
         flex-shrink: 0;
         margin-top: 1px;
-        box-shadow: 0 2px 8px rgba(37, 99, 235, .3);
+        box-shadow: 0 2px 8px rgba(234, 88, 12, .3);
       }
 
       .tb-step-txt {
@@ -988,8 +988,8 @@
 
       .tb-quick-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px -8px rgba(37, 99, 235, .12);
-        border-color: rgba(37, 99, 235, .2);
+        box-shadow: 0 8px 24px -8px rgba(234, 88, 12, .12);
+        border-color: rgba(234, 88, 12, .2);
       }
 
       .dark .tb-quick-card {
@@ -999,7 +999,7 @@
 
       .dark .tb-quick-card:hover {
         background: rgba(30, 41, 59, .75);
-        border-color: rgba(59, 130, 246, .25);
+        border-color: rgba(249, 115, 22, .25);
       }
 
       .tb-quick-icon {
@@ -1073,14 +1073,14 @@
         font-family: 'JetBrains Mono', monospace;
         font-size: .85rem;
         font-weight: 700;
-        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        background: linear-gradient(135deg, #ea580c, #7c3aed);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
 
       .dark .tb-stats-num {
-        background: linear-gradient(135deg, #60a5fa, #a78bfa);
+        background: linear-gradient(135deg, #fb923c, #a78bfa);
         -webkit-background-clip: text;
         background-clip: text;
       }
@@ -1092,15 +1092,15 @@
         background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
         border-radius: 1rem !important;
         padding: 20px 24px !important;
-        box-shadow: 0 25px 60px -12px rgba(37, 99, 235, .3), 0 0 0 1px rgba(37, 99, 235, .1) !important;
+        box-shadow: 0 25px 60px -12px rgba(234, 88, 12, .3), 0 0 0 1px rgba(234, 88, 12, .1) !important;
         max-width: 360px !important;
-        border: 1px solid rgba(37, 99, 235, .15) !important;
+        border: 1px solid rgba(234, 88, 12, .15) !important;
       }
 
       .dark .driver-popover.tb-driver-theme {
         background: linear-gradient(135deg, #1e293b, #0f172a) !important;
-        border-color: rgba(59, 130, 246, .25) !important;
-        box-shadow: 0 25px 60px -12px rgba(0, 0, 0, .5), 0 0 0 1px rgba(59, 130, 246, .15) !important;
+        border-color: rgba(249, 115, 22, .25) !important;
+        box-shadow: 0 25px 60px -12px rgba(0, 0, 0, .5), 0 0 0 1px rgba(249, 115, 22, .15) !important;
       }
 
       .driver-popover.tb-driver-theme .driver-popover-title {
@@ -1145,13 +1145,13 @@
       }
 
       .driver-popover.tb-driver-theme button.driver-popover-next-btn {
-        background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+        background: linear-gradient(135deg, #ea580c, #7c3aed) !important;
         color: #fff !important;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, .3) !important;
+        box-shadow: 0 4px 12px rgba(234, 88, 12, .3) !important;
       }
 
       .driver-popover.tb-driver-theme button.driver-popover-next-btn:hover {
-        box-shadow: 0 6px 20px rgba(37, 99, 235, .4) !important;
+        box-shadow: 0 6px 20px rgba(234, 88, 12, .4) !important;
       }
 
       .driver-popover.tb-driver-theme button.driver-popover-prev-btn {
@@ -1346,7 +1346,7 @@
 
       {{-- Decorative blobs --}}
       <div class="tb-blob"
-        style="position:absolute;right:-48px;top:-48px;width:192px;height:192px;border-radius:50%;opacity:.2;background:radial-gradient(circle,#60a5fa,transparent 70%);">
+        style="position:absolute;right:-48px;top:-48px;width:192px;height:192px;border-radius:50%;opacity:.2;background:radial-gradient(circle,#fb923c,transparent 70%);">
       </div>
       <div class="tb-blob-rev"
         style="position:absolute;right:80px;bottom:-64px;width:160px;height:160px;border-radius:50%;opacity:.15;background:radial-gradient(circle,#a78bfa,transparent 70%);">
@@ -1470,7 +1470,7 @@
       <div class="tb-quick-title">⚡ {{ __('Akses Cepat Developer') }}</div>
       <div class="tb-quick-grid">
         <a href="/developer" class="tb-quick-card">
-          <div class="tb-quick-icon" style="background:rgba(37,99,235,.1);">🏠</div>
+          <div class="tb-quick-icon" style="background:rgba(234,88,12,.1);">🏠</div>
           <div>
             <div class="tb-quick-label">{{ __('Dashboard') }}</div>
             <div class="tb-quick-sublabel">{{ __('Ringkasan aplikasi') }}</div>
@@ -1533,7 +1533,7 @@
             {
               title: {!! json_encode(__('Dashboard Developer')) !!},
               emoji: '🏠',
-              iconBg: 'rgba(37,99,235,0.12)',
+              iconBg: 'rgba(234,88,12,0.12)',
               category: 'navigasi',
               categoryLabel: {!! json_encode(__('Navigasi')) !!},
               desc: {!! json_encode(__('Dashboard Developer menampilkan ringkasan aplikasi Anda, progres testing, dan statistik kampanye. Di sini Anda bisa melihat total misi, misi aktif, dan notifikasi terbaru secara real-time.')) !!},
@@ -1579,7 +1579,7 @@
             {
               title: {!! json_encode(__('Daftar Aplikasi Saya')) !!},
               emoji: '📱',
-              iconBg: 'rgba(59,130,246,0.12)',
+              iconBg: 'rgba(249,115,22,0.12)',
               category: 'fitur',
               categoryLabel: {!! json_encode(__('Fitur')) !!},
               desc: {!! json_encode(__('Di sini Anda dapat melihat seluruh aplikasi yang telah Anda daftarkan, statusnya, serta opsi untuk mengelola tester.')) !!},
@@ -1651,7 +1651,7 @@
             {
               title: {!! json_encode(__('Ganti Bahasa')) !!},
               emoji: '🌐',
-              iconBg: 'rgba(59,130,246,0.12)',
+              iconBg: 'rgba(249,115,22,0.12)',
               category: 'umum',
               categoryLabel: {!! json_encode(__('Umum')) !!},
               desc: {!! json_encode(__('Ubah bahasa antarmuka panel developer sesuai preferensi Anda. Tersedia pilihan Bahasa Indonesia dan Bahasa Inggris.')) !!},

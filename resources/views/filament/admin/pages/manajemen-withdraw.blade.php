@@ -281,7 +281,7 @@
         }
 
         .mw-search-wrap:focus-within .mw-search-icon {
-            color: #2563eb;
+            color: #ea580c;
         }
 
         .mw-search-input {
@@ -304,9 +304,9 @@
 
         .mw-input:focus,
         .mw-select:focus {
-            border-color: #2563eb;
+            border-color: #ea580c;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
         }
 
         .mw-btn {
@@ -443,11 +443,11 @@
         }
 
         .mw-sort-btn:hover {
-            color: #2563eb;
+            color: #ea580c;
         }
 
         .mw-sort-btn.active {
-            color: #2563eb;
+            color: #ea580c;
         }
 
         .mw-sort-icon {
@@ -651,14 +651,14 @@
         }
 
         .mw-action-detail {
-            background: #eff6ff;
-            color: #2563eb;
+            background: #fff7ed;
+            color: #ea580c;
         }
 
         .mw-action-detail:hover {
-            background: #dbeafe;
+            background: #ffedd5;
             transform: translateY(-1px);
-            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 2px 6px rgba(234, 88, 12, 0.15);
         }
 
         .mw-action-detail:active {
@@ -694,9 +694,9 @@
         }
 
         .mw-pagi-btn:hover {
-            background: #eff6ff;
-            border-color: #2563eb;
-            color: #2563eb;
+            background: #fff7ed;
+            border-color: #ea580c;
+            color: #ea580c;
             transform: translateY(-1px);
         }
 
@@ -705,10 +705,10 @@
         }
 
         .mw-pagi-btn.active {
-            background: #2563eb;
-            border-color: #2563eb;
+            background: #ea580c;
+            border-color: #ea580c;
             color: #fff;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 4px 10px rgba(234, 88, 12, 0.25);
         }
 
         /* ══ UPLOAD AREA ══ */
@@ -748,8 +748,8 @@
         }
 
         .mw-upload-area:hover {
-            border-color: #2563eb;
-            background: #eff6ff;
+            border-color: #ea580c;
+            background: #fff7ed;
         }
 
         .mw-upload-area.has-file {
@@ -1117,9 +1117,9 @@
         }
 
         .dark .mw-pagi-btn.active {
-            background: #2563eb !important;
+            background: #ea580c !important;
             color: #fff !important;
-            border-color: #2563eb !important;
+            border-color: #ea580c !important;
         }
 
         .dark .mw-input,
@@ -1186,12 +1186,12 @@
         }
 
         .dark .mw-action-detail {
-            background: #1e3a8a !important;
-            color: #93c5fd !important;
+            background: #7c2d12 !important;
+            color: #fdba74 !important;
         }
 
         .dark .mw-action-detail:hover {
-            background: #1e40af !important;
+            background: #9a3412 !important;
         }
     </style>
 
