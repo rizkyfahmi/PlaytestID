@@ -479,13 +479,7 @@
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
       <!-- ── Left: Copywriting ── -->
-      <div class="text-white space-y-6" style="animation: fadeUp 0.8s ease forwards;">
-
-        <!-- Badge -->
-        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white text-xs font-semibold px-4 py-2 rounded-full">
-          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulseDot"></span>
-          {{ __("Platform Closed Testing #1 di Indonesia") }}
-        </div>
+      <div class="text-white space-y-7 pt-2" style="animation: fadeUp 0.8s ease forwards;">
 
         <!-- Headline -->
         <h1 class="text-4xl sm:text-5xl lg:text-5xl font-black leading-tight tracking-tight">
@@ -500,19 +494,17 @@
         </p>
 
         <!-- Dual CTA -->
-        <div class="flex flex-col sm:flex-row gap-3 pt-2">
-          <button onclick="window.location.href='{{ route('filament.developer.auth.login') }}'" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-brand-700 font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:bg-brand-50 transition duration-300 text-sm">
-            <i class="fa-solid fa-rocket"></i>
+        <div class="flex flex-col sm:flex-row gap-3.5 pt-1">
+          <button onclick="window.location.href='{{ route('filament.developer.auth.login') }}'" class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-brand-700 font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:bg-brand-50 transition duration-300 text-sm tracking-wide">
             {{ __('Saya Butuh Tester') }}
           </button>
-          <button onclick="window.location.href='{{ route('filament.tester.auth.login') }}'" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 border border-white/40 text-white font-semibold rounded-2xl hover:bg-white/20 transition duration-300 text-sm backdrop-blur-sm">
-            <i class="fa-solid fa-hand-pointer"></i>
+          <button onclick="window.location.href='{{ route('filament.tester.auth.login') }}'" class="inline-flex items-center justify-center px-7 py-3.5 bg-white/10 border border-white/30 text-white font-semibold rounded-2xl hover:bg-white/20 transition duration-300 text-sm backdrop-blur-sm tracking-wide">
             {{ __('Saya Ingin Jadi Tester') }}
           </button>
         </div>
 
         <!-- Social proof counters -->
-        <div class="flex gap-8 pt-4 border-t border-white/20">
+        <div class="flex gap-8 pt-5 border-t border-white/20">
           <div>
             <p class="text-3xl font-black">1,200+</p>
             <p class="text-orange-200 text-xs font-medium mt-0.5">{{ __('Tester Aktif') }}</p>
@@ -535,14 +527,9 @@
         <div class="glass-card rounded-3xl p-6 w-full max-w-sm shadow-2xl text-white">
 
           <!-- Card header -->
-          <div class="flex items-center justify-between mb-5">
-            <div>
-              <p class="text-xs text-orange-200 font-medium uppercase tracking-widest">{{ __('Kampanye Aktif') }}</p>
-              <p class="text-lg font-bold mt-0.5">{{ __('MyApp – Closed Testing') }}</p>
-            </div>
-            <div class="w-10 h-10 bg-green-400/20 rounded-xl flex items-center justify-center">
-              <i class="fa-solid fa-circle-check text-green-400 text-lg"></i>
-            </div>
+          <div class="mb-5 pb-3 border-b border-white/10">
+            <p class="text-xs text-orange-200 font-medium uppercase tracking-widest">{{ __('Kampanye Aktif') }}</p>
+            <p class="text-xl font-bold mt-1 tracking-tight">{{ __('MyApp – Closed Testing') }}</p>
           </div>
 
           <!-- 14 Days Progress -->
