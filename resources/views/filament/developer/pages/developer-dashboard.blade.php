@@ -301,7 +301,7 @@
     {{-- Welcome Row --}}
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
-        <h1 class="text-2xl font-black text-slate-800 dark:text-white">{{ __('Selamat datang kembali,') }} <span class="text-brand-gradient">Developer!</span> 👋</h1>
+        <h1 class="text-2xl font-black text-slate-800 dark:text-white">{{ __('Selamat datang kembali,') }} <span class="text-brand-gradient">Developer!</span></h1>
         <p class="text-slate-500 dark:text-slate-400 text-sm mt-1.5">{{ __('Berikut adalah ringkasan pengujian Anda hari ini.') }}</p>
       </div>
       <a href="{{ url('developer/misis/create') }}"
@@ -314,11 +314,8 @@
     {{-- Stat Cards --}}
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       <div class="dev-stat-card" style="border-top:4px solid #2563eb;">
-        <div class="flex items-start justify-between mb-5">
+        <div class="mb-3">
           <p class="text-slate-400 font-bold uppercase tracking-widest" style="font-size:10.5px;">{{ __('Pengujian Aktif') }}</p>
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-50 dark:bg-blue-900/20">
-            <x-heroicon-o-play-circle class="w-5 h-5 text-blue-600 dark:text-blue-400" />
-          </div>
         </div>
         <p class="font-black text-slate-800 dark:text-white" style="font-size:48px;line-height:1;">{{ $statAktif }}</p>
         <div class="mt-3 flex items-center gap-2">
@@ -332,11 +329,8 @@
       </div>
 
       <div class="dev-stat-card" style="border-top:4px solid #22c55e;">
-        <div class="flex items-start justify-between mb-5">
+        <div class="mb-3">
           <p class="text-slate-400 font-bold uppercase tracking-widest" style="font-size:10.5px;">{{ __('Pengujian Selesai') }}</p>
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-green-50 dark:bg-green-900/20">
-            <x-heroicon-o-check-circle class="w-5 h-5 text-green-600 dark:text-green-400" />
-          </div>
         </div>
         <p class="font-black text-slate-800 dark:text-white" style="font-size:48px;line-height:1;">{{ $statSelesai }}</p>
         <div class="mt-3 flex items-center gap-2">
@@ -350,11 +344,8 @@
       </div>
 
       <div class="dev-stat-card" style="border-top:4px solid #a855f7;">
-        <div class="flex items-start justify-between mb-5">
+        <div class="mb-3">
           <p class="text-slate-400 font-bold uppercase tracking-widest" style="font-size:10.5px;">{{ __('Total Tester Direkrut') }}</p>
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-purple-50 dark:bg-purple-900/20">
-            <x-heroicon-o-user-group class="w-5 h-5 text-purple-600 dark:text-purple-400" />
-          </div>
         </div>
         <p class="font-black text-slate-800 dark:text-white" style="font-size:48px;line-height:1;">{{ $statTester }}</p>
         <div class="mt-3 flex items-center gap-2">

@@ -143,18 +143,6 @@
                             </svg>
                             <span x-text="time" class="tracking-widest font-mono drop-shadow-sm"></span>
             </div>
-
-            {{-- Network Status (moved here, next to clock / left side) --}}
-            <div class="fi-topbar-network hidden md:flex items-center gap-1.5 ml-2 px-2.5 py-1 rounded-full border border-gray-200/50 dark:border-gray-700/50 bg-white/40 dark:bg-gray-800/40 backdrop-blur-md shadow-sm transition-all hover:scale-105 hover:bg-white/60 dark:hover:bg-gray-800/60 cursor-default"
-                x-data="{ online: navigator.onLine }"
-                @online.window="online = true"
-                @offline.window="online = false">
-                <span class="relative flex h-2.5 w-2.5">
-                    <span x-show="online" class="topbar-net-ping"></span>
-                    <span class="topbar-net-dot" :class="online ? 'is-online' : 'is-offline'"></span>
-                </span>
-                <span class="text-[10px] font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300" x-text="online ? 'Online' : 'Offline'"></span>
-            </div>
             @endauth
 
             {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::TOPBAR_LOGO_AFTER) }}
