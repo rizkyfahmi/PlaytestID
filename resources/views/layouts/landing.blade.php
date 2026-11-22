@@ -490,12 +490,9 @@
         <i class="fa-solid fa-xmark"></i>
       </button>
       <div class="p-8">
-        <div class="text-center mb-8">
-          <div class="w-12 h-12 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <i id="authModalIcon" class="fa-solid fa-user-lock text-brand-600 text-xl"></i>
-          </div>
-          <h3 id="authModalTitle" class="text-2xl font-black text-slate-800">{{ __('Pilih Akun') }}</h3>
-          <p id="authModalDesc" class="text-slate-500 text-sm mt-2">
+        <div class="text-center mb-6 mt-1">
+          <h3 id="authModalTitle" class="text-2xl font-black text-slate-800 dark:text-white">{{ __('Pilih Akun') }}</h3>
+          <p id="authModalDesc" class="text-slate-500 dark:text-slate-400 text-sm mt-2">
             {{ __('Silakan pilih peran Anda untuk melanjutkan.') }}</p>
         </div>
         <div class="space-y-4">
@@ -565,13 +562,13 @@
       if (type === 'login') {
         title.innerText = '{{ __("Masuk Sebagai") }}';
         desc.innerText = '{{ __("Pilih akun untuk mengakses dasbor Anda.") }}';
-        icon.className = 'fa-solid fa-right-to-bracket text-brand-600 text-xl';
+        if (icon) icon.className = 'fa-solid fa-right-to-bracket text-brand-600 text-xl';
         btnDev.href = authRoutes.login.developer;
         btnTester.href = authRoutes.login.tester;
       } else {
         title.innerText = '{{ __("Daftar Sebagai") }}';
         desc.innerText = '{{ __("Pilih peran yang sesuai dengan tujuan Anda.") }}';
-        icon.className = 'fa-solid fa-user-plus text-brand-600 text-xl';
+        if (icon) icon.className = 'fa-solid fa-user-plus text-brand-600 text-xl';
         btnDev.href = authRoutes.register.developer;
         btnTester.href = authRoutes.register.tester;
       }
