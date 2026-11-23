@@ -109,7 +109,7 @@
                 {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::TOPBAR_LOGO_BEFORE) }}
 
                 <div class="relative group flex items-center justify-center">
-                    <div class="absolute inset-0 bg-gradient-to-r from-primary-500/40 to-purple-500/40 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none"></div>
+                    <div class="absolute inset-0 bg-purple-600blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none"></div>
                     @if ($homeUrl = filament()->getHomeUrl())
                     <a {{ \Filament\Support\generate_href_html($homeUrl) }} class="relative z-10 transform transition-all duration-300 group-hover:scale-105 group-hover:rotate-1">
                         <x-filament-panels::logo />
@@ -128,7 +128,7 @@
                             @endphp
 
                             {{-- Live Clock (uses ":" separator) --}}
-                            <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 ml-4 bg-gradient-to-r from-white/50 to-gray-50/50 dark:from-gray-800/50 dark:to-gray-900/50 rounded-full border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-md shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 text-xs font-semibold text-gray-700 dark:text-gray-200 cursor-default ring-1 ring-primary-500/10 hover:ring-primary-500/30"
+                            <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 ml-4 bg-slate-50 dark:bg-slate-900rounded-full border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-md shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 text-xs font-semibold text-gray-700 dark:text-gray-200 cursor-default ring-1 ring-primary-500/10 hover:ring-primary-500/30"
                             x-data="{
                         time: '',
                         fmt() {
@@ -285,7 +285,7 @@
                     {{-- Greeting text side --}}
                     <span class="topbar-greeting topbar-greeting--merged">
                         <span class="inline-block animate-bounce" style="animation-duration: 3s; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">{{ $timeIcon }}</span>
-                        <span class="topbar-greeting-text">{{ $greeting }}, <strong class="topbar-greeting-name bg-gradient-to-r from-primary-600 to-fuchsia-500 dark:from-primary-400 dark:to-fuchsia-400 bg-clip-text text-transparent drop-shadow-sm">{{ $userName }}</strong></span>
+                        <span class="topbar-greeting-text">{{ $greeting }}, <strong class="topbar-greeting-name bg-brand-500bg-clip-text text-transparent drop-shadow-sm">{{ $userName }}</strong></span>
                     </span>
                     {{-- Avatar / dropdown side --}}
                     <div class="fi-topbar-user-menu-wrap fi-topbar-user-menu-wrap--merged" x-data>

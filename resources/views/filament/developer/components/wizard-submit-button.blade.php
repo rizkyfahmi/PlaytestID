@@ -18,7 +18,7 @@
         font-weight: 800;
         color: #fff;
         letter-spacing: .02em;
-        background: linear-gradient(120deg, #4f46e5, #a855f7, #06b6d4, #4f46e5);
+        background: #ffd900;
         background-size: 300% 300%;
         animation: wsb-aurora 6s ease infinite;
         box-shadow:
@@ -42,7 +42,7 @@
     .wsb-btn::before {
         content: '';
         position: absolute; inset: 0;
-        background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%);
+        background: transparent;
         transform: translateX(-150%) skewX(-20deg);
         pointer-events: none;
     }

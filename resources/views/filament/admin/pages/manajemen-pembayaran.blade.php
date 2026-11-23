@@ -84,7 +84,7 @@
             left: -100%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+            background: transparent;
             transform: skewX(-25deg);
             transition: 0.75s;
             z-index: 1;
@@ -149,19 +149,19 @@
 
         /* Stat Colors */
         .tk-grad-orange {
-            background: linear-gradient(90deg, #ffd900, #fed000);
+            background: #ffd900;
         }
 
         .tk-grad-emerald {
-            background: linear-gradient(90deg, #10b981, #34d399);
+            background: #10b981;
         }
 
         .tk-grad-green {
-            background: linear-gradient(90deg, #22c55e, #86efac);
+            background: #10b981;
         }
 
         .tk-grad-orange {
-            background: linear-gradient(90deg, #f59e0b, #fcd34d);
+            background: #ffd900;
         }
 
         .tk-bg-orange {
@@ -204,7 +204,7 @@
         .tk-chart-bar {
             width: 80%;
             border-radius: 6px 6px 0 0;
-            background: linear-gradient(to top, #ca8a04, #fed000);
+            background: #ffd900;
             height: 0;
             transition: height 1.2s cubic-bezier(.4, 0, .2, 1), opacity 0.2s, box-shadow 0.2s;
             position: relative;
@@ -246,7 +246,7 @@
         }
 
         .tk-chart-active .tk-chart-bar {
-            background: linear-gradient(to top, #f59e0b, #fcd34d) !important;
+            background: #ffd900 !important;
         }
 
         .tk-chart-active .tk-chart-bar:hover {
@@ -336,7 +336,7 @@
         }
 
         .tk-btn-primary {
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: #10b981;
             color: #fff;
         }
 
@@ -346,7 +346,7 @@
         }
 
         .tk-btn-danger {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            background: #ef4444;
             color: #fff;
         }
 
@@ -436,7 +436,7 @@
             align-items: center;
             gap: 3px;
             background: none;
-            border: none;
+border: none;
             cursor: pointer;
             font-size: .75rem;
             font-weight: 600;
@@ -1016,7 +1016,7 @@
         }
 
         .tk-summary-box {
-            background: linear-gradient(135deg, #1e3a5f, #0f172a);
+            background: #0f172a;
             border-radius: 12px;
             padding: 20px;
             color: #fff;
@@ -1171,7 +1171,7 @@
 
                 <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 flex-1 shadow-sm hover:shadow-md transition-shadow">
                     <div class="tk-sora font-bold text-slate-800 dark:text-slate-100 text-sm mb-4">{{ __('Payment Gateway') }}</div>
-                    <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-brand-50 to-amber-50 dark:from-slate-700/50 dark:to-slate-700/50 rounded-xl border border-brand-100 dark:border-slate-600">
+                    <div class="flex items-center gap-4 p-4 bg-brand-500rounded-xl border border-brand-100 dark:border-slate-600">
                         <div class="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-brand-100 dark:border-slate-600">
                             <span class="material-symbols-outlined text-[1.6rem] text-brand-600 dark:text-brand-400">account_balance</span>
                         </div>
@@ -1314,7 +1314,7 @@
                         </td>
                         <td>
                             <div class="flex items-center gap-3">
-                                <div class="tk-avatar bg-gradient-to-br {{ $t['avatarColor'] }}">{{ $t['inisial'] }}</div>
+                                <div class="tk-avatar {{ $t['avatarColor'] }}">{{ $t['inisial'] }}</div>
                                 <div class="tk-td-name">{{ $t['namaUser'] }}</div>
                             </div>
                         </td>

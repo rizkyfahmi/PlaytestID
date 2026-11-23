@@ -116,9 +116,9 @@ class TesterDashboard extends Page
 
                 // Warna & Gradasi berdasarkan ID agar variatif tapi tetap konsisten
                 $gradients = [
-                    ['icon' => 'linear-gradient(135deg,#f59e0b,#ef4444)', 'bar' => 'linear-gradient(90deg,#0ea5e9,#ffd900)'],
-                    ['icon' => 'linear-gradient(135deg,#8b5cf6,#6366f1)', 'bar' => 'linear-gradient(90deg,#8b5cf6,#6366f1)'],
-                    ['icon' => 'linear-gradient(135deg,#10b981,#0ea5e9)', 'bar' => 'linear-gradient(90deg,#10b981,#0ea5e9)'],
+                    ['icon' => '#ffd900', 'bar' => '#ffd900'],
+                    ['icon' => '#8b5cf6', 'bar' => '#8b5cf6'],
+                    ['icon' => '#10b981', 'bar' => '#10b981'],
                 ];
                 $gId = $m->id % count($gradients);
 
@@ -167,10 +167,10 @@ class TesterDashboard extends Page
                 $cat = $categories[$m->id % count($categories)];
 
                 $gradients = [
-                    'linear-gradient(135deg,#f59e0b,#fed000)',
-                    'linear-gradient(135deg,#6366f1,#8b5cf6)',
-                    'linear-gradient(135deg,#0ea5e9,#10b981)',
-                    'linear-gradient(135deg,#ef4444,#fed000)',
+                    '#ffd900',
+                    '#8b5cf6',
+                    '#10b981',
+                    '#ef4444',
                 ];
 
                 return [

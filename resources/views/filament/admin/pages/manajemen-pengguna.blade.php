@@ -90,7 +90,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                 left: -100%;
                 width: 50%;
                 height: 100%;
-                background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+                background: transparent;
                 transform: skewX(-25deg);
                 transition: 0.75s;
                 z-index: 1;
@@ -146,19 +146,19 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-grad-orange {
-                background: linear-gradient(90deg, #ffd900, #fed000);
+                background: #ffd900;
             }
 
             .mp-grad-green {
-                background: linear-gradient(90deg, #22c55e, #86efac);
+                background: #10b981;
             }
 
             .mp-grad-orange {
-                background: linear-gradient(90deg, #f59e0b, #fcd34d);
+                background: #ffd900;
             }
 
             .mp-grad-violet {
-                background: linear-gradient(90deg, #7c3aed, #a78bfa);
+                background: #8b5cf6;
             }
 
             .mp-bg-orange {
@@ -258,7 +258,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-btn-primary {
-                background: linear-gradient(135deg, #ffd900, #ca8a04);
+                background: #ffd900;
                 color: #fff;
             }
 
@@ -325,7 +325,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                 align-items: center;
                 gap: 3px;
                 background: none;
-                border: none;
+border: none;
                 cursor: pointer;
                 font-size: .75rem;
                 font-weight: 600;
@@ -798,7 +798,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                 {{-- Filter Tabs --}}
                 <div style="border-bottom:1px solid #e2e8f0;">
                     <div class="flex items-center flex-wrap gap-0 px-1">
-                        <button class="mp-tab" :class="filterAktif==='semua'    ? 'active' : 'inactive'"
+                        <button class="mp-tab" :class="filterAktif==='semua' ? 'active' : 'inactive'"
                             @click="setFilter('semua')">
                             {{ __('Semua') }}
                             <span class="mp-count-badge"
@@ -810,13 +810,13 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                             <span class="mp-count-badge"
                                 style="background:#fefce8;color:#ffd900;">{{ $statDeveloper }}</span>
                         </button>
-                        <button class="mp-tab" :class="filterAktif==='tester'   ? 'active' : 'inactive'"
+                        <button class="mp-tab" :class="filterAktif==='tester' ? 'active' : 'inactive'"
                             @click="setFilter('tester')">
                             {{ __('Tester') }}
                             <span class="mp-count-badge"
                                 style="background:#f0fdf4;color:#16a34a;">{{ $statTester }}</span>
                         </button>
-                        <button class="mp-tab" :class="filterAktif==='pending'  ? 'active' : 'inactive'"
+                        <button class="mp-tab" :class="filterAktif==='pending' ? 'active' : 'inactive'"
                             @click="setFilter('pending')">
                             {{ __('Tertunda') }}
                             <span class="mp-count-badge"
@@ -1096,11 +1096,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                     <div class="mp-detail-row">
                         <span class="mp-detail-label">{{ __('Status') }}</span>
                         <span class="mp-detail-value">
-                            <span class="mp-badge" :class="{
-                              'mp-badge-aktif':   pengguna?.raw_status === 'aktif',
-                              'mp-badge-pending': pengguna?.raw_status === 'pending',
-                              'mp-badge-suspend': pengguna?.raw_status === 'suspend'
-                          }" x-text="pengguna?.status ?? ''"></span>
+                            <span class="mp-badge" :class="{ 'mp-badge-aktif': pengguna?.raw_status === 'aktif', 'mp-badge-pending': pengguna?.raw_status === 'pending', 'mp-badge-suspend': pengguna?.raw_status === 'suspend' }" x-text="pengguna?.status ?? ''"></span>
                         </span>
                     </div>
                     <div class="mp-detail-row">
@@ -1133,7 +1129,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                 {{ __('Tolak') }}
                             </button>
                             <button class="mp-btn"
-                                style="background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;box-shadow:0 4px 12px rgba(22,163,74,0.25);">
+                                style="background:#10b981;color:#fff;box-shadow:0 4px 12px rgba(22,163,74,0.25);">
                                 <span class="material-symbols-outlined text-[1rem]">check_circle</span>
                                 {{ __('Setujui') }}
                             </button>

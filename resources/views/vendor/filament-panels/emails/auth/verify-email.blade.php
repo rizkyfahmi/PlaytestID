@@ -145,14 +145,14 @@
                                 {{-- Top gradient stripe --}}
                                 <tr>
                                     <td
-                                        style="height:6px; background:linear-gradient(90deg,#4F46E5 0%,#7c3aed 50%,#ec4899 100%); background-color:#4F46E5; font-size:0; line-height:0; mso-line-height-rule:exactly;">
+                                        style="height:6px; background:#8b5cf6; background-color:#4F46E5; font-size:0; line-height:0; mso-line-height-rule:exactly;">
                                         &nbsp;</td>
                                 </tr>
 
                                 {{-- Hero area --}}
                                 <tr>
                                     <td class="email-hero"
-                                        style="background:linear-gradient(160deg,#eef2ff 0%,#f5f3ff 50%,#fdf2f8 100%); background-color:#eef2ff; padding:48px 40px 36px; text-align:center;">
+                                        style="background:#ffd900; background-color:#eef2ff; padding:48px 40px 36px; text-align:center;">
 
                                         {{-- Shield / verify icon badge --}}
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0"
@@ -160,7 +160,7 @@
                                             <tr>
                                                 <td class="hero-icon" width="88" height="88" align="center"
                                                     valign="middle"
-                                                    style="width:88px; height:88px; background:linear-gradient(135deg,#4F46E5 0%,#7c3aed 100%); background-color:#4F46E5; border-radius:26px; box-shadow:0 12px 32px rgba(79,70,229,0.42);">
+                                                    style="width:88px; height:88px; background:#8b5cf6; background-color:#4F46E5; border-radius:26px; box-shadow:0 12px 32px rgba(79,70,229,0.42);">
                                                     <span
                                                         style="font-size:42px; line-height:88px; display:block; color:#ffffff; font-weight:700; mso-line-height-rule:exactly;">&#10003;</span>
                                                 </td>
@@ -204,7 +204,7 @@
                                             align="center" style="margin:0 auto 28px;">
                                             <tr>
                                                 <td align="center"
-                                                    style="border-radius:14px; background:linear-gradient(135deg,#4F46E5 0%,#7c3aed 100%); background-color:#4F46E5; box-shadow:0 8px 24px rgba(79,70,229,0.40); mso-padding-alt:0;">
+                                                    style="border-radius:14px; background:#8b5cf6; background-color:#4F46E5; box-shadow:0 8px 24px rgba(79,70,229,0.40); mso-padding-alt:0;">
                                                     <!--[if mso]>
                                                     <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ $url }}" style="height:54px;v-text-anchor:middle;width:260px;" arcsize="26%" fillcolor="#4F46E5" stroke="f">
                                                     <w:anchorlock/>
@@ -213,7 +213,7 @@
                                                     <![endif]-->
                                                     <!--[if !mso]><!-->
                                                     <a href="{{ $url }}" target="_blank" class="email-cta"
-                                                        style="display:inline-block; background:linear-gradient(135deg,#4F46E5 0%,#7c3aed 100%); background-color:#4F46E5; color:#ffffff; text-decoration:none; font-size:16px; font-weight:800; padding:17px 44px; border-radius:14px; letter-spacing:0.3px;">
+                                                        style="display:inline-block; background:#8b5cf6; background-color:#4F46E5; color:#ffffff; text-decoration:none; font-size:16px; font-weight:800; padding:17px 44px; border-radius:14px; letter-spacing:0.3px;">
                                                         &#10003;&nbsp; {{ __('Verifikasi Alamat Email Saya') }}
                                                     </a>
                                                     <!--<![endif]-->
@@ -267,7 +267,7 @@
                                                         border="0" align="center">
                                                         <tr>
                                                             <td width="48" height="48" align="center" valign="middle"
-                                                                style="width:48px; height:48px; background:linear-gradient(135deg,#eef2ff 0%,#e0e7ff 100%); background-color:#eef2ff; border:1px solid #c7d2fe; border-radius:50%; font-size:20px; line-height:48px; mso-line-height-rule:exactly;">
+                                                                style="width:48px; height:48px; background:#ffd900; background-color:#eef2ff; border:1px solid #c7d2fe; border-radius:50%; font-size:20px; line-height:48px; mso-line-height-rule:exactly;">
                                                                 &#128231;
                                                             </td>
                                                         </tr>
@@ -296,7 +296,7 @@
                                                         border="0" align="center">
                                                         <tr>
                                                             <td width="48" height="48" align="center" valign="middle"
-                                                                style="width:48px; height:48px; background:linear-gradient(135deg,#eef2ff 0%,#e0e7ff 100%); background-color:#eef2ff; border:1px solid #c7d2fe; border-radius:50%; font-size:20px; line-height:48px; mso-line-height-rule:exactly;">
+                                                                style="width:48px; height:48px; background:#ffd900; background-color:#eef2ff; border:1px solid #c7d2fe; border-radius:50%; font-size:20px; line-height:48px; mso-line-height-rule:exactly;">
                                                                 &#9989;
                                                             </td>
                                                         </tr>
@@ -325,7 +325,7 @@
                                                         border="0" align="center">
                                                         <tr>
                                                             <td width="48" height="48" align="center" valign="middle"
-                                                                style="width:48px; height:48px; background:linear-gradient(135deg,#fdf2f8 0%,#fce7f3 100%); background-color:#fdf2f8; border:1px solid #fbcfe8; border-radius:50%; font-size:20px; line-height:48px; mso-line-height-rule:exactly;">
+                                                                style="width:48px; height:48px; background:#ffd900; background-color:#fdf2f8; border:1px solid #fbcfe8; border-radius:50%; font-size:20px; line-height:48px; mso-line-height-rule:exactly;">
                                                                 &#127919;
                                                             </td>
                                                         </tr>

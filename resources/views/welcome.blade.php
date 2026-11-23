@@ -163,10 +163,10 @@
 
     /* ── Gradient hero background ── */
     .hero-bg {
-      background: linear-gradient(135deg, #111111 0%, #1a1a18 35%, #242424 70%, #1a1a18 100%);
+      background: #1a1a18;
     }
     .dark .hero-bg {
-      background: linear-gradient(135deg, #0d0d0c 0%, #141413 35%, #1b1b1b 70%, #111111 100%);
+      background: #111111;
     }
 
     /* ── Tab underline indicator ── */
@@ -243,10 +243,10 @@
 
     /* ── CTA section gradient ── */
     .cta-bg {
-      background: linear-gradient(135deg, #111111 0%, #1a1a18 60%, #242424 100%);
+      background: #1a1a18;
     }
     .dark .cta-bg {
-      background: linear-gradient(135deg, #0d0d0c 0%, #141413 60%, #1b1b1b 100%);
+      background: #111111;
     }
 
     /* ── Scroll-reveal helper ── */
@@ -276,7 +276,7 @@
 
     /* ── Badge ── */
     .badge-popular {
-      background: linear-gradient(90deg, #ffd900, #fed000);
+      background: #ffd900;
       color: #111111;
       font-size: 0.72rem;
       font-weight: 800;
@@ -303,11 +303,11 @@
       border: none;
       outline: none;
       transition: background 0.3s ease;
-      background: linear-gradient(135deg, #fef08a, #fde047);
+      background: #ffd900;
       box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
     }
     .dark .theme-toggle {
-      background: linear-gradient(135deg, #1e293b, #334155);
+      background: #1e293b;
     }
     .theme-toggle-knob {
       position: absolute;
@@ -546,7 +546,7 @@
               <span class="text-white">{{ __('Hari') }} 9 / 14</span>
             </div>
             <div class="w-full h-3 bg-white/20 rounded-full overflow-hidden">
-              <div class="h-3 bg-gradient-to-r from-green-400 to-emerald-300 rounded-full progress-fill" style="--fill: 64%;"></div>
+              <div class="h-3 bg-green-500 rounded-full progress-fill" style="--fill: 64%;"></div>
             </div>
             <p class="text-xs text-brand-200 mt-2">{{ __('64% selesai · diperkirakan lulus dalam') }} <strong class="text-white">5 {{ __('hari lagi') }}</strong></p>
           </div>
@@ -560,11 +560,11 @@
             <!-- Avatar row -->
             <div class="flex items-center">
               <div class="flex -space-x-2">
-                <div class="w-7 h-7 rounded-full bg-pink-400    border-2 border-white/30 flex items-center justify-center text-xs font-bold">A</div>
-                <div class="w-7 h-7 rounded-full bg-yellow-400  border-2 border-white/30 flex items-center justify-center text-xs font-bold">B</div>
-                <div class="w-7 h-7 rounded-full bg-green-400   border-2 border-white/30 flex items-center justify-center text-xs font-bold">C</div>
-                <div class="w-7 h-7 rounded-full bg-purple-400  border-2 border-white/30 flex items-center justify-center text-xs font-bold">D</div>
-                <div class="w-7 h-7 rounded-full bg-brand-300    border-2 border-white/30 flex items-center justify-center text-xs font-bold">+16</div>
+                <div class="w-7 h-7 rounded-full bg-pink-400 border-2 border-white/30 flex items-center justify-center text-xs font-bold">A</div>
+                <div class="w-7 h-7 rounded-full bg-yellow-400 border-2 border-white/30 flex items-center justify-center text-xs font-bold">B</div>
+                <div class="w-7 h-7 rounded-full bg-green-400 border-2 border-white/30 flex items-center justify-center text-xs font-bold">C</div>
+                <div class="w-7 h-7 rounded-full bg-purple-400 border-2 border-white/30 flex items-center justify-center text-xs font-bold">D</div>
+                <div class="w-7 h-7 rounded-full bg-brand-300 border-2 border-white/30 flex items-center justify-center text-xs font-bold">+16</div>
               </div>
               <span class="ml-3 text-xs text-brand-200">{{ __("Semua tester memenuhi syarat Google") }}</span>
             </div>
@@ -583,12 +583,12 @@
               <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:85%;" title="Day 6"></div>
               <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:65%;" title="Day 7"></div>
               <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:75%;" title="Day 8"></div>
-              <div class="flex-1 bg-white/50   rounded-t-sm" style="height:100%;" title="Day 9 – Today"></div>
-              <div class="flex-1 bg-white/20   rounded-t-sm" style="height:30%;" title="Day 10 – Upcoming"></div>
-              <div class="flex-1 bg-white/20   rounded-t-sm" style="height:20%;"></div>
-              <div class="flex-1 bg-white/20   rounded-t-sm" style="height:20%;"></div>
-              <div class="flex-1 bg-white/20   rounded-t-sm" style="height:20%;"></div>
-              <div class="flex-1 bg-white/20   rounded-t-sm" style="height:20%;"></div>
+              <div class="flex-1 bg-white/50 rounded-t-sm" style="height:100%;" title="Day 9 – Today"></div>
+              <div class="flex-1 bg-white/20 rounded-t-sm" style="height:30%;" title="Day 10 – Upcoming"></div>
+              <div class="flex-1 bg-white/20 rounded-t-sm" style="height:20%;"></div>
+              <div class="flex-1 bg-white/20 rounded-t-sm" style="height:20%;"></div>
+              <div class="flex-1 bg-white/20 rounded-t-sm" style="height:20%;"></div>
+              <div class="flex-1 bg-white/20 rounded-t-sm" style="height:20%;"></div>
             </div>
             <div class="flex justify-between text-xs text-brand-300 mt-2 font-medium">
               <span>{{ __('Hari') }} 1</span><span>{{ __('Hari') }} 9 ← {{ __('Anda di sini') }}</span><span>{{ __('Hari') }} 14</span>
@@ -731,7 +731,7 @@
   <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
 
     <!-- Decoration -->
-    <div class="absolute inset-0 bg-gradient-to-br from-brand-50/60 via-slate-50 to-slate-50 dark:from-brand-950/20 dark:via-slate-950 dark:to-slate-950 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-brand-500pointer-events-none"></div>
 
     <div class="max-w-5xl mx-auto relative">
 
@@ -817,7 +817,7 @@
               <li><i class="fa-solid fa-circle-check text-brand-500"></i><span>{{ __('Dukungan Prioritas via Live Chat') }}</span></li>
             </ul>
 
-            <a href="#" class="relative block w-full text-center py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-brand-600 to-brand-500 shadow-lg shadow-brand-200 dark:shadow-brand-900/50 hover:shadow-brand-300 hover:from-brand-700 hover:to-brand-600 transition duration-300 text-sm">
+            <a href="#" class="relative block w-full text-center py-3.5 rounded-xl font-bold text-white bg-brand-500 shadow-lg shadow-brand-200 dark:shadow-brand-900/50 hover:shadow-brand-300 hover: hover: transition duration-300 text-sm">
               <i class="fa-solid fa-bolt mr-1"></i> {{ __('Pilih Pro – Mulai Sekarang') }}
             </a>
 
@@ -1076,7 +1076,7 @@
       if (type === 'login') {
         title.innerText = '{{ __("Masuk Sebagai") }}';
         desc.innerText = '{{ __("Pilih akun untuk mengakses dasbor Anda.") }}';
-        if (icon) icon.className = 'fa-solid fa-right-to-bracket text-brand-600 text-xl';
+        if (icon) icon.className = 'fa-solid fa-right- text-brand-600 text-xl';
         btnDev.href = authRoutes.login.developer;
         btnTester.href = authRoutes.login.tester;
       } else {

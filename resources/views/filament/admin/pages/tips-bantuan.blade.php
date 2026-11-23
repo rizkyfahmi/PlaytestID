@@ -21,12 +21,7 @@
       /* ══════════════════════════════════════
        ANIMATIONS
     ══════════════════════════════════════ */
-      @keyframes tb-gradient {
-
-        0%,
-        100% {
-          background-position: 0% 50%
-        }
+      
 
         50% {
           background-position: 100% 50%
@@ -256,9 +251,9 @@
     ══════════════════════════════════════ */
       .tb-hero {
         position: relative;
-        background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #ca8a04 55%, #ffd900 80%, #fed000 100%);
+        background: #ffd900;
         background-size: 220% 220%;
-        animation: tb-gradient 14s ease infinite;
+        
         border-radius: 1.5rem;
         padding: 2rem 2.5rem;
         margin-bottom: 1.5rem;
@@ -271,12 +266,8 @@
       .tb-aurora {
         position: absolute;
         inset: -30%;
-        background:
-          radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .55), transparent 60%),
-          radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
-          radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
-          radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%);
-        filter: blur(40px);
+        background: none;
+filter: blur(40px);
         animation: tb-aurora 22s ease-in-out infinite;
         mix-blend-mode: screen;
         pointer-events: none;
@@ -289,8 +280,8 @@
         height: 520px;
         left: -160px;
         bottom: -200px;
-        background: conic-gradient(from 0deg, rgba(255, 217, 0, 0), rgba(254, 208, 0, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(255, 217, 0, 0));
-        border-radius: 50%;
+        background: none;
+border-radius: 50%;
         filter: blur(30px);
         animation: tb-conic 28s linear infinite;
         opacity: .7;
@@ -303,8 +294,8 @@
         height: 380px;
         right: -120px;
         top: -140px;
-        background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(254, 208, 0, .30), rgba(244, 114, 182, 0));
-        border-radius: 50%;
+        background: none;
+border-radius: 50%;
         filter: blur(30px);
         animation: tb-spin-rev 34s linear infinite;
         opacity: .6;
@@ -315,10 +306,10 @@
         position: absolute;
         inset: 0;
         background-image:
-          linear-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, .07) 1px, transparent 1px);
+          #ffd900,
+          #ffd900;
         background-size: 28px 28px;
-        mask-image: radial-gradient(ellipse at top right, black 30%, transparent 70%);
+        mask-image: none;
         animation: tb-grid-pan 18s linear infinite;
         pointer-events: none;
       }
@@ -337,8 +328,8 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: radial-gradient(circle, #fff 0%, rgba(255, 255, 255, .2) 60%, transparent 70%);
-        box-shadow: 0 0 12px rgba(255, 255, 255, .7);
+        background: none;
+box-shadow: 0 0 12px rgba(255, 255, 255, .7);
         animation: tb-particle linear infinite;
         opacity: 0;
       }
@@ -367,7 +358,7 @@
         left: -20%;
         width: 120px;
         height: 2px;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .9));
+        background: transparent;
         filter: drop-shadow(0 0 6px rgba(147, 197, 253, .9));
         border-radius: 2px;
         animation: tb-shoot 7s ease-in infinite;
@@ -393,7 +384,7 @@
         overflow: hidden;
         pointer-events: none;
         opacity: .35;
-        mask-image: linear-gradient(180deg, transparent, #000 60%);
+        mask-image: #ffd900;
       }
 
       .tb-waves svg {
@@ -415,7 +406,7 @@
         right: 0;
         top: 0;
         height: 25%;
-        background: linear-gradient(180deg, transparent, rgba(147, 197, 253, .18), transparent);
+        background: #ffd900;
         animation: tb-scan 9s ease-in-out infinite;
         pointer-events: none;
       }
@@ -453,7 +444,7 @@
         width: 64px;
         height: 64px;
         border-radius: 1.125rem;
-        background: linear-gradient(135deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, .05));
+        background: #ffd900;
         backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, .2);
         display: flex;
@@ -557,7 +548,7 @@
         left: 0;
         width: 40%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .2), transparent);
+        background: #ffd900;
         transform: translateX(-100%);
       }
 
@@ -612,7 +603,7 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .25), transparent);
+        background: #ffd900;
         transform: translateX(-100%);
       }
 
@@ -709,7 +700,7 @@
       }
 
       .tb-tab--active {
-        background: linear-gradient(135deg, #ffd900, #f59e0b);
+        background: #ffd900;
         color: #fff;
         box-shadow: 0 4px 14px -4px rgba(255, 217, 0, .4);
       }
@@ -897,7 +888,7 @@
         width: 26px;
         height: 26px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #ffd900, #f59e0b);
+        background: #ffd900;
         color: #fff;
         font-size: .7rem;
         font-weight: 700;
@@ -943,7 +934,7 @@
         content: '';
         flex: 1;
         height: 1px;
-        background: linear-gradient(90deg, rgba(148, 163, 184, .3), transparent);
+        background: transparent;
       }
 
       .dark .tb-quick-title {
@@ -1057,23 +1048,20 @@
         font-family: 'JetBrains Mono', monospace;
         font-size: .85rem;
         font-weight: 700;
-        background: linear-gradient(135deg, #ffd900, #f59e0b);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #ffd900;
       }
 
       .dark .tb-stats-num {
-        background: linear-gradient(135deg, #fed000, #a78bfa);
-        -webkit-background-clip: text;
-        background-clip: text;
+        background: #ffd900;
+        
+        
       }
 
       /* ══════════════════════════════════════
        DRIVER.JS CUSTOM THEME
     ══════════════════════════════════════ */
       .driver-popover.tb-driver-theme {
-        background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+        background: #ffffff !important;
         border-radius: 1rem !important;
         padding: 20px 24px !important;
         box-shadow: 0 25px 60px -12px rgba(255, 217, 0, .3), 0 0 0 1px rgba(255, 217, 0, .1) !important;
@@ -1082,7 +1070,7 @@
       }
 
       .dark .driver-popover.tb-driver-theme {
-        background: linear-gradient(135deg, #1e293b, #0f172a) !important;
+        background: #1a1a18 !important;
         border-color: rgba(255, 217, 0, .25) !important;
         box-shadow: 0 25px 60px -12px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 217, 0, .15) !important;
       }
@@ -1129,7 +1117,7 @@
       }
 
       .driver-popover.tb-driver-theme button.driver-popover-next-btn {
-        background: linear-gradient(135deg, #ffd900, #f59e0b) !important;
+        background: #ffd900 !important;
         color: #fff !important;
         box-shadow: 0 4px 12px rgba(255, 217, 0, .3) !important;
       }
@@ -1318,117 +1306,9 @@
 
       {{-- Decorative blobs --}}
       <div class="tb-blob"
-        style="position:absolute;right:-48px;top:-48px;width:192px;height:192px;border-radius:50%;opacity:.2;background:radial-gradient(circle,#fed000,transparent 70%);">
-      </div>
-      <div class="tb-blob-rev"
-        style="position:absolute;right:80px;bottom:-64px;width:160px;height:160px;border-radius:50%;opacity:.15;background:radial-gradient(circle,#a78bfa,transparent 70%);">
-      </div>
-
-      {{-- Main content --}}
-      <div class="tb-hero-content">
-        <div class="tb-hero-left">
-          <div class="tb-hero-icon-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-            </svg>
-          </div>
-          <div>
-            <div class="tb-hero-label">
-              <span></span>
-              {{ __('PUSAT BANTUAN') }}
-            </div>
-            <h1 class="tb-hero-title">{{ __('Tips & Bantuan') }}</h1>
-            <div class="tb-hero-sub">
-              <span x-text="roleLabel"></span>
-            </div>
-          </div>
-        </div>
-        <button @click="startTour()" class="tb-btn-tour" id="tb-tour-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z" />
-          </svg>
-          {{ __('Mulai Tur Halaman') }}
-        </button>
-      </div>
-
-      {{-- Animated waves --}}
-      <div class="tb-waves">
-        <svg viewBox="0 0 2400 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0,40 C150,80 350,0 600,40 C850,80 1050,0 1200,40 C1350,80 1550,0 1800,40 C2050,80 2250,0 2400,40 L2400,80 L0,80 Z"
-            fill="rgba(255,255,255,0.18)" />
-        </svg>
-      </div>
-      <div class="tb-waves w2">
-        <svg viewBox="0 0 2400 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0,50 C200,20 400,70 600,50 C800,30 1000,70 1200,50 C1400,20 1600,70 1800,50 C2000,30 2200,70 2400,50 L2400,80 L0,80 Z"
-            fill="rgba(147,197,253,0.22)" />
-        </svg>
-      </div>
-    </div>
-
-    {{-- ═══════════ SEARCH & FILTER ═══════════ --}}
-    <div class="tb-toolbar" id="tb-toolbar">
-      <div class="tb-search-wrap" id="tb-search">
-        <svg class="tb-search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-          stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-        </svg>
-        <input type="text" x-model="search" placeholder="{{ __('Cari tips, panduan, atau bantuan...') }}"
-          class="tb-search-input" />
-      </div>
-      <div class="tb-tabs" id="tb-tabs">
-        <template x-for="cat in categories" :key="cat.id">
-          <button @click="activeCategory = cat.id"
-            :class="activeCategory === cat.id ? 'tb-tab--active' : 'tb-tab--inactive'" class="tb-tab"
-            x-text="cat.label"></button>
-        </template>
-      </div>
-    </div>
-
-    {{-- ═══════════ TIPS GRID ═══════════ --}}
-    <div class="tb-grid" id="tb-grid">
-      <template x-for="(tip, index) in filteredTips" :key="tip.title">
-        <div class="tb-card" :class="expandedTip === index ? 'tb-card--expanded' : ''"
-          :style="'animation-delay:' + (index * 0.05) + 's'" @click="toggleTip(index)">
-          <div class="tb-card-head">
-            <div class="tb-card-emoji" :style="'background:' + tip.iconBg">
-              <span x-text="tip.emoji"></span>
-            </div>
-            <div class="tb-card-info">
-              <h3 class="tb-card-title" x-text="tip.title"></h3>
-              <span class="tb-card-cat" x-text="tip.categoryLabel"></span>
-            </div>
-            <svg class="tb-card-chev" :class="expandedTip === index ? 'tb-chev-open' : ''"
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-            </svg>
-          </div>
-          <div x-show="expandedTip === index" x-collapse.duration.200ms class="tb-card-body">
-            <p class="tb-card-desc" x-text="tip.desc"></p>
-            <div x-show="tip.steps && tip.steps.length > 0" class="tb-steps">
-              <template x-for="(step, si) in (tip.steps || [])" :key="si">
-                <div class="tb-step">
-                  <span class="tb-step-num" x-text="si + 1"></span>
-                  <span class="tb-step-txt" x-text="step"></span>
-                </div>
-              </template>
-            </div>
-          </div>
-        </div>
-      </template>
-    </div>
-
-    {{-- ═══════════ EMPTY STATE ═══════════ --}}
-    <div x-show="filteredTips.length === 0" class="tb-empty">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-        style="width:48px;height:48px;color:#94a3b8;margin:0 auto 12px;display:block">
+        style="position:absolute;right:-48px;top:-48px;width:192px;height:192px;border-radius:50%;opacity:.2;background: none;
+right:80px;bottom:-64px;width:160px;height:160px;border-radius:50%;opacity:.15;background: none;
+height:48px;color:#94a3b8;margin:0 auto 12px;display:block">
         <path stroke-linecap="round" stroke-linejoin="round"
           d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
       </svg>

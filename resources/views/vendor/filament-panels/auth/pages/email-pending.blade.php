@@ -125,7 +125,7 @@
         .verify-hero-bg-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(249, 250, 251, 0.92) 0%, rgba(249, 250, 251, 0.55) 100%);
+            background: #f9fafb;
             pointer-events: none;
         }
 
@@ -252,7 +252,7 @@
             position: relative;
             width: 5rem;
             height: 5rem;
-            background: linear-gradient(135deg, #ffd900 0%, #fed000 100%);
+            background: #ffd900;
             border-radius: 1.25rem;
             display: flex;
             align-items: center;
@@ -310,7 +310,7 @@
             display: flex;
             align-items: center;
             gap: 0.625rem;
-            background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+            background: #ffd900;
             border: 1.5px solid #c7d2fe;
             border-radius: 0.875rem;
             padding: 0.875rem 1.125rem;
@@ -351,7 +351,7 @@
             flex-shrink: 0;
             width: 1.75rem;
             height: 1.75rem;
-            background: linear-gradient(135deg, #ffd900 0%, #fed000 100%);
+            background: #ffd900;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -391,7 +391,7 @@
             cursor: pointer;
             border: none;
             outline: none;
-            background: linear-gradient(135deg, #ffd900 0%, #fed000 100%);
+            background: #ffd900;
             color: #ffffff;
             border-radius: 0.75rem;
             padding: 0.875rem 1.5rem;
@@ -405,7 +405,7 @@
         }
 
         .verify-resend-btn:hover:not(:disabled) {
-            background: linear-gradient(135deg, #e6c300 0%, #ca8a04 100%);
+            background: #e6c300;
             box-shadow: 0 6px 18px rgba(255, 217, 0, 0.4);
         }
 
@@ -414,7 +414,7 @@
         }
 
         .verify-resend-btn:disabled {
-            background: linear-gradient(135deg, #a5b4fc 0%, #c4b5fd 100%) !important;
+            background: #ffd900 !important;
             box-shadow: none !important;
             cursor: not-allowed;
         }
@@ -511,7 +511,7 @@
         }
 
         .verify-mobile-pill {
-            background: linear-gradient(135deg, rgba(255, 217, 0, 0.08) 0%, rgba(255, 217, 0, 0.08) 100%);
+            background: #ffd900;
             color: #ffd900;
             border-radius: 9999px;
             padding: 0.35rem 0.75rem;

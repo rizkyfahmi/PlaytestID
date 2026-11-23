@@ -39,11 +39,11 @@
     }
 
     $categoryMeta = [
-        'Virtual Account'    => ['icon' => 'heroicon-m-building-library', 'color' => 'from-indigo-500 to-violet-500'],
-        'E-Wallet / QRIS'    => ['icon' => 'heroicon-m-device-phone-mobile', 'color' => 'from-cyan-500 to-emerald-500'],
-        'Retail / Gerai'     => ['icon' => 'heroicon-m-building-storefront', 'color' => 'from-amber-500 to-brand-500'],
-        'Kartu Kredit'       => ['icon' => 'heroicon-m-credit-card', 'color' => 'from-fuchsia-500 to-pink-500'],
-        'Lainnya'            => ['icon' => 'heroicon-m-squares-2x2', 'color' => 'from-slate-400 to-slate-500'],
+        'Virtual Account'    => ['icon' => 'heroicon-m-building-library', 'color' => ' '],
+        'E-Wallet / QRIS'    => ['icon' => 'heroicon-m-device-phone-mobile', 'color' => ' '],
+        'Retail / Gerai'     => ['icon' => 'heroicon-m-building-storefront', 'color' => ' '],
+        'Kartu Kredit'       => ['icon' => 'heroicon-m-credit-card', 'color' => ' '],
+        'Lainnya'            => ['icon' => 'heroicon-m-squares-2x2', 'color' => ' '],
     ];
 
     $groupedMethods = [];
@@ -90,14 +90,14 @@
     .pay-card::after {
         content: '';
         position: absolute; inset: 0;
-        background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%);
+        background: transparent;
         transform: translateX(-120%) skewX(-20deg);
         pointer-events: none;
         transition: none;
     }
     .pay-card:hover::after { animation: pay-shine .9s ease-out; }
     .dark .pay-card::after {
-        background: linear-gradient(110deg, transparent 30%, rgba(165,180,252,.15) 50%, transparent 70%);
+        background: #ffd900;
     }
 </style>
 
@@ -125,7 +125,7 @@
                 class="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
             >
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-xl bg-gradient-to-br {{ $meta['color'] }} flex items-center justify-center shadow-sm">
+                    <div class="w-8 h-8 rounded-xl {{ $meta['color'] }} flex items-center justify-center shadow-sm">
                         <x-dynamic-component :component="$meta['icon']" class="w-4 h-4 text-white" />
                     </div>
                     <div class="text-left">
@@ -152,16 +152,12 @@
                     <div
                         x-on:click="selectedPayment = '{{ $id }}'"
                         class="pay-card group relative cursor-pointer rounded-2xl border-2 transition-all duration-300 ease-out flex flex-col items-center justify-center p-4 min-h-[110px] overflow-hidden"
-                        :class="selectedPayment == '{{ $id }}'
-                            ? 'border-transparent bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-indigo-500/20 dark:via-slate-900/60 dark:to-cyan-500/15 shadow-[0_8px_30px_-8px_rgba(99,102,241,0.35)] ring-2 ring-indigo-400/40 dark:ring-indigo-400/30 -translate-y-0.5'
-                            : 'border-slate-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 hover:border-indigo-300 dark:hover:border-indigo-400/50 hover:shadow-lg hover:-translate-y-0.5'"
+                        :class="selectedPayment == '{{ $id }}' ? 'border-transparent bg-slate-900shadow-[0_8px_30px_-8px_rgba(99,102,241,0.35)] ring-2 ring-indigo-400/40 dark:ring-indigo-400/30 -translate-y-0.5' : 'border-slate-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 hover:border-indigo-300 dark:hover:border-indigo-400/50 hover:shadow-lg hover:-translate-y-0.5'"
                     >
                         {{-- Check badge --}}
                         <div
                             class="absolute top-2 right-2 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 z-10"
-                            :class="selectedPayment == '{{ $id }}'
-                                ? 'bg-gradient-to-br from-indigo-500 to-violet-500 scale-100 shadow-md shadow-indigo-500/40'
-                                : 'scale-0'"
+                            :class="selectedPayment == '{{ $id }}' ? 'bg-blue-600scale-100 shadow-md shadow-indigo-500/40' : 'scale-0'"
                         >
                             <x-heroicon-m-check class="w-3.5 h-3.5 text-white stroke-[3]" />
                         </div>
@@ -173,18 +169,14 @@
                                 src="{{ str_starts_with($method->image, 'http') ? $method->image : asset('storage/' . $method->image) }}"
                                 alt="{{ $method->name }}"
                                 class="max-h-8 max-w-[80%] object-contain transition-all duration-500 z-10"
-                                :class="selectedPayment == '{{ $id }}'
-                                    ? 'grayscale-0 opacity-100 scale-110'
-                                    : 'grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105'"
+                                :class="selectedPayment == '{{ $id }}' ? 'grayscale-0 opacity-100 scale-110' : 'grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105'"
                             >
                         </div>
 
                         {{-- Name --}}
                         <span
                             class="text-[11px] font-bold text-center mt-1 transition-colors duration-300 z-10"
-                            :class="selectedPayment == '{{ $id }}'
-                                ? 'text-indigo-700 dark:text-indigo-300'
-                                : 'text-slate-500 dark:text-slate-400 group-hover:text-slate-800 dark:group-hover:text-slate-200'"
+                            :class="selectedPayment == '{{ $id }}' ? 'text-indigo-700 dark:text-indigo-300' : 'text-slate-500 dark:text-slate-400 group-hover:text-slate-800 dark:group-hover:text-slate-200'"
                         >
                             {{ $method->name }}
                         </span>
@@ -192,9 +184,7 @@
                         {{-- Bottom aurora bar --}}
                         <div
                             class="absolute bottom-0 inset-x-3 h-[2px] rounded-full transition-all duration-500"
-                            :class="selectedPayment == '{{ $id }}'
-                                ? 'bg-gradient-to-r from-indigo-500 via-violet-500 to-cyan-400 opacity-100'
-                                : 'opacity-0'"
+                            :class="selectedPayment == '{{ $id }}' ? 'bg-blue-600opacity-100' : 'opacity-0'"
                         ></div>
                     </div>
                 @endforeach

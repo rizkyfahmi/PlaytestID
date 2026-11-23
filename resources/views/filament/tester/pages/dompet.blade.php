@@ -41,12 +41,7 @@ Page : Dompet.php
                 }
             }
 
-            @keyframes prof-gradient {
-
-                0%,
-                100% {
-                    background-position: 0% 50%
-                }
+            
 
                 50% {
                     background-position: 100% 50%
@@ -249,9 +244,9 @@ Page : Dompet.php
             }
 
             .prof-hero {
-                background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #ca8a04 55%, #ffd900 80%, #fed000 100%);
+                background: #ffd900;
                 background-size: 220% 220%;
-                animation: prof-gradient 14s ease infinite;
+                
                 box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
                 isolation: isolate;
             }
@@ -272,12 +267,8 @@ Page : Dompet.php
             .prof-aurora {
                 position: absolute;
                 inset: -30%;
-                background:
-                    radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .55), transparent 60%),
-                    radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
-                    radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
-                    radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%);
-                filter: blur(40px);
+                background: none;
+filter: blur(40px);
                 animation: prof-aurora 22s ease-in-out infinite;
                 mix-blend-mode: screen;
                 pointer-events: none;
@@ -290,8 +281,8 @@ Page : Dompet.php
                 height: 520px;
                 left: -160px;
                 bottom: -200px;
-                background: conic-gradient(from 0deg, rgba(255, 217, 0, 0), rgba(254, 208, 0, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(255, 217, 0, 0));
-                border-radius: 50%;
+                background: none;
+border-radius: 50%;
                 filter: blur(30px);
                 animation: prof-conic 28s linear infinite;
                 opacity: .7;
@@ -304,8 +295,8 @@ Page : Dompet.php
                 height: 380px;
                 right: -120px;
                 top: -140px;
-                background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(254, 208, 0, .30), rgba(244, 114, 182, 0));
-                border-radius: 50%;
+                background: none;
+border-radius: 50%;
                 filter: blur(30px);
                 animation: prof-spin-rev 34s linear infinite;
                 opacity: .6;
@@ -314,10 +305,10 @@ Page : Dompet.php
 
             .prof-grid-bg {
                 background-image:
-                    linear-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 255, 255, .07) 1px, transparent 1px);
+                    #ffd900,
+                    #ffd900;
                 background-size: 28px 28px;
-                mask-image: radial-gradient(ellipse at top right, black 30%, transparent 70%);
+                mask-image: none;
                 animation: prof-grid-pan 18s linear infinite;
             }
 
@@ -335,8 +326,8 @@ Page : Dompet.php
                 width: 6px;
                 height: 6px;
                 border-radius: 50%;
-                background: radial-gradient(circle, #fff 0%, rgba(255, 255, 255, .2) 60%, transparent 70%);
-                box-shadow: 0 0 12px rgba(255, 255, 255, .7);
+                background: none;
+box-shadow: 0 0 12px rgba(255, 255, 255, .7);
                 animation: prof-particle linear infinite;
                 opacity: 0;
             }
@@ -365,7 +356,7 @@ Page : Dompet.php
                 left: -20%;
                 width: 120px;
                 height: 2px;
-                background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .9));
+                background: transparent;
                 filter: drop-shadow(0 0 6px rgba(147, 197, 253, .9));
                 border-radius: 2px;
                 animation: prof-shoot 7s ease-in infinite;
@@ -391,7 +382,7 @@ Page : Dompet.php
                 overflow: hidden;
                 pointer-events: none;
                 opacity: .35;
-                mask-image: linear-gradient(180deg, transparent, #000 60%);
+                mask-image: #ffd900;
             }
 
             .prof-waves svg {
@@ -413,7 +404,7 @@ Page : Dompet.php
                 right: 0;
                 top: 0;
                 height: 25%;
-                background: linear-gradient(180deg, transparent, rgba(147, 197, 253, .18), transparent);
+                background: #ffd900;
                 animation: prof-scan 9s ease-in-out infinite;
                 pointer-events: none;
             }
@@ -437,7 +428,7 @@ Page : Dompet.php
             }
 
             .prof-avatar {
-                background: linear-gradient(135deg, #fbbf24, #f59e0b, #ef4444);
+                background: #ffd900;
                 box-shadow: 0 8px 24px rgba(0, 0, 0, .25), 0 0 0 4px rgba(255, 255, 255, .15);
             }
 
@@ -467,7 +458,7 @@ Page : Dompet.php
                 left: 0;
                 width: 40%;
                 height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .2), transparent);
+                background: #ffd900;
                 transform: translateX(-100%);
             }
 
@@ -721,7 +712,7 @@ Page : Dompet.php
                 font-weight: 700;
                 border: none;
                 cursor: pointer;
-                background: linear-gradient(135deg, #0ea5e9, #ffd900);
+                background: #ffd900;
                 color: #ffffff;
                 display: flex;
                 align-items: center;
@@ -741,7 +732,7 @@ Page : Dompet.php
                 left: -100%;
                 width: 50%;
                 height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                background: #ffd900;
                 transition: all 0.5s ease;
             }
 
@@ -1060,11 +1051,8 @@ Page : Dompet.php
 
                 {{-- Floating decorative blobs --}}
                 <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-                    style="background:radial-gradient(circle,#fed000,transparent 70%);"></div>
-                <div class="prof-blob-rev absolute right-20 -bottom-16 w-40 h-40 rounded-full opacity-15"
-                    style="background:radial-gradient(circle,#a78bfa,transparent 70%);"></div>
-                <div class="prof-blob absolute right-1/3 top-4 w-20 h-20 rounded-full opacity-10"
-                    style="background:radial-gradient(circle,#ffffff,transparent 70%);animation-delay:-3s;"></div>
+                    style="background: none;
+animation-delay:-3s;"></div>
 
                 {{-- Konten utama --}}
                 <div class="relative z-10 text-center py-6">

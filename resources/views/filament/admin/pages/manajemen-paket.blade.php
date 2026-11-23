@@ -31,7 +31,7 @@
     .mp-stat:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -10px rgba(0,0,0,.1); }
     .mp-stat::after {
         content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+        background: #ffd900;
         transform: skewX(-25deg); transition: 0.75s; z-index: 1; pointer-events: none;
     }
     .mp-stat:hover::after { left: 125%; }
@@ -41,10 +41,10 @@
     .mp-stat-label { font-size: .72rem; color: #64748b; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
     .mp-stat-value { font-size: 1.4rem; font-weight: 800; color: #0f172a; line-height: 1.1; }
     .mp-stat-sub   { font-size: .72rem; color: #94a3b8; margin-top: 2px; }
-    .mp-grad-orange    { background: linear-gradient(90deg, #ffd900, #fed000); }
-    .mp-grad-green   { background: linear-gradient(90deg, #22c55e, #86efac); }
-    .mp-grad-orange  { background: linear-gradient(90deg, #f59e0b, #fcd34d); }
-    .mp-grad-emerald { background: linear-gradient(90deg, #10b981, #34d399); }
+    .mp-grad-orange    { background: #ffd900; }
+    .mp-grad-green   { background: #10b981; }
+    .mp-grad-orange  { background: #ffd900; }
+    .mp-grad-emerald { background: #10b981; }
     .mp-bg-orange    { background: #fefce8; color: #ffd900; }
     .mp-bg-green   { background: #dcfce7; color: #16a34a; }
     .mp-bg-orange  { background: #fef9c3; color: #f59e0b; }
@@ -53,12 +53,12 @@
     /* ══ CHART ══ */
     .mp-chart-bar-wrap { display: flex; flex-direction: column; align-items: center; flex: 1; gap: 4px; }
     .mp-chart-bar-outer { width: 100%; height: 120px; display: flex; align-items: flex-end; justify-content: center; }
-    .mp-chart-bar { width: 80%; border-radius: 6px 6px 0 0; background: linear-gradient(to top, #ffd900, #fde047); height: 0; transition: height 1.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s; position: relative; cursor: pointer; }
+    .mp-chart-bar { width: 80%; border-radius: 6px 6px 0 0; background: #ffd900; height: 0; transition: height 1.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s; position: relative; cursor: pointer; }
     .mp-chart-bar:hover { box-shadow: 0 0 12px rgba(255, 217, 0, 0.55); transform: scaleY(1.02); transform-origin: bottom; }
     .mp-chart-bar-tooltip { position: absolute; top: -32px; left: 50%; transform: translateX(-50%) translateY(5px); background: #0f172a; color: #fff; font-size: .65rem; padding: 3px 7px; border-radius: 6px; white-space: nowrap; opacity: 0; pointer-events: none; transition: all .2s cubic-bezier(0.16,1,0.3,1); }
     .mp-chart-bar:hover .mp-chart-bar-tooltip { opacity: 1; transform: translateX(-50%) translateY(0); }
     .mp-chart-label { font-size: .7rem; color: #94a3b8; font-weight: 500; }
-    .mp-chart-active .mp-chart-bar { background: linear-gradient(to top, #f59e0b, #fcd34d) !important; }
+    .mp-chart-active .mp-chart-bar { background: #ffd900 !important; }
     .mp-chart-active .mp-chart-bar:hover { box-shadow: 0 0 12px rgba(245,158,11,0.6) !important; }
 
     /* ══ FILTER BAR ══ */
@@ -74,11 +74,11 @@
     /* ══ BUTTONS ══ */
     .mp-btn { padding: 8px 16px; border-radius: 8px; font-size: .85rem; font-weight: 600; cursor: pointer; border: none; transition: all .15s cubic-bezier(0.4,0,0.2,1); font-family: 'Inter', sans-serif; display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
     .mp-btn:active { transform: scale(0.95); }
-    .mp-btn-primary { background: linear-gradient(135deg, #ffd900, #ca8a04); color: #fff; }
+    .mp-btn-primary { background: #ffd900; color: #fff; }
     .mp-btn-primary:hover { box-shadow: 0 6px 16px rgba(255, 217, 0, 0.35); transform: translateY(-1px); }
-    .mp-btn-danger { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; }
+    .mp-btn-danger { background: #ef4444; color: #fff; }
     .mp-btn-danger:hover { box-shadow: 0 6px 16px rgba(239,68,68,0.35); transform: translateY(-1px); }
-    .mp-btn-success { background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; }
+    .mp-btn-success { background: #10b981; color: #fff; }
     .mp-btn-success:hover { box-shadow: 0 6px 16px rgba(34,197,94,0.35); transform: translateY(-1px); }
     .mp-btn-ghost { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
     .mp-btn-ghost:hover { background: #e2e8f0; color: #1e293b; }
@@ -87,7 +87,8 @@
     .mp-btn-icon:hover { background: #e2e8f0; color: #0f172a; transform: scale(1.05); }
 
     /* ══ SORT HEADER BUTTON ══ */
-    .mp-sort-btn { display: inline-flex; align-items: center; gap: 3px; background: none; border: none; cursor: pointer; font-size: .75rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: .07em; padding: 0; transition: color 0.2s; font-family: 'Inter', sans-serif; white-space: nowrap; }
+    .mp-sort-btn { display: inline-flex; align-items: center; gap: 3px; background: none;
+border: none; cursor: pointer; font-size: .75rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: .07em; padding: 0; transition: color 0.2s; font-family: 'Inter', sans-serif; white-space: nowrap; }
     .mp-sort-btn:hover  { color: #ffd900; }
     .mp-sort-btn.active { color: #ffd900; }
     .mp-sort-icon { font-size: .95rem !important; line-height: 1; }

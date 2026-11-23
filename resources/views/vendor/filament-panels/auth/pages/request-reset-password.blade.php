@@ -146,7 +146,7 @@
         .fp-hero-bg-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(249, 250, 251, 0.92) 0%, rgba(249, 250, 251, 0.55) 100%);
+            background: #f9fafb;
             pointer-events: none;
         }
 
@@ -248,7 +248,7 @@
             width: 4rem;
             height: 4rem;
             border-radius: 1.25rem;
-            background: linear-gradient(135deg, rgba(255, 217, 0, 0.1) 0%, rgba(255, 217, 0, 0.1) 100%);
+            background: rgba(255, 217, 0, 0.1);
             border: 1.5px solid rgba(255, 217, 0, 0.2);
             margin: 0 auto 1.25rem;
         }
@@ -336,7 +336,7 @@
 
         /* Submit button */
         .fp-form-wrapper .fi-btn {
-            background: linear-gradient(135deg, #ffd900 0%, #fed000 100%) !important;
+            background: #ffd900 !important;
             border: none !important;
             border-radius: 0.875rem !important;
             padding: 0.875rem 1.5rem !important;
@@ -351,7 +351,7 @@
         }
 
         .fp-form-wrapper .fi-btn:hover {
-            background: linear-gradient(135deg, #e6c300 0%, #ca8a04 100%) !important;
+            background: #e6c300 !important;
             box-shadow: 0 8px 24px rgba(255, 217, 0, 0.45) !important;
         }
 
@@ -430,7 +430,7 @@
             width: 5rem;
             height: 5rem;
             border-radius: 9999px;
-            background: linear-gradient(135deg, rgba(255, 217, 0, 0.1) 0%, rgba(255, 217, 0, 0.1) 100%);
+            background: rgba(255, 217, 0, 0.1);
             border: 2px solid rgba(255, 217, 0, 0.22);
             display: flex;
             align-items: center;
@@ -518,7 +518,7 @@
         }
 
         .fp-mobile-pill {
-            background: linear-gradient(135deg, rgba(255, 217, 0, 0.08) 0%, rgba(255, 217, 0, 0.08) 100%);
+            background: #ffd900;
             color: #ffd900;
             border-radius: 9999px;
             padding: 0.4rem 0.875rem;

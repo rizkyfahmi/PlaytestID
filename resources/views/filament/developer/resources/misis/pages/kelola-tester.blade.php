@@ -26,7 +26,7 @@
         .mp-stat:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -10px rgba(0,0,0,.1); }
         .mp-stat::after {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            background: #ffd900;
             transform: skewX(-25deg); transition: 0.75s; z-index: 1; pointer-events: none;
         }
         .mp-stat:hover::after { left: 125%; }
@@ -37,10 +37,10 @@
         .mp-stat-value { font-size: 1.4rem; font-weight: 800; color: #0f172a; line-height: 1.1; }
         .mp-stat-sub   { font-size: .72rem; color: #94a3b8; margin-top: 2px; }
 
-        .mp-grad-orange   { background: linear-gradient(90deg, #ffd900, #fed000); }
-        .mp-grad-green  { background: linear-gradient(90deg, #22c55e, #86efac); }
-        .mp-grad-orange { background: linear-gradient(90deg, #f59e0b, #fcd34d); }
-        .mp-grad-rose   { background: linear-gradient(90deg, #e11d48, #fb7185); }
+        .mp-grad-orange   { background: #ffd900; }
+        .mp-grad-green  { background: #10b981; }
+        .mp-grad-orange { background: #ffd900; }
+        .mp-grad-rose   { background: #ffd900; }
 
         .mp-bg-orange   { background: #fefce8; color: #ffd900; }
         .mp-bg-green  { background: #dcfce7; color: #16a34a; }
@@ -110,7 +110,8 @@
 
         /* ══ SORT HEADER BUTTON ══ */
         .mp-sort-btn {
-            display: inline-flex; align-items: center; gap: 3px; background: none; border: none; cursor: pointer;
+            display: inline-flex; align-items: center; gap: 3px; background: none;
+border: none; cursor: pointer;
             font-size: .75rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: .07em; padding: 0; transition: color 0.2s; font-family: 'Inter', sans-serif; white-space: nowrap;
         }
         .mp-sort-btn:hover, .mp-sort-btn.active { color: #ffd900; }

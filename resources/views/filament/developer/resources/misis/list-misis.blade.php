@@ -35,7 +35,7 @@
     .mp-stat:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -10px rgba(0,0,0,.1); }
     .mp-stat::after {
         content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+        background: #ffd900;
         transform: skewX(-25deg); transition: 0.75s; z-index: 1; pointer-events: none;
     }
     .mp-stat:hover::after { left: 125%; }
@@ -45,10 +45,10 @@
     .mp-stat-label { font-size: .72rem; color: #64748b; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
     .mp-stat-value { font-size: 1.4rem; font-weight: 800; color: #0f172a; line-height: 1.1; }
     .mp-stat-sub   { font-size: .72rem; color: #94a3b8; margin-top: 2px; }
-    .mp-grad-orange    { background: linear-gradient(90deg, #ffd900, #fed000); }
-    .mp-grad-green   { background: linear-gradient(90deg, #10b981, #34d399); }
-    .mp-grad-amber   { background: linear-gradient(90deg, #f59e0b, #fcd34d); }
-    .mp-grad-purple  { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
+    .mp-grad-orange    { background: #ffd900; }
+    .mp-grad-green   { background: #10b981; }
+    .mp-grad-amber   { background: #ffd900; }
+    .mp-grad-purple  { background: #8b5cf6; }
     .mp-bg-orange    { background: #fefce8; color: #ffd900; }
     .mp-bg-green   { background: #d1fae5; color: #10b981; }
     .mp-bg-amber   { background: #fef9c3; color: #f59e0b; }
@@ -90,7 +90,7 @@
     .mk-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(0,0,0,0.12); }
     .mk-card::after {
         content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%);
+        background: #ffd900;
         transform: skewX(-25deg); transition: 0.75s; z-index: 1; pointer-events: none;
     }
     .mk-card:hover::after { left: 125%; }
@@ -132,7 +132,8 @@
     .mk-btn-delete:hover  { background: #fee2f2; }
 
     /* ══ SORT HEADER BUTTON ══ */
-    .mk-sort-btn { display: inline-flex; align-items: center; gap: 3px; background: none; border: none; cursor: pointer; font-size: .72rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: .07em; padding: 0; transition: color 0.2s; font-family: 'Inter', sans-serif; white-space: nowrap; }
+    .mk-sort-btn { display: inline-flex; align-items: center; gap: 3px; background: none;
+border: none; cursor: pointer; font-size: .72rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: .07em; padding: 0; transition: color 0.2s; font-family: 'Inter', sans-serif; white-space: nowrap; }
     .mk-sort-btn:hover  { color: #0f172a; }
     .mk-sort-btn.active { color: #0f172a; }
     .mk-sort-icon { font-size: .95rem !important; line-height: 1; }
@@ -681,12 +682,7 @@
             </div>
             <div class="flex items-center gap-2">
                 <span class="mk-badge"
-                      :class="{
-                          'mk-badge-running':   kampanye?.raw_status === 'running',
-                          'mk-badge-completed': kampanye?.raw_status === 'completed',
-                          'mk-badge-pending':   kampanye?.raw_status === 'pending',
-                          'mk-badge-closed':    kampanye?.raw_status === 'closed',
-                      }"
+                      :class="{ 'mk-badge-running': kampanye?.raw_status === 'running', 'mk-badge-completed': kampanye?.raw_status === 'completed', 'mk-badge-pending': kampanye?.raw_status === 'pending', 'mk-badge-closed': kampanye?.raw_status === 'closed', }"
                       x-text="kampanye?.status ?? ''">
                 </span>
                 <button @click="tutupModal()"

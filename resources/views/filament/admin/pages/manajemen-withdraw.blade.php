@@ -84,7 +84,7 @@
             left: -100%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+            background: transparent;
             transform: skewX(-25deg);
             transition: 0.75s;
             z-index: 1;
@@ -142,19 +142,19 @@
 
         /* Stat Colors */
         .mw-grad-green {
-            background: linear-gradient(90deg, #22c55e, #86efac);
+            background: #10b981;
         }
 
         .mw-grad-emerald {
-            background: linear-gradient(90deg, #10b981, #34d399);
+            background: #10b981;
         }
 
         .mw-grad-orange {
-            background: linear-gradient(90deg, #f59e0b, #fcd34d);
+            background: #ffd900;
         }
 
         .mw-grad-red {
-            background: linear-gradient(90deg, #ef4444, #fca5a5);
+            background: #ef4444;
         }
 
         .mw-bg-green {
@@ -197,7 +197,7 @@
         .mw-chart-bar {
             width: 80%;
             border-radius: 6px 6px 0 0;
-            background: linear-gradient(to top, #16a34a, #86efac);
+            background: #10b981;
             height: 0;
             transition: height 1.2s cubic-bezier(.4, 0, .2, 1), opacity 0.2s, box-shadow 0.2s;
             position: relative;
@@ -239,7 +239,7 @@
         }
 
         .mw-chart-active .mw-chart-bar {
-            background: linear-gradient(to top, #f59e0b, #fcd34d) !important
+            background: #ffd900 !important
         }
 
         .mw-chart-active .mw-chart-bar:hover {
@@ -329,7 +329,7 @@
         }
 
         .mw-btn-primary {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            background: #10b981;
             color: #fff;
         }
 
@@ -339,7 +339,7 @@
         }
 
         .mw-btn-danger {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            background: #ef4444;
             color: #fff;
         }
 
@@ -429,7 +429,7 @@
             align-items: center;
             gap: 3px;
             background: none;
-            border: none;
+border: none;
             cursor: pointer;
             font-size: .75rem;
             font-weight: 600;
@@ -1022,7 +1022,7 @@
         }
 
         .mw-summary-box {
-            background: linear-gradient(135deg, #14532d, #0f172a);
+            background: #1a1a18;
             border-radius: 12px;
             padding: 20px;
             color: #fff;
@@ -1492,7 +1492,7 @@
                         </td>
                         <td>
                             <div class="flex items-center gap-3">
-                                <div class="mw-avatar bg-gradient-to-br {{ $w['avatarColor'] }}">{{ $w['inisial'] }}</div>
+                                <div class="mw-avatar {{ $w['avatarColor'] }}">{{ $w['inisial'] }}</div>
                                 <div class="mw-td-name">{{ $w['namaUser'] }}</div>
                             </div>
                         </td>

@@ -43,7 +43,7 @@
     --sidebar-user-hover-bg: #f1f5f9;
     --sidebar-user-name: #1e293b;
     --sidebar-user-email: #64748b;
-    --sidebar-avatar-bg: linear-gradient(135deg, #ffd900, #f59e0b);
+    --sidebar-avatar-bg: #ffd900;
     --sidebar-avatar-color: #ffffff;
     --main-bg: #f8fafc;
 }
@@ -72,7 +72,7 @@
     --sidebar-user-hover-bg: #334155;
     --sidebar-user-name: #f1f5f9;
     --sidebar-user-email: #64748b;
-    --sidebar-avatar-bg: linear-gradient(135deg, #ffd900, #f59e0b);
+    --sidebar-avatar-bg: #ffd900;
     --sidebar-avatar-color: #ffffff;
     --main-bg: #020617;
 }

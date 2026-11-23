@@ -134,7 +134,7 @@
       position: relative;
       width: 48px;
       height: 26px;
-      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+      background: #e2e8f0;
       border-radius: 999px;
       border: none;
       cursor: pointer;
@@ -143,7 +143,7 @@
     }
 
     .dark .theme-toggle {
-      background: linear-gradient(135deg, #334155, #1e293b);
+      background: #1e293b;
     }
 
     .theme-toggle-knob {
@@ -210,12 +210,7 @@
       }
     }
 
-    @keyframes prof-gradient {
-
-      0%,
-      100% {
-        background-position: 0% 50%
-      }
+    
 
       50% {
         background-position: 100% 50%
@@ -308,9 +303,9 @@
 
     .prof-hero {
       position: relative;
-      background: linear-gradient(135deg, #111111 0%, #1a1a18 25%, #242424 55%, #ca8a04 80%, #ffd900 100%);
+      background: #1a1a18;
       background-size: 220% 220%;
-      animation: prof-gradient 14s ease infinite;
+      
       box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset;
       isolation: isolate;
       overflow: hidden;
@@ -332,12 +327,8 @@
     .prof-aurora {
       position: absolute;
       inset: -30%;
-      background:
-        radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .55), transparent 60%),
-        radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
-        radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
-        radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%);
-      filter: blur(40px);
+      background: none;
+filter: blur(40px);
       animation: prof-aurora 22s ease-in-out infinite;
       mix-blend-mode: screen;
       pointer-events: none;
@@ -350,8 +341,8 @@
       height: 520px;
       left: -160px;
       bottom: -200px;
-      background: conic-gradient(from 0deg, rgba(255, 217, 0, 0), rgba(254, 208, 0, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(255, 217, 0, 0));
-      border-radius: 50%;
+      background: none;
+border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 28s linear infinite;
       opacity: .7;
@@ -364,8 +355,8 @@
       height: 380px;
       right: -120px;
       top: -140px;
-      background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(254, 208, 0, .30), rgba(244, 114, 182, 0));
-      border-radius: 50%;
+      background: none;
+border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 34s linear infinite;
       opacity: .6;
@@ -374,10 +365,10 @@
 
     .prof-grid-bg {
       background-image:
-        linear-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .07) 1px, transparent 1px);
+        #ffd900,
+        #ffd900;
       background-size: 28px 28px;
-      mask-image: radial-gradient(ellipse at top right, black 30%, transparent 70%);
+      mask-image: none;
       animation: prof-grid-pan 18s linear infinite;
     }
 
@@ -395,8 +386,8 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: radial-gradient(circle, #fff 0%, rgba(255, 255, 255, .2) 60%, transparent 70%);
-      box-shadow: 0 0 12px rgba(255, 255, 255, .7);
+      background: none;
+box-shadow: 0 0 12px rgba(255, 255, 255, .7);
       animation: prof-particle linear infinite;
       opacity: 0;
     }
@@ -425,7 +416,7 @@
       left: -20%;
       width: 120px;
       height: 2px;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .9));
+      background: transparent;
       filter: drop-shadow(0 0 6px rgba(147, 197, 253, .9));
       border-radius: 2px;
       animation: prof-shoot 7s ease-in infinite;
@@ -517,113 +508,8 @@
 
       <!-- Floating decorative blobs -->
       <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-        style="background:radial-gradient(circle,#fed000,transparent 70%);"></div>
-      <div class="prof-blob-rev absolute right-20 -bottom-16 w-40 h-40 rounded-full opacity-15"
-        style="background:radial-gradient(circle,#a78bfa,transparent 70%);"></div>
-
-      <!-- Main Content -->
-      <div class="relative z-10 max-w-3xl mx-auto text-center">
-        <div
-          class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-xs font-semibold px-4 py-2 rounded-full mb-4 backdrop-blur-sm">
-          <i class="fa-solid fa-shield-halved"></i> {{ __('Privasi & Keamanan') }}
-        </div>
-        <h1 class="text-3xl sm:text-4xl font-black mb-2">{{ __('Kebijakan Privasi') }}</h1>
-        <p class="text-brand-100 text-sm">{{ __('Terakhir diperbarui: 1 Juni 2026') }}</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Content -->
-  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
-    <div class="page-card">
-      <div class="prose">
-        <p>
-          {{ __('Testoplay ("kami", "kita") menghargai privasi Anda. Kebijakan ini menjelaskan bagaimana kami mengumpulkan, menggunakan, menyimpan, dan melindungi informasi pribadi Anda saat menggunakan platform kami.') }}
-        </p>
-
-        <h2>1. {{ __('Informasi yang Kami Kumpulkan') }}</h2>
-        <p>{{ __('Kami mengumpulkan berbagai jenis informasi sehubungan dengan layanan yang kami sediakan:') }}</p>
-        <ul>
-          <li>{{ __('Informasi akun: nama lengkap, alamat email, kata sandi (terenkripsi)') }}</li>
-          <li>{{ __('Informasi profil: foto profil, bio, tautan media sosial') }}</li>
-          <li>{{ __('Data transaksi: riwayat pembayaran, metode pembayaran') }}</li>
-          <li>{{ __('Data aktivitas: log masuk, riwayat misi, peringkat ulasan') }}</li>
-          <li>{{ __('Data teknis: alamat IP, jenis perangkat, browser, dan waktu akses') }}</li>
-        </ul>
-
-        <h2>2. {{ __('Cara Kami Menggunakan Informasi') }}</h2>
-        <p>{{ __('Informasi yang dikumpulkan digunakan untuk:') }}</p>
-        <ul>
-          <li>{{ __('Menyediakan, mengoperasikan, dan meningkatkan layanan platform') }}</li>
-          <li>{{ __('Memproses transaksi pembayaran dan pengeluaran reward') }}</li>
-          <li>{{ __('Mengirimkan notifikasi terkait akun dan misi') }}</li>
-          <li>{{ __('Memverifikasi identitas dan mencegah penipuan') }}</li>
-          <li>{{ __('Menganalisis penggunaan platform untuk peningkatan layanan') }}</li>
-          <li>{{ __('Memenuhi kewajiban hukum yang berlaku') }}</li>
-        </ul>
-
-        <h2>3. {{ __('Berbagi Informasi') }}</h2>
-        <p>
-          {{ __('Kami tidak menjual informasi pribadi Anda kepada pihak ketiga. Namun, kami dapat membagikan informasi kepada:') }}
-        </p>
-        <ul>
-          <li>{{ __('Penyedia layanan pembayaran (Duitku, Xendit) untuk memproses transaksi') }}</li>
-          <li>{{ __('Penyedia layanan cloud (untuk penyimpanan dan hosting)') }}</li>
-          <li>{{ __('Pihak berwenang apabila diwajibkan oleh hukum yang berlaku') }}</li>
-        </ul>
-
-        <h2>4. {{ __('Keamanan Data') }}</h2>
-        <p>
-          {{ __('Kami menggunakan langkah-langkah keamanan teknis dan organisasi yang wajar untuk melindungi informasi Anda, termasuk enkripsi data, akses terbatas, dan pemantauan sistem secara berkala.') }}
-        </p>
-
-        <h2>5. {{ __('Hak Pengguna') }}</h2>
-        <p>{{ __('Anda memiliki hak untuk:') }}</p>
-        <ul>
-          <li>{{ __('Mengakses dan memperbarui data pribadi Anda') }}</li>
-          <li>{{ __('Meminta penghapusan akun dan data Anda') }}</li>
-          <li>{{ __('Menarik persetujuan pemrosesan data') }}</li>
-          <li>{{ __('Mengajukan keberatan atas pemrosesan data tertentu') }}</li>
-        </ul>
-
-        <h2>6. {{ __('Cookies') }}</h2>
-        <p>
-          {{ __('Platform kami menggunakan cookies untuk menjaga sesi login Anda dan menyimpan preferensi. Anda dapat mengatur browser Anda untuk menolak cookies, namun hal ini dapat mempengaruhi fungsi tertentu.') }}
-        </p>
-
-        <h2>7. {{ __('Perubahan Kebijakan') }}</h2>
-        <p>
-          {{ __('Kami dapat memperbarui Kebijakan Privasi ini sewaktu-waktu. Perubahan signifikan akan diberitahukan melalui email atau notifikasi di platform.') }}
-        </p>
-
-        <h2>8. {{ __('Hubungi Kami') }}</h2>
-        <p>{{ __('Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, silakan hubungi kami di:') }} <a
-            href="mailto:privacy@testoplay.com">privacy@testoplay.com</a></p>
-      </div>
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer
-    class="bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 text-center py-6 px-4 text-xs mt-4 transition-colors duration-200">
-    <p>© 2026 <span class="text-slate-700 dark:text-slate-300 font-semibold">Testoplay</span>.
-      {{ __('Hak cipta dilindungi undang-undang.') }}
-    </p>
-    <div class="flex flex-wrap justify-center gap-4 mt-2">
-      <a href="{{ route('kebijakan-privasi') }}"
-        class="hover:text-brand-600 dark:hover:text-white transition">{{ __('Kebijakan Privasi') }}</a>
-      <a href="{{ route('syarat-ketentuan') }}"
-        class="hover:text-brand-600 dark:hover:text-white transition">{{ __('Syarat & Ketentuan') }}</a>
-      <a href="{{ route('faq') }}" class="hover:text-brand-600 dark:hover:text-white transition">FAQ</a>
-      <a href="{{ route('hubungi-kami') }}"
-        class="hover:text-brand-600 dark:hover:text-white transition">{{ __('Hubungi Kami') }}</a>
-    </div>
-  </footer>
-
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      if (html.classList.contains('dark')) { html.classList.remove('dark'); localStorage.setItem('pt-theme', 'light'); }
+        style="background: none;
+if (html.classList.contains('dark')) { html.classList.remove('dark'); localStorage.setItem('pt-theme', 'light'); }
       else { html.classList.add('dark'); localStorage.setItem('pt-theme', 'dark'); }
     }
   </script>

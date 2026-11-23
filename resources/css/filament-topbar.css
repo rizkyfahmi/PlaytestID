@@ -16,11 +16,8 @@
     --topbar-shadow-light: 0 6px 24px -6px rgba(15, 23, 42, 0.08);
     --topbar-icon-hover-light: #ffd900;
     --topbar-item-hover-bg-light: rgba(241, 245, 249, 0.9);
-    --topbar-aurora-light:
-        radial-gradient(900px 120px at 10% -20%, rgba(255, 217, 0, 0.18), transparent 60%),
-        radial-gradient(700px 120px at 60% -40%, rgba(139, 92, 246, 0.14), transparent 60%),
-        radial-gradient(700px 120px at 95% -20%, rgba(236, 72, 153, 0.12), transparent 60%);
-    --topbar-gradient: linear-gradient(90deg, #ffd900, #8b5cf6, #ec4899, #f59e0b, #ffd900);
+    --topbar-aurora-light: none;
+    --topbar-gradient: #ffd900;
     --topbar-ring: rgba(255, 217, 0, 0.35);
 }
 
@@ -30,11 +27,8 @@
     --topbar-shadow-dark: 0 6px 24px -6px rgba(0, 0, 0, 0.55);
     --topbar-icon-hover-dark: #fed000;
     --topbar-item-hover-bg-dark: rgba(30, 41, 59, 0.9);
-    --topbar-aurora-dark:
-        radial-gradient(900px 120px at 10% -20%, rgba(255, 217, 0, 0.22), transparent 60%),
-        radial-gradient(700px 120px at 60% -40%, rgba(139, 92, 246, 0.20), transparent 60%),
-        radial-gradient(700px 120px at 95% -20%, rgba(217, 70, 239, 0.18), transparent 60%);
-    --topbar-gradient: linear-gradient(90deg, #fed000, #8b5cf6, #d946ef, #f59e0b, #fed000);
+    --topbar-aurora-dark: none;
+    --topbar-gradient: #ffd900;
     --topbar-ring: rgba(254, 208, 0, 0.45);
 }
 
@@ -150,7 +144,7 @@
     bottom: -1px;
     height: 3px;
     width: var(--scroll, 0%);
-    background: linear-gradient(90deg, #22d3ee, #ffd900, #8b5cf6);
+    background: #ffd900;
     z-index: 51;
     box-shadow: 0 0 10px rgba(255, 217, 0, 0.6);
     transition: width 0.08s linear;
@@ -175,8 +169,8 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(circle at center, rgba(255, 217, 0, 0.25) 0%, transparent 60%);
-    opacity: 0;
+    background: none;
+opacity: 0;
     transform: scale(0.6);
     transition: opacity 0.4s ease, transform 0.5s ease;
     pointer-events: none;
@@ -220,7 +214,7 @@
     bottom: 4px;
     height: 2px;
     border-radius: 2px;
-    background: linear-gradient(90deg, #ffd900, #8b5cf6, #ec4899);
+    background: #ffd900;
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 0.35s cubic-bezier(.2, .7, .2, 1);
@@ -259,9 +253,9 @@
     inset: -2px;
     border-radius: 9999px;
     padding: 2px;
-    background: linear-gradient(120deg, #ffd900, #8b5cf6, #ec4899, #f59e0b, #ffd900);
+    background: #ffd900;
     background-size: 300% 100%;
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask: #ffd900 content-box, #ffd900;
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0.55;
@@ -282,8 +276,8 @@
     position: absolute;
     inset: -8px;
     border-radius: 9999px;
-    background: radial-gradient(60% 100% at 50% 50%, rgba(139, 92, 246, 0.35), transparent 70%);
-    opacity: 0;
+    background: none;
+opacity: 0;
     transition: opacity 0.35s ease;
     pointer-events: none;
     z-index: 0;
@@ -298,7 +292,7 @@
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
     border-radius: 9999px !important;
     background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(241, 245, 249, 0.75)) !important;
+        #ffd900 !important;
     border: 1px solid rgba(148, 163, 184, 0.25) !important;
     padding-left: 2.75rem !important;
     padding-right: 1.25rem !important;
@@ -312,7 +306,7 @@
 }
 
 .dark .fi-topbar .fi-global-search-input {
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(2, 6, 23, 0.65)) !important;
+    background: #ffd900 !important;
     border-color: rgba(71, 85, 105, 0.4) !important;
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.04),
@@ -320,12 +314,12 @@
 }
 
 .fi-topbar .fi-global-search-input:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.95)) !important;
+    background: #ffd900 !important;
     transform: translateY(-1px);
 }
 
 .dark .fi-topbar .fi-global-search-input:hover {
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.85)) !important;
+    background: #ffd900 !important;
 }
 
 .fi-topbar .fi-global-search-input:focus {
@@ -358,21 +352,21 @@
 
 /* Placeholder shimmer */
 .fi-topbar .fi-global-search-input::placeholder {
-    background: linear-gradient(90deg, #94a3b8 0%, #c084fc 30%, #f472b6 50%, #c084fc 70%, #94a3b8 100%);
+    background: #ffd900;
     background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    
+    
+    
     animation: placeholderShimmer 4s linear infinite;
     font-weight: 500;
 }
 
 .dark .fi-topbar .fi-global-search-input::placeholder {
-    background: linear-gradient(90deg, #475569 0%, #a78bfa 30%, #f0abfc 50%, #a78bfa 70%, #475569 100%);
+    background: #8b5cf6;
     background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    
+    
+    
 }
 
 @keyframes placeholderShimmer {
@@ -409,8 +403,8 @@
 .topbar-search-spark--1 {
     top: -3px;
     right: 22px;
-    background: radial-gradient(circle, #f0abfc, #ec4899);
-    box-shadow: 0 0 10px #ec4899, 0 0 20px rgba(236, 72, 153, 0.5);
+    background: none;
+box-shadow: 0 0 10px #ec4899, 0 0 20px rgba(236, 72, 153, 0.5);
     animation: sparkFloat 3.2s ease-in-out infinite;
 }
 
@@ -419,8 +413,8 @@
     right: 50px;
     width: 4px;
     height: 4px;
-    background: radial-gradient(circle, #fde047, #ffd900);
-    box-shadow: 0 0 8px #ffd900;
+    background: none;
+box-shadow: 0 0 8px #ffd900;
     animation: sparkFloat 4.1s ease-in-out infinite -1s;
 }
 
@@ -429,8 +423,8 @@
     right: 8px;
     width: 5px;
     height: 5px;
-    background: radial-gradient(circle, #fde68a, #f59e0b);
-    box-shadow: 0 0 8px #f59e0b;
+    background: none;
+box-shadow: 0 0 8px #f59e0b;
     animation: sparkFloat 3.6s ease-in-out infinite -2s;
 }
 
@@ -605,12 +599,7 @@
 ══════════════════════════════════════ */
 .fi-topbar .fi-logo {
     position: relative;
-    background: linear-gradient(90deg, #ffd900, #8b5cf6, #ec4899, #ffd900) !important;
-    background-size: 200% auto !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    color: transparent !important;
-    animation: brandShimmer 5s linear infinite;
+    color: #ffd900 !important;
     letter-spacing: 0.2px;
 }
 
@@ -632,7 +621,7 @@
     font-size: 13px;
     font-weight: 500;
     color: #334155;
-    background: linear-gradient(135deg, rgba(255, 217, 0, 0.08), rgba(139, 92, 246, 0.08));
+    background: #ffd900;
     border: 1px solid rgba(148, 163, 184, 0.25);
     border-radius: 999px;
     backdrop-filter: blur(6px);
@@ -679,7 +668,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0;
-    background: linear-gradient(135deg, rgba(255, 217, 0, 0.08), rgba(139, 92, 246, 0.08));
+    background: #ffd900;
     border: 1px solid rgba(148, 163, 184, 0.25);
     border-radius: 999px;
     backdrop-filter: blur(6px);
@@ -704,7 +693,7 @@
 }
 
 .dark .topbar-user-combined {
-    background: linear-gradient(135deg, rgba(255, 217, 0, 0.12), rgba(139, 92, 246, 0.12));
+    background: #ffd900;
     border-color: rgba(71, 85, 105, 0.5);
 }
 
@@ -713,8 +702,8 @@
 .topbar-greeting--merged {
     display: inline-flex !important;
     border: none !important;
-    background: none !important;
-    backdrop-filter: none !important;
+    background: none;
+backdrop-filter: none !important;
     box-shadow: none !important;
     margin-inline: 0 !important;
     padding-right: 6px !important;
@@ -810,7 +799,7 @@
 
 /* Hover shimmer on full pill */
 .topbar-user-combined:hover {
-    background: linear-gradient(135deg, rgba(255, 217, 0, 0.12), rgba(139, 92, 246, 0.12)) !important;
+    background: #ffd900 !important;
     box-shadow: 0 6px 20px -6px rgba(139, 92, 246, 0.25) !important;
 }
 
@@ -1048,7 +1037,7 @@
     content: "";
     display: block;
     height: 3px;
-    background: linear-gradient(90deg, #ffd900, #8b5cf6, #ec4899, #f59e0b);
+    background: #ffd900;
     background-size: 300% 100%;
     animation: gradientMove 6s ease-in-out infinite;
 }
@@ -1065,7 +1054,7 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(236, 72, 153, 0.1));
+    background: #ffd900;
     margin-bottom: 1rem;
     animation: logoutIconPulse 2s ease-in-out infinite;
 }
@@ -1089,7 +1078,7 @@
 }
 
 .dark .logout-modal-icon {
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.18), rgba(236, 72, 153, 0.14));
+    background: #ffd900;
 }
 
 .logout-modal-title {
@@ -1158,13 +1147,13 @@
 }
 
 .logout-modal-btn--confirm {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
+    background: #ef4444;
     color: #fff;
     box-shadow: 0 4px 14px -4px rgba(239, 68, 68, 0.5);
 }
 
 .logout-modal-btn--confirm:hover {
-    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    background: #ef4444;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px -6px rgba(239, 68, 68, 0.6);
 }
@@ -1196,8 +1185,8 @@
 /* Matikan gradient text pada nama supaya solid, anti theme-bleed   */
 .topbar-greeting .topbar-greeting-name,
 .topbar-greeting--merged .topbar-greeting-name {
-    background: none !important;
-    -webkit-background-clip: initial !important;
+    background: none;
+-webkit-background-clip: initial !important;
     background-clip: initial !important;
     -webkit-text-fill-color: currentColor !important;
     color: #ffd900 !important;
@@ -1258,7 +1247,7 @@
     padding: 14px 20px;
     min-width: 280px;
     max-width: 360px;
-    background: linear-gradient(135deg, #ffd900, #8b5cf6);
+    background: #ffd900;
     color: #fff;
     border-radius: 14px;
     box-shadow: 0 18px 40px -10px rgba(255, 217, 0, 0.45),
@@ -1270,11 +1259,11 @@
 }
 
 .logout-toast--success {
-    background: linear-gradient(135deg, #10b981, #059669);
+    background: #10b981;
 }
 
 .logout-toast--info {
-    background: linear-gradient(135deg, #ffd900, #8b5cf6);
+    background: #ffd900;
 }
 
 .logout-toast svg {
@@ -1426,7 +1415,7 @@
     content: "";
     display: block;
     height: 3px;
-    background: linear-gradient(90deg, #ffd900, #8b5cf6, #ec4899, #f59e0b);
+    background: #ffd900;
     background-size: 300% 100%;
     animation: gradientMove 6s ease-in-out infinite;
     flex-shrink: 0;
@@ -1451,7 +1440,7 @@
     width: 44px;
     height: 44px;
     border-radius: 0.875rem;
-    background: linear-gradient(135deg, rgba(255, 217, 0, 0.12), rgba(139, 92, 246, 0.12));
+    background: #ffd900;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1471,7 +1460,7 @@
 }
 
 .dark .tips-header-icon {
-    background: linear-gradient(135deg, rgba(255, 217, 0, 0.2), rgba(139, 92, 246, 0.2));
+    background: #ffd900;
 }
 
 .dark .tips-header-icon svg {
@@ -1604,7 +1593,7 @@
 }
 
 .tips-tab-active {
-    background: linear-gradient(135deg, #ffd900, #f59e0b);
+    background: #ffd900;
     color: #ffffff;
     border-color: transparent;
     box-shadow: 0 4px 14px -4px rgba(255, 217, 0, 0.4);
@@ -1805,7 +1794,7 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #ffd900, #f59e0b);
+    background: #ffd900;
     color: #ffffff;
     font-size: 0.65rem;
     font-weight: 700;
@@ -1894,7 +1883,7 @@
     font-weight: 600;
     cursor: pointer;
     border: none;
-    background: linear-gradient(135deg, #ffd900, #f59e0b);
+    background: #ffd900;
     color: #ffffff;
     transition: all 0.2s ease;
     box-shadow: 0 2px 8px -2px rgba(255, 217, 0, 0.4);
@@ -1950,7 +1939,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #ffd900, #f59e0b);
+    background: #ffd900;
     color: #ffffff;
     box-shadow:
         0 8px 28px -6px rgba(255, 217, 0, 0.5),
@@ -1970,7 +1959,7 @@
 
 .ht-fab-btn--active {
     transform: scale(1.05) rotate(90deg) !important;
-    background: linear-gradient(135deg, #ef4444, #dc2626);
+    background: #ef4444;
     box-shadow:
         0 8px 28px -6px rgba(239, 68, 68, 0.5),
         0 0 0 3px rgba(239, 68, 68, 0.15);
@@ -2228,7 +2217,7 @@
 }
 
 .gt-btn--next {
-    background: linear-gradient(135deg, #ffd900, #f59e0b);
+    background: #ffd900;
     color: #ffffff;
     box-shadow: 0 4px 14px -4px rgba(255, 217, 0, 0.4);
 }
@@ -2261,7 +2250,7 @@
 }
 
 .gt-dot--active {
-    background: linear-gradient(135deg, #ffd900, #f59e0b);
+    background: #ffd900;
     transform: scale(1.2);
     box-shadow: 0 0 8px rgba(255, 217, 0, 0.4);
 }
@@ -2341,12 +2330,12 @@
 }
 
 .fi-topbar .fi-dropdown-list-item:hover {
-    background: linear-gradient(135deg, rgba(255, 217, 0, 0.06), rgba(139, 92, 246, 0.08)) !important;
+    background: #ffd900 !important;
     transform: translateX(4px);
 }
 
 .dark .fi-topbar .fi-dropdown-list-item:hover {
-    background: linear-gradient(135deg, rgba(255, 217, 0, 0.1), rgba(139, 92, 246, 0.12)) !important;
+    background: #ffd900 !important;
 }
 
 /* Dropdown Item Labels */

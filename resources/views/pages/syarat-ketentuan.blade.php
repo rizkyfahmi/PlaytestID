@@ -128,7 +128,7 @@
       position: relative;
       width: 48px;
       height: 26px;
-      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+      background: #e2e8f0;
       border-radius: 999px;
       border: none;
       cursor: pointer;
@@ -137,7 +137,7 @@
     }
 
     .dark .theme-toggle {
-      background: linear-gradient(135deg, #334155, #1e293b);
+      background: #1e293b;
     }
 
     .theme-toggle-knob {
@@ -204,12 +204,7 @@
       }
     }
 
-    @keyframes prof-gradient {
-
-      0%,
-      100% {
-        background-position: 0% 50%
-      }
+    
 
       50% {
         background-position: 100% 50%
@@ -302,9 +297,9 @@
 
     .prof-hero {
       position: relative;
-      background: linear-gradient(135deg, #111111 0%, #1a1a18 25%, #242424 55%, #ca8a04 80%, #ffd900 100%);
+      background: #1a1a18;
       background-size: 220% 220%;
-      animation: prof-gradient 14s ease infinite;
+      
       box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset;
       isolation: isolate;
       overflow: hidden;
@@ -326,12 +321,8 @@
     .prof-aurora {
       position: absolute;
       inset: -30%;
-      background:
-        radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .55), transparent 60%),
-        radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
-        radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
-        radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%);
-      filter: blur(40px);
+      background: none;
+filter: blur(40px);
       animation: prof-aurora 22s ease-in-out infinite;
       mix-blend-mode: screen;
       pointer-events: none;
@@ -344,8 +335,8 @@
       height: 520px;
       left: -160px;
       bottom: -200px;
-      background: conic-gradient(from 0deg, rgba(255, 217, 0, 0), rgba(254, 208, 0, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(255, 217, 0, 0));
-      border-radius: 50%;
+      background: none;
+border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 28s linear infinite;
       opacity: .7;
@@ -358,8 +349,8 @@
       height: 380px;
       right: -120px;
       top: -140px;
-      background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(254, 208, 0, .30), rgba(244, 114, 182, 0));
-      border-radius: 50%;
+      background: none;
+border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 34s linear infinite;
       opacity: .6;
@@ -368,10 +359,10 @@
 
     .prof-grid-bg {
       background-image:
-        linear-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .07) 1px, transparent 1px);
+        #ffd900,
+        #ffd900;
       background-size: 28px 28px;
-      mask-image: radial-gradient(ellipse at top right, black 30%, transparent 70%);
+      mask-image: none;
       animation: prof-grid-pan 18s linear infinite;
     }
 
@@ -389,8 +380,8 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: radial-gradient(circle, #fff 0%, rgba(255, 255, 255, .2) 60%, transparent 70%);
-      box-shadow: 0 0 12px rgba(255, 255, 255, .7);
+      background: none;
+box-shadow: 0 0 12px rgba(255, 255, 255, .7);
       animation: prof-particle linear infinite;
       opacity: 0;
     }
@@ -419,7 +410,7 @@
       left: -20%;
       width: 120px;
       height: 2px;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .9));
+      background: transparent;
       filter: drop-shadow(0 0 6px rgba(147, 197, 253, .9));
       border-radius: 2px;
       animation: prof-shoot 7s ease-in infinite;
@@ -507,119 +498,8 @@
 
       <!-- Floating decorative blobs -->
       <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-        style="background:radial-gradient(circle,#fed000,transparent 70%);"></div>
-      <div class="prof-blob-rev absolute right-20 -bottom-16 w-40 h-40 rounded-full opacity-15"
-        style="background:radial-gradient(circle,#a78bfa,transparent 70%);"></div>
-
-      <!-- Main Content -->
-      <div class="relative z-10 max-w-3xl mx-auto text-center">
-        <div
-          class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-xs font-semibold px-4 py-2 rounded-full mb-4 backdrop-blur-sm">
-          <i class="fa-solid fa-file-contract"></i> {{ __('Dokumen Hukum') }}
-        </div>
-        <h1 class="text-3xl sm:text-4xl font-black mb-2">{{ __('Syarat & Ketentuan') }}</h1>
-        <p class="text-purple-100 text-sm">{{ __('Terakhir diperbarui: 1 Juni 2026') }}</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Content -->
-  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
-    <div class="page-card">
-      <div class="prose">
-        <p>
-          {{ __('Selamat datang di Testoplay. Dengan mengakses atau menggunakan platform ini, Anda menyetujui syarat dan ketentuan yang tercantum di bawah ini. Harap baca dengan cermat sebelum menggunakan layanan kami.') }}
-        </p>
-
-        <h2>1. {{ __('Penerimaan Syarat') }}</h2>
-        <p>
-          {{ __('Dengan mendaftarkan akun atau menggunakan layanan Testoplay, Anda menyatakan bahwa Anda berusia minimal 17 tahun dan memiliki kapasitas hukum untuk menyetujui syarat ini. Jika Anda tidak setuju, jangan gunakan platform ini.') }}
-        </p>
-
-        <h2>2. {{ __('Deskripsi Layanan') }}</h2>
-        <p>
-          {{ __('Testoplay adalah platform yang menghubungkan developer aplikasi Android dengan tester untuk memenuhi persyaratan Google Play Closed Testing. Kami menyediakan:') }}
-        </p>
-        <ul>
-          <li>{{ __('Sistem manajemen kampanye testing') }}</li>
-          <li>{{ __('Pencocokan developer dengan tester yang relevan') }}</li>
-          <li>{{ __('Sistem reward dan pembayaran') }}</li>
-          <li>{{ __('Dukungan teknis dan panduan') }}</li>
-        </ul>
-
-        <h2>3. {{ __('Akun Pengguna') }}</h2>
-        <p>{{ __('Anda bertanggung jawab untuk:') }}</p>
-        <ul>
-          <li>{{ __('Menjaga kerahasiaan kredensial akun Anda') }}</li>
-          <li>{{ __('Semua aktivitas yang terjadi di bawah akun Anda') }}</li>
-          <li>{{ __('Memberikan informasi yang akurat dan terkini') }}</li>
-          <li>{{ __('Segera melaporkan penggunaan tidak sah kepada kami') }}</li>
-        </ul>
-
-        <h2>4. {{ __('Kewajiban Developer') }}</h2>
-        <ul>
-          <li>{{ __('Hanya mengiklankan aplikasi yang Anda miliki atau memiliki izin untuk mengiklankan') }}</li>
-          <li>{{ __('Membayar biaya layanan sesuai paket yang dipilih') }}</li>
-          <li>{{ __('Tidak menggunakan platform untuk tujuan penipuan') }}</li>
-          <li>{{ __('Mematuhi Kebijakan Program Developer Google Play') }}</li>
-        </ul>
-
-        <h2>5. {{ __('Kewajiban Tester') }}</h2>
-        <ul>
-          <li>{{ __('Mengikuti misi dengan jujur dan sungguh-sungguh') }}</li>
-          <li>{{ __('Tidak menggunakan akun Google palsu atau akun bot') }}</li>
-          <li>{{ __('Memberikan ulasan yang autentik dan tidak memihak') }}</li>
-          <li>{{ __('Tidak membagikan akses aplikasi kepada pihak ketiga') }}</li>
-        </ul>
-
-        <h2>6. {{ __('Pembayaran & Reward') }}</h2>
-        <p>
-          {{ __('Pembayaran diproses melalui gateway pembayaran pihak ketiga. Reward tester akan dicairkan sesuai ketentuan yang berlaku. Testoplay tidak bertanggung jawab atas penundaan yang disebabkan oleh pihak penyedia pembayaran.') }}
-        </p>
-
-        <h2>7. {{ __('Penghentian Akun') }}</h2>
-        <p>
-          {{ __('Kami berhak menangguhkan atau menghentikan akun Anda tanpa pemberitahuan jika Anda melanggar syarat ini, melakukan penipuan, atau merugikan pengguna lain.') }}
-        </p>
-
-        <h2>8. {{ __('Batasan Tanggung Jawab') }}</h2>
-        <p>
-          {{ __('Testoplay tidak bertanggung jawab atas kerusakan tidak langsung, insidental, atau kehilangan keuntungan yang timbul dari penggunaan platform. Tanggung jawab kami dibatasi pada jumlah yang Anda bayarkan dalam 12 bulan terakhir.') }}
-        </p>
-
-        <h2>9. {{ __('Hukum yang Berlaku') }}</h2>
-        <p>
-          {{ __('Syarat ini diatur oleh hukum Republik Indonesia. Segala sengketa akan diselesaikan melalui arbitrase atau pengadilan yang berwenang di Indonesia.') }}
-        </p>
-
-        <h2>10. {{ __('Kontak') }}</h2>
-        <p>{{ __('Pertanyaan terkait syarat dan ketentuan dapat dikirimkan ke:') }} <a
-            href="mailto:legal@testoplay.com">legal@testoplay.com</a></p>
-      </div>
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer
-    class="bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 text-center py-6 px-4 text-xs mt-4 transition-colors duration-200">
-    <p>© 2026 <span class="text-slate-700 dark:text-slate-300 font-semibold">Testoplay</span>.
-      {{ __('Hak cipta dilindungi undang-undang.') }}
-    </p>
-    <div class="flex flex-wrap justify-center gap-4 mt-2">
-      <a href="{{ route('kebijakan-privasi') }}"
-        class="hover:text-brand-600 dark:hover:text-white transition">{{ __('Kebijakan Privasi') }}</a>
-      <a href="{{ route('syarat-ketentuan') }}"
-        class="hover:text-brand-600 dark:hover:text-white transition">{{ __('Syarat & Ketentuan') }}</a>
-      <a href="{{ route('faq') }}" class="hover:text-brand-600 dark:hover:text-white transition">FAQ</a>
-      <a href="{{ route('hubungi-kami') }}"
-        class="hover:text-brand-600 dark:hover:text-white transition">{{ __('Hubungi Kami') }}</a>
-    </div>
-  </footer>
-
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      if (html.classList.contains('dark')) { html.classList.remove('dark'); localStorage.setItem('pt-theme', 'light'); }
+        style="background: none;
+if (html.classList.contains('dark')) { html.classList.remove('dark'); localStorage.setItem('pt-theme', 'light'); }
       else { html.classList.add('dark'); localStorage.setItem('pt-theme', 'dark'); }
     }
   </script>

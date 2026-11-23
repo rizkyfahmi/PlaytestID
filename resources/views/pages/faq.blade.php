@@ -112,7 +112,7 @@
       position: relative;
       width: 48px;
       height: 26px;
-      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+      background: #e2e8f0;
       border-radius: 999px;
       border: none;
       cursor: pointer;
@@ -121,7 +121,7 @@
     }
 
     .dark .theme-toggle {
-      background: linear-gradient(135deg, #334155, #1e293b);
+      background: #1e293b;
     }
 
     .theme-toggle-knob {
@@ -188,12 +188,7 @@
       }
     }
 
-    @keyframes prof-gradient {
-
-      0%,
-      100% {
-        background-position: 0% 50%
-      }
+    
 
       50% {
         background-position: 100% 50%
@@ -286,9 +281,9 @@
 
     .prof-hero {
       position: relative;
-      background: linear-gradient(135deg, #111111 0%, #1a1a18 25%, #242424 55%, #ca8a04 80%, #ffd900 100%);
+      background: #1a1a18;
       background-size: 220% 220%;
-      animation: prof-gradient 14s ease infinite;
+      
       box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset;
       isolation: isolate;
       overflow: hidden;
@@ -310,12 +305,8 @@
     .prof-aurora {
       position: absolute;
       inset: -30%;
-      background:
-        radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .55), transparent 60%),
-        radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
-        radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
-        radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%);
-      filter: blur(40px);
+      background: none;
+filter: blur(40px);
       animation: prof-aurora 22s ease-in-out infinite;
       mix-blend-mode: screen;
       pointer-events: none;
@@ -328,8 +319,8 @@
       height: 520px;
       left: -160px;
       bottom: -200px;
-      background: conic-gradient(from 0deg, rgba(255, 217, 0, 0), rgba(254, 208, 0, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(255, 217, 0, 0));
-      border-radius: 50%;
+      background: none;
+border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 28s linear infinite;
       opacity: .7;
@@ -342,8 +333,8 @@
       height: 380px;
       right: -120px;
       top: -140px;
-      background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(254, 208, 0, .30), rgba(244, 114, 182, 0));
-      border-radius: 50%;
+      background: none;
+border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 34s linear infinite;
       opacity: .6;
@@ -352,10 +343,10 @@
 
     .prof-grid-bg {
       background-image:
-        linear-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .07) 1px, transparent 1px);
+        #ffd900,
+        #ffd900;
       background-size: 28px 28px;
-      mask-image: radial-gradient(ellipse at top right, black 30%, transparent 70%);
+      mask-image: none;
       animation: prof-grid-pan 18s linear infinite;
     }
 
@@ -373,8 +364,8 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: radial-gradient(circle, #fff 0%, rgba(255, 255, 255, .2) 60%, transparent 70%);
-      box-shadow: 0 0 12px rgba(255, 255, 255, .7);
+      background: none;
+box-shadow: 0 0 12px rgba(255, 255, 255, .7);
       animation: prof-particle linear infinite;
       opacity: 0;
     }
@@ -403,7 +394,7 @@
       left: -20%;
       width: 120px;
       height: 2px;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .9));
+      background: transparent;
       filter: drop-shadow(0 0 6px rgba(147, 197, 253, .9));
       border-radius: 2px;
       animation: prof-shoot 7s ease-in infinite;
@@ -492,39 +483,8 @@
 
       <!-- Floating decorative blobs -->
       <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-        style="background:radial-gradient(circle,#fed000,transparent 70%);"></div>
-      <div class="prof-blob-rev absolute right-20 -bottom-16 w-40 h-40 rounded-full opacity-15"
-        style="background:radial-gradient(circle,#a78bfa,transparent 70%);"></div>
-
-      <!-- Main Content -->
-      <div class="relative z-10 max-w-3xl mx-auto text-center">
-        <div
-          class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-xs font-semibold px-4 py-2 rounded-full mb-4 backdrop-blur-sm">
-          <i class="fa-solid fa-circle-question"></i> {{ __('Bantuan') }}
-        </div>
-        <h1 class="text-3xl sm:text-4xl font-black mb-2">{{ __('Pertanyaan yang Sering Diajukan') }}</h1>
-        <p class="text-emerald-100 text-sm">{{ __('Temukan jawaban atas pertanyaan umum Anda di sini.') }}</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Content -->
-  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 space-y-8">
-
-    <!-- Umum -->
-    <div>
-      <div class="flex items-center gap-2 mb-3">
-        <div class="w-6 h-6 rounded-lg flex items-center justify-center" style="background:#fefce8;">
-          <i class="fa-solid fa-globe text-brand-600 text-xs"></i>
-        </div>
-        <h2 class="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">{{ __('Umum') }}</h2>
-      </div>
-      <div class="page-card card-accent-brand">
-        @php $faqs_umum = [
-          [__('Apa itu Testoplay?'), __('Testoplay adalah platform kolaborasi yang menghubungkan developer aplikasi Android dengan tester berkualitas di Indonesia. Platform ini membantu developer memenuhi persyaratan Google Play Closed Testing dengan lebih mudah dan efisien.')],
-          [__('Apakah Testoplay gratis?'), __('Testoplay menawarkan berbagai paket, mulai dari paket gratis dengan fitur terbatas hingga paket premium untuk kebutuhan testing yang lebih besar. Lihat halaman Harga untuk detail lengkap.')],
-          [__('Bagaimana cara mendaftar?'), __('Klik tombol "Daftar" di pojok kanan atas, pilih peran Anda (Developer atau Tester), isi formulir pendaftaran, dan verifikasi email Anda. Proses ini hanya membutuhkan beberapa menit.')],
-        ]; @endphp
+        style="background: none;
+@endphp
         @foreach($faqs_umum as $i => $faq)
           <div class="faq-item" id="faq-u-{{ $i }}">
             <button onclick="toggleFaq('faq-u-{{ $i }}')"

@@ -54,10 +54,10 @@ class HistoryMisi extends Page
             };
 
             $gradients = [
-                'linear-gradient(135deg,#f59e0b,#ef4444)',
-                'linear-gradient(135deg,#8b5cf6,#6366f1)',
-                'linear-gradient(135deg,#10b981,#0ea5e9)',
-                'linear-gradient(135deg,#ef4444,#fed000)',
+                '#ffd900',
+                '#8b5cf6',
+                '#10b981',
+                '#ef4444',
             ];
 
             return [

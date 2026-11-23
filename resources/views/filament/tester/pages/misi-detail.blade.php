@@ -38,9 +38,9 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
 
             /* ══════════════════ HERO BANNER ══════════════════ */
             .md-hero {
-                background: linear-gradient(135deg, #0a1850 0%, #13297a 30%, #ca8a04 65%, #fed000 100%);
+                background: #ffd900;
                 background-size: 200% 200%;
-                animation: md-gradient 12s ease infinite;
+                
                 border-radius: 1.5rem;
                 padding: 2rem 2rem 2.5rem 2rem;
                 position: relative;
@@ -48,12 +48,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                 margin-bottom: 1.5rem;
             }
 
-            @keyframes md-gradient {
-
-                0%,
-                100% {
-                    background-position: 0% 50%;
-                }
+            
 
                 50% {
                     background-position: 100% 50%;
@@ -64,8 +59,8 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                 position: absolute;
                 inset: 0;
                 background-image:
-                    linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
+                    #ffd900,
+                    #ffd900;
                 background-size: 28px 28px;
                 pointer-events: none;
             }
@@ -73,11 +68,8 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
             .md-hero-aurora {
                 position: absolute;
                 inset: -30%;
-                background:
-                    radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .4), transparent 60%),
-                    radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .35), transparent 60%),
-                    radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .3), transparent 60%);
-                filter: blur(40px);
+                background: none;
+filter: blur(40px);
                 animation: md-aurora 20s ease-in-out infinite;
                 pointer-events: none;
             }
@@ -264,20 +256,20 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
             .md-progress-fill {
                 height: 100%;
                 border-radius: 9999px;
-                background: linear-gradient(90deg, #ffd900, #fed000);
+                background: #ffd900;
                 transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1);
             }
 
             /* ══════════════════ CTA SECTION ══════════════════ */
             .md-cta-joined {
-                background: linear-gradient(135deg, #fefce8, #fef9c3);
+                background: #ffd900;
                 border: 1px solid #fef08a;
                 border-radius: 1.25rem;
                 padding: 1.5rem;
             }
 
             .md-cta-waiting {
-                background: linear-gradient(135deg, #fffbeb, #fef3c7);
+                background: #ffd900;
                 border: 1px solid #fde68a;
                 border-radius: 1.25rem;
                 padding: 1.5rem;
@@ -292,7 +284,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                 font-size: 0.875rem;
                 font-weight: 700;
                 color: #fff;
-                background: linear-gradient(135deg, #ffd900, #ca8a04);
+                background: #ffd900;
                 box-shadow: 0 4px 14px rgba(255, 217, 0, 0.3);
                 transition: all 0.2s ease;
                 text-decoration: none;
@@ -302,7 +294,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .md-btn-primary:hover {
-                background: linear-gradient(135deg, #ca8a04, #a16207);
+                background: #ffd900;
                 transform: translateY(-1px);
                 box-shadow: 0 6px 20px rgba(255, 217, 0, 0.4);
             }
@@ -338,7 +330,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                 font-size: 0.9rem;
                 font-weight: 700;
                 color: #fff;
-                background: linear-gradient(135deg, #ffd900, #f59e0b);
+                background: #ffd900;
                 box-shadow: 0 6px 20px rgba(255, 217, 0, 0.35);
                 transition: all 0.2s ease;
                 text-decoration: none;
@@ -389,7 +381,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
 
             /* ══════════════════ PAKET BADGE ══════════════════ */
             .md-paket-premium {
-                background: linear-gradient(135deg, #fef3c7, #fde68a);
+                background: #ffd900;
                 color: #92400e;
                 border: 1px solid #fbbf24;
                 padding: 6px 14px;
@@ -399,7 +391,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .md-paket-basic {
-                background: linear-gradient(135deg, #fefce8, #fef9c3);
+                background: #ffd900;
                 color: #ca8a04;
                 border: 1px solid #fde047;
                 padding: 6px 14px;
@@ -464,10 +456,10 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
         $cat = $misi ? $categories[$misi->id % count($categories)] : $categories[0];
 
         $gradients = [
-            'linear-gradient(135deg,#f59e0b,#fed000)',
-            'linear-gradient(135deg,#6366f1,#8b5cf6)',
-            'linear-gradient(135deg,#0ea5e9,#10b981)',
-            'linear-gradient(135deg,#ef4444,#fed000)',
+            '#ffd900',
+            '#8b5cf6',
+            '#10b981',
+            '#ef4444',
         ];
         $gradient = $misi ? $gradients[$misi->id % count($gradients)] : $gradients[0];
 
@@ -636,7 +628,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                 </div>
                 <div class="md-progress-track">
                     <div class="md-progress-fill" id="kapasitas-bar" data-target="{{ $kapasitasPersen }}%"
-                        style="width:0%;background:linear-gradient(90deg,{{ $kapasitasPersen >= 80 ? '#ef4444,#fed000' : '#ffd900,#7c3aed' }});">
+                        style="width:0%;background:#ffd900;">
                     </div>
                 </div>
                 @if($isFull)
@@ -776,7 +768,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                     {{-- Belum bergabung --}}
                 @elseif(!$alreadyJoined)
                     <div class="md-card"
-                        style="border:none;background:linear-gradient(135deg,#f8fafc,#f1f5f9);text-align:center;padding:2rem;">
+                        style="border:none;background:#ffffff;text-align:center;padding:2rem;">
                         @if($isFull)
                             <div class="mb-3" style="background:#fee2e2;border-radius:0.875rem;padding:10px;display:inline-flex;">
                                 <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="#ef4444" stroke-width="2">

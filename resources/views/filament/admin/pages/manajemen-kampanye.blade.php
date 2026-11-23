@@ -90,7 +90,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                 left: -100%;
                 width: 50%;
                 height: 100%;
-                background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+                background: transparent;
                 transform: skewX(-25deg);
                 transition: 0.75s;
                 z-index: 1;
@@ -146,23 +146,23 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-grad-orange {
-                background: linear-gradient(90deg, #ffd900, #fed000);
+                background: #ffd900;
             }
 
             .mp-grad-green {
-                background: linear-gradient(90deg, #22c55e, #86efac);
+                background: #10b981;
             }
 
             .mp-grad-orange {
-                background: linear-gradient(90deg, #f59e0b, #fcd34d);
+                background: #ffd900;
             }
 
             .mp-grad-red {
-                background: linear-gradient(90deg, #ef4444, #fca5a5);
+                background: #ef4444;
             }
 
             .mp-grad-slate {
-                background: linear-gradient(90deg, #64748b, #94a3b8);
+                background: #64748b;
             }
 
             .mp-bg-orange {
@@ -280,7 +280,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-btn-primary {
-                background: linear-gradient(135deg, #ffd900, #ca8a04);
+                background: #ffd900;
                 color: #fff;
             }
 
@@ -363,7 +363,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                 left: -100%;
                 width: 50%;
                 height: 100%;
-                background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0) 100%);
+                background: transparent;
                 transform: skewX(-25deg);
                 transition: 0.75s;
                 z-index: 1;
@@ -531,7 +531,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                 align-items: center;
                 gap: 3px;
                 background: none;
-                border: none;
+border: none;
                 cursor: pointer;
                 font-size: .72rem;
                 font-weight: 600;
@@ -1234,12 +1234,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="mk-badge" :class="{
-                          'mk-badge-open':      kampanye?.raw_status === 'open',
-                          'mk-badge-completed': kampanye?.raw_status === 'Completed',
-                          'mk-badge-pending':   kampanye?.raw_status === 'Pending',
-                          'mk-badge-rejected':  kampanye?.raw_status === 'rejected',
-                      }" x-text="kampanye?.status ?? ''">
+                        <span class="mk-badge" :class="{ 'mk-badge-open': kampanye?.raw_status === 'open', 'mk-badge-completed': kampanye?.raw_status === 'Completed', 'mk-badge-pending': kampanye?.raw_status === 'Pending', 'mk-badge-rejected': kampanye?.raw_status === 'rejected', }" x-text="kampanye?.status ?? ''">
                         </span>
                         <button @click="tutupModal()"
                             class="w-8 h-8 rounded-lg flex items-center justify-center transition-colors"
@@ -1318,7 +1313,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                 {{ __('Tolak') }}
                             </button>
                             <button @click="$wire.approveKampanye(kampanye.id); tutupModal()" class="mp-btn"
-                                style="background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;box-shadow:0 4px 12px rgba(22,163,74,0.25);">
+                                style="background:#10b981;color:#fff;box-shadow:0 4px 12px rgba(22,163,74,0.25);">
                                 <span class="material-symbols-outlined text-[1rem]">check_circle</span>
                                 {{ __('Setujui') }}
                             </button>

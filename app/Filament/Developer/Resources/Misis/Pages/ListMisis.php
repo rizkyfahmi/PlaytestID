@@ -183,7 +183,7 @@ class ListMisis extends Page
                     'poin' => $misi->point ?? 0,
                     'logo' => $misi->logo,
                     'ikonHuruf' => strtoupper(substr($misi->nama_aplikasi, 0, 1)),
-                    'ikonGrad' => "linear-gradient(135deg, {$grad[0]} 0%, {$grad[1]} 100%)",
+                    'ikonGrad' => "{$grad[0]}",
                 ];
             })->toArray(),
         ];

@@ -147,7 +147,7 @@
         .login-hero-bg-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(249, 250, 251, 0.92) 0%, rgba(249, 250, 251, 0.55) 100%);
+            background: #f9fafb;
             pointer-events: none;
         }
 
@@ -370,7 +370,7 @@
 
         /* Submit button — MOBILE: gradient, pill-shaped, full-width, tall */
         .login-form-wrapper .fi-btn {
-            background: linear-gradient(135deg, #ffd900 0%, #fed000 100%) !important;
+            background: #ffd900 !important;
             border: none !important;
             border-radius: 0.875rem !important;
             padding: 0.875rem 1.5rem !important;
@@ -385,7 +385,7 @@
         }
 
         .login-form-wrapper .fi-btn:hover {
-            background: linear-gradient(135deg, #e6c300 0%, #ca8a04 100%) !important;
+            background: #e6c300 !important;
             box-shadow: 0 8px 24px rgba(255, 217, 0, 0.45) !important;
         }
 
@@ -446,7 +446,7 @@
         }
 
         .login-mobile-pill {
-            background: linear-gradient(135deg, rgba(255, 217, 0, 0.08) 0%, rgba(255, 217, 0, 0.08) 100%);
+            background: #ffd900;
             color: #ffd900;
             border-radius: 9999px;
             padding: 0.4rem 0.875rem;

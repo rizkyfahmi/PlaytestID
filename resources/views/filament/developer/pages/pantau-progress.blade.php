@@ -66,7 +66,7 @@
   .btn-tolak:hover{background:#fee2e2;}
 
   /* ── Finish Mission btn ───────────────── */
-  .btn-finish{background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;font-weight:700;font-size:12px;
+  .btn-finish{background:#7c3aed;color:#fff;font-weight:700;font-size:12px;
     padding:8px 16px;border-radius:12px;box-shadow:0 2px 8px rgba(124,58,237,.35);transition:all .2s;
     display:flex;align-items:center;gap:6px;cursor:pointer;}
   .btn-finish:hover{box-shadow:0 4px 16px rgba(124,58,237,.45);transform:translateY(-1px);}
@@ -371,8 +371,7 @@
         <div class="flex items-center gap-1 min-w-max">
           @php $sudahAll = $allAiReports->whereNull('hari_ke')->count(); @endphp
           <button wire:click="switchAiReport(null)"
-            class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg whitespace-nowrap transition-all
-              {{ $selectedHariKe === null ? 'bg-white dark:bg-slate-700 text-violet-700 dark:text-violet-300 shadow-sm border border-violet-200 dark:border-violet-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/50' }}">
+            class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg whitespace-nowrap transition-all {{ $selectedHariKe === null ? 'bg-white dark:bg-slate-700 text-violet-700 dark:text-violet-300 shadow-sm border border-violet-200 dark:border-violet-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/50' }}">
             <x-heroicon-m-squares-2x2 class="w-3.5 h-3.5"/>
             {{ __('Semua Hari') }}
             @if($sudahAll)@endif
@@ -381,8 +380,7 @@
           @foreach($hariDenganFeedback as $hari)
           @php $sudahGenerate = $allAiReports->firstWhere('hari_ke', $hari); @endphp
           <button wire:click="switchAiReport({{ $hari }})"
-            class="inline-flex items-center gap-1 text-xs font-semibold px-3 py-2 rounded-lg whitespace-nowrap transition-all
-              {{ $selectedHariKe === $hari ? 'bg-white dark:bg-slate-700 text-violet-700 dark:text-violet-300 shadow-sm border border-violet-200 dark:border-violet-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/50' }}">
+            class="inline-flex items-center gap-1 text-xs font-semibold px-3 py-2 rounded-lg whitespace-nowrap transition-all {{ $selectedHariKe === $hari ? 'bg-white dark:bg-slate-700 text-violet-700 dark:text-violet-300 shadow-sm border border-violet-200 dark:border-violet-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/50' }}">
             H{{ $hari }}
             @if($sudahGenerate)@else@endif
           </button>
@@ -530,16 +528,14 @@
       <div class="overflow-x-auto">
         <div class="flex items-center gap-1 min-w-max">
           <button wire:click="switchAiReport(null)"
-            class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg whitespace-nowrap transition-all
-              {{ $selectedHariKe === null ? 'bg-white dark:bg-slate-700 text-violet-700 shadow-sm border border-violet-200' : 'text-slate-500 hover:text-slate-700 hover:bg-white/60' }}">
+            class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg whitespace-nowrap transition-all {{ $selectedHariKe === null ? 'bg-white dark:bg-slate-700 text-violet-700 shadow-sm border border-violet-200' : 'text-slate-500 hover:text-slate-700 hover:bg-white/60' }}">
             <x-heroicon-m-squares-2x2 class="w-3.5 h-3.5"/>
             {{ __('Semua Hari') }}
           </button>
           <div class="w-px h-5 bg-slate-200 mx-1"></div>
           @foreach($hariDenganFeedback as $hari)
           <button wire:click="switchAiReport({{ $hari }})"
-            class="inline-flex items-center gap-1 text-xs font-semibold px-3 py-2 rounded-lg whitespace-nowrap transition-all
-              {{ $selectedHariKe === $hari ? 'bg-white dark:bg-slate-700 text-violet-700 shadow-sm border border-violet-200' : 'text-slate-500 hover:text-slate-700 hover:bg-white/60' }}">
+            class="inline-flex items-center gap-1 text-xs font-semibold px-3 py-2 rounded-lg whitespace-nowrap transition-all {{ $selectedHariKe === $hari ? 'bg-white dark:bg-slate-700 text-violet-700 shadow-sm border border-violet-200' : 'text-slate-500 hover:text-slate-700 hover:bg-white/60' }}">
             H{{ $hari }}</button>
           @endforeach
         </div>

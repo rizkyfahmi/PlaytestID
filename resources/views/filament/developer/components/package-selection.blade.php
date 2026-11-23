@@ -43,21 +43,18 @@
 
     .aurora-card {
         background:
-            linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.65));
+            #ffd900;
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
     }
     .dark .aurora-card {
         background:
-            linear-gradient(180deg, rgba(30,27,75,.55), rgba(15,23,42,.65));
+            #ffd900;
     }
 
     .aurora-card[data-selected="true"] {
-        background:
-            radial-gradient(120% 80% at 0% 0%, rgba(99,102,241,.18), transparent 60%),
-            radial-gradient(120% 80% at 100% 100%, rgba(34,211,238,.16), transparent 60%),
-            linear-gradient(180deg, rgba(255,255,255,.9), rgba(238,242,255,.85));
-    }
+        background: none;
+}
 
     @keyframes ah-aurora-shift {
         0%, 100% { background-position: 0% 50%; }
@@ -73,11 +70,8 @@
         100% { box-shadow: 0 0 0 0 rgba(99,102,241,0); }
     }
     .ah-header {
-        background:
-            radial-gradient(120% 100% at 0% 0%, rgba(99,102,241,.22), transparent 60%),
-            radial-gradient(120% 100% at 100% 100%, rgba(34,211,238,.22), transparent 60%),
-            linear-gradient(120deg, #6366f1, #a855f7, #22d3ee, #6366f1);
-        background-size: 200% 200%, 200% 200%, 300% 300%;
+        background: none;
+background-size: 200% 200%, 200% 200%, 300% 300%;
         animation: ah-aurora-shift 10s ease-in-out infinite;
     }
     .ah-icon-wrap {
@@ -87,11 +81,8 @@
         animation: ah-pulse-ring 2.2s ease-out infinite;
     }
     .dark .aurora-card[data-selected="true"] {
-        background:
-            radial-gradient(120% 80% at 0% 0%, rgba(99,102,241,.35), transparent 60%),
-            radial-gradient(120% 80% at 100% 100%, rgba(34,211,238,.25), transparent 60%),
-            linear-gradient(180deg, rgba(30,27,75,.7), rgba(15,23,42,.85));
-    }
+        background: none;
+}
 
     /* Animated gradient border on selected */
     .aurora-border::before {
@@ -100,10 +91,10 @@
         inset: -2px;
         border-radius: 1.25rem;
         padding: 2px;
-        background: linear-gradient(120deg, #6366f1, #a855f7, #22d3ee, #6366f1, #a855f7);
+        background: #8b5cf6;
         background-size: 300% 300%;
-        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-                mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask: #ffd900 content-box, #ffd900;
+                mask: #ffd900 content-box, #ffd900;
         -webkit-mask-composite: xor;
                 mask-composite: exclude;
         opacity: 0;
@@ -118,16 +109,16 @@
     .aurora-pulse      { animation: aurora-pulse-ring 1.8s ease-out infinite; }
 
     .aurora-popular {
-        background: linear-gradient(90deg, #6366f1, #a855f7, #22d3ee, #6366f1);
+        background: #8b5cf6;
         background-size: 200% 100%;
         animation: aurora-shimmer 3s linear infinite;
     }
 
     .aurora-price {
-        background: linear-gradient(135deg, #4f46e5 0%, #a855f7 50%, #06b6d4 100%);
-        -webkit-background-clip: text;
-                background-clip: text;
-        -webkit-text-fill-color: transparent;
+        background: #ffd900;
+        
+                
+        
     }
 
     @keyframes ps-border-shift {
@@ -136,14 +127,14 @@
     }
     .ps-panel {
         position: relative;
-        background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.72));
+        background: #ffd900;
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         border-radius: 1.5rem;
         overflow: hidden;
     }
     .dark .ps-panel {
-        background: linear-gradient(180deg, rgba(30,27,75,.55), rgba(15,23,42,.7));
+        background: #ffd900;
     }
     .ps-panel::before {
         content: '';
@@ -151,10 +142,10 @@
         inset: -2px;
         border-radius: 1.5rem;
         padding: 2px;
-        background: linear-gradient(120deg, #6366f1, #a855f7, #22d3ee, #6366f1, #a855f7);
+        background: #8b5cf6;
         background-size: 300% 300%;
-        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-                mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask: #ffd900 content-box, #ffd900;
+                mask: #ffd900 content-box, #ffd900;
         -webkit-mask-composite: xor;
                 mask-composite: exclude;
         opacity: .35;
@@ -214,9 +205,7 @@
             x-on:click="selectedId = {{ $id }}"
             x-bind:data-selected="selectedId == {{ $id }} ? 'true' : 'false'"
             class="aurora-card aurora-border group relative cursor-pointer rounded-2xl border border-slate-200 dark:border-slate-800 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] dark:shadow-none transition-all duration-500 ease-out flex flex-col h-full overflow-visible"
-            :class="selectedId == {{ $id }}
-                ? 'scale-[1.03] z-10 shadow-[0_20px_60px_-15px_rgba(99,102,241,0.45)] dark:shadow-[0_20px_60px_-15px_rgba(99,102,241,0.6)]'
-                : 'hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-15px_rgba(99,102,241,0.3)] dark:hover:shadow-[0_15px_40px_-15px_rgba(168,85,247,0.35)]'"
+            :class="selectedId == {{ $id }} ? 'scale-[1.03] z-10 shadow-[0_20px_60px_-15px_rgba(99,102,241,0.45)] dark:shadow-[0_20px_60px_-15px_rgba(99,102,241,0.6)]' : 'hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-15px_rgba(99,102,241,0.3)] dark:hover:shadow-[0_15px_40px_-15px_rgba(168,85,247,0.35)]'"
         >
             {{-- Badge Most Popular --}}
             @if($paket->most_popular)
@@ -235,31 +224,25 @@
                     <div class="relative">
                         <div
                             class="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center transition-all duration-500 aurora-icon-float"
-                            :class="selectedId == {{ $id }}
-                                ? 'bg-gradient-to-br from-indigo-500 via-violet-500 to-cyan-400 shadow-xl shadow-indigo-500/40'
-                                : 'bg-gradient-to-br from-slate-100 to-slate-200 dark:from-white/5 dark:to-white/10 group-hover:from-indigo-100 group-hover:to-violet-100 dark:group-hover:from-indigo-500/20 dark:group-hover:to-violet-500/20'"
+                            :class="selectedId == {{ $id }} ? 'bg-blue-600shadow-xl shadow-indigo-500/40' : 'bg-slate-50 dark:bg-slate-900group-hover: group-hover: dark:group-hover: dark:group-hover:'"
                         >
                             <x-heroicon-o-cube-transparent
                                 class="w-6 h-6 sm:w-8 sm:h-8 transition-all duration-500"
-                                x-bind:class="selectedId == {{ $id }}
-                                    ? 'text-white drop-shadow'
-                                    : 'text-slate-400 dark:text-slate-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400'"
+                                x-bind:class="selectedId == {{ $id }} ? 'text-white drop-shadow' : 'text-slate-400 dark:text-slate-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400'"
                             />
                         </div>
                         {{-- Glow halo when selected --}}
                         <div
                             x-show="selectedId == {{ $id }}"
                             x-transition.opacity.duration.700ms
-                            class="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-400 blur-xl opacity-50 -z-10"
+                            class="absolute inset-0 rounded-2xl bg-blue-600blur-xl opacity-50 -z-10"
                         ></div>
                     </div>
 
                     {{-- Selection indicator --}}
                     <div
                         class="w-8 h-8 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-300"
-                        :class="selectedId == {{ $id }}
-                            ? 'bg-gradient-to-br from-indigo-500 to-violet-500 border-transparent aurora-pulse'
-                            : 'border-slate-200 dark:border-slate-700 bg-white/60 dark:bg-white/5 group-hover:border-indigo-300 dark:group-hover:border-indigo-500/50'"
+                        :class="selectedId == {{ $id }} ? 'bg-blue-600border-transparent aurora-pulse' : 'border-slate-200 dark:border-slate-700 bg-white/60 dark:bg-white/5 group-hover:border-indigo-300 dark:group-hover:border-indigo-500/50'"
                     >
                         <template x-if="selectedId == {{ $id }}">
                             <x-heroicon-m-check class="w-5 h-5 stroke-[3] text-white aurora-check-pop" />
@@ -270,9 +253,7 @@
                 {{-- Name --}}
                 <h3
                     class="text-base sm:text-xl font-black tracking-tight transition-colors duration-300"
-                    :class="selectedId == {{ $id }}
-                        ? 'text-indigo-700 dark:text-white'
-                        : 'text-slate-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-300'"
+                    :class="selectedId == {{ $id }} ? 'text-indigo-700 dark:text-white' : 'text-slate-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-300'"
                 >
                     {{ $paket->name ?? $paket->desc ?? __('Paket') . " #{$id}" }}
                 </h3>
@@ -293,11 +274,9 @@
 
                     {{-- Reward chip --}}
                     <div class="flex items-center justify-between p-3 rounded-xl border transition-all duration-300 backdrop-blur"
-                         :class="selectedId == {{ $id }}
-                            ? 'bg-white/60 dark:bg-white/10 border-indigo-200/60 dark:border-indigo-400/30'
-                            : 'bg-slate-50/70 dark:bg-white/5 border-slate-200/60 dark:border-white/5 group-hover:border-indigo-200 dark:group-hover:border-indigo-500/30'">
+                         :class="selectedId == {{ $id }} ? 'bg-white/60 dark:bg-white/10 border-indigo-200/60 dark:border-indigo-400/30' : 'bg-slate-50/70 dark:bg-white/5 border-slate-200/60 dark:border-white/5 group-hover:border-indigo-200 dark:group-hover:border-indigo-500/30'">
                         <div class="flex items-center gap-2">
-                            <div class="p-1.5 rounded-lg bg-gradient-to-br from-cyan-400 to-emerald-400 shadow shadow-cyan-500/30">
+                            <div class="p-1.5 rounded-lg bg-green-500shadow shadow-cyan-500/30">
                                 <x-heroicon-m-bolt class="w-3.5 h-3.5 text-white" />
                             </div>
                             <span class="text-xs font-bold text-slate-700 dark:text-slate-200">
@@ -306,9 +285,7 @@
                         </div>
                         <x-heroicon-m-arrow-right
                             class="w-4 h-4 transition-all duration-300"
-                            x-bind:class="selectedId == {{ $id }}
-                                ? 'text-indigo-500 translate-x-0.5'
-                                : 'text-slate-300 dark:text-slate-600 group-hover:text-indigo-400 group-hover:translate-x-0.5'"
+                            x-bind:class="selectedId == {{ $id }} ? 'text-indigo-500 translate-x-0.5' : 'text-slate-300 dark:text-slate-600 group-hover:text-indigo-400 group-hover:translate-x-0.5'"
                         />
                     </div>
                 </div>
@@ -317,9 +294,7 @@
             {{-- Bottom aurora bar --}}
             <div
                 class="absolute bottom-0 inset-x-4 h-[3px] rounded-full transition-all duration-500"
-                :class="selectedId == {{ $id }}
-                    ? 'bg-gradient-to-r from-indigo-500 via-violet-500 to-cyan-400 opacity-100'
-                    : 'opacity-0'"
+                :class="selectedId == {{ $id }} ? 'bg-blue-600opacity-100' : 'opacity-0'"
             ></div>
         </div>
     @endforeach

@@ -149,7 +149,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                     align-items: center;
                     gap: 3px;
                     background: none;
-                    border: none;
+border: none;
                     cursor: pointer;
                     font-size: .7rem;
                     font-weight: 600;

@@ -140,12 +140,12 @@ class ManajemenPaket extends Page implements HasTable, HasForms
             $inisial = strtoupper(substr($nama, 0, 2));
 
             $colors = [
-                'from-orange-500 to-cyan-400',
-                'from-emerald-500 to-teal-400',
-                'from-violet-500 to-purple-400',
-                'from-orange-500 to-amber-400',
-                'from-rose-500 to-pink-400',
-                'from-sky-500 to-cyan-400'
+                ' ',
+                ' ',
+                ' ',
+                ' ',
+                ' ',
+                ' '
             ];
             $color = $colors[crc32($nama) % count($colors)];
 

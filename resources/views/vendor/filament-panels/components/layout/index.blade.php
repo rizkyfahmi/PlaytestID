@@ -76,16 +76,12 @@
         <div
             @if ($isSidebarCollapsibleOnDesktop)
                 x-data="{}"
-                x-bind:class="{
-                    'fi-main-ctn-sidebar-open': $store.sidebar.isOpen,
-                }"
+                x-bind:class="{ 'fi-main-ctn-sidebar-open': $store.sidebar.isOpen, }"
                 x-bind:style="'display: flex; opacity:1;'"
                 {{-- Mimics `x-cloak`, as using `x-cloak` causes visual issues with chart widgets --}}
             @elseif ($isSidebarFullyCollapsibleOnDesktop)
                 x-data="{}"
-                x-bind:class="{
-                    'fi-main-ctn-sidebar-open': $store.sidebar.isOpen,
-                }"
+                x-bind:class="{ 'fi-main-ctn-sidebar-open': $store.sidebar.isOpen, }"
                 x-bind:style="'display: flex; opacity:1;'"
                 {{-- Mimics `x-cloak`, as using `x-cloak` causes visual issues with chart widgets --}}
             @elseif (! ($isSidebarCollapsibleOnDesktop || $isSidebarFullyCollapsibleOnDesktop || $hasTopNavigation || (! $hasNavigation)))

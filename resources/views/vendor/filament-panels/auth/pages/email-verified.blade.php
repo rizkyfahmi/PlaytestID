@@ -61,8 +61,8 @@
             right: -200px;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(255, 217, 0, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
+            background: none;
+border-radius: 50%;
             pointer-events: none;
         }
 
@@ -73,8 +73,8 @@
             left: -200px;
             width: 700px;
             height: 700px;
-            background: radial-gradient(circle, rgba(255, 217, 0, 0.12) 0%, transparent 70%);
-            border-radius: 50%;
+            background: none;
+border-radius: 50%;
             pointer-events: none;
         }
 
@@ -148,7 +148,7 @@
             right: 0;
             height: 4px;
             /* Ditipiskan sedikit */
-            background: linear-gradient(90deg, var(--indigo) 0%, var(--violet) 100%);
+            background: #ffd900;
             border-radius: 1.5rem 1.5rem 0 0;
         }
 
@@ -164,7 +164,7 @@
         .brand-icon {
             width: 2rem;
             height: 2rem;
-            background: linear-gradient(135deg, var(--indigo) 0%, var(--violet) 100%);
+            background: #ffd900;
             border-radius: 0.4rem;
             display: flex;
             align-items: center;
@@ -195,7 +195,7 @@
         .success-badge {
             width: 4.75rem;
             height: 4.75rem;
-            background: linear-gradient(135deg, var(--indigo) 0%, var(--violet) 100%);
+            background: #ffd900;
             border-radius: 1rem;
             display: flex;
             align-items: center;
@@ -281,7 +281,7 @@
         /* ── Headline ── */
         .headline-label {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(255, 217, 0, 0.08) 0%, rgba(255, 217, 0, 0.08) 100%);
+            background: #ffd900;
             border: 1px solid rgba(255, 217, 0, 0.22);
             color: var(--indigo);
             font-size: 0.65rem;
@@ -339,7 +339,7 @@
             display: flex;
             align-items: center;
             gap: 0.625rem;
-            background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+            background: #ffd900;
             border: 1px solid #c7d2fe;
             border-radius: 0.625rem;
             padding: 0.625rem 1rem;
@@ -348,7 +348,7 @@
         .perk-icon {
             width: 1.875rem;
             height: 1.875rem;
-            background: linear-gradient(135deg, var(--indigo) 0%, var(--violet) 100%);
+            background: #ffd900;
             border-radius: 0.375rem;
             display: flex;
             align-items: center;
@@ -385,7 +385,7 @@
             gap: 0.375rem;
             width: 100%;
             padding: 0.8rem 1rem;
-            background: linear-gradient(135deg, var(--indigo) 0%, var(--violet) 100%);
+            background: #ffd900;
             color: #ffffff;
             font-size: 0.875rem;
             font-weight: 800;
@@ -405,7 +405,7 @@
         }
 
         .cta-btn:hover {
-            background: linear-gradient(135deg, #e6c300 0%, #ca8a04 100%);
+            background: #e6c300;
             box-shadow: 0 6px 16px rgba(255, 217, 0, 0.4);
             transform: translateY(-1px);
         }

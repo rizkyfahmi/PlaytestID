@@ -167,7 +167,7 @@
       align-items: center;
       gap: 3px;
       background: none;
-      border: none;
+border: none;
       cursor: pointer;
       font-size: .75rem;
       font-weight: 600;
@@ -291,10 +291,7 @@
     }
 
     .text-brand-gradient {
-      background: linear-gradient(135deg, #ca8a04, #ffd900);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #ffd900;
     }
   </style>
   @endpush
@@ -309,7 +306,7 @@
       </div>
       <a href="{{ url('developer/misis/create') }}"
         class="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 text-sm font-bold text-white rounded-xl transition-transform hover:scale-105"
-        style="background:linear-gradient(135deg, #ca8a04, #ffd900);box-shadow:0 4px 14px rgba(255, 217, 0, .3);">
+        style="background:#ffd900;box-shadow:0 4px 14px rgba(255, 217, 0, .3);">
         <x-heroicon-o-plus class="w-4 h-4" /> {{ __('Test Case Baru') }}
       </a>
     </div>

@@ -146,12 +146,12 @@
       border: none;
       outline: none;
       transition: background 0.3s ease;
-      background: linear-gradient(135deg, #fef08a, #fde047);
+      background: #ffd900;
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
     }
 
     .dark .theme-toggle {
-      background: linear-gradient(135deg, #1e293b, #334155);
+      background: #1e293b;
     }
 
     .theme-toggle-knob {
@@ -569,7 +569,7 @@
       if (type === 'login') {
         title.innerText = '{{ __("Masuk Sebagai") }}';
         desc.innerText = '{{ __("Pilih akun untuk mengakses dasbor Anda.") }}';
-        if (icon) icon.className = 'fa-solid fa-right-to-bracket text-brand-600 text-xl';
+        if (icon) icon.className = 'fa-solid fa-right- text-brand-600 text-xl';
         btnDev.href = authRoutes.login.developer;
         btnTester.href = authRoutes.login.tester;
       } else {

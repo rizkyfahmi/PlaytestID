@@ -134,14 +134,14 @@
                                 {{-- Top gradient stripe --}}
                                 <tr>
                                     <td
-                                        style="height:6px; background:linear-gradient(90deg,#4F46E5 0%,#7c3aed 50%,#ec4899 100%); background-color:#4F46E5; font-size:0; line-height:0; mso-line-height-rule:exactly;">
+                                        style="height:6px; background:#8b5cf6; background-color:#4F46E5; font-size:0; line-height:0; mso-line-height-rule:exactly;">
                                         &nbsp;</td>
                                 </tr>
 
                                 {{-- Hero band --}}
                                 <tr>
                                     <td class="email-hero"
-                                        style="background:linear-gradient(160deg,#f5f3ff 0%,#eef2ff 100%); background-color:#f5f3ff; padding:44px 40px 28px; text-align:center;">
+                                        style="background:#ffd900; background-color:#f5f3ff; padding:44px 40px 28px; text-align:center;">
 
                                         {{-- Notification icon badge --}}
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0"
@@ -149,7 +149,7 @@
                                             <tr>
                                                 <td class="hero-icon" width="80" height="80" align="center"
                                                     valign="middle"
-                                                    style="width:80px; height:80px; background:linear-gradient(135deg,#4F46E5 0%,#7c3aed 100%); background-color:#4F46E5; border-radius:24px; box-shadow:0 10px 28px rgba(79,70,229,0.40);">
+                                                    style="width:80px; height:80px; background:#8b5cf6; background-color:#4F46E5; border-radius:24px; box-shadow:0 10px 28px rgba(79,70,229,0.40);">
                                                     <span
                                                         style="font-size:36px; line-height:80px; display:block; color:#ffffff; mso-line-height-rule:exactly;">&#128276;</span>
                                                 </td>
@@ -196,7 +196,7 @@
                                                 align="center" style="margin:0 auto 28px;">
                                                 <tr>
                                                     <td align="center"
-                                                        style="border-radius:14px; background:linear-gradient(135deg,#4F46E5 0%,#7c3aed 100%); background-color:#4F46E5; box-shadow:0 8px 22px rgba(79,70,229,0.38); mso-padding-alt:0;">
+                                                        style="border-radius:14px; background:#8b5cf6; background-color:#4F46E5; box-shadow:0 8px 22px rgba(79,70,229,0.38); mso-padding-alt:0;">
                                                         <!--[if mso]>
                                                         <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ $buttonUrl }}" style="height:52px;v-text-anchor:middle;width:240px;" arcsize="27%" fillcolor="#4F46E5" stroke="f">
                                                         <w:anchorlock/>
@@ -205,7 +205,7 @@
                                                         <![endif]-->
                                                         <!--[if !mso]><!-->
                                                         <a href="{{ $buttonUrl }}" target="_blank" class="email-cta"
-                                                            style="display:inline-block; background:linear-gradient(135deg,#4F46E5 0%,#7c3aed 100%); background-color:#4F46E5; color:#ffffff; text-decoration:none; font-size:16px; font-weight:800; padding:16px 40px; border-radius:14px; letter-spacing:0.3px;">
+                                                            style="display:inline-block; background:#8b5cf6; background-color:#4F46E5; color:#ffffff; text-decoration:none; font-size:16px; font-weight:800; padding:16px 40px; border-radius:14px; letter-spacing:0.3px;">
                                                             &#128279;&nbsp; {{ $buttonText }}
                                                         </a>
                                                         <!--<![endif]-->

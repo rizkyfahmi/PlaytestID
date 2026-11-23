@@ -37,7 +37,7 @@ class ManajemenPembayaran extends Page
         foreach ($pembayarans as $p) {
             $userNama = $p->user ? $p->user->name : 'Unknown User';
             $inisial = substr(str_replace(' ', '', $userNama), 0, 2);
-            $avatarColors = ['from-orange-500 to-cyan-400', 'from-emerald-500 to-teal-400', 'from-violet-500 to-purple-400', 'from-orange-500 to-amber-400', 'from-pink-500 to-rose-400'];
+            $avatarColors = [' ', ' ', ' ', ' ', ' '];
             $avatarColor = $avatarColors[crc32($userNama) % count($avatarColors)];
 
             $paketNama = $p->paket ? $p->paket->name : 'Unknown';
