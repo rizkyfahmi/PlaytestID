@@ -163,11 +163,11 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                 }
 
                 .adm-sort-btn:hover {
-                    color: #ea580c;
+                    color: #ffd900;
                 }
 
                 .adm-sort-btn.active {
-                    color: #ea580c;
+                    color: #ffd900;
                 }
 
                 .adm-sort-icon {
@@ -189,8 +189,8 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                 }
 
                 .adm-badge-developer {
-                    background: #fff7ed;
-                    color: #c2410c;
+                    background: #fefce8;
+                    color: #ca8a04;
                 }
 
                 .adm-badge-tester {
@@ -387,7 +387,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                     @click.outside="openExport = false">
                     <button @click="openExport = !openExport"
                         class="flex w-full sm:w-auto justify-center items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-150"
-                        :class="openExport ? 'border-orange-600 text-orange-600 bg-orange-50 border' : 'bg-white border border-slate-200 text-slate-500'"
+                        :class="openExport ? 'border-brand-600 text-brand-600 bg-brand-50 border' : 'bg-white border border-slate-200 text-slate-500'"
                         id="export-dropdown-btn">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
@@ -412,8 +412,8 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                         {{-- Export Pengguna CSV --}}
                         <a href="{{ route('admin.export.pengguna') }}" class="adm-export-item" @click="openExport=false"
                             id="export-pengguna">
-                            <div class="adm-export-icon" style="background:#fff7ed;">
-                                <svg style="width:15px;height:15px;color:#ea580c;" fill="none" stroke="currentColor"
+                            <div class="adm-export-icon" style="background:#fefce8;">
+                                <svg style="width:15px;height:15px;color:#ffd900;" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24" stroke-width="2">
                                     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                                     <circle cx="9" cy="7" r="4" />
@@ -425,7 +425,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                 <div class="adm-export-item-sub">{{ __('Semua pengguna — .csv') }}</div>
                             </div>
                             <span
-                                style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:9999px;background:#fff7ed;color:#ea580c;">CSV</span>
+                                style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:9999px;background:#fefce8;color:#ffd900;">CSV</span>
                         </a>
 
                         {{-- Export Kampanye CSV --}}
@@ -486,7 +486,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
 
                 <button
                     class="flex w-full sm:w-auto justify-center items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white"
-                    style="background:#ea580c;box-shadow:0 4px 14px rgba(234,88,12,0.3);" wire:click="$refresh">
+                    style="background:#ffd900;box-shadow:0 4px 14px rgba(255, 217, 0, 0.3);" wire:click="$refresh">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                         <path
                             d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -504,10 +504,10 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             <div data-design-id="stat-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-5">
 
                 {{-- Card 1: Developer --}}
-                <div data-design-id="stat-card-developer" class="adm-stat-card" style="border-top:4px solid #ea580c;">
+                <div data-design-id="stat-card-developer" class="adm-stat-card" style="border-top:4px solid #ffd900;">
                     <div class="flex items-start gap-3">
-                        <div class="adm-stat-icon" style="background:#fff7ed;">
-                            <svg style="width:18px;height:18px;color:#ea580c;" fill="none" stroke="currentColor"
+                        <div class="adm-stat-icon" style="background:#fefce8;">
+                            <svg style="width:18px;height:18px;color:#ffd900;" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" stroke-width="2">
                                 <path
                                     d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -524,7 +524,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                     </div>
                     <div class="adm-progress-track mt-3">
                         <div class="adm-progress-fill"
-                            style="width:{{ $statDeveloper > 0 ? min(round(($devBulanIni / $statDeveloper) * 100), 100) : 0 }}%;background:#ea580c;">
+                            style="width:{{ $statDeveloper > 0 ? min(round(($devBulanIni / $statDeveloper) * 100), 100) : 0 }}%;background:#ffd900;">
                         </div>
                     </div>
                 </div>
@@ -673,7 +673,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                         </div>
                         <div class="flex items-center gap-4 text-xs">
                             <div class="flex items-center gap-1.5">
-                                <div class="w-2.5 h-2.5 rounded-full" style="background:#ea580c;"></div>
+                                <div class="w-2.5 h-2.5 rounded-full" style="background:#ffd900;"></div>
                                 <span style="color:#64748b;">{{ __('Developer') }}</span>
                             </div>
                             <div class="flex items-center gap-1.5">
@@ -690,7 +690,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                             @foreach($chartHari as $i => $hari)
                                 <div class="flex-1 flex flex-col items-center gap-1">
                                     <div class="w-full flex items-end gap-0.5 justify-center" style="height:112px;">
-                                        <div class="adm-chart-bar flex-1" style="background:#ea580c;max-width:14px;  
+                                        <div class="adm-chart-bar flex-1" style="background:#ffd900;max-width:14px;  
                                                 {{ ($i >= 5) ? 'opacity:0.65;' : '' }}  
                                                 height:{{ round(($chartDev[$i] / $maxChartVal) * 100) }}%;"
                                             data-target="{{ round(($chartDev[$i] / $maxChartVal) * 100) }}%">
@@ -710,7 +710,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                         <div class="grid grid-cols-2 sm:flex sm:items-center sm:justify-between mt-4 pt-4 gap-4 sm:gap-0"
                             style="border-top:1px solid #f1f5f9;">
                             <div class="text-center">
-                                <p class="text-sm font-bold font-mono-data" style="color:#ea580c;">
+                                <p class="text-sm font-bold font-mono-data" style="color:#ffd900;">
                                     {{ $statDevMingguIni }}</p>
                                 <p class="text-xs" style="color:#94a3b8;">{{ __('Developer minggu ini') }}</p>
                             </div>
@@ -769,18 +769,18 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                         </button>
 
                         {{-- Export --}}
-                        <button class="adm-qa-btn" style="background:#fff7ed;border-color:#fed7aa;color:#c2410c;">
-                            <div class="adm-qa-icon" style="background:#ea580c;">
+                        <button class="adm-qa-btn" style="background:#fefce8;border-color:#fef08a;color:#ca8a04;">
+                            <div class="adm-qa-icon" style="background:#ffd900;">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     stroke-width="2.5">
                                     <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
                                 </svg>
                             </div>
                             <div class="flex-1">
-                                <p class="text-sm font-semibold" style="color:#c2410c;">{{ __('Ekspor Data') }}</p>
-                                <p class="text-xs" style="color:#f97316;">{{ __('Format CSV / Excel') }}</p>
+                                <p class="text-sm font-semibold" style="color:#ca8a04;">{{ __('Ekspor Data') }}</p>
+                                <p class="text-xs" style="color:#fed000;">{{ __('Format CSV / Excel') }}</p>
                             </div>
-                            <svg class="w-4 h-4 flex-shrink-0" style="color:#f97316;" fill="none" stroke="currentColor"
+                            <svg class="w-4 h-4 flex-shrink-0" style="color:#fed000;" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" stroke-width="2">
                                 <path d="M9 18l6-6-6-6" />
                             </svg>
@@ -847,7 +847,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                 {{ __('pendaftar terakhir platform') }}</p>
                         </div>
                         <button class="text-xs font-semibold px-3 py-1.5 rounded-xl"
-                            style="color:#ea580c;border:1px solid #fed7aa;background:#fff7ed;">
+                            style="color:#ffd900;border:1px solid #fef08a;background:#fefce8;">
                             {{ __('Lihat Semua') }}
                         </button>
                     </div>
@@ -905,7 +905,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                             <div class="flex items-center gap-3">
                                                 @php
                                                     $avatarColors = [
-                                                        'Developer' => ['bg' => '#fff7ed', 'text' => '#ea580c'],
+                                                        'Developer' => ['bg' => '#fefce8', 'text' => '#ffd900'],
                                                         'Tester' => ['bg' => '#f0fdf4', 'text' => '#16a34a'],
                                                     ];
                                                     $ac = $avatarColors[$user['role']] ?? ['bg' => '#f1f5f9', 'text' => '#475569'];
@@ -946,7 +946,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                         <td class="text-right">
                                             <div class="flex items-center justify-end gap-2">
                                                 <button class="flex items-center justify-center p-1.5 rounded-lg"
-                                                    style="background:#fff7ed;color:#ea580c;border:1px solid #fed7aa;"
+                                                    style="background:#fefce8;color:#ffd900;border:1px solid #fef08a;"
                                                     title="Detail">
                                                     <span class="material-symbols-outlined text-[1.1rem]">visibility</span>
                                                 </button>
@@ -978,7 +978,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                 {{ __('kampanye aktif') }}</p>
                         </div>
                         <button class="text-xs font-semibold px-3 py-1.5 rounded-xl"
-                            style="color:#ea580c;border:1px solid #fed7aa;background:#fff7ed;">
+                            style="color:#ffd900;border:1px solid #fef08a;background:#fefce8;">
                             {{ __('Semua') }}
                         </button>
                     </div>
@@ -1004,8 +1004,8 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                                 class="w-10 h-10 rounded-xl object-cover flex-shrink-0">
                                         @else
                                             @php
-                                                $colors = ['#fff7ed', '#fffbeb', '#faf5ff', '#f0fdf4'];
-                                                $textCols = ['#ea580c', '#d97706', '#7e22ce', '#16a34a'];
+                                                $colors = ['#fefce8', '#fffbeb', '#faf5ff', '#f0fdf4'];
+                                                $textCols = ['#ffd900', '#d97706', '#7e22ce', '#16a34a'];
                                                 $rnd = crc32($k['nama']) % 4;
                                             @endphp
                                             <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-sm font-bold"
@@ -1033,7 +1033,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                     </span>
                                 </div>
                                 <div class="adm-progress-track mb-2" style="margin-top:0;">
-                                    <div class="adm-progress-fill" style="width:{{ $pctTester }}%;background:#ea580c;">
+                                    <div class="adm-progress-fill" style="width:{{ $pctTester }}%;background:#ffd900;">
                                     </div>
                                 </div>
 

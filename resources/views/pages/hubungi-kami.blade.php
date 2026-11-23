@@ -29,7 +29,19 @@
         extend: {
           fontFamily: { sans: ['Inter', 'sans-serif'] },
           colors: {
-            brand: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12', 950: '#431407' }
+            brand: {
+              50: '#fefce8',
+              100: '#fef9c3',
+              200: '#fef08a',
+              300: '#fde047',
+              400: '#fed000',
+              500: '#ffd900',
+              600: '#e6c300',
+              700: '#ca8a04',
+              800: '#a16207',
+              900: '#713f12',
+              950: '#422006'
+            }
           }
         }
       }
@@ -82,14 +94,14 @@
       border-radius: 1rem;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
       border: 1px solid #f1f5f9;
-      border-top: 4px solid #f97316;
+      border-top: 4px solid #fed000;
       padding: 2rem;
     }
 
     .dark .form-card {
       background: #1e293b;
       border-color: #334155;
-      border-top-color: #fb923c;
+      border-top-color: #fed000;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
@@ -113,13 +125,13 @@
     }
 
     .form-input:focus {
-      border-color: #ea580c;
-      box-shadow: 0 0 0 3px rgba(234,88,12, 0.12);
+      border-color: #ffd900;
+      box-shadow: 0 0 0 3px rgba(255, 217, 0, 0.12);
     }
 
     .dark .form-input:focus {
-      border-color: #f97316;
-      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+      border-color: #fed000;
+      box-shadow: 0 0 0 3px rgba(255, 217, 0, 0.15);
     }
 
     .form-input::placeholder {
@@ -178,7 +190,7 @@
     }
 
     .icon-moon {
-      color: #fb923c;
+      color: #fed000;
       position: absolute;
       opacity: 0;
     }
@@ -314,10 +326,10 @@
 
     .prof-hero {
       position: relative;
-      background: linear-gradient(135deg, #431407 0%, #7c2d12 25%, #c2410c 55%, #ea580c 80%, #f97316 100%);
+      background: linear-gradient(135deg, #111111 0%, #1a1a18 25%, #242424 55%, #ca8a04 80%, #ffd900 100%);
       background-size: 220% 220%;
       animation: prof-gradient 14s ease infinite;
-      box-shadow: 0 20px 60px -15px rgba(234,88,12, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+      box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset;
       isolation: isolate;
       overflow: hidden;
     }
@@ -339,7 +351,7 @@
       position: absolute;
       inset: -30%;
       background:
-        radial-gradient(40% 35% at 20% 30%, rgba(251, 146, 60, .55), transparent 60%),
+        radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .55), transparent 60%),
         radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
         radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
         radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%);
@@ -356,7 +368,7 @@
       height: 520px;
       left: -160px;
       bottom: -200px;
-      background: conic-gradient(from 0deg, rgba(249, 115, 22, 0), rgba(251, 146, 60, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(249, 115, 22, 0));
+      background: conic-gradient(from 0deg, rgba(255, 217, 0, 0), rgba(254, 208, 0, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(255, 217, 0, 0));
       border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 28s linear infinite;
@@ -370,7 +382,7 @@
       height: 380px;
       right: -120px;
       top: -140px;
-      background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(251, 146, 60, .30), rgba(244, 114, 182, 0));
+      background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(254, 208, 0, .30), rgba(244, 114, 182, 0));
       border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 34s linear infinite;
@@ -520,7 +532,7 @@
 
       <!-- Floating decorative blobs -->
       <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-        style="background:radial-gradient(circle,#fb923c,transparent 70%);"></div>
+        style="background:radial-gradient(circle,#fed000,transparent 70%);"></div>
       <div class="prof-blob-rev absolute right-20 -bottom-16 w-40 h-40 rounded-full opacity-15"
         style="background:radial-gradient(circle,#a78bfa,transparent 70%);"></div>
 
@@ -531,7 +543,7 @@
           <i class="fa-solid fa-headset"></i> {{ __('Dukungan') }}
         </div>
         <h1 class="text-3xl sm:text-4xl font-black mb-2">{{ __('Hubungi Kami') }}</h1>
-        <p class="text-orange-100 text-sm">{{ __('Tim kami siap membantu Anda 24/7.') }}</p>
+        <p class="text-brand-100 text-sm">{{ __('Tim kami siap membantu Anda 24/7.') }}</p>
       </div>
     </div>
   </div>
@@ -544,7 +556,7 @@
       <div class="space-y-3">
         <!-- Email -->
         <a href="mailto:support@testoplay.com" class="contact-card flex items-start gap-3 block no-underline">
-          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fff7ed;">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fefce8;">
             <i class="fa-solid fa-envelope text-brand-600 text-sm"></i>
           </div>
           <div class="min-w-0">
@@ -568,7 +580,7 @@
         <!-- Telegram -->
         <a href="https://t.me/playtestid" target="_blank"
           class="contact-card flex items-start gap-3 block no-underline">
-          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fff7ed;">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fefce8;">
             <i class="fa-brands fa-telegram text-sky-500 text-sm"></i>
           </div>
           <div class="min-w-0">
@@ -647,8 +659,8 @@
             </div>
             <button type="submit" id="submitBtn"
               class="w-full py-2.5 text-white font-bold rounded-xl transition flex items-center justify-center gap-2 text-sm"
-              style="background:#ea580c; box-shadow:0 4px 14px rgba(234,88,12,0.3);"
-              onmouseover="this.style.background='#c2410c'" onmouseout="this.style.background='#ea580c'">
+              style="background:#ffd900; box-shadow:0 4px 14px rgba(255, 217, 0, 0.3);"
+              onmouseover="this.style.background='#ca8a04'" onmouseout="this.style.background='#ffd900'">
               <i class="fa-solid fa-paper-plane"></i> {{ __('Kirim Pesan') }}
             </button>
           </form>

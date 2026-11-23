@@ -66,16 +66,16 @@
     }
 
     .prof-hero {
-        background: linear-gradient(135deg,#0a1850 0%,#13297a 25%,#c2410c 55%,#ea580c 80%,#f97316 100%);
+        background: linear-gradient(135deg,#0a1850 0%,#13297a 25%,#ca8a04 55%,#ffd900 80%,#fed000 100%);
         background-size: 220% 220%;
         animation: prof-gradient 14s ease infinite;
-        box-shadow: 0 20px 60px -15px rgba(234,88,12,.5), 0 0 0 1px rgba(255,255,255,.06) inset;
+        box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .5), 0 0 0 1px rgba(255,255,255,.06) inset;
         isolation: isolate;
     }
     .prof-aurora {
         position:absolute; inset:-30%;
         background:
-            radial-gradient(40% 35% at 20% 30%, rgba(251,146,60,.55), transparent 60%),
+            radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .55), transparent 60%),
             radial-gradient(35% 30% at 80% 20%, rgba(167,139,250,.45), transparent 60%),
             radial-gradient(45% 40% at 60% 80%, rgba(34,211,238,.40), transparent 60%),
             radial-gradient(30% 25% at 15% 85%, rgba(244,114,182,.35), transparent 60%);
@@ -86,13 +86,13 @@
     }
     .prof-conic {
         position:absolute; width:520px; height:520px; left:-160px; bottom:-200px;
-        background: conic-gradient(from 0deg, rgba(249,115,22,0), rgba(251,146,60,.35), rgba(167,139,250,.25), rgba(34,211,238,.30), rgba(249,115,22,0));
+        background: conic-gradient(from 0deg, rgba(255, 217, 0, 0), rgba(254, 208, 0, .35), rgba(167,139,250,.25), rgba(34,211,238,.30), rgba(255, 217, 0, 0));
         border-radius:50%; filter: blur(30px); animation: prof-conic 28s linear infinite;
         opacity:.7; pointer-events:none;
     }
     .prof-conic-2 {
         position:absolute; width:380px; height:380px; right:-120px; top:-140px;
-        background: conic-gradient(from 180deg, rgba(244,114,182,0), rgba(244,114,182,.30), rgba(251,146,60,.30), rgba(244,114,182,0));
+        background: conic-gradient(from 180deg, rgba(244,114,182,0), rgba(244,114,182,.30), rgba(254, 208, 0, .30), rgba(244,114,182,0));
         border-radius:50%; filter: blur(30px); animation: prof-spin-rev 34s linear infinite;
         opacity:.6; pointer-events:none;
     }
@@ -306,7 +306,7 @@
                          class="w-9 h-9 md:w-11 md:h-11">
                         <defs>
                             <linearGradient id="um-grad" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0%"   stop-color="#fb923c"/>
+                                <stop offset="0%"   stop-color="#fed000"/>
                                 <stop offset="50%"  stop-color="#c084fc"/>
                                 <stop offset="100%" stop-color="#22d3ee"/>
                             </linearGradient>

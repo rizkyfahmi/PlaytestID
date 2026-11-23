@@ -52,10 +52,10 @@
     }
 
     .prof-hero {
-      background: linear-gradient(135deg,#0a1850 0%,#13297a 25%,#c2410c 55%,#ea580c 80%,#f97316 100%);
+      background: linear-gradient(135deg,#0a1850 0%,#13297a 25%,#ca8a04 55%,#ffd900 80%,#fed000 100%);
       background-size: 220% 220%;
       animation: prof-gradient 14s ease infinite;
-      box-shadow: 0 20px 60px -15px rgba(234,88,12,.5), 0 0 0 1px rgba(255,255,255,.06) inset;
+      box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .5), 0 0 0 1px rgba(255,255,255,.06) inset;
       isolation: isolate;
     }
     .prof-blob       { animation: prof-float 9s ease-in-out infinite; will-change: transform; filter: blur(2px); }
@@ -65,7 +65,7 @@
     .prof-aurora {
       position:absolute; inset:-30%;
       background:
-        radial-gradient(40% 35% at 20% 30%, rgba(251,146,60,.55), transparent 60%),
+        radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .55), transparent 60%),
         radial-gradient(35% 30% at 80% 20%, rgba(167,139,250,.45), transparent 60%),
         radial-gradient(45% 40% at 60% 80%, rgba(34,211,238,.40), transparent 60%),
         radial-gradient(30% 25% at 15% 85%, rgba(244,114,182,.35), transparent 60%);
@@ -77,7 +77,7 @@
     /* Slow rotating conic glow */
     .prof-conic {
       position:absolute; width:520px; height:520px; left:-160px; bottom:-200px;
-      background: conic-gradient(from 0deg, rgba(249,115,22,0), rgba(251,146,60,.35), rgba(167,139,250,.25), rgba(34,211,238,.30), rgba(249,115,22,0));
+      background: conic-gradient(from 0deg, rgba(255, 217, 0, 0), rgba(254, 208, 0, .35), rgba(167,139,250,.25), rgba(34,211,238,.30), rgba(255, 217, 0, 0));
       border-radius:50%;
       filter: blur(30px);
       animation: prof-conic 28s linear infinite;
@@ -85,7 +85,7 @@
     }
     .prof-conic-2 {
       position:absolute; width:380px; height:380px; right:-120px; top:-140px;
-      background: conic-gradient(from 180deg, rgba(244,114,182,0), rgba(244,114,182,.30), rgba(251,146,60,.30), rgba(244,114,182,0));
+      background: conic-gradient(from 180deg, rgba(244,114,182,0), rgba(244,114,182,.30), rgba(254, 208, 0, .30), rgba(244,114,182,0));
       border-radius:50%;
       filter: blur(30px);
       animation: prof-spin-rev 34s linear infinite;
@@ -354,7 +354,7 @@
                                         // Highlight today
                                         if ($isToday && $mission['ma_status'] !== 'failed') {
                                             if ($hist === 'notdone') {
-                                                $cellClass = 'bg-orange-500 border-orange-600 text-white shadow-sm ring-1 ring-orange-300 ring-offset-1';
+                                                $cellClass = 'bg-brand-500 border-brand-600 text-white shadow-sm ring-1 ring-brand-300 ring-offset-1';
                                             } else {
                                                 $cellClass .= ' ring-1 ring-offset-1 ring-slate-300';
                                             }
@@ -484,12 +484,12 @@
 
                         {{-- App Download Link --}}
                         @if(!empty($mission['link_aplikasi']))
-                        <div class="rounded-2xl border border-orange-200 bg-orange-50 p-5 shadow-sm">
-                            <h3 class="mb-2 text-sm font-bold text-orange-800 uppercase tracking-wider">{{ __('Akses Aplikasi') }}</h3>
-                            <p class="text-sm text-orange-700 mb-4">
+                        <div class="rounded-2xl border border-brand-200 bg-brand-50 p-5 shadow-sm">
+                            <h3 class="mb-2 text-sm font-bold text-brand-800 uppercase tracking-wider">{{ __('Akses Aplikasi') }}</h3>
+                            <p class="text-sm text-brand-700 mb-4">
                                 {{ __('Silakan download dan buka aplikasi yang akan diuji melalui link berikut:') }}
                             </p>
-                            <a href="{{ $mission['link_aplikasi'] }}" target="_blank" class="w-full flex items-center justify-center gap-2 rounded-xl bg-white border border-orange-300 py-3 text-sm font-bold text-orange-700 shadow-sm transition-colors hover:bg-orange-100">
+                            <a href="{{ $mission['link_aplikasi'] }}" target="_blank" class="w-full flex items-center justify-center gap-2 rounded-xl bg-white border border-brand-300 py-3 text-sm font-bold text-brand-700 shadow-sm transition-colors hover:bg-brand-100">
                                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                                 </svg>
@@ -515,7 +515,7 @@
                                     __('Unggah screenshot di form yang disediakan.'),
                                 ] as $i => $instruction)
                                     <div class="flex items-start gap-3">
-                                        <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-orange-50 text-xs font-bold text-orange-600">
+                                        <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-50 text-xs font-bold text-brand-600">
                                             {{ $i + 1 }}
                                         </div>
                                         <p class="text-sm text-slate-600 leading-relaxed pt-0.5">
@@ -556,7 +556,7 @@
                                 wire:click="submitTask"
                                 wire:loading.attr="disabled"
                                 wire:loading.class="cursor-not-allowed opacity-70"
-                                class="w-full rounded-2xl bg-orange-600 py-4 text-base font-bold text-white shadow-md shadow-orange-500/20 transition-all hover:bg-orange-700 hover:shadow-lg hover:shadow-orange-500/30 active:translate-y-0.5">
+                                class="w-full rounded-2xl bg-brand-600 py-4 text-base font-bold text-white shadow-md shadow-brand-500/20 transition-all hover:bg-brand-700 hover:shadow-lg hover:shadow-brand-500/30 active:translate-y-0.5">
 
                                 <span wire:loading.remove wire:target="submitTask" class="flex justify-center items-center gap-2">
                                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

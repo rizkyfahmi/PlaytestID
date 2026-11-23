@@ -95,17 +95,17 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                     font-size: 0.8125rem;
                     font-weight: 600;
                     color: #ffffff;
-                    background: #ea580c;
+                    background: #ffd900;
                     cursor: pointer;
-                    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
+                    box-shadow: 0 4px 12px rgba(255, 217, 0, 0.25);
                     transition: all 0.15s ease;
                     border: none;
                     white-space: nowrap;
                 }
 
                 .tsr-btn-apply:hover {
-                    background: #c2410c;
-                    box-shadow: 0 6px 16px rgba(234, 88, 12, 0.35);
+                    background: #ca8a04;
+                    box-shadow: 0 6px 16px rgba(255, 217, 0, 0.35);
                 }
 
                 .tsr-btn-apply:disabled {
@@ -157,9 +157,9 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
            FILTER TABS  
         ══════════════════════════════════════ */
                 .tsr-filter-active {
-                    background: #fff7ed;
-                    color: #ea580c;
-                    border: 1px solid #fed7aa;
+                    background: #fefce8;
+                    color: #ffd900;
+                    border: 1px solid #fef08a;
                     font-weight: 600;
                     font-size: 0.75rem;
                     padding: 6px 12px;
@@ -418,10 +418,10 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                 }
 
                 .prof-hero {
-                    background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #c2410c 55%, #ea580c 80%, #f97316 100%);
+                    background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #ca8a04 55%, #ffd900 80%, #fed000 100%);
                     background-size: 220% 220%;
                     animation: prof-gradient 14s ease infinite;
-                    box-shadow: 0 20px 60px -15px rgba(234, 88, 12, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+                    box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
                     isolation: isolate;
                 }
 
@@ -442,7 +442,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                     position: absolute;
                     inset: -30%;
                     background:
-                        radial-gradient(40% 35% at 20% 30%, rgba(251, 146, 60, .55), transparent 60%),
+                        radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .55), transparent 60%),
                         radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
                         radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
                         radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%);
@@ -459,7 +459,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                     height: 520px;
                     left: -160px;
                     bottom: -200px;
-                    background: conic-gradient(from 0deg, rgba(249, 115, 22, 0), rgba(251, 146, 60, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(249, 115, 22, 0));
+                    background: conic-gradient(from 0deg, rgba(255, 217, 0, 0), rgba(254, 208, 0, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(255, 217, 0, 0));
                     border-radius: 50%;
                     filter: blur(30px);
                     animation: prof-conic 28s linear infinite;
@@ -473,7 +473,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                     height: 380px;
                     right: -120px;
                     top: -140px;
-                    background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(251, 146, 60, .30), rgba(244, 114, 182, 0));
+                    background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(254, 208, 0, .30), rgba(244, 114, 182, 0));
                     border-radius: 50%;
                     filter: blur(30px);
                     animation: prof-spin-rev 34s linear infinite;
@@ -667,7 +667,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
 
                 {{-- Floating decorative blobs --}}
                 <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-                    style="background:radial-gradient(circle,#fb923c,transparent 70%);"></div>
+                    style="background:radial-gradient(circle,#fed000,transparent 70%);"></div>
                 <div class="prof-blob-rev absolute right-20 -bottom-16 w-40 h-40 rounded-full opacity-15"
                     style="background:radial-gradient(circle,#a78bfa,transparent 70%);"></div>
                 <div class="prof-blob absolute right-1/3 top-4 w-20 h-20 rounded-full opacity-10"
@@ -710,7 +710,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                         </button>
                         <a href="{{ \App\Filament\Tester\Pages\Dompet::getUrl() }}"
                             class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold"
-                            style="background:#ffffff !important;color:#c2410c !important;box-shadow:0 10px 25px -5px rgba(194,65,12,0.3);text-decoration:none !important;">
+                            style="background:#ffffff !important;color:#ca8a04 !important;box-shadow:0 10px 25px -5px rgba(230, 195, 0, 0.3);text-decoration:none !important;">
                             {{ __('Tukar Poin') }}
                         </a>
                     </div>
@@ -790,7 +790,7 @@ Fonts : Plus Jakarta Sans (heading), JetBrains Mono (angka), Inter (body)
                         <p class="text-xs mt-0.5" style="color:#94a3b8;">
                             {{ __(':count misi sedang berjalan', ['count' => count($misiAktifList)]) }}</p>
                     </div>
-                    <a href="#" class="text-sm font-semibold flex items-center gap-1" style="color:#ea580c;">
+                    <a href="#" class="text-sm font-semibold flex items-center gap-1" style="color:#ffd900;">
                         {{ __('Lihat Semua') }}
                         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />

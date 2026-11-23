@@ -28,13 +28,13 @@ class MisisTable
                         $warna = $colors[$record->id % count($colors)];
 
                         $bg = match ($warna) {
-                            'orange' => '#fff7ed',
+                            'orange' => '#fefce8',
                             'amber' => '#fffbeb',
                             'purple' => '#faf5ff',
                             default => '#f0fdf4',
                         };
                         $text = match ($warna) {
-                            'orange' => '#ea580c',
+                            'orange' => '#ffd900',
                             'amber' => '#d97706',
                             'purple' => '#7e22ce',
                             default => '#16a34a',

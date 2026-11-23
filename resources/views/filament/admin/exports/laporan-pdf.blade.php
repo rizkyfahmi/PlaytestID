@@ -24,7 +24,7 @@
     /* ── Print button (hilang saat print) ── */
     .no-print {
       padding: 16px 32px;
-      background: #ea580c;
+      background: #ffd900;
       color: white;
       border: none;
       border-radius: 8px;
@@ -37,7 +37,7 @@
     }
 
     .no-print:hover {
-      background: #c2410c;
+      background: #ca8a04;
     }
 
     .print-bar {
@@ -93,13 +93,13 @@
       justify-content: space-between;
       margin-bottom: 28px;
       padding-bottom: 20px;
-      border-bottom: 2px solid #ea580c;
+      border-bottom: 2px solid #ffd900;
     }
 
     .report-logo {
       font-size: 22px;
       font-weight: 800;
-      color: #ea580c;
+      color: #ffd900;
       letter-spacing: -0.5px;
     }
 
@@ -121,7 +121,7 @@
     .section-title {
       font-size: 13px;
       font-weight: 700;
-      color: #ea580c;
+      color: #ffd900;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-bottom: 12px;
@@ -221,8 +221,8 @@
     }
 
     .badge-developer {
-      background: #fff7ed;
-      color: #c2410c;
+      background: #fefce8;
+      color: #ca8a04;
     }
 
     .badge-tester {
@@ -305,7 +305,7 @@
     {{-- ── Statistik Utama ── --}}
     <div class="section-title">Statistik Utama Platform</div>
     <div class="stat-grid">
-      <div class="stat-card" style="--accent:#ea580c;">
+      <div class="stat-card" style="--accent:#ffd900;">
         <div class="label">Total Developer</div>
         <div class="value">{{ number_format($statDeveloper) }}</div>
         <div class="sub">+{{ $devBulanIni }} bulan ini</div>

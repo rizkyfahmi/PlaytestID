@@ -158,14 +158,14 @@
         }
 
         .fi-input-wrp button:hover {
-            color: #ea580c !important;
+            color: #ffd900 !important;
         }
 
         .rp-logo {
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            color: #ea580c;
+            color: #ffd900;
             margin-bottom: 0.5rem;
         }
 
@@ -211,9 +211,9 @@
             align-items: center;
             padding: 0.4rem 0.875rem;
             border-radius: 9999px;
-            border: 1.5px solid rgba(234, 88, 12, 0.3);
-            background: rgba(234, 88, 12, 0.05);
-            color: #ea580c;
+            border: 1.5px solid rgba(255, 217, 0, 0.3);
+            background: rgba(255, 217, 0, 0.05);
+            color: #ffd900;
             font-size: 0.8125rem;
             font-weight: 700;
             white-space: nowrap;
@@ -234,7 +234,7 @@
             background: #ffffff;
             border-radius: 1.75rem 1.75rem 0 0;
             padding: 2.25rem 1.5rem 2rem;
-            box-shadow: 0 -8px 40px rgba(234, 88, 12, 0.18);
+            box-shadow: 0 -8px 40px rgba(255, 217, 0, 0.18);
             animation: rpSlideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
         }
 
@@ -245,14 +245,14 @@
             width: 4rem;
             height: 4rem;
             border-radius: 1.25rem;
-            background: linear-gradient(135deg, rgba(234, 88, 12, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
-            border: 1.5px solid rgba(234, 88, 12, 0.2);
+            background: linear-gradient(135deg, rgba(255, 217, 0, 0.1) 0%, rgba(255, 217, 0, 0.1) 100%);
+            border: 1.5px solid rgba(255, 217, 0, 0.2);
             margin: 0 auto 1.25rem;
         }
 
         .rp-icon-badge .material-symbols-outlined {
             font-size: 2rem !important;
-            color: #ea580c !important;
+            color: #ffd900 !important;
         }
 
         .rp-card-header {
@@ -308,9 +308,9 @@
         }
 
         .rp-form-wrapper .fi-input-wrp:focus-within {
-            border-color: #ea580c !important;
+            border-color: #ffd900 !important;
             background: #ffffff !important;
-            box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.12) !important;
+            box-shadow: 0 0 0 3px rgba(255, 217, 0, 0.12) !important;
         }
 
         .rp-form-wrapper .fi-input-wrp input {
@@ -330,7 +330,7 @@
         }
 
         .rp-form-wrapper .fi-btn {
-            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%) !important;
+            background: linear-gradient(135deg, #ffd900 0%, #fed000 100%) !important;
             border: none !important;
             border-radius: 0.875rem !important;
             padding: 0.875rem 1.5rem !important;
@@ -338,20 +338,20 @@
             font-weight: 700 !important;
             font-family: 'Manrope', sans-serif !important;
             min-height: 3.25rem !important;
-            box-shadow: 0 6px 20px rgba(234, 88, 12, 0.38) !important;
+            box-shadow: 0 6px 20px rgba(255, 217, 0, 0.38) !important;
             transition: all 0.2s ease !important;
-            color: white !important;
+            color: #111111 !important; font-weight: 800 !important;
             letter-spacing: 0.01em !important;
         }
 
         .rp-form-wrapper .fi-btn:hover {
-            background: linear-gradient(135deg, #c2410c 0%, #9a3412 100%) !important;
-            box-shadow: 0 8px 24px rgba(234, 88, 12, 0.45) !important;
+            background: linear-gradient(135deg, #e6c300 0%, #ca8a04 100%) !important;
+            box-shadow: 0 8px 24px rgba(255, 217, 0, 0.45) !important;
         }
 
         .rp-form-wrapper .fi-btn:active {
             transform: scale(0.98) !important;
-            box-shadow: 0 3px 10px rgba(234, 88, 12, 0.25) !important;
+            box-shadow: 0 3px 10px rgba(255, 217, 0, 0.25) !important;
         }
 
         .rp-form-wrapper .fi-ac-actions {
@@ -387,13 +387,13 @@
         .rp-form-wrapper .fi-link span,
         .rp-form-wrapper .fi-link a,
         .rp-form-wrapper a:not(.fi-btn) {
-            color: #ea580c !important;
+            color: #ffd900 !important;
             font-weight: 600 !important;
             text-decoration: none !important;
         }
 
         .rp-back-link:hover {
-            color: #ea580c !important;
+            color: #ffd900 !important;
         }
 
         .rp-back-link .material-symbols-outlined {
@@ -421,13 +421,13 @@
         }
 
         .rp-mobile-pill {
-            background: linear-gradient(135deg, rgba(234, 88, 12, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
-            color: #ea580c;
+            background: linear-gradient(135deg, rgba(255, 217, 0, 0.08) 0%, rgba(255, 217, 0, 0.08) 100%);
+            color: #ffd900;
             border-radius: 9999px;
             padding: 0.4rem 0.875rem;
             font-size: 0.75rem;
             font-weight: 700;
-            border: 1px solid rgba(234, 88, 12, 0.18);
+            border: 1px solid rgba(255, 217, 0, 0.18);
         }
 
         /* ================================================================
@@ -539,17 +539,17 @@
             }
 
             .rp-form-wrapper .fi-btn {
-                background: #ea580c !important;
+                background: #ffd900 !important;
                 border-radius: 0.5rem !important;
                 padding: 0.75rem 1.5rem !important;
                 font-size: 0.9375rem !important;
                 min-height: 3rem !important;
-                box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3) !important;
+                box-shadow: 0 4px 14px rgba(255, 217, 0, 0.3) !important;
             }
 
             .rp-form-wrapper .fi-btn:hover {
-                background: rgba(234, 88, 12, 0.9) !important;
-                box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3) !important;
+                background: rgba(255, 217, 0, 0.9) !important;
+                box-shadow: 0 4px 14px rgba(255, 217, 0, 0.3) !important;
             }
 
             .rp-card-inner {
@@ -663,9 +663,9 @@
         <div
             style="position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50; display: flex; gap: 0.375rem; background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); padding: 0.25rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
             <a href="{{ route('language.switch', 'en') }}"
-                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'en' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'en' ? '#ea580c' : 'transparent' }};">EN</a>
+                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'en' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'en' ? '#ffd900' : 'transparent' }};">EN</a>
             <a href="{{ route('language.switch', 'id') }}"
-                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'id' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'id' ? '#ea580c' : 'transparent' }};">ID</a>
+                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'id' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'id' ? '#ffd900' : 'transparent' }};">ID</a>
         </div>
 
         {{-- MOBILE HEADER --}}

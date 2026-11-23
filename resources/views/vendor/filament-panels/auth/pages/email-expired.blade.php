@@ -131,7 +131,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            color: #ea580c;
+            color: #ffd900;
             margin-bottom: 0.5rem;
         }
 
@@ -176,9 +176,9 @@
         .verify-hero-pill {
             display: inline-flex;
             align-items: center;
-            background: rgba(234, 88, 12, 0.05);
-            border: 1.5px solid rgba(234, 88, 12, 0.3);
-            color: #ea580c;
+            background: rgba(255, 217, 0, 0.05);
+            border: 1.5px solid rgba(255, 217, 0, 0.3);
+            color: #ffd900;
             border-radius: 9999px;
             padding: 0.4rem 0.875rem;
             font-size: 0.8125rem;
@@ -266,7 +266,7 @@
             position: relative;
             width: 6rem;
             height: 6rem;
-            background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+            background: linear-gradient(135deg, #ef4444 0%, #fed000 100%);
             border-radius: 1.5rem;
             display: flex;
             align-items: center;
@@ -302,7 +302,7 @@
 
         .verify-card-label {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(255, 217, 0, 0.08) 100%);
             border: 1px solid rgba(239, 68, 68, 0.25);
             color: #ef4444;
             font-size: 0.75rem;
@@ -394,7 +394,7 @@
             gap: 0.5rem;
             width: 100%;
             text-decoration: none;
-            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+            background: linear-gradient(135deg, #ffd900 0%, #fed000 100%);
             color: #ffffff;
             border-radius: 0.875rem;
             padding: 0.875rem 1.5rem;
@@ -403,13 +403,13 @@
             font-weight: 700;
             font-family: 'Manrope', sans-serif;
             letter-spacing: 0.01em;
-            box-shadow: 0 6px 20px rgba(234, 88, 12, 0.38);
+            box-shadow: 0 6px 20px rgba(255, 217, 0, 0.38);
             transition: all 0.2s ease;
         }
 
         .verify-register-btn:hover {
-            background: linear-gradient(135deg, #c2410c 0%, #9a3412 100%);
-            box-shadow: 0 8px 24px rgba(234, 88, 12, 0.45);
+            background: linear-gradient(135deg, #e6c300 0%, #ca8a04 100%);
+            box-shadow: 0 8px 24px rgba(255, 217, 0, 0.45);
             color: #ffffff;
         }
 
@@ -433,14 +433,14 @@
         }
 
         .verify-back-link a {
-            color: #ea580c !important;
+            color: #ffd900 !important;
             font-weight: 700 !important;
             text-decoration: none !important;
             transition: color 0.2s ease !important;
         }
 
         .verify-back-link a:hover {
-            color: rgba(234, 88, 12, 0.8) !important;
+            color: rgba(255, 217, 0, 0.8) !important;
         }
 
         /* ================================================================
@@ -487,13 +487,13 @@
         }
 
         .verify-mobile-pill {
-            background: linear-gradient(135deg, rgba(234, 88, 12, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
-            color: #ea580c;
+            background: linear-gradient(135deg, rgba(255, 217, 0, 0.08) 0%, rgba(255, 217, 0, 0.08) 100%);
+            color: #ffd900;
             border-radius: 9999px;
             padding: 0.4rem 0.875rem;
             font-size: 0.75rem;
             font-weight: 700;
-            border: 1px solid rgba(234, 88, 12, 0.18);
+            border: 1px solid rgba(255, 217, 0, 0.18);
             letter-spacing: 0.01em;
         }
 
@@ -642,7 +642,7 @@
                 padding: 0.75rem 1.5rem !important;
                 font-size: 0.9375rem !important;
                 min-height: 3rem !important;
-                box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3) !important;
+                box-shadow: 0 4px 14px rgba(255, 217, 0, 0.3) !important;
                 letter-spacing: 0 !important;
             }
 
@@ -685,9 +685,9 @@
         <div
             style="position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50; display: flex; gap: 0.375rem; background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); padding: 0.25rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
             <a href="{{ route('language.switch', 'en') }}"
-                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'en' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'en' ? '#ea580c' : 'transparent' }};">EN</a>
+                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'en' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'en' ? '#ffd900' : 'transparent' }};">EN</a>
             <a href="{{ route('language.switch', 'id') }}"
-                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'id' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'id' ? '#ea580c' : 'transparent' }};">ID</a>
+                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'id' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'id' ? '#ffd900' : 'transparent' }};">ID</a>
         </div>
 
         {{-- ======================================================= --}}

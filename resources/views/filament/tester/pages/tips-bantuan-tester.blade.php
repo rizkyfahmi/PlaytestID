@@ -256,7 +256,7 @@
       ══════════════════════════════════════ */
       .tb-hero {
         position: relative;
-        background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #c2410c 55%, #ea580c 80%, #f97316 100%);
+        background: linear-gradient(135deg, #0a1850 0%, #13297a 25%, #ca8a04 55%, #ffd900 80%, #fed000 100%);
         background-size: 220% 220%;
         animation: tb-gradient 14s ease infinite;
         border-radius: 1.5rem;
@@ -264,7 +264,7 @@
         margin-bottom: 1.5rem;
         overflow: hidden;
         isolation: isolate;
-        box-shadow: 0 20px 60px -15px rgba(234, 88, 12, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+        box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
       }
 
       /* Aurora mesh */
@@ -272,7 +272,7 @@
         position: absolute;
         inset: -30%;
         background:
-          radial-gradient(40% 35% at 20% 30%, rgba(251, 146, 60, .55), transparent 60%),
+          radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .55), transparent 60%),
           radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
           radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
           radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%),
@@ -291,7 +291,7 @@
         height: 520px;
         left: -160px;
         bottom: -200px;
-        background: conic-gradient(from 0deg, rgba(249, 115, 22, 0), rgba(251, 146, 60, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(249, 115, 22, 0));
+        background: conic-gradient(from 0deg, rgba(255, 217, 0, 0), rgba(254, 208, 0, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(255, 217, 0, 0));
         border-radius: 50%;
         filter: blur(30px);
         animation: tb-conic 28s linear infinite;
@@ -496,7 +496,7 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: .18em;
-        color: #fed7aa;
+        color: #fef08a;
         display: flex;
         align-items: center;
         gap: 8px;
@@ -506,7 +506,7 @@
       .tb-hero-label span {
         width: 24px;
         height: 1px;
-        background: #fed7aa;
+        background: #fef08a;
       }
 
       .tb-hero-title {
@@ -520,7 +520,7 @@
 
       .tb-hero-sub {
         font-size: .85rem;
-        color: #ffedd5;
+        color: #fef9c3;
         margin-top: 6px;
         font-weight: 500;
         display: flex;
@@ -625,8 +625,8 @@
       }
 
       .tb-search-input:focus {
-        border-color: #ea580c;
-        box-shadow: 0 0 0 4px rgba(234, 88, 12, .1), 0 4px 16px rgba(234, 88, 12, .08);
+        border-color: #ffd900;
+        box-shadow: 0 0 0 4px rgba(255, 217, 0, .1), 0 4px 16px rgba(255, 217, 0, .08);
         background: #fff;
       }
 
@@ -637,8 +637,8 @@
       }
 
       .dark .tb-search-input:focus {
-        border-color: #f97316;
-        box-shadow: 0 0 0 4px rgba(249, 115, 22, .12), 0 4px 16px rgba(249, 115, 22, .08);
+        border-color: #fed000;
+        box-shadow: 0 0 0 4px rgba(255, 217, 0, .12), 0 4px 16px rgba(255, 217, 0, .08);
         background: rgba(15, 23, 42, .85);
       }
 
@@ -664,9 +664,9 @@
       }
 
       .tb-tab--active {
-        background: linear-gradient(135deg, #ea580c, #7c3aed);
+        background: linear-gradient(135deg, #ffd900, #f59e0b);
         color: #fff;
-        box-shadow: 0 4px 14px -4px rgba(234, 88, 12, .4);
+        box-shadow: 0 4px 14px -4px rgba(255, 217, 0, .4);
       }
 
       .tb-tab--inactive {
@@ -680,7 +680,7 @@
       .tb-tab--inactive:hover {
         background: #fff;
         color: #1e293b;
-        border-color: rgba(234, 88, 12, .2);
+        border-color: rgba(255, 217, 0, .2);
       }
 
       .dark .tb-tab--inactive {
@@ -722,14 +722,14 @@
       }
 
       .tb-card:hover {
-        border-color: rgba(234, 88, 12, .2);
+        border-color: rgba(255, 217, 0, .2);
         transform: translateY(-3px);
-        box-shadow: 0 12px 40px -12px rgba(234, 88, 12, .15);
+        box-shadow: 0 12px 40px -12px rgba(255, 217, 0, .15);
       }
 
       .tb-card--expanded {
-        border-color: rgba(234, 88, 12, .3) !important;
-        box-shadow: 0 16px 48px -12px rgba(234, 88, 12, .18) !important;
+        border-color: rgba(255, 217, 0, .3) !important;
+        box-shadow: 0 16px 48px -12px rgba(255, 217, 0, .18) !important;
         background: #fff !important;
       }
 
@@ -741,12 +741,12 @@
 
       .dark .tb-card:hover {
         background: rgba(30, 41, 59, .75);
-        border-color: rgba(249, 115, 22, .25);
+        border-color: rgba(255, 217, 0, .25);
       }
 
       .dark .tb-card--expanded {
         background: rgba(30, 41, 59, .9) !important;
-        border-color: rgba(249, 115, 22, .35) !important;
+        border-color: rgba(255, 217, 0, .35) !important;
       }
 
       .tb-card-head {
@@ -852,7 +852,7 @@
         width: 26px;
         height: 26px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #ea580c, #7c3aed);
+        background: linear-gradient(135deg, #ffd900, #f59e0b);
         color: #fff;
         font-size: .7rem;
         font-weight: 700;
@@ -861,7 +861,7 @@
         justify-content: center;
         flex-shrink: 0;
         margin-top: 1px;
-        box-shadow: 0 2px 8px rgba(234, 88, 12, .3);
+        box-shadow: 0 2px 8px rgba(255, 217, 0, .3);
       }
 
       .tb-step-txt {
@@ -927,8 +927,8 @@
 
       .tb-quick-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px -8px rgba(234, 88, 12, .12);
-        border-color: rgba(234, 88, 12, .2);
+        box-shadow: 0 8px 24px -8px rgba(255, 217, 0, .12);
+        border-color: rgba(255, 217, 0, .2);
       }
 
       .dark .tb-quick-card {
@@ -938,7 +938,7 @@
 
       .dark .tb-quick-card:hover {
         background: rgba(30, 41, 59, .75);
-        border-color: rgba(249, 115, 22, .25);
+        border-color: rgba(255, 217, 0, .25);
       }
 
       .tb-quick-icon {
@@ -1012,14 +1012,14 @@
         font-family: 'JetBrains Mono', monospace;
         font-size: .85rem;
         font-weight: 700;
-        background: linear-gradient(135deg, #ea580c, #7c3aed);
+        background: linear-gradient(135deg, #ffd900, #f59e0b);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
 
       .dark .tb-stats-num {
-        background: linear-gradient(135deg, #fb923c, #a78bfa);
+        background: linear-gradient(135deg, #fed000, #a78bfa);
         -webkit-background-clip: text;
         background-clip: text;
       }
@@ -1031,15 +1031,15 @@
         background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
         border-radius: 1rem !important;
         padding: 20px 24px !important;
-        box-shadow: 0 25px 60px -12px rgba(234, 88, 12, .3), 0 0 0 1px rgba(234, 88, 12, .1) !important;
+        box-shadow: 0 25px 60px -12px rgba(255, 217, 0, .3), 0 0 0 1px rgba(255, 217, 0, .1) !important;
         max-width: 360px !important;
-        border: 1px solid rgba(234, 88, 12, .15) !important;
+        border: 1px solid rgba(255, 217, 0, .15) !important;
       }
 
       .dark .driver-popover.tb-driver-theme {
         background: linear-gradient(135deg, #1e293b, #0f172a) !important;
-        border-color: rgba(249, 115, 22, .25) !important;
-        box-shadow: 0 25px 60px -12px rgba(0, 0, 0, .5), 0 0 0 1px rgba(249, 115, 22, .15) !important;
+        border-color: rgba(255, 217, 0, .25) !important;
+        box-shadow: 0 25px 60px -12px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 217, 0, .15) !important;
       }
 
       .driver-popover.tb-driver-theme .driver-popover-title {
@@ -1084,13 +1084,13 @@
       }
 
       .driver-popover.tb-driver-theme button.driver-popover-next-btn {
-        background: linear-gradient(135deg, #ea580c, #7c3aed) !important;
+        background: linear-gradient(135deg, #ffd900, #f59e0b) !important;
         color: #fff !important;
-        box-shadow: 0 4px 12px rgba(234, 88, 12, .3) !important;
+        box-shadow: 0 4px 12px rgba(255, 217, 0, .3) !important;
       }
 
       .driver-popover.tb-driver-theme button.driver-popover-next-btn:hover {
-        box-shadow: 0 6px 20px rgba(234, 88, 12, .4) !important;
+        box-shadow: 0 6px 20px rgba(255, 217, 0, .4) !important;
       }
 
       .driver-popover.tb-driver-theme button.driver-popover-prev-btn {
@@ -1276,7 +1276,7 @@
 
       {{-- Decorative blobs --}}
       <div class="tb-blob"
-        style="position:absolute;right:-48px;top:-48px;width:192px;height:192px;border-radius:50%;opacity:.2;background:radial-gradient(circle,#fb923c,transparent 70%);">
+        style="position:absolute;right:-48px;top:-48px;width:192px;height:192px;border-radius:50%;opacity:.2;background:radial-gradient(circle,#fed000,transparent 70%);">
       </div>
       <div class="tb-blob-rev"
         style="position:absolute;right:80px;bottom:-64px;width:160px;height:160px;border-radius:50%;opacity:.15;background:radial-gradient(circle,#a78bfa,transparent 70%);">
@@ -1439,7 +1439,7 @@
             [
               'title' => __('Dashboard Tester'),
               'emoji' => '🏠',
-              'iconBg' => 'rgba(234,88,12,0.12)',
+              'iconBg' => 'rgba(255, 217, 0, 0.12)',
               'category' => 'navigasi',
               'categoryLabel' => __('Navigasi'),
               'desc' => __('Dashboard Tester menampilkan ringkasan performa Anda, misi yang sedang aktif, dan total saldo yang Anda miliki saat ini.'),

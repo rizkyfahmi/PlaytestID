@@ -32,17 +32,17 @@
           },
           colors: {
             brand: {
-              50: '#fff7ed',
-              100: '#ffedd5',
-              200: '#fed7aa',
-              300: '#fdba74',
-              400: '#fb923c',
-              500: '#f97316',
-              600: '#ea580c',
-              700: '#c2410c',
-              800: '#9a3412',
-              900: '#7c2d12',
-              950: '#431407',
+              50: '#fefce8',
+              100: '#fef9c3',
+              200: '#fef08a',
+              300: '#fde047',
+              400: '#fed000',
+              500: '#ffd900',
+              600: '#e6c300',
+              700: '#ca8a04',
+              800: '#a16207',
+              900: '#713f12',
+              950: '#422006'
             }
           },
           keyframes: {
@@ -107,7 +107,7 @@
 
     /* ── Navbar scroll shadow ── */
     #navbar.scrolled {
-      box-shadow: 0 4px 24px 0 rgba(234, 88, 12, 0.08);
+      box-shadow: 0 4px 24px 0 rgba(255, 217, 0, 0.08);
       background: rgba(255, 255, 255, 0.97);
     }
     .dark #navbar.scrolled {
@@ -120,13 +120,13 @@
       display: block;
       width: 24px;
       height: 2px;
-      background: #ea580c;
+      background: #ffd900;
       border-radius: 2px;
       transition: all 0.3s ease;
       transform-origin: center;
     }
     .dark .ham-line {
-      background: #fdba74;
+      background: #fde047;
     }
 
     #hamburger.open .ham-line:nth-child(1) {
@@ -163,10 +163,10 @@
 
     /* ── Gradient hero background ── */
     .hero-bg {
-      background: linear-gradient(135deg, #7c2d12 0%, #c2410c 35%, #ea580c 70%, #f97316 100%);
+      background: linear-gradient(135deg, #111111 0%, #1a1a18 35%, #242424 70%, #1a1a18 100%);
     }
     .dark .hero-bg {
-      background: linear-gradient(135deg, #1c0b04 0%, #431407 35%, #7c2d12 70%, #9a3412 100%);
+      background: linear-gradient(135deg, #0d0d0c 0%, #141413 35%, #1b1b1b 70%, #111111 100%);
     }
 
     /* ── Tab underline indicator ── */
@@ -183,17 +183,17 @@
       right: 0;
       height: 3px;
       border-radius: 2px;
-      background: #ea580c;
+      background: #ffd900;
       transform: scaleX(0);
       transition: transform 0.3s ease;
     }
 
     .tab-btn.active {
-      color: #c2410c;
+      color: #ca8a04;
       font-weight: 700;
     }
     .dark .tab-btn.active {
-      color: #fb923c;
+      color: #fed000;
     }
 
     .tab-btn.active::after {
@@ -243,10 +243,10 @@
 
     /* ── CTA section gradient ── */
     .cta-bg {
-      background: linear-gradient(135deg, #7c2d12 0%, #ea580c 60%, #fb923c 100%);
+      background: linear-gradient(135deg, #111111 0%, #1a1a18 60%, #242424 100%);
     }
     .dark .cta-bg {
-      background: linear-gradient(135deg, #1c0b04 0%, #431407 60%, #7c2d12 100%);
+      background: linear-gradient(135deg, #0d0d0c 0%, #141413 60%, #1b1b1b 100%);
     }
 
     /* ── Scroll-reveal helper ── */
@@ -276,14 +276,21 @@
 
     /* ── Badge ── */
     .badge-popular {
-      background: linear-gradient(90deg, #ea580c, #fb923c);
-      color: #fff;
+      background: linear-gradient(90deg, #ffd900, #fed000);
+      color: #111111;
       font-size: 0.72rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.07em;
       padding: 4px 14px;
       border-radius: 999px;
-      box-shadow: 0 2px 10px rgba(234, 88, 12, 0.35);
+      box-shadow: 0 2px 10px rgba(255, 217, 0, 0.35);
+    }
+
+    /* ── Helden Inc Button Contrast ── */
+    .bg-brand-600.text-white,
+    .bg-brand-500.text-white {
+      color: #111111 !important;
+      font-weight: 800 !important;
     }
 
     /* ── Theme toggle ── */
@@ -296,7 +303,7 @@
       border: none;
       outline: none;
       transition: background 0.3s ease;
-      background: linear-gradient(135deg, #fed7aa, #fdba74);
+      background: linear-gradient(135deg, #fef08a, #fde047);
       box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
     }
     .dark .theme-toggle {
@@ -324,7 +331,7 @@
     .theme-toggle-knob .icon-sun,
     .theme-toggle-knob .icon-moon { transition: opacity 0.2s; }
     .theme-toggle-knob .icon-sun { color: #f59e0b; }
-    .theme-toggle-knob .icon-moon { color: #fb923c; position: absolute; }
+    .theme-toggle-knob .icon-moon { color: #fed000; position: absolute; }
     .dark .theme-toggle-knob .icon-sun { opacity: 0; }
     .theme-toggle-knob .icon-moon { opacity: 0; }
     .dark .theme-toggle-knob .icon-moon { opacity: 1; }
@@ -489,7 +496,7 @@
         </h1>
 
         <!-- Sub-headline -->
-        <p class="text-lg text-orange-100 leading-relaxed max-w-lg">
+        <p class="text-lg text-brand-100 leading-relaxed max-w-lg">
           {{ __('Testoplay adalah platform kolaborasi antara Developer yang membutuhkan tester aktif dan Tester yang ingin berkontribusi sambil belajar langsung lewat pengujian aplikasi nyata.') }}
         </p>
 
@@ -507,17 +514,17 @@
         <div class="flex gap-8 pt-5 border-t border-white/20">
           <div>
             <p class="text-3xl font-black">1,200+</p>
-            <p class="text-orange-200 text-xs font-medium mt-0.5">{{ __('Tester Aktif') }}</p>
+            <p class="text-brand-200 text-xs font-medium mt-0.5">{{ __('Tester Aktif') }}</p>
           </div>
           <div class="w-px bg-white/20"></div>
           <div>
             <p class="text-3xl font-black">340+</p>
-            <p class="text-orange-200 text-xs font-medium mt-0.5">{{ __('Aplikasi Lulus Uji') }}</p>
+            <p class="text-brand-200 text-xs font-medium mt-0.5">{{ __('Aplikasi Lulus Uji') }}</p>
           </div>
           <div class="w-px bg-white/20"></div>
           <div>
             <p class="text-3xl font-black">98%</p>
-            <p class="text-orange-200 text-xs font-medium mt-0.5">{{ __('Tingkat Keberhasilan') }}</p>
+            <p class="text-brand-200 text-xs font-medium mt-0.5">{{ __('Tingkat Keberhasilan') }}</p>
           </div>
         </div>
       </div>
@@ -528,26 +535,26 @@
 
           <!-- Card header -->
           <div class="mb-5 pb-3 border-b border-white/10">
-            <p class="text-xs text-orange-200 font-medium uppercase tracking-widest">{{ __('Kampanye Aktif') }}</p>
+            <p class="text-xs text-brand-200 font-medium uppercase tracking-widest">{{ __('Kampanye Aktif') }}</p>
             <p class="text-xl font-bold mt-1 tracking-tight">{{ __('MyApp – Closed Testing') }}</p>
           </div>
 
           <!-- 14 Days Progress -->
           <div class="bg-white/10 rounded-2xl p-4 mb-4">
             <div class="flex justify-between text-xs font-semibold mb-2">
-              <span class="text-orange-100">{{ __('Progres 14 Hari') }}</span>
+              <span class="text-brand-100">{{ __('Progres 14 Hari') }}</span>
               <span class="text-white">{{ __('Hari') }} 9 / 14</span>
             </div>
             <div class="w-full h-3 bg-white/20 rounded-full overflow-hidden">
               <div class="h-3 bg-gradient-to-r from-green-400 to-emerald-300 rounded-full progress-fill" style="--fill: 64%;"></div>
             </div>
-            <p class="text-xs text-orange-200 mt-2">{{ __('64% selesai · diperkirakan lulus dalam') }} <strong class="text-white">5 {{ __('hari lagi') }}</strong></p>
+            <p class="text-xs text-brand-200 mt-2">{{ __('64% selesai · diperkirakan lulus dalam') }} <strong class="text-white">5 {{ __('hari lagi') }}</strong></p>
           </div>
 
           <!-- Tester count -->
           <div class="bg-white/10 rounded-2xl p-4 mb-4">
             <div class="flex items-center justify-between mb-3">
-              <span class="text-xs text-orange-100 font-semibold uppercase tracking-widest">{{ __('Tester Aktif') }}</span>
+              <span class="text-xs text-brand-100 font-semibold uppercase tracking-widest">{{ __('Tester Aktif') }}</span>
               <span class="text-green-400 font-black text-xl">20 / 20</span>
             </div>
             <!-- Avatar row -->
@@ -557,15 +564,15 @@
                 <div class="w-7 h-7 rounded-full bg-yellow-400  border-2 border-white/30 flex items-center justify-center text-xs font-bold">B</div>
                 <div class="w-7 h-7 rounded-full bg-green-400   border-2 border-white/30 flex items-center justify-center text-xs font-bold">C</div>
                 <div class="w-7 h-7 rounded-full bg-purple-400  border-2 border-white/30 flex items-center justify-center text-xs font-bold">D</div>
-                <div class="w-7 h-7 rounded-full bg-orange-300    border-2 border-white/30 flex items-center justify-center text-xs font-bold">+16</div>
+                <div class="w-7 h-7 rounded-full bg-brand-300    border-2 border-white/30 flex items-center justify-center text-xs font-bold">+16</div>
               </div>
-              <span class="ml-3 text-xs text-orange-200">{{ __("Semua tester memenuhi syarat Google") }}</span>
+              <span class="ml-3 text-xs text-brand-200">{{ __("Semua tester memenuhi syarat Google") }}</span>
             </div>
           </div>
 
           <!-- Daily chart mini -->
           <div class="bg-white/10 rounded-2xl p-4">
-            <p class="text-xs text-orange-100 font-semibold uppercase tracking-widest mb-3">{{ __('Aktivitas Harian') }}</p>
+            <p class="text-xs text-brand-100 font-semibold uppercase tracking-widest mb-3">{{ __('Aktivitas Harian') }}</p>
             <div class="flex items-end gap-1.5 h-14">
               <!-- 14 bar mini chart – all active -->
               <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:60%;" title="Day 1"></div>
@@ -583,7 +590,7 @@
               <div class="flex-1 bg-white/20   rounded-t-sm" style="height:20%;"></div>
               <div class="flex-1 bg-white/20   rounded-t-sm" style="height:20%;"></div>
             </div>
-            <div class="flex justify-between text-xs text-orange-300 mt-2 font-medium">
+            <div class="flex justify-between text-xs text-brand-300 mt-2 font-medium">
               <span>{{ __('Hari') }} 1</span><span>{{ __('Hari') }} 9 ← {{ __('Anda di sini') }}</span><span>{{ __('Hari') }} 14</span>
             </div>
           </div>
@@ -914,7 +921,7 @@
         {{ __('Siap Meluncurkan Aplikasi Anda di Play Store?') }}
       </h2>
 
-      <p class="text-orange-100 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+      <p class="text-brand-100 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
         {{ __('Atau Anda ingin mulai membantu developer lain sambil membangun pengalaman QA Anda? Bergabunglah dengan') }} <strong class="text-white">Testoplay</strong> {{ __('now and become part of Indonesia\'s best testing ecosystem.') }}
       </p>
 

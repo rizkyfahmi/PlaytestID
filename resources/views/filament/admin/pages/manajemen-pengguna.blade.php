@@ -146,7 +146,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-grad-orange {
-                background: linear-gradient(90deg, #ea580c, #fb923c);
+                background: linear-gradient(90deg, #ffd900, #fed000);
             }
 
             .mp-grad-green {
@@ -162,8 +162,8 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-bg-orange {
-                background: #fff7ed;
-                color: #ea580c;
+                background: #fefce8;
+                color: #ffd900;
             }
 
             .mp-bg-green {
@@ -209,7 +209,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-search-wrap:focus-within .mp-search-icon {
-                color: #ea580c;
+                color: #ffd900;
             }
 
             .mp-input,
@@ -227,9 +227,9 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
 
             .mp-input:focus,
             .mp-select:focus {
-                border-color: #ea580c;
+                border-color: #ffd900;
                 background: #fff;
-                box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
+                box-shadow: 0 0 0 3px rgba(255, 217, 0, 0.1);
             }
 
             .mp-search-input {
@@ -258,12 +258,12 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-btn-primary {
-                background: linear-gradient(135deg, #ea580c, #c2410c);
+                background: linear-gradient(135deg, #ffd900, #ca8a04);
                 color: #fff;
             }
 
             .mp-btn-primary:hover {
-                box-shadow: 0 6px 16px rgba(234, 88, 12, 0.35);
+                box-shadow: 0 6px 16px rgba(255, 217, 0, 0.35);
                 transform: translateY(-1px);
             }
 
@@ -299,7 +299,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
 
             .mp-tab.active {
                 color: #1e293b;
-                border-bottom-color: #ea580c;
+                border-bottom-color: #ffd900;
                 font-weight: 600;
             }
 
@@ -339,11 +339,11 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-sort-btn:hover {
-                color: #ea580c;
+                color: #ffd900;
             }
 
             .mp-sort-btn.active {
-                color: #ea580c;
+                color: #ffd900;
             }
 
             .mp-sort-icon {
@@ -403,7 +403,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-table tbody tr:hover td:first-child {
-                border-left-color: #ea580c;
+                border-left-color: #ffd900;
             }
 
             .mp-table tbody tr:last-child td {
@@ -423,8 +423,8 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-badge-developer {
-                background: #ffedd5;
-                color: #c2410c;
+                background: #fef9c3;
+                color: #ca8a04;
             }
 
             .mp-badge-tester {
@@ -512,12 +512,12 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-action-reactive {
-                background: #fff7ed;
-                border-color: #fed7aa;
+                background: #fefce8;
+                border-color: #fef08a;
             }
 
             .mp-action-reactive:hover {
-                background: #ffedd5;
+                background: #fef9c3;
                 transform: scale(1.05);
             }
 
@@ -548,17 +548,17 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-pagi-btn:hover {
-                background: #fff7ed;
-                border-color: #ea580c;
-                color: #ea580c;
+                background: #fefce8;
+                border-color: #ffd900;
+                color: #ffd900;
                 transform: translateY(-1px);
             }
 
             .mp-pagi-btn.active {
-                background: #ea580c;
-                border-color: #ea580c;
+                background: #ffd900;
+                border-color: #ffd900;
                 color: #fff;
-                box-shadow: 0 4px 10px rgba(234, 88, 12, 0.25);
+                box-shadow: 0 4px 10px rgba(255, 217, 0, 0.25);
             }
 
             .mp-pagi-btn:disabled {
@@ -788,7 +788,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
 
             <div class="flex items-center justify-between mb-4">
                 <div class="mp-sora font-bold text-slate-900 text-base flex items-center gap-2">
-                    <span class="material-symbols-outlined text-orange-600 text-[1.2rem]">manage_accounts</span>
+                    <span class="material-symbols-outlined text-brand-600 text-[1.2rem]">manage_accounts</span>
                     {{ __('Daftar Pengguna') }}
                 </div>
             </div>
@@ -808,7 +808,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                             @click="setFilter('developer')">
                             {{ __('Developer') }}
                             <span class="mp-count-badge"
-                                style="background:#fff7ed;color:#ea580c;">{{ $statDeveloper }}</span>
+                                style="background:#fefce8;color:#ffd900;">{{ $statDeveloper }}</span>
                         </button>
                         <button class="mp-tab" :class="filterAktif==='tester'   ? 'active' : 'inactive'"
                             @click="setFilter('tester')">
@@ -992,7 +992,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                             @elseif(($user['raw_status'] ?? '') === 'suspend')
                                                 <button class="mp-action-btn mp-action-reactive">
                                                     <span class="material-symbols-outlined text-[1rem]"
-                                                        style="color:#ea580c;">restart_alt</span>
+                                                        style="color:#ffd900;">restart_alt</span>
                                                     <span class="mp-tooltip">{{ __('Aktifkan Kembali') }}</span>
                                                 </button>
                                             @endif

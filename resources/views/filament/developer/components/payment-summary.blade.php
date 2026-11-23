@@ -120,8 +120,8 @@
 
         {{-- Info & security --}}
         <div class="space-y-3 pt-1">
-            <div class="flex gap-3 p-3.5 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50/60 dark:from-amber-500/10 dark:to-orange-500/5 border border-amber-200/50 dark:border-amber-500/20">
-                <div class="shrink-0 w-7 h-7 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow shadow-amber-500/30">
+            <div class="flex gap-3 p-3.5 rounded-xl bg-gradient-to-br from-amber-50 to-brand-50/60 dark:from-amber-500/10 dark:to-brand-500/5 border border-amber-200/50 dark:border-amber-500/20">
+                <div class="shrink-0 w-7 h-7 rounded-lg bg-gradient-to-br from-amber-400 to-brand-500 flex items-center justify-center shadow shadow-amber-500/30">
                     <x-heroicon-s-information-circle class="w-4 h-4 text-white" />
                 </div>
                 <p class="text-[11px] text-amber-900 dark:text-amber-100 leading-relaxed font-medium">

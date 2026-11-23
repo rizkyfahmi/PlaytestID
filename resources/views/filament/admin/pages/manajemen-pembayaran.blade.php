@@ -149,7 +149,7 @@
 
         /* Stat Colors */
         .tk-grad-orange {
-            background: linear-gradient(90deg, #ea580c, #fb923c);
+            background: linear-gradient(90deg, #ffd900, #fed000);
         }
 
         .tk-grad-emerald {
@@ -165,8 +165,8 @@
         }
 
         .tk-bg-orange {
-            background: #fff7ed;
-            color: #ea580c;
+            background: #fefce8;
+            color: #ffd900;
         }
 
         .tk-bg-emerald {
@@ -204,7 +204,7 @@
         .tk-chart-bar {
             width: 80%;
             border-radius: 6px 6px 0 0;
-            background: linear-gradient(to top, #c2410c, #fb923c);
+            background: linear-gradient(to top, #ca8a04, #fed000);
             height: 0;
             transition: height 1.2s cubic-bezier(.4, 0, .2, 1), opacity 0.2s, box-shadow 0.2s;
             position: relative;
@@ -213,7 +213,7 @@
 
         .tk-chart-bar:hover {
             opacity: 1;
-            box-shadow: 0 0 12px rgba(234, 88, 12, 0.6);
+            box-shadow: 0 0 12px rgba(255, 217, 0, 0.6);
             transform: scaleY(1.02);
             transform-origin: bottom;
         }
@@ -288,7 +288,7 @@
         }
 
         .tk-search-wrap:focus-within .tk-search-icon {
-            color: #ea580c;
+            color: #ffd900;
         }
 
         .tk-search-input {
@@ -311,9 +311,9 @@
 
         .tk-input:focus,
         .tk-select:focus {
-            border-color: #ea580c;
+            border-color: #ffd900;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 217, 0, 0.1);
         }
 
         .tk-btn {
@@ -450,11 +450,11 @@
         }
 
         .tk-sort-btn:hover {
-            color: #ea580c;
+            color: #ffd900;
         }
 
         .tk-sort-btn.active {
-            color: #ea580c;
+            color: #ffd900;
         }
 
         .tk-sort-icon {
@@ -513,7 +513,7 @@
         }
 
         .tk-table tbody tr:hover td:first-child {
-            border-left-color: #ea580c;
+            border-left-color: #ffd900;
         }
 
         .tk-table tbody tr:last-child td {
@@ -616,8 +616,8 @@
         }
 
         .tk-badge-refund {
-            background: #ffedd5;
-            color: #c2410c;
+            background: #fef9c3;
+            color: #ca8a04;
         }
 
         .tk-badge-gagal {
@@ -641,7 +641,7 @@
         }
 
         .tk-dot-refund {
-            background: #f97316;
+            background: #fed000;
         }
 
         .tk-dot-gagal {
@@ -676,8 +676,8 @@
         }
 
         .tk-paket-pro {
-            background: #fff7ed;
-            color: #c2410c;
+            background: #fefce8;
+            color: #ca8a04;
         }
 
         .tk-paket-business {
@@ -699,14 +699,14 @@
         }
 
         .tk-action-detail {
-            background: #fff7ed;
-            color: #ea580c;
+            background: #fefce8;
+            color: #ffd900;
         }
 
         .tk-action-detail:hover {
-            background: #ffedd5;
+            background: #fef9c3;
             transform: translateY(-1px);
-            box-shadow: 0 2px 6px rgba(234, 88, 12, 0.15);
+            box-shadow: 0 2px 6px rgba(255, 217, 0, 0.15);
         }
 
         .tk-action-detail:active {
@@ -742,9 +742,9 @@
         }
 
         .tk-pagi-btn:hover {
-            background: #fff7ed;
-            border-color: #ea580c;
-            color: #ea580c;
+            background: #fefce8;
+            border-color: #ffd900;
+            color: #ffd900;
             transform: translateY(-1px);
         }
 
@@ -753,10 +753,10 @@
         }
 
         .tk-pagi-btn.active {
-            background: #ea580c;
-            border-color: #ea580c;
+            background: #ffd900;
+            border-color: #ffd900;
             color: #fff;
-            box-shadow: 0 4px 10px rgba(234, 88, 12, 0.25);
+            box-shadow: 0 4px 10px rgba(255, 217, 0, 0.25);
         }
 
         /* ══ EMPTY STATE ══ */
@@ -1032,7 +1032,7 @@
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between animate-fade-in-up gap-4 sm:gap-0">
             <div class="w-full sm:w-auto">
                 <h1 class="tk-sora text-xl font-bold text-slate-900">{{ __('Manajemen Pembayaran Developer') }}</h1>
-                <p class="text-sm text-slate-500 mt-0.5">{{ __('Transaksi otomatis via') }} <strong class="text-orange-600">Duitku</strong> {{ __('Payment Gateway') }}</p>
+                <p class="text-sm text-slate-500 mt-0.5">{{ __('Transaksi otomatis via') }} <strong class="text-brand-600">Duitku</strong> {{ __('Payment Gateway') }}</p>
             </div>
             <a href="{{ route('admin.export.pendapatan') }}" class="tk-btn tk-btn-export w-full sm:w-auto justify-center">
                 <span class="material-symbols-outlined text-[1.1rem]">download</span>
@@ -1171,9 +1171,9 @@
 
                 <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 flex-1 shadow-sm hover:shadow-md transition-shadow">
                     <div class="tk-sora font-bold text-slate-800 dark:text-slate-100 text-sm mb-4">{{ __('Payment Gateway') }}</div>
-                    <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-slate-700/50 dark:to-slate-700/50 rounded-xl border border-orange-100 dark:border-slate-600">
-                        <div class="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-orange-100 dark:border-slate-600">
-                            <span class="material-symbols-outlined text-[1.6rem] text-orange-600 dark:text-orange-400">account_balance</span>
+                    <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-brand-50 to-amber-50 dark:from-slate-700/50 dark:to-slate-700/50 rounded-xl border border-brand-100 dark:border-slate-600">
+                        <div class="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-brand-100 dark:border-slate-600">
+                            <span class="material-symbols-outlined text-[1.6rem] text-brand-600 dark:text-brand-400">account_balance</span>
                         </div>
                         <div class="flex-1">
                             <div class="font-bold text-slate-800 dark:text-slate-100 text-sm">Duitku</div>
@@ -1401,7 +1401,7 @@
                                 <div class="w-12 h-12 rounded-xl flex items-center justify-center text-[1rem] font-bold text-white bg-white/15" x-text="transaksi.inisial"></div>
                                 <div>
                                     <div class="font-bold text-white text-[1rem]" x-text="transaksi.namaUser"></div>
-                                    <div class="text-orange-300 text-xs mt-0.5" x-text="transaksi.kampanye"></div>
+                                    <div class="text-brand-300 text-xs mt-0.5" x-text="transaksi.kampanye"></div>
                                 </div>
                             </div>
                             <div class="tk-mono text-white font-bold text-3xl" x-text="'Rp ' + transaksi.jumlah.toLocaleString('id-ID')"></div>
@@ -1409,7 +1409,7 @@
                                 <template x-if="transaksi.status === '{{ __('Berhasil') }}'"><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-green-500 text-white shadow-sm shadow-green-500/50">✓ {{ __('Berhasil') }}</span></template>
                                 <template x-if="transaksi.status === '{{ __('Menunggu Bayar') }}'"><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-500 text-white shadow-sm shadow-amber-500/50">⏳ {{ __('Menunggu Bayar') }}</span></template>
                                 <template x-if="transaksi.status === '{{ __('Gagal') }}'"><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-red-500 text-white shadow-sm shadow-red-500/50">✗ {{ __('Gagal') }}</span></template>
-                                <span class="text-orange-300 text-[.75rem]" x-text="transaksi.tanggal + ' · ' + transaksi.waktu"></span>
+                                <span class="text-brand-300 text-[.75rem]" x-text="transaksi.tanggal + ' · ' + transaksi.waktu"></span>
                             </div>
                         </div>
 
@@ -1423,12 +1423,12 @@
 
                         <div class="tk-detail-section">{{ __('Payment Gateway') }}</div>
                         <div>
-                            <div class="tk-detail-row"><span class="tk-detail-label">{{ __('Gateway') }}</span><span class="tk-detail-val font-bold text-orange-600" x-text="transaksi.gateway || 'Duitku'"></span></div>
+                            <div class="tk-detail-row"><span class="tk-detail-label">{{ __('Gateway') }}</span><span class="tk-detail-val font-bold text-brand-600" x-text="transaksi.gateway || 'Duitku'"></span></div>
                             <div class="tk-detail-row"><span class="tk-detail-label">{{ __('ID Referensi') }}</span><span class="tk-detail-val tk-mono text-xs" x-text="transaksi.reference || '-'"></span></div>
                             <template x-if="transaksi.paymentUrl">
                                 <div class="tk-detail-row">
                                     <span class="tk-detail-label">{{ __('URL Pembayaran') }}</span>
-                                    <a :href="transaksi.paymentUrl" target="_blank" class="tk-detail-val text-orange-600 text-xs hover:underline flex items-center gap-1">
+                                    <a :href="transaksi.paymentUrl" target="_blank" class="tk-detail-val text-brand-600 text-xs hover:underline flex items-center gap-1">
                                         <span class="material-symbols-outlined text-[.9rem]">open_in_new</span>
                                         {{ __('Buka Link') }}
                                     </a>
@@ -1446,10 +1446,10 @@
                         <div class="tk-detail-section">{{ __('Rincian Pembayaran') }}</div>
                         <div>
                             <div class="tk-detail-row"><span class="tk-detail-label">{{ __('Total Bayar') }}</span><span class="tk-detail-val tk-mono text-xs" x-text="'Rp ' + transaksi.jumlah.toLocaleString('id-ID')"></span></div>
-                            <div class="tk-detail-row bg-orange-50 -mx-1 px-3 py-3 rounded-lg mt-2 border border-orange-100">
+                            <div class="tk-detail-row bg-brand-50 -mx-1 px-3 py-3 rounded-lg mt-2 border border-brand-100">
                                 <div class="flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-orange-500 text-[1.1rem]">info</span>
-                                    <span class="text-xs text-orange-700">{{ __('Pembayaran diproses otomatis via Duitku') }}</span>
+                                    <span class="material-symbols-outlined text-brand-500 text-[1.1rem]">info</span>
+                                    <span class="text-xs text-brand-700">{{ __('Pembayaran diproses otomatis via Duitku') }}</span>
                                 </div>
                             </div>
                         </div>

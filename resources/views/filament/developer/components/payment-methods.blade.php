@@ -41,7 +41,7 @@
     $categoryMeta = [
         'Virtual Account'    => ['icon' => 'heroicon-m-building-library', 'color' => 'from-indigo-500 to-violet-500'],
         'E-Wallet / QRIS'    => ['icon' => 'heroicon-m-device-phone-mobile', 'color' => 'from-cyan-500 to-emerald-500'],
-        'Retail / Gerai'     => ['icon' => 'heroicon-m-building-storefront', 'color' => 'from-amber-500 to-orange-500'],
+        'Retail / Gerai'     => ['icon' => 'heroicon-m-building-storefront', 'color' => 'from-amber-500 to-brand-500'],
         'Kartu Kredit'       => ['icon' => 'heroicon-m-credit-card', 'color' => 'from-fuchsia-500 to-pink-500'],
         'Lainnya'            => ['icon' => 'heroicon-m-squares-2x2', 'color' => 'from-slate-400 to-slate-500'],
     ];

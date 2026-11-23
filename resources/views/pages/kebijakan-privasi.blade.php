@@ -29,7 +29,19 @@
         extend: {
           fontFamily: { sans: ['Inter', 'sans-serif'] },
           colors: {
-            brand: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12', 950: '#431407' }
+            brand: {
+              50: '#fefce8',
+              100: '#fef9c3',
+              200: '#fef08a',
+              300: '#fde047',
+              400: '#fed000',
+              500: '#ffd900',
+              600: '#e6c300',
+              700: '#ca8a04',
+              800: '#a16207',
+              900: '#713f12',
+              950: '#422006'
+            }
           }
         }
       }
@@ -92,12 +104,12 @@
     }
 
     .prose a {
-      color: #ea580c;
+      color: #ffd900;
       text-decoration: underline;
     }
 
     .dark .prose a {
-      color: #fb923c;
+      color: #fed000;
     }
 
     /* Admin-style card */
@@ -106,14 +118,14 @@
       border-radius: 1rem;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
       border: 1px solid #f1f5f9;
-      border-top: 4px solid #ea580c;
+      border-top: 4px solid #ffd900;
       padding: 2rem;
     }
 
     .dark .page-card {
       background: #1e293b;
       border-color: #334155;
-      border-top-color: #f97316;
+      border-top-color: #fed000;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
@@ -160,7 +172,7 @@
     }
 
     .icon-moon {
-      color: #fb923c;
+      color: #fed000;
       position: absolute;
       opacity: 0;
     }
@@ -296,10 +308,10 @@
 
     .prof-hero {
       position: relative;
-      background: linear-gradient(135deg, #431407 0%, #7c2d12 25%, #c2410c 55%, #ea580c 80%, #f97316 100%);
+      background: linear-gradient(135deg, #111111 0%, #1a1a18 25%, #242424 55%, #ca8a04 80%, #ffd900 100%);
       background-size: 220% 220%;
       animation: prof-gradient 14s ease infinite;
-      box-shadow: 0 20px 60px -15px rgba(234,88,12, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+      box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset;
       isolation: isolate;
       overflow: hidden;
     }
@@ -321,7 +333,7 @@
       position: absolute;
       inset: -30%;
       background:
-        radial-gradient(40% 35% at 20% 30%, rgba(251, 146, 60, .55), transparent 60%),
+        radial-gradient(40% 35% at 20% 30%, rgba(254, 208, 0, .55), transparent 60%),
         radial-gradient(35% 30% at 80% 20%, rgba(167, 139, 250, .45), transparent 60%),
         radial-gradient(45% 40% at 60% 80%, rgba(34, 211, 238, .40), transparent 60%),
         radial-gradient(30% 25% at 15% 85%, rgba(244, 114, 182, .35), transparent 60%);
@@ -338,7 +350,7 @@
       height: 520px;
       left: -160px;
       bottom: -200px;
-      background: conic-gradient(from 0deg, rgba(249, 115, 22, 0), rgba(251, 146, 60, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(249, 115, 22, 0));
+      background: conic-gradient(from 0deg, rgba(255, 217, 0, 0), rgba(254, 208, 0, .35), rgba(167, 139, 250, .25), rgba(34, 211, 238, .30), rgba(255, 217, 0, 0));
       border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 28s linear infinite;
@@ -352,7 +364,7 @@
       height: 380px;
       right: -120px;
       top: -140px;
-      background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(251, 146, 60, .30), rgba(244, 114, 182, 0));
+      background: conic-gradient(from 180deg, rgba(244, 114, 182, 0), rgba(244, 114, 182, .30), rgba(254, 208, 0, .30), rgba(244, 114, 182, 0));
       border-radius: 50%;
       filter: blur(30px);
       animation: prof-conic 34s linear infinite;
@@ -505,7 +517,7 @@
 
       <!-- Floating decorative blobs -->
       <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-        style="background:radial-gradient(circle,#fb923c,transparent 70%);"></div>
+        style="background:radial-gradient(circle,#fed000,transparent 70%);"></div>
       <div class="prof-blob-rev absolute right-20 -bottom-16 w-40 h-40 rounded-full opacity-15"
         style="background:radial-gradient(circle,#a78bfa,transparent 70%);"></div>
 
@@ -516,7 +528,7 @@
           <i class="fa-solid fa-shield-halved"></i> {{ __('Privasi & Keamanan') }}
         </div>
         <h1 class="text-3xl sm:text-4xl font-black mb-2">{{ __('Kebijakan Privasi') }}</h1>
-        <p class="text-orange-100 text-sm">{{ __('Terakhir diperbarui: 1 Juni 2026') }}</p>
+        <p class="text-brand-100 text-sm">{{ __('Terakhir diperbarui: 1 Juni 2026') }}</p>
       </div>
     </div>
   </div>

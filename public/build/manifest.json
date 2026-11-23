@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-BwXA7WI0.css",
+    "file": "assets/app-BHZkdzlU.css",
     "name": "app",
     "names": [
       "app.css"
@@ -9,7 +9,7 @@
     "isEntry": true
   },
   "resources/css/filament-sidebar.css": {
-    "file": "assets/filament-sidebar-B3ssvD8x.css",
+    "file": "assets/filament-sidebar-CUQODQC5.css",
     "name": "filament-sidebar",
     "names": [
       "filament-sidebar.css"
@@ -18,7 +18,7 @@
     "isEntry": true
   },
   "resources/css/filament-topbar.css": {
-    "file": "assets/filament-topbar-BpAfMYtZ.css",
+    "file": "assets/filament-topbar-D0WlzjU0.css",
     "name": "filament-topbar",
     "names": [
       "filament-topbar.css"

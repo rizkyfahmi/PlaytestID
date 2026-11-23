@@ -45,7 +45,7 @@ class HistoryMisi extends Page
             $statusConfig = match ($ma->status) {
                 'selesai'   => ['label' => __('Selesai'),    'color' => '#10b981', 'bg' => '#ecfdf5', 'icon' => '✅'],
                 'progress'  => ['label' => __('Berlangsung'),'color' => '#f59e0b', 'bg' => '#fffbeb', 'icon' => '🔄'],
-                'accepted'  => ['label' => __('Diterima'),   'color' => '#f97316', 'bg' => '#fff7ed', 'icon' => '👍'],
+                'accepted'  => ['label' => __('Diterima'),   'color' => '#fed000', 'bg' => '#fefce8', 'icon' => '👍'],
                 'failed'    => ['label' => __('Gagal'),       'color' => '#ef4444', 'bg' => '#fef2f2', 'icon' => '❌'],
                 'submitted' => ['label' => __('Menunggu'),   'color' => '#8b5cf6', 'bg' => '#f5f3ff', 'icon' => '⏳'],
                 'rejected'  => ['label' => __('Ditolak'),    'color' => '#64748b', 'bg' => '#f8fafc', 'icon' => '🚫'],
@@ -57,7 +57,7 @@ class HistoryMisi extends Page
                 'linear-gradient(135deg,#f59e0b,#ef4444)',
                 'linear-gradient(135deg,#8b5cf6,#6366f1)',
                 'linear-gradient(135deg,#10b981,#0ea5e9)',
-                'linear-gradient(135deg,#ef4444,#f97316)',
+                'linear-gradient(135deg,#ef4444,#fed000)',
             ];
 
             return [

@@ -19,26 +19,26 @@
   .dark .status-closed{background:rgba(185,28,28,0.15);color:#fca5a5;border-color:rgba(248,113,113,0.2);}
   .status-failed{background:#fef2f2;color:#dc2626;border:1px solid #fca5a5;}
   .dark .status-failed{background:rgba(220,38,38,0.15);color:#fca5a5;border-color:rgba(248,113,113,0.2);}
-  .status-accepted{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa;}
+  .status-accepted{background:#fefce8;color:#ca8a04;border:1px solid #fef08a;}
 
   /* ── App icon ─────────────────────────── */
   .app-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;}
-  .icon-orange{background:#fff7ed;color:#ea580c;}.dark .icon-orange{background:rgba(234,88,12,0.2);color:#fdba74;}
+  .icon-orange{background:#fefce8;color:#ffd900;}.dark .icon-orange{background:rgba(255, 217, 0, 0.2);color:#fde047;}
   .icon-amber{background:#fffbeb;color:#d97706;}.dark .icon-amber{background:rgba(217,119,6,0.2);color:#fcd34d;}
   .icon-purple{background:#faf5ff;color:#7e22ce;}.dark .icon-purple{background:rgba(126,34,206,0.2);color:#d8b4fe;}
   .icon-green{background:#f0fdf4;color:#16a34a;}.dark .icon-green{background:rgba(22,163,74,0.2);color:#86efac;}
 
   /* ── Day cells ────────────────────────── */
   .day-cell{border-radius:8px;display:flex;align-items:center;justify-content:center;padding-bottom:0;aspect-ratio:1/1;height:auto;min-height:0;transition:all .15s;}
-  .day-done{background:#ffedd5;}.dark .day-done{background:rgba(234,88,12,0.2);}
-  .day-today{background:#ea580c;}
+  .day-done{background:#fef9c3;}.dark .day-done{background:rgba(255, 217, 0, 0.2);}
+  .day-today{background:#ffd900;}
   .day-future{background:#f1f5f9;}.dark .day-future{background:#334155;}
   .day-missed{background:#fee2e2;}.dark .day-missed{background:rgba(239,68,68,0.2);}
   .day-pending{background:#fef08a;}.dark .day-pending{background:rgba(234,179,8,0.2);}
   .day-rejected{background:#fecaca;}.dark .day-rejected{background:rgba(220,38,38,0.2);}
   .day-num{font-size:11px;font-weight:700;line-height:1;}
-  .day-done .day-num{color:#c2410c;}.dark .day-done .day-num{color:#fdba74;}
-  .day-today .day-num{color:#fff;font-weight:800;}
+  .day-done .day-num{color:#ca8a04;}.dark .day-done .day-num{color:#fde047;}
+  .day-today .day-num{color:#111111;font-weight:800;}
   .day-future .day-num{color:#94a3b8;}.dark .day-future .day-num{color:#64748b;}
   .day-missed .day-num{color:#ef4444;font-weight:800;}.dark .day-missed .day-num{color:#fca5a5;}
   .day-pending .day-num{color:#854d0e;}.dark .day-pending .day-num{color:#fde047;}
@@ -60,8 +60,8 @@
   .sub-card-body{padding:12px 14px;}
   .sub-img{width:100%;border-radius:10px;object-fit:cover;max-height:180px;cursor:pointer;transition:opacity .2s;}
   .sub-img:hover{opacity:.9;}
-  .btn-acc{background:#ea580c;color:#fff;font-weight:700;font-size:12px;padding:6px 16px;border-radius:10px;cursor:pointer;transition:background .15s;}
-  .btn-acc:hover{background:#c2410c;}
+  .btn-acc{background:#ffd900;color:#111111;font-weight:700;font-size:12px;padding:6px 16px;border-radius:10px;cursor:pointer;transition:background .15s;}
+  .btn-acc:hover{background:#ca8a04;}
   .btn-tolak{background:#fef2f2;color:#dc2626;border:1px solid #fecaca;font-weight:700;font-size:12px;padding:6px 16px;border-radius:10px;cursor:pointer;transition:background .15s;}
   .btn-tolak:hover{background:#fee2e2;}
 
@@ -85,13 +85,13 @@
     <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">{{ __('Pilih aplikasi yang sedang "berjalan" untuk memantau progres testernya.') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       @forelse($misiList as $m)
-        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-orange-300 dark:hover:border-orange-700 transition-all">
+        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-brand-300 dark:hover:border-brand-700 transition-all">
           <div>
             <div class="flex justify-between items-start mb-4">
               @if($m->logo)
                 <img src="/storage/{{ $m->logo }}" class="w-12 h-12 rounded-xl object-cover shadow-sm" alt="">
               @else
-                <div class="w-12 h-12 rounded-xl bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 flex items-center justify-center font-bold text-xl">{{ strtoupper(substr($m->nama_aplikasi,0,1)) }}</div>
+                <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xl">{{ strtoupper(substr($m->nama_aplikasi,0,1)) }}</div>
               @endif
               <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1.5">
                 {{ __('BERJALAN') }}
@@ -101,7 +101,7 @@
             <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 line-clamp-2">{{ strip_tags($m->instruksi) ?: __('Tidak ada deskripsi.') }}</p>
           </div>
           <button wire:click="$set('selectedMisiId', {{ $m->id }})"
-            class="w-full bg-slate-50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 text-orange-600 dark:text-orange-400 font-semibold text-sm py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors flex items-center justify-center gap-2">
+            class="w-full bg-slate-50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 text-brand-600 dark:text-brand-400 font-semibold text-sm py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors flex items-center justify-center gap-2">
             {{ __('Lihat Progres') }} <x-heroicon-m-arrow-right class="w-4 h-4"/>
           </button>
         </div>
@@ -130,7 +130,7 @@
       </h3>
       <div class="flex items-center gap-2">
         <button wire:click="rejectAllPending" class="text-sm font-semibold px-4 py-2 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900/30 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/40">{{ __('Tolak Semua') }}</button>
-        <button wire:click="acceptAllPending" class="text-sm font-semibold px-4 py-2 bg-orange-600 text-white rounded-xl hover:bg-orange-700">{{ __('Setujui Semua') }}</button>
+        <button wire:click="acceptAllPending" class="text-sm font-semibold px-4 py-2 bg-brand-600 text-white rounded-xl hover:bg-brand-700">{{ __('Setujui Semua') }}</button>
       </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
@@ -156,7 +156,7 @@
         </div>
         <div class="p-4 flex gap-3">
           <button wire:click="rejectDirect({{ $p['id'] }})" class="flex-1 py-2 text-sm font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900/30 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/40">{{ __('Tolak') }}</button>
-          <button wire:click="acceptDirect({{ $p['id'] }})" class="flex-1 py-2 text-sm font-bold text-white bg-orange-600 rounded-xl hover:bg-orange-700">{{ __('ACC ✓') }}</button>
+          <button wire:click="acceptDirect({{ $p['id'] }})" class="flex-1 py-2 text-sm font-bold text-white bg-brand-600 rounded-xl hover:bg-brand-700">{{ __('ACC ✓') }}</button>
         </div>
       </div>
       @endforeach
@@ -233,7 +233,7 @@
               <div>
                 {{-- Klik nama → buka slideout --}}
                 <button wire:click="openSlideout({{ $k['ma_id'] }})"
-                  class="text-slate-800 dark:text-white text-sm font-semibold hover:text-orange-600 hover:underline transition-colors text-left">
+                  class="text-slate-800 dark:text-white text-sm font-semibold hover:text-brand-600 hover:underline transition-colors text-left">
                   {{ $k['misi_nama'] }}
                   <span class="text-slate-400 font-normal">| {{ __('Tester:') }} {{ $k['tester_nama'] }}</span>
                 </button>
@@ -258,7 +258,7 @@
               </span>
               {{-- Tombol detail slideout --}}
               <button wire:click="openSlideout({{ $k['ma_id'] }})"
-                class="text-xs font-semibold px-3 py-1.5 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 transition-colors flex items-center gap-1">
+                class="text-xs font-semibold px-3 py-1.5 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-brand-50 hover:text-brand-600 hover:border-brand-200 transition-colors flex items-center gap-1">
                 {{ __('Detail') }} <x-heroicon-m-chevron-right class="w-3 h-3"/>
               </button>
             </div>
@@ -281,7 +281,7 @@
                     $cls = match($statusDay) {
                         'pending'  => 'day-pending cursor-pointer hover:ring-2 hover:ring-amber-300',
                         'rejected' => 'day-rejected cursor-pointer hover:ring-2 hover:ring-red-300',
-                        default    => 'day-done cursor-pointer hover:ring-2 hover:ring-orange-300',
+                        default    => 'day-done cursor-pointer hover:ring-2 hover:ring-brand-300',
                     };
                 } elseif ($h == $k['hariAktif']) {
                     $cls = 'day-today';
@@ -330,12 +330,12 @@
     $report = json_decode($aiReport->result, true);
     $skor = $report['skor'] ?? 0;
     $skorColor = $skor >= 9 ? ['bg'=>'bg-emerald-500','text'=>'text-emerald-700','light'=>'bg-emerald-50 border-emerald-200']
-               : ($skor >= 7 ? ['bg'=>'bg-orange-500','text'=>'text-orange-700','light'=>'bg-orange-50 border-orange-200']
+               : ($skor >= 7 ? ['bg'=>'bg-brand-500','text'=>'text-brand-700','light'=>'bg-brand-50 border-brand-200']
                : ($skor >= 4 ? ['bg'=>'bg-amber-500','text'=>'text-amber-700','light'=>'bg-amber-50 border-amber-200']
                : ['bg'=>'bg-red-500','text'=>'text-red-700','light'=>'bg-red-50 border-red-200']));
     $severityMap = [
       'critical' => ['label'=>'Critical','cls'=>'bg-red-100 text-red-700 border-red-200'],
-      'major'    => ['label'=>'Major','cls'=>'bg-orange-100 text-orange-700 border-orange-200'],
+      'major'    => ['label'=>'Major','cls'=>'bg-brand-100 text-brand-700 border-brand-200'],
       'minor'    => ['label'=>'Minor','cls'=>'bg-slate-100 text-slate-600 border-slate-200'],
     ];
     $bugs = $report['bugs'] ?? [];
@@ -416,7 +416,7 @@
           <svg class="w-20 h-20 -rotate-90" viewBox="0 0 36 36">
             <circle cx="18" cy="18" r="15.9" fill="none" stroke="#e2e8f0" stroke-width="3"/>
             <circle cx="18" cy="18" r="15.9" fill="none" stroke-width="3"
-              stroke="{{ $skor >= 9 ? '#10b981' : ($skor >= 7 ? '#f97316' : ($skor >= 4 ? '#f59e0b' : '#ef4444')) }}"
+              stroke="{{ $skor >= 9 ? '#10b981' : ($skor >= 7 ? '#fed000' : ($skor >= 4 ? '#f59e0b' : '#ef4444')) }}"
               stroke-dasharray="{{ $skor * 10 }}, 100"
               stroke-linecap="round"/>
           </svg>
@@ -436,8 +436,8 @@
           <div class="flex items-center gap-1.5 bg-red-50 border border-red-200 rounded-lg px-3 py-1.5">
             <span class="text-xs font-semibold text-red-700">{{ $criticalCount }} Critical Bug</span>
           </div>
-          <div class="flex items-center gap-1.5 bg-orange-50 border border-orange-200 rounded-lg px-3 py-1.5">
-            <span class="text-xs font-semibold text-orange-700">{{ $majorCount }} Major Bug</span>
+          <div class="flex items-center gap-1.5 bg-brand-50 border border-brand-200 rounded-lg px-3 py-1.5">
+            <span class="text-xs font-semibold text-brand-700">{{ $majorCount }} Major Bug</span>
           </div>
           <div class="flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg px-3 py-1.5">
             <span class="text-xs font-semibold text-emerald-700">{{ count($report['positif'] ?? []) }} {{ __('Hal Positif') }}</span>
@@ -581,7 +581,7 @@
         <p class="text-xs text-slate-500 mt-0.5">{{ $slideoutData['tester_email'] }}</p>
         <div class="flex items-center gap-3 mt-2 flex-wrap">
           <span class="status-badge status-{{ $slideoutData['status'] }}">{{ strtoupper($slideoutData['status']) }}</span>
-          <span class="text-xs bg-orange-50 text-orange-700 border border-orange-200 px-2 py-1 rounded-full font-semibold">
+          <span class="text-xs bg-brand-50 text-brand-700 border border-brand-200 px-2 py-1 rounded-full font-semibold">
             ✓ {{ $slideoutData['done_count'] }}/14 {{ __('hari') }}
           </span>
           @if($slideoutData['pending_count'] > 0)
@@ -723,7 +723,7 @@
           <textarea wire:model="alasanTolak"
             rows="2"
             placeholder="{{ __('Contoh: Screenshot tidak jelas, mohon ulangi...') }}"
-            class="w-full text-sm border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 rounded-xl px-3 py-2 focus:outline-none focus:border-orange-400 resize-none"></textarea>
+            class="w-full text-sm border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 rounded-xl px-3 py-2 focus:outline-none focus:border-brand-400 resize-none"></textarea>
         </div>
       </div>
 
@@ -732,7 +732,7 @@
         <button wire:click="rejectSubmission" class="flex-1 py-3 rounded-xl border border-red-200 bg-red-50 text-red-600 font-bold hover:bg-red-100">
           ✗ {{ __('Tolak') }}
         </button>
-        <button wire:click="acceptSubmission" class="flex-1 py-3 rounded-xl bg-orange-600 text-white font-bold hover:bg-orange-700 shadow-sm">
+        <button wire:click="acceptSubmission" class="flex-1 py-3 rounded-xl bg-brand-600 text-white font-bold hover:bg-brand-700 shadow-sm">
           ✓ {{ __('ACC (Setuju)') }}
         </button>
       </div>

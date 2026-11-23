@@ -146,7 +146,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-grad-orange {
-                background: linear-gradient(90deg, #ea580c, #fb923c);
+                background: linear-gradient(90deg, #ffd900, #fed000);
             }
 
             .mp-grad-green {
@@ -166,8 +166,8 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-bg-orange {
-                background: #fff7ed;
-                color: #ea580c;
+                background: #fefce8;
+                color: #ffd900;
             }
 
             .mp-bg-green {
@@ -224,7 +224,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-search-wrap:focus-within .mp-search-icon {
-                color: #ea580c;
+                color: #ffd900;
             }
 
             .mp-input,
@@ -242,9 +242,9 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
 
             .mp-input:focus,
             .mp-select:focus {
-                border-color: #ea580c;
+                border-color: #ffd900;
                 background: #fff;
-                box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
+                box-shadow: 0 0 0 3px rgba(255, 217, 0, 0.1);
             }
 
             .mp-search-input {
@@ -280,12 +280,12 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mp-btn-primary {
-                background: linear-gradient(135deg, #ea580c, #c2410c);
+                background: linear-gradient(135deg, #ffd900, #ca8a04);
                 color: #fff;
             }
 
             .mp-btn-primary:hover {
-                box-shadow: 0 6px 16px rgba(234, 88, 12, 0.35);
+                box-shadow: 0 6px 16px rgba(255, 217, 0, 0.35);
                 transform: translateY(-1px);
             }
 
@@ -325,9 +325,9 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mk-view-active {
-                background: #ea580c;
+                background: #ffd900;
                 color: #fff;
-                box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3);
+                box-shadow: 0 2px 8px rgba(255, 217, 0, 0.3);
             }
 
             .mk-view-inactive {
@@ -383,7 +383,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mk-dot-filled-orange {
-                background: #ea580c;
+                background: #ffd900;
             }
 
             .mk-dot-filled-green {
@@ -424,8 +424,8 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mk-badge-open {
-                background: #fff7ed;
-                color: #c2410c;
+                background: #fefce8;
+                color: #ca8a04;
             }
 
             .mk-badge-completed {
@@ -449,8 +449,8 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mk-badge-starter {
-                background: #fff7ed;
-                color: #c2410c;
+                background: #fefce8;
+                color: #ca8a04;
             }
 
             /* Action buttons (card & list) */
@@ -472,12 +472,12 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mk-btn-detail {
-                background: #fff7ed;
-                border-color: #fed7aa;
+                background: #fefce8;
+                border-color: #fef08a;
             }
 
             .mk-btn-detail:hover {
-                background: #ffedd5;
+                background: #fef9c3;
             }
 
             .mk-btn-approve {
@@ -545,11 +545,11 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mk-sort-btn:hover {
-                color: #ea580c;
+                color: #ffd900;
             }
 
             .mk-sort-btn.active {
-                color: #ea580c;
+                color: #ffd900;
             }
 
             .mk-sort-icon {
@@ -577,7 +577,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
             }
 
             .mk-list-row:hover {
-                border-left: 3px solid #ea580c;
+                border-left: 3px solid #ffd900;
                 padding-left: calc(1.25rem - 3px);
             }
 
@@ -790,7 +790,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                     </div>
                     <div>
                         <div class="mp-stat-label">{{ __('Aktif') }}</div>
-                        <div class="mp-stat-value text-orange-700">{{ $statAktif }}</div>
+                        <div class="mp-stat-value text-brand-700">{{ $statAktif }}</div>
                         <div class="mp-stat-sub">{{ __('sedang berjalan') }}</div>
                     </div>
                 </div>
@@ -892,10 +892,10 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
         {{-- ── SECTION LABEL ─────────────────────────────── --}}
         <div class="flex flex-wrap items-center justify-between animate-fade-in-up delay-300 gap-2">
             <div class="mp-sora font-bold text-slate-900 text-base flex items-center gap-2 w-full sm:w-auto">
-                <span class="material-symbols-outlined text-orange-600 text-[1.2rem]">campaign</span>
+                <span class="material-symbols-outlined text-brand-600 text-[1.2rem]">campaign</span>
                 <span x-text="filterStatusName()"></span>
             </div>
-            <span class="text-xs mp-mono px-2.5 py-1 rounded-lg font-semibold" style="background:#fff7ed;color:#ea580c;"
+            <span class="text-xs mp-mono px-2.5 py-1 rounded-lg font-semibold" style="background:#fefce8;color:#ffd900;"
                 x-text="filteredCount() + ' {{ __('kampanye') }}'">
             </span>
         </div>
@@ -907,7 +907,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
 
             @foreach($kampanyeList as $idx => $k)
                 @php
-                    $borderColor = ['open' => '#ea580c', 'Completed' => '#16a34a', 'Pending' => '#f59e0b', 'rejected' => '#ef4444'][$k['raw_status']] ?? '#94a3b8';
+                    $borderColor = ['open' => '#ffd900', 'Completed' => '#16a34a', 'Pending' => '#f59e0b', 'rejected' => '#ef4444'][$k['raw_status']] ?? '#94a3b8';
                     $progColor = $borderColor;
                     $dotClass = ['open' => 'mk-dot-filled-orange', 'Completed' => 'mk-dot-filled-green', 'Pending' => 'mk-dot-filled-amber', 'rejected' => 'mk-dot-empty'][$k['raw_status']] ?? 'mk-dot-empty';
                     $pctTester = $k['maxTester'] > 0 ? round($k['tester'] / $k['maxTester'] * 100) : 0;
@@ -985,8 +985,8 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                         {{-- Action Buttons --}}
                         <div class="flex items-center gap-2">
                             <button class="flex-1 flex items-center justify-center py-2 rounded-xl"
-                                style="background:#fff7ed;color:#ea580c;border:1px solid #fed7aa;transition:all .15s;"
-                                onmouseover="this.style.background='#ffedd5'" onmouseout="this.style.background='#fff7ed'"
+                                style="background:#fefce8;color:#ffd900;border:1px solid #fef08a;transition:all .15s;"
+                                onmouseover="this.style.background='#fef9c3'" onmouseout="this.style.background='#fefce8'"
                                 @click="bukaModal({{ $idx }})" title="{{ __('Detail') }}">
                                 <span class="material-symbols-outlined text-[1.1rem]">visibility</span>
                             </button>
@@ -1090,7 +1090,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
 
                 @foreach($kampanyeList as $idx => $k)
                     @php
-                        $borderColor = ['open' => '#ea580c', 'Completed' => '#16a34a', 'Pending' => '#f59e0b', 'rejected' => '#ef4444'][$k['raw_status']] ?? '#94a3b8';
+                        $borderColor = ['open' => '#ffd900', 'Completed' => '#16a34a', 'Pending' => '#f59e0b', 'rejected' => '#ef4444'][$k['raw_status']] ?? '#94a3b8';
                         $pctTester = $k['maxTester'] > 0 ? round($k['tester'] / $k['maxTester'] * 100) : 0;
                         $pctHari = $k['maxHari'] > 0 ? round($k['hariKe'] / $k['maxHari'] * 100) : 0;
                     @endphp
@@ -1155,7 +1155,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                         <div class="w-28 flex-shrink-0 flex items-center justify-center gap-1.5">
                             <button class="mk-action-btn mk-btn-detail" @click="bukaModal({{ $idx }})"
                                 title="{{ __('Detail') }}">
-                                <span class="material-symbols-outlined text-[1rem]" style="color:#ea580c;">visibility</span>
+                                <span class="material-symbols-outlined text-[1rem]" style="color:#ffd900;">visibility</span>
                             </button>
                             @if($k['raw_status'] === 'Pending')
                                 <button class="mk-action-btn mk-btn-approve" title="{{ __('Setujui') }}"
@@ -1262,7 +1262,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                                 </span>
                             </div>
                             <div class="mk-progress-track h-2">
-                                <div class="mk-progress-fill h-2" style="background:#ea580c;"
+                                <div class="mk-progress-fill h-2" style="background:#ffd900;"
                                     :style="'width:' + Math.round(((kampanye?.tester??0)/(kampanye?.maxTester??20))*100) + '%'">
                                 </div>
                             </div>

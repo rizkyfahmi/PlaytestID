@@ -39,20 +39,20 @@ class DeveloperPanelProvider extends PanelProvider
             ->login(Login::class)
             ->registration(Register::class)
             ->passwordReset(RequestResetPassword::class, ResetPassword::class)
-            // ── Warna sesuai landing page (#ea580c) ──  
+            // ── Warna sesuai tema Helden Inc (#ffd900) ──  
             ->colors([
                 'primary' => [
-                    50 => '255 247 237',
-                    100 => '255 237 213',
-                    200 => '254 215 170',
-                    300 => '253 186 116',
-                    400 => '251 146 60',
-                    500 => '249 115 22',
-                    600 => '234 88 12',
-                    700 => '194 65 12',
-                    800 => '154 52 18',
-                    900 => '124 45 18',
-                    950 => '67 20 7',
+                    50  => '254 252 232',
+                    100 => '254 249 195',
+                    200 => '254 240 138',
+                    300 => '253 224 71',
+                    400 => '254 208 0',
+                    500 => '255 217 0',
+                    600 => '230 195 0',
+                    700 => '202 138 4',
+                    800 => '161 98  7',
+                    900 => '113 63  18',
+                    950 => '66  32  6',
                 ],
             ])
             ->favicon('/favicon.ico')

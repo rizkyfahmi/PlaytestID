@@ -33,17 +33,17 @@
           },
           colors: {
             brand: {
-              50: '#fff7ed',
-              100: '#ffedd5',
-              200: '#fed7aa',
-              300: '#fdba74',
-              400: '#fb923c',
-              500: '#f97316',
-              600: '#ea580c',
-              700: '#c2410c',
-              800: '#9a3412',
-              900: '#7c2d12',
-              950: '#431407',
+              50: '#fefce8',
+              100: '#fef9c3',
+              200: '#fef08a',
+              300: '#fde047',
+              400: '#fed000',
+              500: '#ffd900',
+              600: '#e6c300',
+              700: '#ca8a04',
+              800: '#a16207',
+              900: '#713f12',
+              950: '#422006'
             }
           },
           keyframes: {
@@ -91,7 +91,7 @@
     }
 
     #navbar.scrolled {
-      box-shadow: 0 4px 24px 0 rgba(234, 88, 12, 0.08);
+      box-shadow: 0 4px 24px 0 rgba(255, 217, 0, 0.08);
       background: rgba(255, 255, 255, 0.97);
     }
 
@@ -104,14 +104,14 @@
       display: block;
       width: 24px;
       height: 2px;
-      background: #ea580c;
+      background: #ffd900;
       border-radius: 2px;
       transition: all 0.3s ease;
       transform-origin: center;
     }
 
     .dark .ham-line {
-      background: #fdba74;
+      background: #fde047;
     }
 
     #hamburger.open .ham-line:nth-child(1) {
@@ -146,7 +146,7 @@
       border: none;
       outline: none;
       transition: background 0.3s ease;
-      background: linear-gradient(135deg, #fed7aa, #fdba74);
+      background: linear-gradient(135deg, #fef08a, #fde047);
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
     }
 
@@ -185,7 +185,7 @@
     }
 
     .theme-toggle-knob .icon-moon {
-      color: #fb923c;
+      color: #fed000;
       position: absolute;
     }
 
@@ -206,6 +206,13 @@
     .pricing-card>div,
     .glass-card {
       transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* ── Helden Inc Button Contrast ── */
+    .bg-brand-600.text-white,
+    .bg-brand-500.text-white {
+      color: #111111 !important;
+      font-weight: 800 !important;
     }
   </style>
   @yield('styles')

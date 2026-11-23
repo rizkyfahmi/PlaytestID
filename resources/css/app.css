@@ -59,7 +59,7 @@ html.dark .tk-pagi-btn, html.dark .mp-pagi-btn, html.dark .mk-pagi-btn, html.dar
 }
 
 html.dark .tk-input:focus, html.dark .tk-select:focus, html.dark .mp-input:focus, html.dark .mp-select:focus, html.dark .mk-input:focus, html.dark .mk-select:focus, html.dark .mw-input:focus, html.dark .mw-select:focus, html.dark .mp-form-input:focus, html.dark .mp-form-select:focus, html.dark .mp-form-textarea:focus, html.dark .mk-form-input:focus, html.dark .mk-form-select:focus, html.dark .mk-form-textarea:focus {
-    border-color: #ea580c !important;
+    border-color: #ffd900 !important;
 }
 
 html.dark .tk-btn-secondary, html.dark .tk-btn-ghost, html.dark .mp-btn-secondary, html.dark .mp-btn-ghost, html.dark .mk-btn-secondary, html.dark .mk-btn-ghost, html.dark .mw-btn-secondary, html.dark .mw-btn-ghost, html.dark .tb-tab--inactive:hover {
@@ -93,7 +93,7 @@ html.dark td, html.dark .tk-detail-row, html.dark .mw-detail-row {
     border-color: #334155 !important;
 }
 
-html.dark .adm-stat-icon[style*="background:#fff7ed;"], html.dark .tk-stat-icon.tk-bg-orange, html.dark .mw-stat-icon.mw-bg-orange, html.dark .mp-stat-icon.mp-bg-orange, html.dark .mk-stat-icon.mk-bg-orange { background: rgba(234, 88, 12, 0.1) !important; }
+html.dark .adm-stat-icon[style*="background:#fefce8;"], html.dark .tk-stat-icon.tk-bg-orange, html.dark .mw-stat-icon.mw-bg-orange, html.dark .mp-stat-icon.mp-bg-orange, html.dark .mk-stat-icon.mk-bg-orange { background: rgba(255, 217, 0, 0.1) !important; }
 html.dark .adm-stat-icon[style*="background:#f0fdf4;"], html.dark .tk-stat-icon.tk-bg-emerald, html.dark .mw-stat-icon.mw-bg-emerald, html.dark .mp-stat-icon.mp-bg-emerald, html.dark .mk-stat-icon.mk-bg-emerald { background: rgba(16, 185, 129, 0.1) !important; }
 html.dark .adm-stat-icon[style*="background:#fffbeb;"], html.dark .tk-stat-icon.tk-bg-orange, html.dark .mw-stat-icon.mw-bg-orange, html.dark .mp-stat-icon.mp-bg-orange, html.dark .mk-stat-icon.mk-bg-orange { background: rgba(245, 158, 11, 0.1) !important; }
 html.dark .adm-stat-icon[style*="background:#f5f3ff;"], html.dark .tk-stat-icon.tk-bg-purple, html.dark .mw-stat-icon.mw-bg-purple, html.dark .mp-stat-icon.mp-bg-purple, html.dark .mk-stat-icon.mk-bg-purple { background: rgba(139, 92, 246, 0.1) !important; }

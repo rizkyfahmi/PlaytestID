@@ -134,8 +134,8 @@ class ListMisis extends Page
             ->get();
 
         $colors = [
-            ['#7c2d12', '#f97316'], // Blue
-            ['#ea580c', '#fb923c'], // Orange
+            ['#713f12', '#fed000'], // Blue
+            ['#ffd900', '#fed000'], // Orange
             ['#059669', '#10b981'], // Green
             ['#7c3aed', '#a78bfa'], // Purple
             ['#be123c', '#fb7185'], // Rose
