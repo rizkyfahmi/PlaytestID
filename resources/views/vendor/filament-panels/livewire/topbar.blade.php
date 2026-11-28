@@ -13,14 +13,7 @@
     $hasNavigation = filament()->hasNavigation();
     $hasTenancy = filament()->hasTenancy();
 
-    $hour = (int) now()->format('H');
-    if (\Illuminate\Support\Facades\App::getLocale() === 'en') {
-        $greeting = $hour < 4 ? 'Good Night' : ($hour < 12 ? 'Good Morning' : ($hour < 17 ? 'Good Afternoon' : ($hour < 21 ? 'Good Evening' : 'Good Night')));
-    } else {
-        $greeting = $hour < 2 ? 'Selamat Malam' : ($hour < 11 ? 'Selamat Pagi' : ($hour < 15 ? 'Selamat Siang' : ($hour < 19 ? 'Selamat Sore' : 'Selamat Malam')));
-    }
-    $userName = filament()->auth()->check() ? (filament()->auth()->user()->name ?? 'Admin') : 'Admin';
-        @endphp
+    @endphp
 
         <nav class="fi-topbar"
             x-data="{ scroll: 0 }"
@@ -120,30 +113,6 @@
                     </div>
                     @endif
                 </div>
-
-                {{-- Greeting & Custom Widgets --}}
-                @auth
-                @php
-                $timeIcon = $hour >= 4 && $hour < 11 ? '🌤️' : ($hour>= 11 && $hour < 15 ? '☀️' : ($hour>= 15 && $hour < 19 ? '⛅' : '🌙' ));
-                            @endphp
-
-                            {{-- Live Clock (uses ":" separator) --}}
-                            <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 ml-4 bg-slate-50 dark:bg-slate-900rounded-full border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-md shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 text-xs font-semibold text-gray-700 dark:text-gray-200 cursor-default ring-1 ring-primary-500/10 hover:ring-primary-500/30"
-                            x-data="{
-                        time: '',
-                        fmt() {
-                            const d = new Date();
-                            const p = n => String(n).padStart(2,'0');
-                            this.time = p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());
-                        }
-                     }"
-                            x-init="fmt(); setInterval(() => fmt(), 1000)">
-                            <svg class="w-4 h-4 text-primary-500 origin-center animate-[spin_4s_linear_infinite]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                            </svg>
-                            <span x-text="time" class="tracking-widest font-mono drop-shadow-sm"></span>
-            </div>
-            @endauth
 
             {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::TOPBAR_LOGO_AFTER) }}
 </div>
@@ -270,30 +239,22 @@
     {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::GLOBAL_SEARCH_AFTER) }}
 
     @if (filament()->auth()->check())
-    @php
-    $timeIcon = $hour >= 4 && $hour < 11 ? '🌤️' : ($hour>= 11 && $hour < 15 ? '☀️' : ($hour>= 15 && $hour < 19 ? '⛅' : '🌙' ));
-                @endphp
-                @if (filament()->hasDatabaseNotifications() && filament()->getDatabaseNotificationsPosition() === \Filament\Enums\DatabaseNotificationsPosition::Topbar)
-                @livewire(filament()->getDatabaseNotificationsLivewireComponent(), [
+        @if (filament()->hasDatabaseNotifications() && filament()->getDatabaseNotificationsPosition() === \Filament\Enums\DatabaseNotificationsPosition::Topbar)
+            @livewire(filament()->getDatabaseNotificationsLivewireComponent(), [
                 'lazy' => filament()->hasLazyLoadedDatabaseNotifications(),
-                ])
-                @endif
+            ])
+        @endif
 
-                {{-- Combined Greeting + User Menu pill --}}
-                @if (filament()->hasUserMenu() && filament()->getUserMenuPosition() === \Filament\Enums\UserMenuPosition::Topbar)
-                <div class="topbar-user-combined" title="{{ now()->format('l, d M Y H:i') }}" style="cursor:pointer;position:relative;">
-                    {{-- Greeting text side --}}
-                    <span class="topbar-greeting topbar-greeting--merged">
-                        <span class="inline-block animate-bounce" style="animation-duration: 3s; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">{{ $timeIcon }}</span>
-                        <span class="topbar-greeting-text">{{ $greeting }}, <strong class="topbar-greeting-name bg-brand-500bg-clip-text text-transparent drop-shadow-sm">{{ $userName }}</strong></span>
-                    </span>
-                    {{-- Avatar / dropdown side --}}
-                    <div class="fi-topbar-user-menu-wrap fi-topbar-user-menu-wrap--merged" x-data>
-                        <x-filament-panels::user-menu />
-                    </div>
-                </div>
-                @endif
-                @endif
+        {{-- Standalone Language Switcher (Separated from account, matching reference) --}}
+        @include('filament.components.language-switcher')
+
+        {{-- Dedicated User Account Menu Pill --}}
+        @if (filament()->hasUserMenu() && filament()->getUserMenuPosition() === \Filament\Enums\UserMenuPosition::Topbar)
+            <div class="fi-topbar-user-menu-wrap">
+                <x-filament-panels::user-menu />
+            </div>
+        @endif
+    @endif
 </div>
 
 {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::TOPBAR_END) }}

@@ -12,7 +12,20 @@ class MisiAnggota extends Model
     protected $fillable = [
         'id_misi',
         'id_user',
-        'status',
+        'phone_number',
+        'payout_method',
+        'payout_bank_name',
+        'payout_account_name',
+        'payout_account_number',
+        'status', // menunggu_seleksi (or pending), accepted, rejected, cancelled, selesai
+        'status_kehadiran', // belum_hadir, hadir, tidak_hadir
+        'status_komisi', // belum_dibayar, masuk_dompet
+        'catatan_seleksi',
+        'agreed_terms_at',
+    ];
+
+    protected $casts = [
+        'agreed_terms_at' => 'datetime',
     ];
 
     public function misi(): BelongsTo

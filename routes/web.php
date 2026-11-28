@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Paket;
 
 Route::get('/', function (\Illuminate\Http\Request $request) {
-    $supportedLocales = ['id', 'en'];
+    $supportedLocales = ['id', 'en', 'nl'];
     $selectedLocale = config('app.fallback_locale');
 
     if (\Illuminate\Support\Facades\Session::has('app_locale')) {
@@ -21,7 +21,7 @@ Route::get('/', function (\Illuminate\Http\Request $request) {
     return redirect('/' . $selectedLocale);
 });
 
-Route::prefix('{locale}')->where(['locale' => 'id|en'])->middleware(\App\Http\Middleware\LanguageManagerMiddleware::class)->group(function () {
+Route::prefix('{locale}')->where(['locale' => 'id|en|nl'])->middleware(\App\Http\Middleware\LanguageManagerMiddleware::class)->group(function () {
     Route::get('/', function () {
         $pakets = Paket::where('aktif', true)->orderBy('price', 'asc')->get();
         return view('welcome', compact('pakets'));
@@ -37,7 +37,7 @@ Route::middleware(\App\Http\Middleware\LanguageManagerMiddleware::class)->group(
 });
 
 Route::get('/language/switch/{locale}', function ($locale) {
-    if (in_array($locale, ['id', 'en'])) {
+    if (in_array($locale, ['id', 'en', 'nl'])) {
         \Illuminate\Support\Facades\Session::put('app_locale', $locale);
     }
     return back();

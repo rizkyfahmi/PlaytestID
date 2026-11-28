@@ -86,8 +86,18 @@ class GoogleController extends Controller
             // Clean up session
             session()->forget('google_auth_panel');
 
-            // Redirect based on the panel they logged in from
-            return redirect()->intended("/{$panel}");
+            // Redirect based on the panel they logged in from, validating url.intended
+            $targetUrl = "/{$panel}";
+            $intendedUrl = session()->get('url.intended');
+            if ($intendedUrl) {
+                $intendedPath = parse_url($intendedUrl, PHP_URL_PATH) ?? '';
+                if (str_starts_with($intendedPath, "/{$panel}")) {
+                    session()->forget('url.intended');
+                    return redirect()->to($intendedUrl);
+                }
+            }
+            session()->forget('url.intended');
+            return redirect()->to($targetUrl);
         } catch (\Exception $e) {
             Log::error('Google OAuth login failed', [
                 'error' => $e->getMessage(),

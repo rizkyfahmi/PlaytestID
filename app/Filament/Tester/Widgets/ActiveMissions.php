@@ -3,8 +3,7 @@
 namespace App\Filament\Tester\Widgets;
 
 use App\Models\Misi;
-use App\Models\MisiAnggota;
-use Filament\Tables;
+use App\Filament\Tester\Pages\MisiDetail;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Filament\Tables\Columns\TextColumn;
@@ -13,9 +12,9 @@ use Illuminate\Support\Facades\Auth;
 
 class ActiveMissions extends BaseWidget
 {
-    protected static ?string $heading = 'My Active Missions';
+    protected static ?string $heading = 'Pengujian yang Diikuti';
 
-    protected int | string | array $columnSpan = 'full';
+    protected int|string|array $columnSpan = 'full';
 
     public function table(Table $table): Table
     {
@@ -25,36 +24,54 @@ class ActiveMissions extends BaseWidget
                     ->whereHas('misiAnggotas', function ($query) {
                         $query->where('id_user', Auth::id());
                     })
+                    ->latest()
             )
             ->columns([
                 TextColumn::make('nama_aplikasi')
-                    ->label('Application')
-                    ->weight('bold'),
+                    ->label('Nama Pengujian')
+                    ->weight('bold')
+                    ->description(fn(Misi $record): string => $record->lokasi ? 'Lokasi: ' . substr($record->lokasi, 0, 30) . '...' : ''),
+
+                TextColumn::make('jadwal_tanggal')
+                    ->label('Jadwal')
+                    ->formatStateUsing(fn(Misi $record) => $record->jadwal_tanggal ? $record->jadwal_tanggal->format('d M Y') . ($record->jadwal_waktu ? ' (' . $record->jadwal_waktu . ')' : '') : '-')
+                    ->icon('heroicon-o-calendar'),
+
                 TextColumn::make('misiAnggotas')
-                    ->label('My Status')
+                    ->label('Status Lamaran')
                     ->formatStateUsing(function (Misi $record) {
                         $anggota = $record->misiAnggotas()->where('id_user', Auth::id())->first();
-                        return ucfirst($anggota?->status ?? 'Unknown');
+                        $status = strtolower($anggota?->status ?? 'pending');
+                        return match ($status) {
+                            'pending', 'reviewing', 'menunggu_seleksi' => 'Menunggu Seleksi',
+                            'accepted', 'progress' => 'Diterima (Wajib Hadir)',
+                            'selesai' => 'Hadir & Selesai',
+                            'rejected', 'cancelled' => 'Ditolak',
+                            default => ucfirst($status),
+                        };
                     })
                     ->badge()
-                    ->color(fn (string $state): string => match (strtolower($state)) {
-                        'pending' => 'gray',
-                        'reviewing' => 'info',
-                        'active' => 'warning',
-                        'completed' => 'success',
-                        'rejected' => 'danger',
-                        default => 'secondary',
+                    ->color(function (Misi $record): string {
+                        $anggota = $record->misiAnggotas()->where('id_user', Auth::id())->first();
+                        $status = strtolower($anggota?->status ?? 'pending');
+                        return match ($status) {
+                            'pending', 'reviewing', 'menunggu_seleksi' => 'warning',
+                            'accepted', 'progress' => 'info',
+                            'selesai' => 'success',
+                            'rejected', 'cancelled' => 'danger',
+                            default => 'gray',
+                        };
                     }),
             ])
             ->actions([
-                Action::make('view_details')
-                    ->label('Submit Task')
-                    ->button()
-                    ->url(fn (Misi $record) => '#'), // Placeholder for now
+                Action::make('detail')
+                    ->label('Lihat Detail & Lokasi')
+                    ->icon('heroicon-o-eye')
+                    ->color('primary')
+                    ->url(fn(Misi $record) => MisiDetail::getUrl(['misi_id' => $record->id])),
             ])
-            ->contentGrid([
-                'md' => 2,
-                'xl' => 3,
-            ]);
+            ->recordAction('detail')
+            ->emptyStateHeading('Belum Ada Pengujian Diikuti')
+            ->emptyStateDescription('Daftar lamaran pengujian Anda akan muncul di sini.');
     }
 }

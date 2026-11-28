@@ -2,140 +2,158 @@
 
 namespace App\Filament\Developer\Resources\Misis\Schemas;
 
-use App\Models\Paket;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Radio;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Wizard;
-use Filament\Schemas\Components\Wizard\Step;
+use Filament\Forms\Components\Hidden;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\View;
-use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Hidden;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
-use Illuminate\Support\HtmlString;
-use Filament\Forms\Components\Select;
 
 class MisiForm
 {
     public static function configure(Schema $schema): Schema
     {
-        $uploadMisiSchema = [
-            View::make('filament.developer.components.upload-misi')
-                ->schema([
-                    TextInput::make('nama_aplikasi')
-                        ->label(__('Nama Aplikasi'))
-                        ->placeholder(__('Contoh: Aplikasi Kerenku'))
-                        ->required()
-                        ->maxLength(255)
-                        ->columnSpanFull(),
-
-                    FileUpload::make('logo')
-                        ->label(__('Logo Aplikasi'))
-                        ->disk('public')
-                        ->directory('logos')
-                        ->image()
-                        ->imageEditor()
-                        ->circleCropper()
-                        ->required()
-                        ->columnSpanFull(),
-
-                    RichEditor::make('instruksi')
-                        ->label(__('Instruksi untuk Penguji'))
-                        ->placeholder(__('Tuliskan langkah-langkah detail pengujian di sini...'))
-                        ->toolbarButtons([
-                            'bold',
-                            'italic',
-                            'link',
-                            'h2',
-                            'h3',
-                            'bulletList',
-                            'orderedList',
-                            'blockquote',
-                            'undo',
-                            'redo',
-                        ])
-                        ->columnSpanFull(),
-                ])
-                ->columnSpanFull(),
-
-            Hidden::make('link_aplikasi')
-                ->default('-'),
-
-            Hidden::make('kapasitas')
-                ->default(0),
-
-            Hidden::make('point')
-                ->default(0)
-                ->live(),
-        ];
-
-        if ($schema->getOperation() === 'edit') {
-            return $schema->components($uploadMisiSchema);
-        }
-
         return $schema
+            ->columns(1)
             ->components([
-                Wizard::make([
+                Section::make(__('1. Identitas & Lokasi Pengujian Tatap Muka'))
+                    ->description(__('Cantumkan informasi identitas proyek dan alamat fisik tempat tester akan hadir.'))
+                    ->columnSpanFull()
+                    ->schema([
+                        Grid::make(['default' => 1, 'md' => 2])
+                            ->schema([
+                                TextInput::make('nama_aplikasi')
+                                    ->label(__('Nama Aplikasi / Proyek'))
+                                    ->placeholder(__('Contoh: Aplikasi POS Kasir Pintar'))
+                                    ->required()
+                                    ->maxLength(255),
 
-                    // ══════════════════════════════════════════════
-                    //  STEP 1 — Upload Misi
-                    // ══════════════════════════════════════════════
-                    Step::make(__('Unggah Aplikasi'))
-                        ->icon('heroicon-o-document-text')
-                        ->schema($uploadMisiSchema),
+                                TextInput::make('penyelenggara')
+                                    ->label(__('Nama Penyelenggara / Perusahaan'))
+                                    ->placeholder(__('Contoh: PT Digital Inovasi Nusantara'))
+                                    ->required()
+                                    ->maxLength(255),
+                            ]),
 
-                    // ══════════════════════════════════════════════
-                    //  STEP 2 — Pilih Package
-                    // ══════════════════════════════════════════════
-                    Step::make(__('Pilih Paket'))
-                        ->icon('heroicon-o-squares-2x2')
-                        ->hiddenOn('edit')
-                        ->schema([
-                                    Hidden::make('id_paket')
-                                        ->required()
-                                        ->live()
-                                        ->afterStateUpdated(function (Set $set, $state) {
-                                            if ($state) {
-                                                $paket = Paket::find($state);
-                                                $set('point', $paket?->point ?? 0);
-                                            }
-                                        }),
+                        FileUpload::make('logo')
+                            ->label(__('Logo / Banner Aplikasi'))
+                            ->disk('public')
+                            ->directory('logos')
+                            ->image()
+                            ->imageEditor()
+                            ->required()
+                            ->columnSpanFull(),
 
-                                    View::make('filament.developer.components.package-selection')
-                                        ->columnSpanFull(),
-                        ]),
+                        Textarea::make('lokasi')
+                            ->label(__('Lokasi Testing Fisik (Alamat Lengkap)'))
+                            ->placeholder(__('Contoh: Ruang Meeting A, Gedung Creative Hub Lt. 3, Jl. Gatot Subroto No. 45, Jakarta Selatan'))
+                            ->required()
+                            ->rows(3)
+                            ->helperText(__('Cantumkan patokan atau ruangan secara jelas agar tester dapat datang ke lokasi tanpa kendala.'))
+                            ->columnSpanFull(),
 
-                    // ══════════════════════════════════════════════
-                    //  STEP 3 — Pembayaran
-                    // ══════════════════════════════════════════════
-                    Step::make(__('Lakukan Pembayaran'))
-                        ->icon('heroicon-o-banknotes')
-                        ->hiddenOn('edit')
-                        ->schema([
-                            Grid::make(3)
-                                ->schema([
+                        Grid::make(['default' => 1, 'md' => 2])
+                            ->schema([
+                                DatePicker::make('jadwal_tanggal')
+                                    ->label(__('Tanggal Pelaksanaan'))
+                                    ->required()
+                                    ->native(false)
+                                    ->minDate(now()->startOfDay()),
 
-                                    // ── Kolom Kiri: Info Duitku ──────────
-                                    Hidden::make('payment_method')
-                                        ->required(),
+                                TextInput::make('jadwal_waktu')
+                                    ->label(__('Waktu / Jam Pelaksanaan'))
+                                    ->placeholder(__('Contoh: 10:00 - 13:00 WIB'))
+                                    ->required()
+                                    ->maxLength(100),
+                            ]),
+                    ]),
 
-                                    View::make('filament.developer.components.payment-methods')
-                                        ->columnSpan(2),
+                Section::make(__('2. Kebutuhan Tester & Rincian Biaya Komisi'))
+                    ->description(__('Tentukan jumlah tester dan nominal komisi per orang (Minimum Rp 20.000).'))
+                    ->columnSpanFull()
+                    ->schema([
+                        Grid::make(['default' => 1, 'md' => 3])
+                            ->schema([
+                                TextInput::make('kuota_tester')
+                                    ->label(__('Jumlah Tester (Kuota)'))
+                                    ->numeric()
+                                    ->default(5)
+                                    ->minValue(1)
+                                    ->required()
+                                    ->live(onBlur: true)
+                                    ->helperText(__('Jumlah tester fisik yang dibutuhkan di lokasi.'))
+                                    ->afterStateUpdated(function (Set $set, Get $get, $state) {
+                                        $kuota = max(1, (int) ($state ?: 1));
+                                        $komisi = max(20000, (int) ($get('komisi_per_tester') ?: 20000));
+                                        $admin = (int) ($get('biaya_admin') ?: 0);
+                                        $set('total_biaya', ($kuota * $komisi) + $admin);
+                                    }),
 
-                                    // ── Kolom Kanan: Ringkasan ──────────────────
-                                    View::make('filament.developer.components.payment-summary')
-                                        ->columnSpan(1),
-                                ]),
-                        ]),
+                                TextInput::make('komisi_per_tester')
+                                    ->label(__('Komisi per Tester'))
+                                    ->numeric()
+                                    ->prefix('Rp')
+                                    ->default(20000)
+                                    ->minValue(20000)
+                                    ->required()
+                                    ->live(onBlur: true)
+                                    ->helperText(__('Batas minimum komisi: Rp 20.000 per orang.'))
+                                    ->afterStateUpdated(function (Set $set, Get $get, $state) {
+                                        $kuota = max(1, (int) ($get('kuota_tester') ?: 1));
+                                        $komisi = max(20000, (int) ($state ?: 20000));
+                                        $admin = (int) ($get('biaya_admin') ?: 0);
+                                        $set('total_biaya', ($kuota * $komisi) + $admin);
+                                    }),
 
-                ])
-                    ->submitAction(view('filament.developer.components.wizard-submit-button'))
-                    ->skippable(false)
-                    ->columnSpanFull(),
+                                TextInput::make('biaya_admin')
+                                    ->label(__('Biaya Layanan Admin'))
+                                    ->numeric()
+                                    ->prefix('Rp')
+                                    ->default(0)
+                                    ->disabled()
+                                    ->dehydrated()
+                                    ->helperText(__('Bebas biaya admin (Rp 0).')),
+                            ]),
+
+                        TextInput::make('total_biaya')
+                            ->label(__('Total Biaya yang Harus Disiapkan'))
+                            ->numeric()
+                            ->prefix('Rp')
+                            ->default(100000)
+                            ->readOnly()
+                            ->dehydrated()
+                            ->helperText(__('Rincian: (Jumlah Tester × Komisi per Orang) + Biaya Layanan Admin'))
+                            ->columnSpanFull(),
+                    ]),
+
+                Section::make(__('3. Deskripsi & Persyaratan Pengujian'))
+                    ->description(__('Jelaskan aktivitas yang akan dilakukan tester dan persyaratan yang wajib dipatuhi.'))
+                    ->columnSpanFull()
+                    ->schema([
+                        RichEditor::make('instruksi')
+                            ->label(__('Deskripsi & Instruksi Kegiatan Testing'))
+                            ->placeholder(__('Tuliskan gambaran proses testing, apa saja fitur yang akan diuji secara langsung, dan skenario pengujian di lokasi...'))
+                            ->required()
+                            ->columnSpanFull(),
+
+                        Textarea::make('persyaratan')
+                            ->label(__('Persyaratan Khusus Tester (Wajib Disetujui Sebelum Apply)'))
+                            ->placeholder(__('Contoh:' . "\n" . '1. Wajib hadir 15 menit sebelum sesi dimulai.' . "\n" . '2. Membawa HP Android dengan RAM minimal 4GB.' . "\n" . '3. Bersedia mengikuti pengujian selama 2 jam penuh.' . "\n" . '4. Berpakaian sopan dan rapi.'))
+                            ->required()
+                            ->rows(5)
+                            ->helperText(__('Tester wajib membaca dan mencentang persetujuan atas syarat ini sebelum tombol Apply dapat ditekan.'))
+                            ->columnSpanFull(),
+                    ]),
+
+                Hidden::make('link_aplikasi')->default('-'),
+                Hidden::make('kapasitas')->default(0),
+                Hidden::make('point')->default(0),
+                Hidden::make('status')->default('open'),
             ]);
     }
 }

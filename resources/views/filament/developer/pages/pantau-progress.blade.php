@@ -8,18 +8,18 @@
   .dark .dev-panel-header{border-color:#334155;}
 
   /* ── Status badges ────────────────────── */
-  .status-badge{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;letter-spacing:.04em;padding:3px 9px;border-radius:999px;}
-  .status-progress{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;}
-  .dark .status-progress{background:rgba(21,128,61,0.15);color:#86efac;border-color:rgba(74,222,128,0.2);}
-  .status-pending{background:#fffbeb;color:#b45309;border:1px solid #fde68a;}
-  .dark .status-pending{background:rgba(180,83,9,0.15);color:#fde047;border-color:rgba(250,204,21,0.2);}
-  .status-selesai{background:#faf5ff;color:#7e22ce;border:1px solid #e9d5ff;}
-  .dark .status-selesai{background:rgba(126,34,206,0.15);color:#d8b4fe;border-color:rgba(192,132,252,0.2);}
-  .status-closed{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;}
-  .dark .status-closed{background:rgba(185,28,28,0.15);color:#fca5a5;border-color:rgba(248,113,113,0.2);}
-  .status-failed{background:#fef2f2;color:#dc2626;border:1px solid #fca5a5;}
-  .dark .status-failed{background:rgba(220,38,38,0.15);color:#fca5a5;border-color:rgba(248,113,113,0.2);}
-  .status-accepted{background:#fefce8;color:#ca8a04;border:1px solid #fef08a;}
+  .status-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.04em;padding:0 !important;background:transparent !important;background-color:transparent !important;border:none !important;border-radius:0 !important;box-shadow:none !important;}
+  .status-progress{background:transparent !important;background-color:transparent !important;color:#16a34a !important;border:none !important;}
+  .dark .status-progress{background:transparent !important;background-color:transparent !important;color:#4ade80 !important;border:none !important;}
+  .status-pending{background:transparent !important;background-color:transparent !important;color:#d97706 !important;border:none !important;}
+  .dark .status-pending{background:transparent !important;background-color:transparent !important;color:#facc15 !important;border:none !important;}
+  .status-selesai{background:transparent !important;background-color:transparent !important;color:#9333ea !important;border:none !important;}
+  .dark .status-selesai{background:transparent !important;background-color:transparent !important;color:#c084fc !important;border:none !important;}
+  .status-closed{background:transparent !important;background-color:transparent !important;color:#dc2626 !important;border:none !important;}
+  .dark .status-closed{background:transparent !important;background-color:transparent !important;color:#f87171 !important;border:none !important;}
+  .status-failed{background:transparent !important;background-color:transparent !important;color:#dc2626 !important;border:none !important;}
+  .dark .status-failed{background:transparent !important;background-color:transparent !important;color:#f87171 !important;border:none !important;}
+  .status-accepted{background:transparent !important;background-color:transparent !important;color:#ca8a04 !important;border:none !important;}
 
   /* ── App icon ─────────────────────────── */
   .app-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;}
@@ -218,8 +218,9 @@
     </div>
 
     {{-- ── Daftar Tester ── --}}
-    <div class="px-6 py-5 space-y-6 min-w-[700px] overflow-x-auto">
-      @forelse($kampanyeList as $idx => $k)
+    <div class="overflow-x-auto w-full">
+      <div class="px-6 py-5 space-y-6 min-w-[700px]">
+        @forelse($kampanyeList as $idx => $k)
         @if($idx > 0)<hr style="border:none;border-top:1px solid #f1f5f9;" class="dark:border-slate-800">@endif
         <div class="{{ $k['status'] === 'failed' ? 'opacity-40 grayscale pointer-events-none select-none transition-opacity' : '' }}">
           {{-- Info tester --}}
@@ -305,6 +306,7 @@
           <p class="text-slate-500 text-sm">{{ __('Belum ada tester yang bergabung.') }}</p>
         </div>
       @endforelse
+      </div>
     </div>
   </div>
 
@@ -369,20 +371,16 @@
     <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 p-1.5">
       <div class="overflow-x-auto">
         <div class="flex items-center gap-1 min-w-max">
-          @php $sudahAll = $allAiReports->whereNull('hari_ke')->count(); @endphp
           <button wire:click="switchAiReport(null)"
             class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg whitespace-nowrap transition-all {{ $selectedHariKe === null ? 'bg-white dark:bg-slate-700 text-violet-700 dark:text-violet-300 shadow-sm border border-violet-200 dark:border-violet-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/50' }}">
             <x-heroicon-m-squares-2x2 class="w-3.5 h-3.5"/>
             {{ __('Semua Hari') }}
-            @if($sudahAll)@endif
           </button>
           <div class="w-px h-5 bg-slate-200 dark:bg-slate-600 mx-1"></div>
           @foreach($hariDenganFeedback as $hari)
-          @php $sudahGenerate = $allAiReports->firstWhere('hari_ke', $hari); @endphp
           <button wire:click="switchAiReport({{ $hari }})"
             class="inline-flex items-center gap-1 text-xs font-semibold px-3 py-2 rounded-lg whitespace-nowrap transition-all {{ $selectedHariKe === $hari ? 'bg-white dark:bg-slate-700 text-violet-700 dark:text-violet-300 shadow-sm border border-violet-200 dark:border-violet-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/50' }}">
             H{{ $hari }}
-            @if($sudahGenerate)@else@endif
           </button>
           @endforeach
         </div>

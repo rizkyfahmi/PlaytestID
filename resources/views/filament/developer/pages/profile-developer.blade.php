@@ -11,7 +11,7 @@
       }
 
       .font-mono-num {
-        font-family: 'JetBrains Mono', monospace !important;
+        font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
         font-variant-numeric: tabular-nums;
       }
 
@@ -255,11 +255,31 @@
       }
 
       .prof-hero {
-        background: #ffd900;
-        background-size: 220% 220%;
-        
-        box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .5), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         isolation: isolate;
+      }
+
+      html.dark .prof-hero,
+      .dark .prof-hero {
+        background: #1a1a18 !important;
+        border: 1px solid #2e2e2e !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+      }
+
+      /* Disable glowing animations */
+      .prof-aurora,
+      .prof-conic,
+      .prof-conic-2,
+      .prof-stars,
+      .prof-particles,
+      .prof-shoot,
+      .prof-waves,
+      .prof-scan,
+      .prof-blob,
+      .prof-blob-rev {
+        display: none !important;
       }
 
       .prof-blob {
@@ -495,11 +515,16 @@ box-shadow: 0 0 12px rgba(255, 255, 255, .7);
 
       .prof-btn-save {
         background: #ffd900;
+        color: #000000 !important;
         background-size: 200% 200%;
         box-shadow: 0 6px 20px rgba(255, 217, 0, .4), 0 0 0 1px rgba(255, 255, 255, .1) inset;
         transition: all .3s ease;
         position: relative;
         overflow: hidden;
+      }
+
+      .prof-btn-save * {
+        color: #000000 !important;
       }
 
       .prof-btn-save:hover {
@@ -767,8 +792,8 @@ animation-delay:-3s;"></div>
             {{ $this->form }}
             <div class="mt-6 flex flex-col sm:flex-row justify-end">
               <button type="submit"
-                class="prof-btn-save inline-flex justify-center items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold text-white w-full sm:w-auto">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                class="prof-btn-save inline-flex justify-center items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold text-black w-full sm:w-auto" style="color: #000000 !important;">
+                <svg class="w-4 h-4 text-black" style="color: #000000 !important;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
                 {{ __('Simpan Perubahan') }}

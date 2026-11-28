@@ -3,19 +3,16 @@
 namespace App\Filament\Tester\Widgets;
 
 use App\Models\Misi;
-use App\Models\MisiAnggota;
 use App\Filament\Tester\Pages\MisiDetail;
-use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Actions\Action;
 use Illuminate\Support\Facades\Auth;
 
 class AvailableMissions extends BaseWidget
 {
-    protected static ?string $heading = 'Available Apps to Test';
+    protected static ?string $heading = 'Pengujian Tatap Muka Tersedia';
 
     protected int|string|array $columnSpan = 'full';
 
@@ -25,30 +22,53 @@ class AvailableMissions extends BaseWidget
             ->query(
                 Misi::query()
                     ->where('status', 'open')
-                    // Filter out missions the user has already joined
                     ->whereDoesntHave('misiAnggotas', function ($query) {
                         $query->where('id_user', Auth::id());
                     })
+                    ->latest()
             )
             ->columns([
                 TextColumn::make('nama_aplikasi')
-                    ->label('Application Name')
+                    ->label('Nama Pengujian')
                     ->searchable()
-                    ->description(fn(Misi $record): string => 'Reward: ' . $record->point . ' pts'),
-                TextColumn::make('kapasitas')
-                    ->label('Kapasitas')
-                    ->formatStateUsing(fn($state) => $state . '/' . config('missions.max_capacity', 20)),
-                TextColumn::make('instruksi')
-                    ->label('Instructions')
-                    ->limit(50),
+                    ->weight('bold')
+                    ->description(fn(Misi $record): string => $record->penyelenggara ? 'Oleh: ' . $record->penyelenggara : ''),
+
+                TextColumn::make('lokasi')
+                    ->label('Lokasi Fisik')
+                    ->limit(35)
+                    ->icon('heroicon-o-map-pin'),
+
+                TextColumn::make('jadwal_tanggal')
+                    ->label('Jadwal')
+                    ->formatStateUsing(function (Misi $record) {
+                        $t = $record->jadwal_tanggal ? $record->jadwal_tanggal->format('d M Y') : '-';
+                        return $t . ($record->jadwal_waktu ? ' (' . $record->jadwal_waktu . ')' : '');
+                    })
+                    ->icon('heroicon-o-calendar'),
+
+                TextColumn::make('kuota_tester')
+                    ->label('Kuota')
+                    ->formatStateUsing(fn(Misi $record) => ($record->kapasitas ?? 0) . ' / ' . ($record->kuota_tester ?? 0) . ' org')
+                    ->badge()
+                    ->color('success'),
+
+                TextColumn::make('komisi_per_tester')
+                    ->label('Komisi Tunai')
+                    ->formatStateUsing(fn($state) => 'Rp ' . number_format($state ?? 20000, 0, ',', '.'))
+                    ->weight('black')
+                    ->color('primary'),
             ])
             ->actions([
-                Action::make('view')
-                    ->label('Ambil Misi')
-                    ->icon('heroicon-o-plus-circle')
+                Action::make('apply')
+                    ->label('Lihat & Apply')
+                    ->icon('heroicon-o-arrow-right')
                     ->color('primary')
+                    ->button()
                     ->url(fn(Misi $record): string => MisiDetail::getUrl(['misi_id' => $record->id])),
             ])
-            ->recordAction('view');
+            ->recordAction('apply')
+            ->emptyStateHeading('Belum Ada Pengujian Baru')
+            ->emptyStateDescription('Pengujian tatap muka yang dibuka oleh developer akan muncul di sini.');
     }
 }

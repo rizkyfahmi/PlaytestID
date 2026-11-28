@@ -66,11 +66,31 @@
     }
 
     .prof-hero {
-        background: #ffd900;
-        background-size: 220% 220%;
-        
-        box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .5), 0 0 0 1px rgba(255,255,255,.06) inset;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         isolation: isolate;
+    }
+
+    html.dark .prof-hero,
+    .dark .prof-hero {
+        background: #1a1a18 !important;
+        border: 1px solid #2e2e2e !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* Disable glowing animations */
+    .prof-aurora,
+    .prof-conic,
+    .prof-conic-2,
+    .prof-stars,
+    .prof-particles,
+    .prof-shoot,
+    .prof-waves,
+    .prof-scan,
+    .prof-blob,
+    .prof-blob-rev {
+        display: none !important;
     }
     .prof-aurora {
         position:absolute; inset:-30%;

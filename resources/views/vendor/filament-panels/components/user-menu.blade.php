@@ -42,12 +42,25 @@
 >
     <x-slot name="trigger">
         @if ($position === UserMenuPosition::Topbar)
+            @php
+                $userName = filament()->getUserName($user);
+                $roleVal = $user?->role?->value ?? ($user?->role ?? '');
+                $roleLabel = match($roleVal) {
+                    'admin' => 'Administrator',
+                    'developer' => 'Developer',
+                    'tester' => 'Tester',
+                    default => 'Member'
+                };
+            @endphp
             <button
                 aria-label="{{ __('filament-panels::layout.actions.open_user_menu.label') }}"
                 type="button"
-                class="fi-user-menu-trigger"
+                class="fi-user-menu-trigger fi-user-avatar-btn group"
+                title="{{ $userName }} &bull; {{ $roleLabel }}"
             >
-                <x-filament-panels::avatar.user :user="$user" loading="lazy" />
+                <div class="fi-user-avatar-circle">
+                    <x-filament-panels::avatar.user :user="$user" loading="lazy" class="fi-user-avatar-img" />
+                </div>
             </button>
         @else
             <button
@@ -74,6 +87,35 @@
             </button>
         @endif
     </x-slot>
+
+    @if ($position === UserMenuPosition::Topbar)
+        @php
+            $userName = filament()->getUserName($user);
+            $roleVal = $user?->role?->value ?? ($user?->role ?? '');
+            $roleLabel = match($roleVal) {
+                'admin' => 'Administrator',
+                'developer' => 'Developer',
+                'tester' => 'Tester',
+                default => 'Member'
+            };
+        @endphp
+        {{-- Basic Information Header Card --}}
+        <div class="fi-user-dropdown-header-card">
+            <div class="fi-user-dropdown-avatar-wrap">
+                <x-filament-panels::avatar.user :user="$user" loading="lazy" class="fi-user-dropdown-avatar-img" />
+            </div>
+            <div class="fi-user-dropdown-meta">
+                <div class="fi-user-dropdown-name">{{ $userName }}</div>
+                @if (!empty($user?->email))
+                    <div class="fi-user-dropdown-email">{{ $user->email }}</div>
+                @endif
+                <div class="fi-user-dropdown-badge-wrap">
+                    <span class="fi-user-dropdown-role-tag">{{ $roleLabel }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="fi-user-dropdown-divider"></div>
+    @endif
 
     @if ($hasProfileHeader)
         @php
@@ -106,12 +148,6 @@
                     {{ $item }}
                 @endif
             @endforeach
-        </x-filament::dropdown.list>
-    @endif
-
-    @if (filament()->hasDarkMode() && (! filament()->hasDarkModeForced()))
-        <x-filament::dropdown.list>
-            <x-filament-panels::theme-switcher />
         </x-filament::dropdown.list>
     @endif
 

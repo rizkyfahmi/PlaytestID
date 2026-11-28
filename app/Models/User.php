@@ -34,8 +34,15 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
+        'phone_number',
+        'payout_method',
+        'payout_bank_name',
+        'payout_account_name',
+        'payout_account_number',
         'password',
         'role',
+        'is_banned',
+        'banned_reason',
         'email_verified_at',
         'remember_token',
         'google_id',
@@ -56,14 +63,22 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
     }
     public function canAccessPanel(Panel $panel): bool
     {
+        if ($this->is_banned) {
+            return false;
+        }
+
+        $userRole = $this->role instanceof UserRole 
+            ? $this->role->value 
+            : (string) ($this->role?->value ?? $this->role);
+
         // Admin Master Access
-        if ($this->role === UserRole::admin) {
+        if ($userRole === 'admin') {
             return true;
         }
 
         return match ($panel->getId()) {
-            'developer' => $this->role === UserRole::developer,
-            'tester'    => $this->role === UserRole::tester,
+            'developer' => $userRole === 'developer',
+            'tester'    => $userRole === 'tester',
             default     => false,
         };
     }

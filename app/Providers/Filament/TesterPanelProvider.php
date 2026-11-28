@@ -11,7 +11,6 @@ use App\Filament\Tester\Pages\ProfileTester;
 use App\Filament\Tester\Pages\Dompet;
 use App\Filament\Tester\Pages\MisiSaya;
 use App\Filament\Tester\Pages\HistoryMisi;
-use App\Filament\Tester\Pages\TipsBantuanTester;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -41,6 +40,8 @@ class TesterPanelProvider extends PanelProvider
             ->login(Login::class)
             ->registration(Register::class)
             ->passwordReset(RequestResetPassword::class, ResetPassword::class)
+            ->darkMode(true, isForced: true)
+            ->defaultThemeMode(\Filament\Enums\ThemeMode::Dark)
 
             // ── Warna primer: Helden Inc Gold/Yellow ────  
             ->colors([
@@ -72,7 +73,7 @@ class TesterPanelProvider extends PanelProvider
 
                             NavigationItem::make(__('Misi Saya'))
                                 ->icon('heroicon-o-clipboard-document-check')
-                                ->badge(fn() => MisiSaya::getNavigationBadge())
+                                ->badge(fn() => MisiSaya::getNavigationBadge(), 'warning')
                                 ->isActiveWhen(fn() => request()->routeIs('filament.tester.pages.misi-saya'))
                                 ->url(fn() => MisiSaya::getUrl()),
 
@@ -88,17 +89,12 @@ class TesterPanelProvider extends PanelProvider
 
                         ]),
 
-                    NavigationGroup::make(__('Profil & Bantuan'))
+                    NavigationGroup::make(__('Profil'))
                         ->items([
                             NavigationItem::make(__('Profil Saya'))
                                 ->icon('heroicon-o-user-circle')
                                 ->url(fn() => ProfileTester::getUrl())
                                 ->isActiveWhen(fn() => request()->routeIs('filament.tester.pages.profile-tester')),
-
-                            NavigationItem::make(__('Tips & Bantuan'))
-                                ->icon('heroicon-o-question-mark-circle')
-                                ->url(fn() => TipsBantuanTester::getUrl())
-                                ->isActiveWhen(fn() => request()->routeIs('filament.tester.pages.tips-bantuan')),
                         ]),
                 ]);
             })
@@ -109,7 +105,6 @@ class TesterPanelProvider extends PanelProvider
                 ProfileTester::class,
                 Dompet::class,
                 HistoryMisi::class,
-                TipsBantuanTester::class,
             ])
             ->discoverPages(
                 in: app_path('Filament/Tester/Pages'),
@@ -126,10 +121,6 @@ class TesterPanelProvider extends PanelProvider
             ->renderHook(
                 'panels::head.end',
                 fn(): string => Blade::render("@vite(['resources/css/app.css', 'resources/css/filament-sidebar.css', 'resources/css/filament-topbar.css'])"),
-            )
-            ->renderHook(
-                \Filament\View\PanelsRenderHook::USER_MENU_PROFILE_BEFORE,
-                fn(): string => view('filament.components.language-switcher')->render(),
             )
 
             // ── Middleware ────────────────────────────────────  

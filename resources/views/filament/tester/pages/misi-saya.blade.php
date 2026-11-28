@@ -1,580 +1,106 @@
 <x-filament-panels::page>
-@push('styles')
-<style>
-    /* ====== Animations ====== */
-    @keyframes prof-float       { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(20px,-15px) scale(1.08)} }
-    @keyframes prof-float-rev   { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-25px,20px) scale(0.92)} }
-     50%{background-position:100% 50%} }
-    @keyframes prof-shimmer     { 0%{transform:translateX(-100%)} 100%{transform:translateX(200%)} }
-    @keyframes prof-pulse-ring  { 0%{box-shadow:0 0 0 0 rgba(52,211,153,.6)} 70%{box-shadow:0 0 0 10px rgba(52,211,153,0)} 100%{box-shadow:0 0 0 0 rgba(52,211,153,0)} }
-    @keyframes prof-fade-up     { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-    @keyframes prof-scale-in    { from{opacity:0;transform:scale(.95)} to{opacity:1;transform:scale(1)} }
-    @keyframes prof-spin-slow   { from{transform:rotate(0)} to{transform:rotate(360deg)} }
-    @keyframes prof-spin-rev    { from{transform:rotate(360deg)} to{transform:rotate(0)} }
-    @keyframes prof-bounce-soft { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+    {{-- Tabs Filter --}}
+    <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
+        <button wire:click="$set('activeTab', 'semua')" class="p-4 rounded-xl border text-left transition-all {{ $activeTab === 'semua' ? 'bg-[#ffd900] text-black border-[#ffd900]' : 'bg-[#1a1a18] text-neutral-300 border-[#2a2a26] hover:border-neutral-500' }}">
+            <div class="text-xs font-semibold uppercase opacity-75">Semua</div>
+            <div class="text-2xl font-black mt-1">{{ $statTotal }}</div>
+        </button>
+        <button wire:click="$set('activeTab', 'menunggu')" class="p-4 rounded-xl border text-left transition-all {{ $activeTab === 'menunggu' ? 'bg-[#ffd900] text-black border-[#ffd900]' : 'bg-[#1a1a18] text-neutral-300 border-[#2a2a26] hover:border-neutral-500' }}">
+            <div class="text-xs font-semibold uppercase opacity-75">Menunggu Seleksi</div>
+            <div class="text-2xl font-black mt-1">{{ $statMenunggu }}</div>
+        </button>
+        <button wire:click="$set('activeTab', 'diterima')" class="p-4 rounded-xl border text-left transition-all {{ $activeTab === 'diterima' ? 'bg-[#ffd900] text-black border-[#ffd900]' : 'bg-[#1a1a18] text-neutral-300 border-[#2a2a26] hover:border-neutral-500' }}">
+            <div class="text-xs font-semibold uppercase opacity-75">Diterima / Jadwal</div>
+            <div class="text-2xl font-black mt-1">{{ $statDiterima }}</div>
+        </button>
+        <button wire:click="$set('activeTab', 'selesai')" class="p-4 rounded-xl border text-left transition-all {{ $activeTab === 'selesai' ? 'bg-[#ffd900] text-black border-[#ffd900]' : 'bg-[#1a1a18] text-neutral-300 border-[#2a2a26] hover:border-neutral-500' }}">
+            <div class="text-xs font-semibold uppercase opacity-75">Selesai & Cair</div>
+            <div class="text-2xl font-black mt-1">{{ $statSelesai }}</div>
+        </button>
+        <button wire:click="$set('activeTab', 'ditolak')" class="p-4 rounded-xl border text-left transition-all {{ $activeTab === 'ditolak' ? 'bg-[#ffd900] text-black border-[#ffd900]' : 'bg-[#1a1a18] text-neutral-300 border-[#2a2a26] hover:border-neutral-500' }}">
+            <div class="text-xs font-semibold uppercase opacity-75">Ditolak</div>
+            <div class="text-2xl font-black mt-1">{{ $statDitolak }}</div>
+        </button>
+    </div>
 
-    /* ====== Live background animations ====== */
-    @keyframes prof-aurora {
-      0%   { transform: translate(-10%,-10%) rotate(0deg)   scale(1.1); }
-      33%  { transform: translate(8%,-6%)   rotate(120deg) scale(1.25); }
-      66%  { transform: translate(-6%,10%)  rotate(240deg) scale(1.15); }
-      100% { transform: translate(-10%,-10%) rotate(360deg) scale(1.1); }
-    }
-    @keyframes prof-conic { to { transform: rotate(360deg); } }
-    @keyframes prof-grid-pan {
-      0%   { background-position: 0 0, 0 0; }
-      100% { background-position: 56px 56px, 56px 56px; }
-    }
-    @keyframes prof-particle {
-      0%   { transform: translateY(0) translateX(0); opacity: 0; }
-      10%  { opacity: .9; }
-      90%  { opacity: .9; }
-      100% { transform: translateY(-220px) translateX(var(--drift,20px)); opacity: 0; }
-    }
-    @keyframes prof-shoot {
-      0%   { transform: translate3d(0,0,0) rotate(18deg); opacity: 0; }
-      8%   { opacity: 1; }
-      100% { transform: translate3d(620px,200px,0) rotate(18deg); opacity: 0; }
-    }
-    @keyframes prof-wave {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    @keyframes prof-scan {
-      0%   { transform: translateY(-100%); opacity: 0; }
-      20%  { opacity: .55; }
-      80%  { opacity: .55; }
-      100% { transform: translateY(420%); opacity: 0; }
-    }
-    @keyframes prof-twinkle {
-      0%,100% { opacity: .2; transform: scale(1); }
-      50%     { opacity: 1;  transform: scale(1.6); }
-    }
+    {{-- Search Filter --}}
+    <div class="bg-[#1a1a18] border border-[#2a2a26] rounded-2xl p-4 mb-6">
+        <input type="text" wire:model.live.debounce.300ms="search" placeholder="Cari sesi pengujian saya..." class="w-full bg-[#111111] border border-[#333330] rounded-xl px-4 py-2.5 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#ffd900]">
+    </div>
 
-    .prof-hero {
-      background: #ffd900;
-      background-size: 220% 220%;
-      
-      box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .5), 0 0 0 1px rgba(255,255,255,.06) inset;
-      isolation: isolate;
-    }
-    .prof-blob       { animation: prof-float 9s ease-in-out infinite; will-change: transform; filter: blur(2px); }
-    .prof-blob-rev   { animation: prof-float-rev 11s ease-in-out infinite; will-change: transform; filter: blur(2px); }
-
-    /* Aurora mesh */
-    .prof-aurora {
-      position:absolute; inset:-30%;
-      background: none;
-filter: blur(40px);
-      animation: prof-aurora 22s ease-in-out infinite;
-      mix-blend-mode: screen;
-      pointer-events:none;
-    }
-    /* Slow rotating conic glow */
-    .prof-conic {
-      position:absolute; width:520px; height:520px; left:-160px; bottom:-200px;
-      background: none;
-border-radius:50%;
-      filter: blur(30px);
-      animation: prof-conic 28s linear infinite;
-      opacity:.7; pointer-events:none;
-    }
-    .prof-conic-2 {
-      position:absolute; width:380px; height:380px; right:-120px; top:-140px;
-      background: none;
-border-radius:50%;
-      filter: blur(30px);
-      animation: prof-spin-rev 34s linear infinite;
-      opacity:.6; pointer-events:none;
-    }
-
-    .prof-grid-bg {
-      background-image:
-        #ffd900,
-        #ffd900;
-      background-size: 28px 28px;
-      mask-image: none;
-      animation: prof-grid-pan 18s linear infinite;
-    }
-
-    /* Floating particles */
-    .prof-particles { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
-    .prof-particles span {
-      position:absolute; bottom:-10px;
-      width:6px; height:6px; border-radius:50%;
-      background: none;
-box-shadow: 0 0 12px rgba(255,255,255,.7);
-      animation: prof-particle linear infinite;
-      opacity:0;
-    }
-
-    /* Twinkling stars */
-    .prof-stars { position:absolute; inset:0; pointer-events:none; }
-    .prof-stars span {
-      position:absolute; width:2px; height:2px; border-radius:50%;
-      background:#fff !important; box-shadow:0 0 6px #fff !important;
-      animation: prof-twinkle 3s ease-in-out infinite;
-    }
-
-    /* Shooting star */
-    .prof-shoot {
-      position:absolute; top:18%; left:-20%;
-      width:120px; height:2px;
-      background: #ffd900;
-      filter: drop-shadow(0 0 6px rgba(147,197,253,.9));
-      border-radius:2px;
-      animation: prof-shoot 7s ease-in infinite;
-      animation-delay: -2s;
-      opacity: 0;
-      pointer-events:none;
-    }
-    .prof-shoot.s2 { top:55%; animation-duration: 9s; animation-delay: -5s; opacity: 0; }
-
-    /* Wave bottom */
-    .prof-waves {
-      position:absolute; left:0; right:0; bottom:0; height:80px;
-      overflow:hidden; pointer-events:none; opacity:.35;
-      mask-image: #ffd900;
-    }
-    .prof-waves svg { width:200%; height:100%; display:block; animation: prof-wave 14s linear infinite; }
-    .prof-waves.w2 svg { animation-duration: 22s; opacity:.6; }
-
-    /* Scanline sweep */
-    .prof-scan {
-      position:absolute; left:0; right:0; top:0; height:25%;
-      background: #ffd900;
-      animation: prof-scan 9s ease-in-out infinite;
-      pointer-events:none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .prof-hero, .prof-blob, .prof-blob-rev,
-      .prof-aurora, .prof-conic, .prof-conic-2,
-      .prof-grid-bg, .prof-particles span, .prof-shoot, .prof-waves svg, .prof-scan, .prof-stars span { animation: none !important; }
-    }
-</style>
-@endpush
-
-    {{-- ================================================================
-         VIEW 1: DAFTAR MISI
-    ================================================================ --}}
-    @if (! $showSubmitForm)
-        <div class="space-y-6" style="font-family: 'Inter', sans-serif;">
-
-            {{-- ── Stats Banner (Menyamai gaya Dashboard) ──────────────────────────────────── --}}
-            {{-- ── Stats Banner (Menyamai gaya Dashboard/Profile) ──────────────────────────────────── --}}
-            @php
-              $user = Auth::user();
-              $balance = $user->userBalance;
-              $badgeCount = $balance?->badge ?? 0;
-              $totalMisi = \App\Models\MisiAnggota::where('id_user', $user->id)->count();
-              $misiSelesai = \App\Models\MisiAnggota::where('id_user', $user->id)
-                  ->whereHas('misi', fn($q) => $q->where('status', 'selesai'))
-                  ->count();
-              $memberSince = $user->created_at?->format('M Y') ?? '-';
-              $points = $balance?->point ?? 0;
-
-              if ($badgeCount <= 5) {
-                  $tierName = 'Tester Beginner';
-              } elseif ($badgeCount <= 50) {
-                  $tierName = 'Tester Intermediate';
-              } else {
-                  $tierName = 'Tester Master';
-              }
-            @endphp
-            {{-- ── Stats Banner (Menyamai gaya Dashboard) ──────────────────────────────────── --}}
-            <div class="prof-hero w-full rounded-3xl p-6 sm:p-8 mb-6 relative overflow-hidden">
-                {{-- Aurora mesh gradient --}}
-                <div class="prof-aurora"></div>
-
-                {{-- Rotating conic glows --}}
-                <div class="prof-conic"></div>
-                <div class="prof-conic-2"></div>
-
-                {{-- Grid texture --}}
-                <div class="absolute inset-0 prof-grid-bg pointer-events-none"></div>
-
-                {{-- Scanline sweep --}}
-                <div class="prof-scan"></div>
-
-                {{-- Twinkling stars --}}
-                <div class="prof-stars">
-                    @for($i=0;$i<18;$i++)
-                        <span style="top:{{ rand(2,90) }}%; left:{{ rand(2,98) }}%; animation-delay:-{{ ($i*0.23) }}s; position:absolute; width:2px; height:2px; background:#fff !important; box-shadow:0 0 6px #fff !important; animation: prof-twinkle 3s ease-in-out infinite;"></span>
-                    @endfor
-                </div>
-
-                {{-- Floating particles --}}
-                <div class="prof-particles">
-                    @for($i=0;$i<14;$i++)
-                        @php $dur = rand(7,14); $delay = $i * 0.7; $left = rand(2,98); $size = rand(3,7); $drift = rand(-40,40); @endphp
-                        <span style="left:{{ $left }}%; width:{{ $size }}px; height:{{ $size }}px; animation-duration:{{ $dur }}s; animation-delay:{{ $delay }}s; --drift:{{ $drift }}px;"></span>
-                    @endfor
-                </div>
-
-                {{-- Shooting stars --}}
-                <div class="prof-shoot"></div>
-                <div class="prof-shoot s2"></div>
-
-                {{-- Konten --}}
-                <div class="relative z-10 text-left">
-                    <p class="mb-1.5 text-xs font-semibold uppercase tracking-widest text-sky-100" style="letter-spacing:0.12em;">
-                        {{ __('Misi Kamu') }}
-                    </p>
-                    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                        <div>
-                            <div class="flex items-baseline gap-2">
-                                <span class="font-bold text-white" style="font-size:48px;line-height:1;font-family: 'JetBrains Mono', monospace;">{{ count($this->getMissionsData()) }}</span>
-                            </div>
-                            <p class="mt-1 text-sm font-medium text-sky-100">{{ __('Misi sedang berjalan') }}</p>
-                        </div>
-                        @php $stats = $this->getStats(); @endphp
-                        <div class="flex gap-4 sm:gap-8 border-t border-white/20 sm:border-none pt-4 sm:pt-0 mt-2 sm:mt-0">
-                            <div class="text-center">
-                                <p class="text-2xl font-bold font-mono text-white">{{ $stats['selesai'] }}</p>
-                                <p class="text-xs text-sky-100">{{ __('Selesai') }}</p>
-                            </div>
-                            <div class="hidden w-px bg-white/20 sm:block"></div>
-                            <div class="text-center">
-                                <p class="text-2xl font-bold font-mono text-white">{{ $stats['aktif'] }}</p>
-                                <p class="text-xs text-sky-100">{{ __('Aktif') }}</p>
-                            </div>
-                            <div class="hidden w-px bg-white/20 sm:block"></div>
-                            <div class="text-center">
-                                <p class="text-2xl font-bold font-mono text-white">{{ $stats['pending'] >= 0 ? '+' : '' }}{{ $stats['pending'] }}</p>
-                                <p class="text-xs text-sky-100">{{ __('Pts Tertunda') }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Animated waves --}}
-                <div class="prof-waves" style="position:absolute; left:0; right:0; bottom:0; height:80px; overflow:hidden; pointer-events:none; opacity:.35; mask-image: #ffd900;">
-                    <svg viewBox="0 0 2400 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="width:200%; height:100%; display:block; animation: prof-wave 14s linear infinite;">
-                        <path d="M0,40 C150,80 350,0 600,40 C850,80 1050,0 1200,40 C1350,80 1550,0 1800,40 C2050,80 2250,0 2400,40 L2400,80 L0,80 Z" fill="rgba(255,255,255,0.18)"/>
-                    </svg>
-                </div>
-            </div>
-
-            {{-- ── Judul Seksi ──────────────────────────────────── --}}
-            <div>
-                <h2 class="text-lg font-bold text-slate-800" style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                    {{ __('Aplikasi yang Saya Kumpulkan') }}
-                </h2>
-                <p class="text-sm text-slate-500 mt-0.5">
-                    {{ count($this->getMissionsData()) }} {{ __('Misi sedang berjalan') }}
-                </p>
-            </div>
-
-            {{-- ── Kartu Misi (Responsive Grid) ─────────────────── --}}
-            <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-                @foreach ($this->getMissionsData() as $mission)
-                    <div class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:shadow-lg" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-
-                        {{-- Header kartu --}}
-                        <div class="mb-4 flex items-start justify-between">
-                            <div class="flex items-center gap-3">
-                                {{-- Avatar inisial atau Logo --}}
-                                @if($mission['logo'])
-                                    <img src="/storage/{{ $mission['logo'] }}" alt="Logo" class="flex h-11 w-11 flex-shrink-0 object-cover rounded-xl shadow-sm">
-                                @else
-                                    <div
-                                        class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white shadow-sm"
-                                        style="background-color: {{ $mission['color'] }}">
-                                        {{ $mission['initials'] }}
-                                    </div>
-                                @endif
-                                <div>
-                                    <p class="text-sm font-bold text-slate-800" style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                        {{ $mission['name'] }}
-                                    </p>
-                                    <p class="text-xs text-slate-500">
-                                        {{ $mission['type'] }}
-                                    </p>
-                                </div>
-                            </div>
-                            {{-- Badge status --}}
-                           @if($mission['ma_status'] === 'failed')
-                                <span class="rounded-lg bg-red-50 px-2 py-0.5 text-xs font-semibold text-red-600 border border-red-200">
-                                    {{ __($mission['status']) }}
-                                </span>
+    {{-- Missions Cards --}}
+    <div class="space-y-4">
+        @forelse($missions as $item)
+            @php $m = $item->misi; @endphp
+            @if($m)
+                <div class="bg-[#1a1a18] border border-[#2a2a26] rounded-2xl p-6 text-white hover:border-[#383832] transition-colors">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            @if($m->logo)
+                                <img src="/storage/{{ $m->logo }}" alt="{{ $m->nama_aplikasi }}" class="w-14 h-14 rounded-2xl object-cover border border-[#333330] flex-shrink-0">
                             @else
-                                <span class="rounded-lg bg-green-50 px-2 py-0.5 text-xs font-semibold text-green-600">
-                                    {{ __($mission['status']) }}
-                                </span>
-                            @endif
-                        </div>
-
-                        {{-- Progress bar --}}
-                        <div class="mb-4">
-                            <div class="mb-1.5 flex items-center justify-between text-xs">
-                                <span class="font-medium text-slate-500">
-                                    <span class="font-bold text-slate-800" style="font-family: 'JetBrains Mono', monospace;">Day {{ $mission['day'] }}</span> of {{ $mission['total_days'] }}
-                                </span>
-                                <span class="font-semibold" style="font-family: 'JetBrains Mono', monospace; color: {{ $mission['color'] }}">{{ $mission['progress'] }}%</span>
-                            </div>
-                            <div class="h-1.5 w-full overflow-hidden rounded-full bg-slate-200">
-                                <div
-                                    class="h-1.5 rounded-full transition-all duration-500"
-                                    style="width: {{ $mission['progress'] }}%; background-color: {{ $mission['color'] }}">
+                                <div class="w-14 h-14 rounded-2xl bg-[#252522] border border-[#333330] text-[#ffd900] font-black text-lg flex items-center justify-center flex-shrink-0">
+                                    {{ strtoupper(substr($m->nama_aplikasi, 0, 2)) }}
                                 </div>
-                            </div>
-                        </div>
-
-                        {{-- 14 Days History --}}
-                        <div class="mb-5 border-t border-slate-100 pt-3">
-                            <div class="flex justify-between items-center text-[10px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">
-                                <span>{{ __('Pelacak') }} 14 {{ __('Hari') }}</span>
-                            </div>
-                            <div class="flex gap-1">
-                                @for ($h = 1; $h <= 14; $h++)
-                                    @php
-                                        $hist = $mission['days_history'][$h] ?? 'notdone';
-                                        $isToday = ($h == $mission['day']);
-                                        
-                                        $cellClass = 'bg-slate-100 border border-transparent text-slate-400'; // Default / Future
-                                        
-                                        if ($hist === 'done') {
-                                            $cellClass = 'bg-emerald-100 border border-emerald-200 text-emerald-600';
-                                        } elseif ($hist === 'pending') {
-                                            $cellClass = 'bg-amber-100 border border-amber-200 text-amber-600';
-                                        } elseif ($hist === 'rejected') {
-                                            $cellClass = 'bg-red-100 border border-red-200 text-red-600';
-                                        } else {
-                                            if ($mission['ma_status'] === 'failed' || $h < $mission['day']) {
-                                                // Missed
-                                                $cellClass = 'bg-slate-50 border border-red-100 text-red-400 opacity-60';
-                                            }
-                                        }
-                                        
-                                        // Highlight today
-                                        if ($isToday && $mission['ma_status'] !== 'failed') {
-                                            if ($hist === 'notdone') {
-                                                $cellClass = 'bg-brand-500 border-brand-600 text-white shadow-sm ring-1 ring-brand-300 ring-offset-1';
-                                            } else {
-                                                $cellClass .= ' ring-1 ring-offset-1 ring-slate-300';
-                                            }
-                                        }
-                                    @endphp
-                                    <div class="flex-1 flex items-center justify-center rounded-[4px] h-5 text-[9px] font-bold transition-all {{ $cellClass }}" title="Hari {{ $h }}: {{ strtoupper($hist) }}">
-                                        {{ $h }}
-                                    </div>
-                                @endfor
-                            </div>
-                        </div>
-
-                        {{-- Footer: poin + tombol --}}
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="flex items-center gap-1 text-xs font-semibold text-emerald-500">
-                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                +{{ $mission['points'] }} pts
-                            </span>
-                            @if ($mission['ma_status'] === 'failed')
-                                <button
-                                    disabled
-                                    class="inline-flex items-center gap-1.5 rounded-xl border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-bold text-red-600 opacity-80 cursor-not-allowed">
-                                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                    {{ __('Misi Gagal') }}
-                                </button>
-                            @elseif ($mission['today_status'] === 'done')
-                                <button
-                                    disabled
-                                    class="inline-flex items-center gap-1.5 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-600 opacity-80 cursor-not-allowed">
-                                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    Hari Ini Selesai
-                                </button>
-                            @elseif ($mission['today_status'] === 'pending')
-                                <button
-                                    disabled
-                                    class="inline-flex items-center gap-1.5 rounded-xl border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-600 opacity-80 cursor-not-allowed">
-                                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                    Menunggu ACC
-                                </button>
-                            @elseif ($mission['today_status'] === 'rejected')
-                                <button
-                                    wire:click="openSubmitForm({{ $mission['id'] }})"
-                                    wire:loading.attr="disabled"
-                                    class="inline-flex items-center gap-1.5 rounded-xl border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-bold text-red-600 transition-colors hover:bg-red-100 disabled:opacity-60">
-                                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                    </svg>
-                                    Upload Ulang (Ditolak)
-                                </button>
-                            @else
-                                <button
-                                    wire:click="openSubmitForm({{ $mission['id'] }})"
-                                    wire:loading.attr="disabled"
-                                    class="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-600 transition-colors hover:bg-slate-100 disabled:opacity-60">
-                                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
-                                    </svg>
-                                    {{ __('Kumpulkan Misi') }}
-                                </button>
                             @endif
-                        </div>
+                            <div>
+                                <div class="flex items-center gap-2.5 flex-wrap">
+                                    <h3 class="text-lg font-bold text-white">{{ $m->nama_aplikasi }}</h3>
+                                    @if(in_array($item->status, ['pending', 'reviewing', 'menunggu_seleksi']))
+                                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-950/60 text-amber-300 border border-amber-800">
+                                            Menunggu Seleksi
+                                        </span>
+                                    @elseif(in_array($item->status, ['accepted', 'progress']))
+                                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-950/60 text-emerald-300 border border-emerald-800">
+                                            Diterima — Wajib Hadir
+                                        </span>
+                                    @elseif($item->status === 'selesai')
+                                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#252522] text-[#ffd900] border border-[#ffd900]/40">
+                                            ✓ Hadir & Komisi Cair
+                                        </span>
+                                    @elseif(in_array($item->status, ['rejected', 'cancelled']))
+                                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-950/60 text-red-300 border border-red-800">
+                                            Ditolak
+                                        </span>
+                                    @endif
+                                </div>
 
-                    </div>
-                @endforeach
-            </div>
-
-        </div>
-
-    {{-- ================================================================
-         VIEW 2: FORM SUBMIT TASK (RESPONSIVE)
-    ================================================================ --}}
-    @else
-        @php $mission = $this->getSelectedMission(); @endphp
-
-        @if ($mission)
-            <div class="mx-auto w-full max-w-5xl space-y-6" style="font-family: 'Inter', sans-serif;">
-
-                {{-- ── Header dengan tombol kembali ────────────── --}}
-                <div class="flex items-center gap-4 border-b border-slate-200 pb-4">
-                    <button
-                        wire:click="backToList"
-                        class="rounded-xl border border-slate-200 bg-white p-2.5 text-slate-600 shadow-sm transition-colors hover:bg-slate-50 hover:text-slate-900">
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <div>
-                        <h1 class="text-xl font-bold text-slate-800" style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                            {{ __('Kumpulkan Tugas Harian') }}
-                        </h1>
-                        <p class="text-sm text-slate-500">{{ __('Unggah bukti pengerjaan tugas hari ini.') }}</p>
-                    </div>
-                </div>
-
-                {{-- ── Layout Grid Responsive ───────────────────── --}}
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-                    
-                    {{-- Kolom Kiri: Info & Instruksi --}}
-                    <div class="lg:col-span-5 space-y-5">
-                        {{-- Info Aplikasi --}}
-                        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                            <h3 class="mb-3 text-sm font-bold text-slate-800 uppercase tracking-wider">{{ __('Detail Misi') }}</h3>
-                            <div class="flex items-center gap-4 rounded-xl bg-slate-50 p-4">
-                                @if($mission['logo'])
-                                    <img src="/storage/{{ $mission['logo'] }}" alt="Logo" class="flex h-14 w-14 flex-shrink-0 object-cover rounded-xl shadow-sm">
-                                @else
-                                    <div
-                                        class="flex h-14 w-14 items-center justify-center rounded-xl text-lg font-bold text-white shadow-sm"
-                                        style="background-color: {{ $mission['color'] }}">
-                                        {{ $mission['initials'] }}
-                                    </div>
+                                @if($m->penyelenggara)
+                                    <p class="text-xs text-neutral-400 mt-1">Penyelenggara: <strong class="text-neutral-200">{{ $m->penyelenggara }}</strong></p>
                                 @endif
-                                <div>
-                                    <p class="font-bold text-slate-800 text-base">{{ $mission['name'] }}</p>
-                                    <p class="text-sm font-medium text-slate-500 mt-0.5">{{ __('Hari') }} {{ $mission['day'] }} {{ __('Dari') }} {{ $mission['total_days'] }}</p>
+
+                                <div class="flex flex-wrap items-center gap-y-1 gap-x-4 mt-2 text-xs text-neutral-300">
+                                    <div class="flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-[#ffd900]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                        <span>{{ $m->lokasi ?? 'Lokasi fisik' }}</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-[#ffd900]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                        <span>{{ $m->jadwal_tanggal ? $m->jadwal_tanggal->format('d M Y') : '-' }} &bull; {{ $m->jadwal_waktu ?? '-' }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        {{-- App Download Link --}}
-                        @if(!empty($mission['link_aplikasi']))
-                        <div class="rounded-2xl border border-brand-200 bg-brand-50 p-5 shadow-sm">
-                            <h3 class="mb-2 text-sm font-bold text-brand-800 uppercase tracking-wider">{{ __('Akses Aplikasi') }}</h3>
-                            <p class="text-sm text-brand-700 mb-4">
-                                {{ __('Silakan download dan buka aplikasi yang akan diuji melalui link berikut:') }}
-                            </p>
-                            <a href="{{ $mission['link_aplikasi'] }}" target="_blank" class="w-full flex items-center justify-center gap-2 rounded-xl bg-white border border-brand-300 py-3 text-sm font-bold text-brand-700 shadow-sm transition-colors hover:bg-brand-100">
-                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                                </svg>
-                                {{ __('Buka Link Aplikasi') }}
+                        <div class="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto gap-3 pt-3 sm:pt-0 border-t sm:border-t-0 border-[#2a2a26]">
+                            <div class="text-left sm:text-right">
+                                <div class="text-[11px] text-neutral-400">Komisi Tester</div>
+                                <div class="text-base font-black text-[#ffd900]">Rp {{ number_format($m->komisi_per_tester ?? 20000, 0, ',', '.') }}</div>
+                            </div>
+                            <a href="/tester/misi-detail?misi_id={{ $m->id }}" class="px-4 py-2 rounded-xl bg-[#252522] text-xs font-bold text-white hover:bg-[#33332d] transition-colors">
+                                Lihat Detail
                             </a>
                         </div>
-                        @else
-                        <div class="rounded-2xl border border-amber-200 bg-amber-50 p-5 shadow-sm">
-                            <h3 class="mb-2 text-sm font-bold text-amber-800 uppercase tracking-wider">{{ __('Menunggu Link') }}</h3>
-                            <p class="text-sm text-amber-700">
-                                Developer belum memberikan link aplikasi. Mohon tunggu.
-                            </p>
-                        </div>
-                        @endif
-
-                        {{-- Instruksi --}}
-                        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                            <h3 class="mb-4 text-sm font-bold text-slate-800 uppercase tracking-wider">{{ __('Instruksi') }}</h3>
-                            <div class="space-y-4">
-                                @foreach ([
-                                    __('Buka aplikasi dan mainkan selama 10–15 menit.'),
-                                    __('Ambil screenshot layar yang menunjukkan aktivitasmu.'),
-                                    __('Unggah screenshot di form yang disediakan.'),
-                                ] as $i => $instruction)
-                                    <div class="flex items-start gap-3">
-                                        <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-50 text-xs font-bold text-brand-600">
-                                            {{ $i + 1 }}
-                                        </div>
-                                        <p class="text-sm text-slate-600 leading-relaxed pt-0.5">
-                                            {{ $instruction }}
-                                        </p>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Kolom Kanan: Area Upload --}}
-                    <div class="lg:col-span-7 space-y-5">
-                        
-                        {{-- Peringatan Penting --}}
-                        <div class="flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 shadow-sm">
-                            <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                            </svg>
-                            <p class="text-sm text-amber-700 leading-relaxed">
-                                <span class="font-bold">{{ __('Penting') }}:</span>
-                                {{ __('Anda harus menggunakan aplikasi tersebut selama 10–15 menit sebelum mengambil tangkapan layar (screenshot)! Screenshot yang tidak memenuhi kriteria akan ditolak.') }}
-                            </p>
-                        </div>
-
-                        {{-- Area Upload Screenshot --}}
-                        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                            <h3 class="mb-4 text-sm font-bold text-slate-800 uppercase tracking-wider">{{ __('Unggah Tangkapan Layar') }}</h3>
-                            
-                            {{ $this->form }}
-
-                        </div>
-
-                        {{-- Tombol Submit --}}
-                        <div class="pt-2">
-                            <button
-                                wire:click="submitTask"
-                                wire:loading.attr="disabled"
-                                wire:loading.class="cursor-not-allowed opacity-70"
-                                class="w-full rounded-2xl bg-brand-600 py-4 text-base font-bold text-white shadow-md shadow-brand-500/20 transition-all hover:bg-brand-700 hover:shadow-lg hover:shadow-brand-500/30 active:translate-y-0.5">
-
-                                <span wire:loading.remove wire:target="submitTask" class="flex justify-center items-center gap-2">
-                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    {{ __('Kumpulkan Task Sekarang') }}
-                                </span>
-
-                                <span wire:loading wire:target="submitTask" class="flex items-center justify-center gap-2">
-                                    <svg class="h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
-                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                                    </svg>
-                                    {{ __('Sedang Mengirim...') }}
-                                </span>
-                            </button>
-                        </div>
                     </div>
                 </div>
-
+            @endif
+        @empty
+            <div class="bg-[#1a1a18] border border-[#2a2a26] rounded-2xl p-12 text-center text-neutral-400">
+                <svg class="w-12 h-12 mx-auto text-neutral-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                <p class="font-bold text-white">Belum Ada Riwayat Pengujian</p>
+                <p class="text-xs text-neutral-500 mt-1">Anda belum melamar pada pengujian tatap muka manapun.</p>
+                <a href="/tester" class="mt-4 inline-block px-5 py-2.5 rounded-xl bg-[#ffd900] text-black font-bold text-xs">Jelajahi Pengujian Tersedia</a>
             </div>
-        @endif
-    @endif
-
+        @endforelse
+    </div>
 </x-filament-panels::page>

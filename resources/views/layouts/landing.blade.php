@@ -70,13 +70,12 @@
     }
   </script>
 
-  <!-- ─── Dark mode init (prevent flash) ─── -->
+  <!-- ─── Permanent Dark Mode (Helden Inc Black & Yellow Theme) ─── -->
   <script>
       (function () {
-        const saved = localStorage.getItem('pt-theme');
-        if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-        }
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        localStorage.setItem('pt-theme', 'dark');
       })();
   </script>
 
@@ -89,15 +88,41 @@
     html {
       scroll-behavior: smooth;
     }
-
-    #navbar.scrolled {
-      box-shadow: 0 4px 24px 0 rgba(255, 217, 0, 0.08);
-      background: rgba(255, 255, 255, 0.97);
+    html.dark {
+      background-color: #111111 !important;
+      color-scheme: dark;
+    }
+    html.dark body {
+      background-color: #111111 !important;
+      color: #e2e8f0 !important;
     }
 
-    .dark #navbar.scrolled {
-      box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.3);
-      background: rgba(15, 23, 42, 0.97);
+    /* ── Navbar Helden Inc solid styling ── */
+    #navbar {
+      background: #ffffff !important;
+      border-bottom: 1px solid #f1f5f9 !important;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+    html.dark #navbar {
+      background: #111111 !important;
+      border-bottom: 1px solid #222222 !important;
+    }
+    #navbar.scrolled {
+      background: #ffffff !important;
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05) !important;
+    }
+    html.dark #navbar.scrolled {
+      background: #111111 !important;
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.5) !important;
+      border-bottom: 1px solid #222222 !important;
+    }
+    html.dark #legal-dropdown-menu {
+      background: #111111 !important;
+      border-color: #222222 !important;
+    }
+    html.dark #mobile-menu {
+      background: #111111 !important;
+      border-color: #222222 !important;
     }
 
     .ham-line {
@@ -137,70 +162,6 @@
       max-height: 500px;
     }
 
-    .theme-toggle {
-      position: relative;
-      width: 52px;
-      height: 28px;
-      border-radius: 9999px;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      transition: background 0.3s ease;
-      background: #ffd900;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
-    }
-
-    .dark .theme-toggle {
-      background: #1e293b;
-    }
-
-    .theme-toggle-knob {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
-      transition: transform 0.3s cubic-bezier(.4, 0, .2, 1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-    }
-
-    .dark .theme-toggle-knob {
-      transform: translateX(24px);
-      background: #1e293b;
-    }
-
-    .theme-toggle-knob .icon-sun,
-    .theme-toggle-knob .icon-moon {
-      transition: opacity 0.2s;
-    }
-
-    .theme-toggle-knob .icon-sun {
-      color: #f59e0b;
-    }
-
-    .theme-toggle-knob .icon-moon {
-      color: #fed000;
-      position: absolute;
-    }
-
-    .dark .theme-toggle-knob .icon-sun {
-      opacity: 0;
-    }
-
-    .theme-toggle-knob .icon-moon {
-      opacity: 0;
-    }
-
-    .dark .theme-toggle-knob .icon-moon {
-      opacity: 1;
-    }
-
     body,
     #navbar,
     .pricing-card>div,
@@ -214,6 +175,108 @@
       color: #111111 !important;
       font-weight: 800 !important;
     }
+
+    /* ── Language Dropdown (Helden Inc style) ── */
+    .lang-dropdown-wrapper {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      z-index: 60;
+      font-family: inherit;
+    }
+
+    .lang-dropdown-trigger {
+      height: 32px !important;
+      padding: 0 10px !important;
+      background: #18181b !important;
+      border: 1px solid #2e2e34 !important;
+      border-radius: 6px !important;
+      color: #f4f4f5 !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      cursor: pointer !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+      transition: all 0.15s ease !important;
+      user-select: none !important;
+      outline: none !important;
+      width: auto !important;
+      line-height: normal !important;
+    }
+
+    .lang-dropdown-trigger:hover {
+      background: #222226 !important;
+      border-color: #ffd900 !important;
+      color: #ffffff !important;
+    }
+
+    .lang-dropdown-wrapper.open .lang-dropdown-trigger {
+      border-color: #ffd900 !important;
+    }
+
+    .lang-dropdown-label {
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      color: #f4f4f5 !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .lang-dropdown-arrow {
+      width: 8px;
+      height: 5px;
+      color: #a1a1aa;
+      transition: transform 0.15s ease, color 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .lang-dropdown-trigger:hover .lang-dropdown-arrow,
+    .lang-dropdown-wrapper.open .lang-dropdown-arrow {
+      color: #ffd900;
+      transform: rotate(180deg);
+    }
+
+    .lang-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      min-width: 100%;
+      width: max-content;
+      min-width: 140px;
+      background: #18181b !important;
+      border: 1px solid #2e2e34 !important;
+      border-radius: 6px !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 8px 10px -6px rgba(0, 0, 0, 0.6) !important;
+      padding: 4px !important;
+      z-index: 100;
+    }
+
+    .lang-dropdown-item {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 6px 10px !important;
+      border-radius: 4px !important;
+      color: #d4d4d8 !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+      transition: all 0.12s ease !important;
+      cursor: pointer !important;
+      white-space: nowrap !important;
+    }
+
+    .lang-dropdown-item:hover {
+      background: #27272a !important;
+      color: #ffffff !important;
+    }
+
+    .lang-dropdown-item.active {
+      background: rgba(255, 217, 0, 0.12) !important;
+      font-weight: 600 !important;
+      color: #ffd900 !important;
+    }
   </style>
   @yield('styles')
 </head>
@@ -224,15 +287,15 @@
      NAVBAR
      ════════════════════════════════════════════ -->
   <header id="navbar"
-    class="fixed top-0 inset-x-0 z-50 bg-white/95 dark:bg-slate-900/95 border-b border-slate-100 dark:border-slate-800 transition-all duration-300">
-    <nav class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    class="fixed top-0 inset-x-0 z-50 bg-white/95 dark:bg-[#111111] border-b border-slate-100 dark:border-[#222222] transition-all duration-300">
+    <nav class="w-full px-4 sm:px-8 lg:px-12">
       <div class="flex items-center justify-between h-16">
 
         <!-- Logo -->
         <a href="/" class="flex items-center select-none animate-fadeUp">
-          <img src="{{ asset('logo.png') }}" alt="Testoplay" class="h-12 w-auto object-contain dark:hidden" />
+          <img src="{{ asset('logo.png') }}" alt="Testoplay" class="h-8 min-[375px]:h-9 sm:h-12 w-auto object-contain dark:hidden" />
           <img src="{{ asset('logo-dark.png') }}" alt="Testoplay"
-            class="h-12 w-auto object-contain hidden dark:block" />
+            class="h-8 min-[375px]:h-9 sm:h-12 w-auto object-contain hidden dark:block" />
         </a>
 
         <!-- Desktop Menu -->
@@ -260,7 +323,7 @@
             </button>
             <!-- Dropdown Menu -->
             <ul id="legal-dropdown-menu"
-              class="absolute left-0 mt-3 w-52 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-xl py-2 hidden z-50 transform scale-95 opacity-0 transition-all duration-200 origin-top-left">
+              class="absolute left-0 mt-3 w-52 bg-white dark:bg-[#1a1a18] border border-slate-100 dark:border-[#2e2e2e] rounded-2xl shadow-xl py-2 hidden z-50 transform scale-95 opacity-0 transition-all duration-200 origin-top-left">
               <li><a href="{{ route('privacy-policy', ['locale' => App::getLocale()]) }}"
                   class="block px-4 py-2.5 text-sm hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-brand-600 dark:hover:text-brand-400 transition">{{ __('Kebijakan Privasi') }}</a>
               </li>
@@ -288,39 +351,16 @@
             {{ __('Daftar') }}
           </button>
 
-          <!-- Theme Toggle -->
-          <button class="theme-toggle ml-1" onclick="toggleTheme()" aria-label="Toggle dark mode">
-            <span class="theme-toggle-knob">
-              <i class="fa-solid fa-sun icon-sun"></i>
-              <i class="fa-solid fa-moon icon-moon"></i>
-            </span>
-          </button>
-
-          <!-- Language Switcher -->
-          @php
-            $currentRoute = Route::currentRouteName();
-            $params = Route::current() ? Route::current()->parameters() : [];
-            $enUrl = $currentRoute ? route($currentRoute, array_merge($params, ['locale' => 'en'])) : url('/en');
-            $idUrl = $currentRoute ? route($currentRoute, array_merge($params, ['locale' => 'id'])) : url('/id');
-          @endphp
-          <div class="flex items-center gap-1.5 ml-2 pl-4 border-l border-slate-200 dark:border-slate-700">
-            <a href="{{ $enUrl }}"
-              class="w-8 h-8 flex items-center justify-center rounded-lg text-[10px] font-black transition {{ App::getLocale() == 'en' ? 'bg-brand-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-600 dark:hover:text-slate-300' }}">EN</a>
-            <a href="{{ $idUrl }}"
-              class="w-8 h-8 flex items-center justify-center rounded-lg text-[10px] font-black transition {{ App::getLocale() == 'id' ? 'bg-brand-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-600 dark:hover:text-slate-300' }}">ID</a>
+          <!-- Language Switcher (Compact Dropdown) -->
+          <div class="ml-2 pl-3 border-l border-slate-200 dark:border-slate-800 flex items-center">
+            <x-language-dropdown />
           </div>
         </div>
 
         <!-- Hamburger (Mobile) -->
         <div class="md:hidden flex items-center gap-2">
-          <!-- Mobile Theme Toggle -->
-          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"
-            style="width:44px;height:24px;">
-            <span class="theme-toggle-knob" style="width:18px;height:18px;font-size:10px;">
-              <i class="fa-solid fa-sun icon-sun"></i>
-              <i class="fa-solid fa-moon icon-moon"></i>
-            </span>
-          </button>
+          <!-- Mobile Language Switcher -->
+          <x-language-dropdown />
           <button id="hamburger" aria-label="Toggle menu"
             class="flex flex-col gap-[6px] p-2 rounded-lg hover:bg-brand-50 dark:hover:bg-slate-800 transition">
             <span class="ham-line"></span>
@@ -331,7 +371,7 @@
       </div>
 
       <!-- Mobile Menu (collapsible, jQuery controlled) -->
-      <div id="mobile-menu" class="md:hidden border-t border-slate-100 dark:border-slate-800">
+      <div id="mobile-menu" class="md:hidden border-t border-slate-100 dark:border-[#2e2e2e]">
         <ul class="flex flex-col py-4 gap-1 text-sm font-medium text-slate-700 dark:text-slate-300">
           <li><a href="/{{ App::getLocale() }}#how-it-works"
               class="block px-3 py-2 rounded-lg hover:bg-brand-50 dark:hover:bg-slate-800 hover:text-brand-600 dark:hover:text-brand-400 transition">{{ __('Cara Kerja') }}</a>
@@ -402,9 +442,9 @@
      FOOTER
      ════════════════════════════════════════════ -->
   <footer
-    class="bg-white dark:bg-slate-950 text-slate-500 dark:text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-100 dark:border-slate-800 transition-colors duration-200">
+    class="bg-white dark:bg-[#111111] text-slate-500 dark:text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-100 dark:border-[#222222] transition-colors duration-200">
     <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-slate-100 dark:border-slate-800">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-slate-100 dark:border-[#222222]">
 
         <!-- Brand -->
         <div class="md:col-span-2">
@@ -600,18 +640,32 @@
     }
   </script>
 
-  <!-- ─── Theme Toggle ─── -->
   <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      if (html.classList.contains('dark')) {
-        html.classList.remove('dark');
-        localStorage.setItem('pt-theme', 'light');
-      } else {
-        html.classList.add('dark');
-        localStorage.setItem('pt-theme', 'dark');
+    function toggleLangMenu(btn, e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
       }
+      const wrap = btn.closest('.lang-dropdown-wrapper');
+      if (!wrap) return;
+      const menu = wrap.querySelector('.lang-dropdown-menu');
+      if (!menu) return;
+      const isVisible = menu.style.display === 'flex';
+      closeAllLangMenus();
+      menu.style.display = isVisible ? 'none' : 'flex';
     }
+
+    function closeAllLangMenus() {
+      document.querySelectorAll('.lang-dropdown-menu').forEach(function(m) {
+        m.style.display = 'none';
+      });
+    }
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.lang-dropdown-wrapper')) {
+        closeAllLangMenus();
+      }
+    });
   </script>
 
   <!-- ─── Core Scripts ─── -->

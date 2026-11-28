@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-  class="{{ session('pt-theme', 'light') === 'dark' ? 'dark' : '' }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -11,10 +10,9 @@
     content="{{ __('Kebijakan privasi Testoplay menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi data pribadi Anda.') }}">
   <script>
     (function () {
-      var t = localStorage.getItem('pt-theme');
-      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      }
+      localStorage.setItem('theme', 'dark');
+      localStorage.setItem('pt-theme', 'dark');
+      document.documentElement.classList.add('dark');
     })();
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -122,67 +120,20 @@
       padding: 2rem;
     }
 
+    html.dark {
+      background-color: #111111 !important;
+      color-scheme: dark;
+    }
+    html.dark body {
+      background-color: #111111 !important;
+      color: #e2e8f0 !important;
+    }
+
     .dark .page-card {
-      background: #1e293b;
-      border-color: #334155;
-      border-top-color: #fed000;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Theme toggle */
-    .theme-toggle {
-      position: relative;
-      width: 48px;
-      height: 26px;
-      background: #e2e8f0;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      transition: background .3s;
-      flex-shrink: 0;
-    }
-
-    .dark .theme-toggle {
-      background: #1e293b;
-    }
-
-    .theme-toggle-knob {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
-      transition: transform .3s cubic-bezier(.4, 0, .2, 1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-    }
-
-    .dark .theme-toggle-knob {
-      transform: translateX(22px);
-      background: #1e293b;
-    }
-
-    .icon-sun {
-      color: #f59e0b;
-    }
-
-    .icon-moon {
-      color: #fed000;
-      position: absolute;
-      opacity: 0;
-    }
-
-    .dark .icon-sun {
-      opacity: 0;
-    }
-
-    .dark .icon-moon {
-      opacity: 1;
+      background: #1a1a18;
+      border-color: #2e2e2e;
+      border-top-color: #ffd900;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     }
 
     /* ====== Profile Card styling elements to match admin card ====== */
@@ -210,7 +161,12 @@
       }
     }
 
-    
+    @keyframes prof-gradient {
+
+      0%,
+      100% {
+        background-position: 0% 50%
+      }
 
       50% {
         background-position: 100% 50%
@@ -304,76 +260,15 @@
     .prof-hero {
       position: relative;
       background: #1a1a18;
-      background-size: 220% 220%;
-      
-      box-shadow: 0 20px 60px -15px rgba(255, 217, 0, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+      border: 1px solid #2e2e2e;
+      border-radius: 1.5rem;
       isolation: isolate;
       overflow: hidden;
     }
 
-    .prof-blob {
-      animation: prof-float 9s ease-in-out infinite;
-      will-change: transform;
-      filter: blur(2px);
+    .prof-blob, .prof-blob-rev, .prof-aurora, .prof-conic, .prof-conic-2, .prof-grid-bg, .prof-shoot, .prof-particles {
+      display: none !important;
     }
-
-    .prof-blob-rev {
-      animation: prof-float-rev 11s ease-in-out infinite;
-      will-change: transform;
-      filter: blur(2px);
-    }
-
-    /* Aurora mesh */
-    .prof-aurora {
-      position: absolute;
-      inset: -30%;
-      background: none;
-filter: blur(40px);
-      animation: prof-aurora 22s ease-in-out infinite;
-      mix-blend-mode: screen;
-      pointer-events: none;
-    }
-
-    /* Slow rotating conic glow */
-    .prof-conic {
-      position: absolute;
-      width: 520px;
-      height: 520px;
-      left: -160px;
-      bottom: -200px;
-      background: none;
-border-radius: 50%;
-      filter: blur(30px);
-      animation: prof-conic 28s linear infinite;
-      opacity: .7;
-      pointer-events: none;
-    }
-
-    .prof-conic-2 {
-      position: absolute;
-      width: 380px;
-      height: 380px;
-      right: -120px;
-      top: -140px;
-      background: none;
-border-radius: 50%;
-      filter: blur(30px);
-      animation: prof-conic 34s linear infinite;
-      opacity: .6;
-      pointer-events: none;
-    }
-
-    .prof-grid-bg {
-      background-image:
-        #ffd900,
-        #ffd900;
-      background-size: 28px 28px;
-      mask-image: none;
-      animation: prof-grid-pan 18s linear infinite;
-    }
-
-    /* Floating particles */
-    .prof-particles {
       position: absolute;
       inset: 0;
       overflow: hidden;
@@ -381,48 +276,17 @@ border-radius: 50%;
     }
 
     .prof-particles span {
-      position: absolute;
-      bottom: -10px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: none;
-box-shadow: 0 0 12px rgba(255, 255, 255, .7);
-      animation: prof-particle linear infinite;
-      opacity: 0;
+      display: none !important;
     }
 
     /* Twinkling stars */
     .prof-stars {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .prof-stars span {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      border-radius: 50%;
-      background: #fff !important;
-      box-shadow: 0 0 6px #fff, 0 0 12px #fff !important;
-      animation: prof-twinkle 3s ease-in-out infinite;
+      display: none !important;
     }
 
     /* Shooting star */
     .prof-shoot {
-      position: absolute;
-      top: 18%;
-      left: -20%;
-      width: 120px;
-      height: 2px;
-      background: transparent;
-      filter: drop-shadow(0 0 6px rgba(147, 197, 253, .9));
-      border-radius: 2px;
-      animation: prof-shoot 7s ease-in infinite;
-      animation-delay: -2s;
-      pointer-events: none;
-      opacity: 0;
+      display: none !important;
     }
 
     .prof-shoot.s2 {
@@ -434,11 +298,11 @@ box-shadow: 0 0 12px rgba(255, 255, 255, .7);
   </style>
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-950 antialiased">
+<body class="bg-slate-50 dark:bg-[#111111] antialiased">
 
   <!-- Navbar -->
   <header
-    class="fixed top-0 inset-x-0 z-50 bg-white/95 dark:bg-slate-900/95 border-b border-slate-100 dark:border-slate-800 backdrop-blur-sm">
+    class="fixed top-0 inset-x-0 z-50 bg-white/95 dark:bg-[#1a1a18] border-b border-slate-100 dark:border-[#2e2e2e]">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
       <a href="{{ url('/') }}" class="flex items-center">
         <img src="{{ asset('logo.png') }}" alt="Testoplay" class="h-10 w-auto dark:hidden" />
@@ -451,22 +315,11 @@ box-shadow: 0 0 12px rgba(255, 255, 255, .7);
           <i class="fa-solid fa-arrow-left text-xs"></i>
           <span class="hidden sm:inline">{{ __('Kembali') }}</span>
         </a>
-        <!-- Language Switcher -->
-        <div class="flex items-center gap-1 pl-3 border-l border-slate-200 dark:border-slate-700">
-          <a href="{{ route('kebijakan-privasi') }}?lang=en"
-            onclick="event.preventDefault(); fetch('/language/switch/en').then(()=>window.location.reload())"
-            class="w-8 h-8 flex items-center justify-center rounded-lg text-[10px] font-black transition {{ App::getLocale() == 'en' ? 'bg-brand-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700' }}">EN</a>
-          <a href="{{ route('kebijakan-privasi') }}?lang=id"
-            onclick="event.preventDefault(); fetch('/language/switch/id').then(()=>window.location.reload())"
-            class="w-8 h-8 flex items-center justify-center rounded-lg text-[10px] font-black transition {{ App::getLocale() == 'id' ? 'bg-brand-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700' }}">ID</a>
+        <!-- Language Switcher (Compact Dropdown) -->
+        <!-- Language Switcher (Compact Dropdown) -->
+        <div class="pl-3 border-l border-slate-200 dark:border-slate-700">
+          <x-language-dropdown />
         </div>
-        <!-- Theme toggle -->
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-          <span class="theme-toggle-knob">
-            <i class="fa-solid fa-sun icon-sun"></i>
-            <i class="fa-solid fa-moon icon-moon"></i>
-          </span>
-        </button>
       </div>
     </nav>
   </header>
@@ -502,17 +355,106 @@ box-shadow: 0 0 12px rgba(255, 255, 255, .7);
         @endfor
       </div>
 
-      <!-- Shooting stars -->
-      <div class="prof-shoot"></div>
-      <div class="prof-shoot s2"></div>
 
-      <!-- Floating decorative blobs -->
-      <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-        style="background: none;
-if (html.classList.contains('dark')) { html.classList.remove('dark'); localStorage.setItem('pt-theme', 'light'); }
-      else { html.classList.add('dark'); localStorage.setItem('pt-theme', 'dark'); }
-    }
-  </script>
+
+      <!-- Main Content -->
+      <div class="relative z-10 max-w-3xl mx-auto text-center">
+        <div
+          class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-xs font-semibold px-4 py-2 rounded-full mb-4 backdrop-blur-sm">
+          <i class="fa-solid fa-shield-halved"></i> {{ __('Privasi & Keamanan') }}
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black mb-2">{{ __('Kebijakan Privasi') }}</h1>
+        <p class="text-brand-100 text-sm">{{ __('Terakhir diperbarui: 1 Juni 2026') }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+    <div class="page-card">
+      <div class="prose">
+        <p>
+          {{ __('Testoplay ("kami", "kita") menghargai privasi Anda. Kebijakan ini menjelaskan bagaimana kami mengumpulkan, menggunakan, menyimpan, dan melindungi informasi pribadi Anda saat menggunakan platform kami.') }}
+        </p>
+
+        <h2>1. {{ __('Informasi yang Kami Kumpulkan') }}</h2>
+        <p>{{ __('Kami mengumpulkan berbagai jenis informasi sehubungan dengan layanan yang kami sediakan:') }}</p>
+        <ul>
+          <li>{{ __('Informasi akun: nama lengkap, alamat email, kata sandi (terenkripsi)') }}</li>
+          <li>{{ __('Informasi profil: foto profil, bio, tautan media sosial') }}</li>
+          <li>{{ __('Data transaksi: riwayat pembayaran, metode pembayaran') }}</li>
+          <li>{{ __('Data aktivitas: log masuk, riwayat misi, peringkat ulasan') }}</li>
+          <li>{{ __('Data teknis: alamat IP, jenis perangkat, browser, dan waktu akses') }}</li>
+        </ul>
+
+        <h2>2. {{ __('Cara Kami Menggunakan Informasi') }}</h2>
+        <p>{{ __('Informasi yang dikumpulkan digunakan untuk:') }}</p>
+        <ul>
+          <li>{{ __('Menyediakan, mengoperasikan, dan meningkatkan layanan platform') }}</li>
+          <li>{{ __('Memproses transaksi pembayaran dan pengeluaran reward') }}</li>
+          <li>{{ __('Mengirimkan notifikasi terkait akun dan misi') }}</li>
+          <li>{{ __('Memverifikasi identitas dan mencegah penipuan') }}</li>
+          <li>{{ __('Menganalisis penggunaan platform untuk peningkatan layanan') }}</li>
+          <li>{{ __('Memenuhi kewajiban hukum yang berlaku') }}</li>
+        </ul>
+
+        <h2>3. {{ __('Berbagi Informasi') }}</h2>
+        <p>
+          {{ __('Kami tidak menjual informasi pribadi Anda kepada pihak ketiga. Namun, kami dapat membagikan informasi kepada:') }}
+        </p>
+        <ul>
+          <li>{{ __('Penyedia layanan pembayaran (Duitku, Xendit) untuk memproses transaksi') }}</li>
+          <li>{{ __('Penyedia layanan cloud (untuk penyimpanan dan hosting)') }}</li>
+          <li>{{ __('Pihak berwenang apabila diwajibkan oleh hukum yang berlaku') }}</li>
+        </ul>
+
+        <h2>4. {{ __('Keamanan Data') }}</h2>
+        <p>
+          {{ __('Kami menggunakan langkah-langkah keamanan teknis dan organisasi yang wajar untuk melindungi informasi Anda, termasuk enkripsi data, akses terbatas, dan pemantauan sistem secara berkala.') }}
+        </p>
+
+        <h2>5. {{ __('Hak Pengguna') }}</h2>
+        <p>{{ __('Anda memiliki hak untuk:') }}</p>
+        <ul>
+          <li>{{ __('Mengakses dan memperbarui data pribadi Anda') }}</li>
+          <li>{{ __('Meminta penghapusan akun dan data Anda') }}</li>
+          <li>{{ __('Menarik persetujuan pemrosesan data') }}</li>
+          <li>{{ __('Mengajukan keberatan atas pemrosesan data tertentu') }}</li>
+        </ul>
+
+        <h2>6. {{ __('Cookies') }}</h2>
+        <p>
+          {{ __('Platform kami menggunakan cookies untuk menjaga sesi login Anda dan menyimpan preferensi. Anda dapat mengatur browser Anda untuk menolak cookies, namun hal ini dapat mempengaruhi fungsi tertentu.') }}
+        </p>
+
+        <h2>7. {{ __('Perubahan Kebijakan') }}</h2>
+        <p>
+          {{ __('Kami dapat memperbarui Kebijakan Privasi ini sewaktu-waktu. Perubahan signifikan akan diberitahukan melalui email atau notifikasi di platform.') }}
+        </p>
+
+        <h2>8. {{ __('Hubungi Kami') }}</h2>
+        <p>{{ __('Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, silakan hubungi kami di:') }} <a
+            href="mailto:privacy@testoplay.com">privacy@testoplay.com</a></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer
+    class="bg-white dark:bg-[#111111] text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-[#222222] text-center py-6 px-4 text-xs mt-4 transition-colors duration-200">
+    <p>© 2026 <span class="text-slate-700 dark:text-slate-300 font-semibold">Testoplay</span>.
+      {{ __('Hak cipta dilindungi undang-undang.') }}
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 mt-2">
+      <a href="{{ route('kebijakan-privasi') }}"
+        class="hover:text-brand-600 dark:hover:text-white transition">{{ __('Kebijakan Privasi') }}</a>
+      <a href="{{ route('syarat-ketentuan') }}"
+        class="hover:text-brand-600 dark:hover:text-white transition">{{ __('Syarat & Ketentuan') }}</a>
+      <a href="{{ route('faq') }}" class="hover:text-brand-600 dark:hover:text-white transition">FAQ</a>
+      <a href="{{ route('hubungi-kami') }}"
+        class="hover:text-brand-600 dark:hover:text-white transition">{{ __('Hubungi Kami') }}</a>
+    </div>
+  </footer>
 </body>
 
 </html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-  class="{{ session('pt-theme', 'light') === 'dark' ? 'dark' : '' }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -11,10 +10,9 @@
     content="{{ __('Temukan jawaban atas pertanyaan umum seputar Testoplay, cara kerja platform, pembayaran, dan misi testing.') }}">
   <script>
     (function () {
-      var t = localStorage.getItem('pt-theme');
-      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      }
+      localStorage.setItem('theme', 'dark');
+      localStorage.setItem('pt-theme', 'dark');
+      document.documentElement.classList.add('dark');
     })();
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -61,10 +59,19 @@
       overflow: hidden;
     }
 
+    html.dark {
+      background-color: #111111 !important;
+      color-scheme: dark;
+    }
+    html.dark body {
+      background-color: #111111 !important;
+      color: #e2e8f0 !important;
+    }
+
     .dark .page-card {
-      background: #1e293b;
-      border-color: #334155;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      background: #1a1a18;
+      border-color: #2e2e2e;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     }
 
     .card-accent-green {
@@ -105,62 +112,6 @@
 
     .dark .faq-item+.faq-item {
       border-top-color: #334155;
-    }
-
-    /* Theme toggle */
-    .theme-toggle {
-      position: relative;
-      width: 48px;
-      height: 26px;
-      background: #e2e8f0;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      transition: background .3s;
-      flex-shrink: 0;
-    }
-
-    .dark .theme-toggle {
-      background: #1e293b;
-    }
-
-    .theme-toggle-knob {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
-      transition: transform .3s cubic-bezier(.4, 0, .2, 1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-    }
-
-    .dark .theme-toggle-knob {
-      transform: translateX(22px);
-      background: #1e293b;
-    }
-
-    .icon-sun {
-      color: #f59e0b;
-    }
-
-    .icon-moon {
-      color: #fed000;
-      position: absolute;
-      opacity: 0;
-    }
-
-    .dark .icon-sun {
-      opacity: 0;
-    }
-
-    .dark .icon-moon {
-      opacity: 1;
     }
 
     /* ====== Profile Card styling elements to match admin card ====== */
@@ -412,11 +363,11 @@ box-shadow: 0 0 12px rgba(255, 255, 255, .7);
   </style>
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-950 antialiased">
+<body class="bg-slate-50 dark:bg-[#111111] antialiased">
 
   <!-- Navbar -->
   <header
-    class="fixed top-0 inset-x-0 z-50 bg-white/95 dark:bg-slate-900/95 border-b border-slate-100 dark:border-slate-800 backdrop-blur-sm">
+    class="fixed top-0 inset-x-0 z-50 bg-white/95 dark:bg-[#1a1a18] border-b border-slate-100 dark:border-[#2e2e2e]">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
       <a href="{{ url('/') }}" class="flex items-center">
         <img src="{{ asset('logo.png') }}" alt="Testoplay" class="h-10 w-auto dark:hidden" />
@@ -428,20 +379,10 @@ box-shadow: 0 0 12px rgba(255, 255, 255, .7);
           <i class="fa-solid fa-arrow-left text-xs"></i>
           <span class="hidden sm:inline">{{ __('Kembali') }}</span>
         </a>
-        <!-- Language Switcher -->
-        <div class="flex items-center gap-1 pl-3 border-l border-slate-200 dark:border-slate-700">
-          <a href="#" onclick="event.preventDefault(); fetch('/language/switch/en').then(()=>window.location.reload())"
-            class="w-8 h-8 flex items-center justify-center rounded-lg text-[10px] font-black transition {{ App::getLocale() == 'en' ? 'bg-brand-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700' }}">EN</a>
-          <a href="#" onclick="event.preventDefault(); fetch('/language/switch/id').then(()=>window.location.reload())"
-            class="w-8 h-8 flex items-center justify-center rounded-lg text-[10px] font-black transition {{ App::getLocale() == 'id' ? 'bg-brand-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700' }}">ID</a>
+        <!-- Language Switcher (Compact Dropdown) -->
+        <div class="pl-3 border-l border-slate-200 dark:border-slate-700">
+          <x-language-dropdown />
         </div>
-        <!-- Theme toggle -->
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-          <span class="theme-toggle-knob">
-            <i class="fa-solid fa-sun icon-sun"></i>
-            <i class="fa-solid fa-moon icon-moon"></i>
-          </span>
-        </button>
       </div>
     </nav>
   </header>
@@ -483,8 +424,39 @@ box-shadow: 0 0 12px rgba(255, 255, 255, .7);
 
       <!-- Floating decorative blobs -->
       <div class="prof-blob absolute -right-12 -top-12 w-48 h-48 rounded-full opacity-20"
-        style="background: none;
-@endphp
+        style="background: none;"></div>
+      <div class="prof-blob-rev absolute right-20 -bottom-16 w-40 h-40 rounded-full opacity-15"
+        style="background: none;"></div>
+
+      <!-- Main Content -->
+      <div class="relative z-10 max-w-3xl mx-auto text-center">
+        <div
+          class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-xs font-semibold px-4 py-2 rounded-full mb-4 backdrop-blur-sm">
+          <i class="fa-solid fa-circle-question"></i> {{ __('Bantuan') }}
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black mb-2 text-slate-900 dark:text-white">{{ __('Pertanyaan yang Sering Diajukan') }}</h1>
+        <p class="text-slate-600 dark:text-slate-400 text-sm">{{ __('Temukan jawaban atas pertanyaan umum Anda di sini.') }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+
+    <!-- Umum -->
+    <div>
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-6 h-6 rounded-lg flex items-center justify-center" style="background:#fefce8;">
+          <i class="fa-solid fa-globe text-brand-600 text-xs"></i>
+        </div>
+        <h2 class="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">{{ __('Umum') }}</h2>
+      </div>
+      <div class="page-card card-accent-brand">
+        @php $faqs_umum = [
+          [__('Apa itu Testoplay?'), __('Testoplay adalah platform kolaborasi yang menghubungkan developer aplikasi Android dengan tester berkualitas di Indonesia. Platform ini membantu developer memenuhi persyaratan Google Play Closed Testing dengan lebih mudah dan efisien.')],
+          [__('Apakah Testoplay gratis?'), __('Testoplay menawarkan berbagai paket, mulai dari paket gratis dengan fitur terbatas hingga paket premium untuk kebutuhan testing yang lebih besar. Lihat halaman Harga untuk detail lengkap.')],
+          [__('Bagaimana cara mendaftar?'), __('Klik tombol "Daftar" di pojok kanan atas, pilih peran Anda (Developer atau Tester), isi formulir pendaftaran, dan verifikasi email Anda. Proses ini hanya membutuhkan beberapa menit.')],
+        ]; @endphp
         @foreach($faqs_umum as $i => $faq)
           <div class="faq-item" id="faq-u-{{ $i }}">
             <button onclick="toggleFaq('faq-u-{{ $i }}')"
@@ -580,7 +552,7 @@ box-shadow: 0 0 12px rgba(255, 255, 255, .7);
 
   <!-- Footer -->
   <footer
-    class="bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 text-center py-6 px-4 text-xs mt-4 transition-colors duration-200">
+    class="bg-white dark:bg-[#111111] text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-[#222222] text-center py-6 px-4 text-xs mt-4 transition-colors duration-200">
     <p>© 2026 <span class="text-slate-700 dark:text-slate-300 font-semibold">Testoplay</span>.
       {{ __('Hak cipta dilindungi undang-undang.') }}</p>
     <div class="flex flex-wrap justify-center gap-4 mt-2">
@@ -602,11 +574,6 @@ box-shadow: 0 0 12px rgba(255, 255, 255, .7);
       document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
       document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('open'));
       if (!isOpen) { item.classList.add('open'); ans.classList.add('open'); }
-    }
-    function toggleTheme() {
-      const html = document.documentElement;
-      if (html.classList.contains('dark')) { html.classList.remove('dark'); localStorage.setItem('pt-theme', 'light'); }
-      else { html.classList.add('dark'); localStorage.setItem('pt-theme', 'dark'); }
     }
   </script>
 </body>

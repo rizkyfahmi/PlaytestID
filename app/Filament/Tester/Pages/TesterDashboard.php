@@ -78,41 +78,43 @@ class TesterDashboard extends Page
     {  
         $user = Auth::user();
         
-        // ── 0. Cek Absensi Misi Kemarin (H-1) ──────────────────
-        $this->checkMissedSubmissions($user->id);
+        // Catatan: Pada sistem pengujian tatap muka, kehadiran diverifikasi oleh developer
+        // saat pelaksanaan langsung di lokasi fisik.
 
         $balance = UserBalance::where('id_user', $user->id)->first();
         
-        // ── 1. Statistik Dasar ──────────────────────────────────
-        $totalPoin   = $balance->point ?? 0;
+        // ── 1. Statistik Dasar & Saldo Komisi Tunai ─────────────
+        $totalSaldo = (int) ($balance->saldo_rupiah ?? 0);
+        // Jika saldo rupiah masih 0 tapi user memiliki saldo dari point akun demo/sebelumnya, sinkronkan
+        if ($totalSaldo <= 0 && ($balance->point ?? 0) > 0) {
+            $totalSaldo = (int) $balance->point;
+            $balance->update(['saldo_rupiah' => $totalSaldo]);
+        }
+
         $misiSelesai = MisiAnggota::where('id_user', $user->id)->where('status', 'selesai')->count();
         $misiAktif   = MisiAnggota::where('id_user', $user->id)->whereIn('status', ['accepted', 'progress'])->count();
+        $totalMisi   = MisiAnggota::where('id_user', $user->id)->count();
         
-        // Poin Pending: Poin dari misi yang sedang dikerjakan atau menunggu verifikasi
-        $poinPending = MisiAnggota::where('id_user', $user->id)
-            ->whereIn('status', ['accepted', 'progress', 'submitted'])
+        // Komisi Pending: Total rupiah dari misi yang sedang dikerjakan atau menunggu verifikasi
+        $komisiPending = MisiAnggota::where('id_user', $user->id)
+            ->whereIn('status', ['accepted', 'progress', 'submitted', 'menunggu_seleksi'])
             ->with('misi')
             ->get()
-            ->sum(fn($ma) => $ma->misi->point ?? 0);
+            ->sum(function($ma) {
+                $komisi = $ma->misi->komisi_per_tester ?? 0;
+                return $komisi > 0 ? $komisi : ($ma->misi->point > 1000 ? $ma->misi->point : 20000);
+            });
 
-        // ── 2. Misi Aktif Saya ──────────────────────────────────
+        // ── 2. Misi Aktif Saya (Jadwal & Lokasi yang Ditentukan Dev) ──
         $misiAktifList = MisiAnggota::where('id_user', $user->id)
-            ->whereIn('status', ['accepted', 'progress'])
+            ->whereIn('status', ['accepted', 'progress', 'menunggu_seleksi'])
             ->with('misi')
             ->latest()
             ->take(3)
             ->get()
-            ->map(function ($ma) use ($user) {
+            ->map(function ($ma) {
                 $m = $ma->misi;
-                
-                // Hitung hari secara dinamis berdasarkan jadwal di misi_sub
-                $currentSub = MisiSub::where('id_misi', $m->id)
-                    ->where('id_user', $user->id)
-                    ->whereDate('created_at', now()->toDateString())
-                    ->first();
-                
-                $hari = $currentSub ? $currentSub->hari_ke : 1;
-                $persen = round(($hari / 14) * 100);
+                if (!$m) return null;
 
                 // Warna & Gradasi berdasarkan ID agar variatif tapi tetap konsisten
                 $gradients = [
@@ -122,42 +124,48 @@ class TesterDashboard extends Page
                 ];
                 $gId = $m->id % count($gradients);
 
-                return [
-                    'id'       => $m->id,
-                    'logo'     => $m->logo,
-                    'inisial'  => strtoupper(substr($m->nama_aplikasi, 0, 2)),
-                    'gradient' => $gradients[$gId]['icon'],
-                    'nama'     => $m->nama_aplikasi,
-                    'tipe'     => $m->id % 2 === 0 ? 'Functional Testing' : 'UX Research',
-                    'hari'     => $hari,
-                    'maxHari'  => 14,
-                    'persen'   => $persen,
-                    'warnaPersen' => '#ffd900',
-                    'gradientBar' => $gradients[$gId]['bar'],
-                    'reward'   => $m->point,
-                    'status'   => 'Aktif',
-                    'rawStatus' => $ma->status,
-                    'aksi'     => $hari > 10 ? 'laporkan' : 'submit',
-                ];
-            })->toArray();
+                $komisi = $m->komisi_per_tester > 0 ? $m->komisi_per_tester : ($m->point > 1000 ? $m->point : 20000);
 
-        // ── 3. Aplikasi Tersedia (Available Apps) ───────────────
+                $statusLabel = 'Diterima';
+                if ($ma->status === 'menunggu_seleksi') {
+                    $statusLabel = 'Menunggu Seleksi';
+                } elseif ($ma->status === 'accepted') {
+                    $statusLabel = 'Diterima — Wajib Hadir';
+                } elseif ($ma->status === 'selesai') {
+                    $statusLabel = 'Selesai';
+                }
+
+                return [
+                    'id'            => $m->id,
+                    'logo'          => $m->logo,
+                    'inisial'       => strtoupper(substr($m->nama_aplikasi, 0, 2)),
+                    'gradient'      => $gradients[$gId]['icon'],
+                    'nama'          => $m->nama_aplikasi,
+                    'penyelenggara' => $m->penyelenggara ?: '-',
+                    'tipe'          => $m->id % 2 === 0 ? 'Functional Testing' : 'UX Research',
+                    'jadwalTanggal' => $m->jadwal_tanggal ? $m->jadwal_tanggal->translatedFormat('d M Y') : '-',
+                    'jadwalWaktu'   => $m->jadwal_waktu ?: '-',
+                    'lokasi'        => $m->lokasi ?: '-',
+                    'reward'        => $komisi,
+                    'komisi'        => $komisi,
+                    'status'        => $statusLabel,
+                    'rawStatus'     => $ma->status,
+                    'aksi'          => 'detail',
+                ];
+            })->filter()->values()->toArray();
+
+        // ── 3. Aplikasi Tersedia (Jadwal & Kuota yang Ditentukan Dev) ──
         $joinedMisiIds = MisiAnggota::where('id_user', $user->id)->pluck('id_misi');
+        $userBadgeCount = $balance->badge ?? 0;
         
         $aplikasiList = Misi::where('status', 'open')
             ->whereNotIn('id', $joinedMisiIds)
             ->withCount('misiAnggotas')
-            ->where(function($q) {
-                // Tampilkan misi yang kapasitasnya (jumlah tester yang sudah gabung) 
-                // masih di bawah batas maksimal (default 20).
-                $maxCapacity = config('missions.max_capacity', 20);
-                $q->where('kapasitas', '<', $maxCapacity);
-            })
             ->with(['paket'])
             ->latest()
-            ->take(4)
+            ->take(25)
             ->get()
-            ->map(function ($m) {
+            ->map(function ($m) use ($userBadgeCount) {
                 // Mapping kategori visual
                 $categories = [
                     ['bg' => '#fefce8', 'color' => '#ffd900', 'label' => 'Functional Testing'],
@@ -173,25 +181,41 @@ class TesterDashboard extends Page
                     '#ef4444',
                 ];
 
+                $komisi = $m->komisi_per_tester > 0 ? $m->komisi_per_tester : ($m->point > 1000 ? $m->point : 20000);
+                $kuota = $m->kuota_tester > 0 ? $m->kuota_tester : ($m->kapasitas ?: 5);
+                $isRestricted = ($m->paket->trusted_badge ?? false) && ($userBadgeCount <= 5);
+                $sisaSlot = max(0, $kuota - ($m->misi_anggotas_count ?? 0));
+                $jadwalRaw = $m->jadwal_tanggal ? $m->jadwal_tanggal->format('Y-m-d') : ($m->created_at ? $m->created_at->format('Y-m-d') : '');
+
                 return [
-                    'id'        => $m->id,
-                    'logo'      => $m->logo,
-                    'inisial'   => strtoupper(substr($m->nama_aplikasi, 0, 2)),
-                    'gradient'  => $gradients[$m->id % count($gradients)],
-                    'nama'      => $m->nama_aplikasi,
-                    'tipe'      => $cat['label'],
-                    'tipeBg'    => $cat['bg'],
-                    'tipeColor' => $cat['color'],
-                    'deskripsi' => $m->instruksi ? substr(strip_tags($m->instruksi), 0, 60) . '...' : 'Uji aplikasi ' . $m->nama_aplikasi . ' dan berikan feedback terbaik.',
-                    'durasi'    => '14 hari',
-                    'testerCur' => $m->kapasitas,
-                    'testerMax' => config('missions.max_capacity', 20),
-                    'reward'    => $m->point,
-                    'isTrusted' => $m->paket->trusted_badge ?? false,
+                    'id'               => $m->id,
+                    'logo'             => $m->logo,
+                    'inisial'          => strtoupper(substr($m->nama_aplikasi, 0, 2)),
+                    'gradient'         => $gradients[$m->id % count($gradients)],
+                    'nama'             => $m->nama_aplikasi,
+                    'penyelenggara'    => $m->penyelenggara ?: '-',
+                    'tipe'             => $cat['label'],
+                    'tipeBg'           => $cat['bg'],
+                    'tipeColor'        => $cat['color'],
+                    'deskripsi'        => $m->instruksi ? substr(strip_tags($m->instruksi), 0, 60) . '...' : 'Uji aplikasi ' . $m->nama_aplikasi . ' dan berikan feedback terbaik.',
+                    'durasi'           => '14 hari',
+                    'testerCur'        => $m->kapasitas,
+                    'testerMax'        => config('missions.max_capacity', 20),
+                    'sisaSlot'         => $sisaSlot,
+                    'jadwalTanggalRaw' => $jadwalRaw,
+                    'reward'           => $komisi,
+                    'komisi'           => $komisi,
+                    'isTrusted'        => $m->paket->trusted_badge ?? false,
+                    'isRestricted'     => $isRestricted,
                 ];
             })->toArray();
 
-        $userBadgeCount = $balance->badge ?? 0;
+        $lokasiList = collect($aplikasiList)
+            ->pluck('lokasi')
+            ->filter(fn($l) => !empty($l) && $l !== '-')
+            ->unique()
+            ->values()
+            ->toArray();
 
         return [
             // ── Profil Tester ──────────────────────────────────  
@@ -200,16 +224,20 @@ class TesterDashboard extends Page
             'tierTester'     => $balance->badge ?? 'Novice Tester',  
             'userBadgeCount' => $userBadgeCount,  
   
-            // ── Poin & Statistik ───────────────────────────────  
-            'totalPoin'    => $totalPoin,  
-            'poinPending'  => $poinPending,  
-            'misiSelesai'  => $misiSelesai,  
-            'rating'       => '4.8', // Static placeholder for now
-            'misiAktif'    => $misiAktif,  
-            'streakHari'   => 14, // Static placeholder for now
+            // ── Komisi & Statistik ─────────────────────────────  
+            'totalSaldo'     => $totalSaldo,
+            'totalPoin'      => $totalSaldo,  
+            'komisiPending'  => $komisiPending,
+            'poinPending'    => $komisiPending,  
+            'misiSelesai'    => $misiSelesai,  
+            'rating'         => '4.8', // Static placeholder for now
+            'misiAktif'      => $misiAktif,  
+            'totalMisi'      => $totalMisi,
+            'streakHari'     => $totalMisi,
   
-            'misiAktifList' => $misiAktifList,  
-            'aplikasiList'  => $aplikasiList,  
+            'misiAktifList'  => $misiAktifList,  
+            'aplikasiList'   => $aplikasiList,  
+            'lokasiList'     => $lokasiList,
         ];  
     }
 

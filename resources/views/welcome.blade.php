@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -83,13 +83,12 @@
     }
   </script>
 
-  <!-- ─── Dark mode init (prevent flash) ─── -->
+  <!-- ─── Permanent Dark Mode (Helden Inc Black & Yellow Theme) ─── -->
   <script>
     (function() {
-      const saved = localStorage.getItem('pt-theme');
-      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      }
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      localStorage.setItem('pt-theme', 'dark');
     })();
   </script>
 
@@ -104,15 +103,41 @@
     html {
       scroll-behavior: smooth;
     }
-
-    /* ── Navbar scroll shadow ── */
-    #navbar.scrolled {
-      box-shadow: 0 4px 24px 0 rgba(255, 217, 0, 0.08);
-      background: rgba(255, 255, 255, 0.97);
+    html.dark {
+      background-color: #111111 !important;
+      color-scheme: dark;
     }
-    .dark #navbar.scrolled {
-      box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.3);
-      background: rgba(15, 23, 42, 0.97);
+    html.dark body {
+      background-color: #111111 !important;
+      color: #e2e8f0 !important;
+    }
+
+    /* ── Navbar Helden Inc solid styling ── */
+    #navbar {
+      background: #ffffff !important;
+      border-bottom: 1px solid #f1f5f9 !important;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+    html.dark #navbar {
+      background: #111111 !important;
+      border-bottom: 1px solid #222222 !important;
+    }
+    #navbar.scrolled {
+      background: #ffffff !important;
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05) !important;
+    }
+    html.dark #navbar.scrolled {
+      background: #111111 !important;
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.5) !important;
+      border-bottom: 1px solid #222222 !important;
+    }
+    html.dark #navDropdownMenu {
+      background: #111111 !important;
+      border-color: #222222 !important;
+    }
+    html.dark #mobile-menu {
+      background: #111111 !important;
+      border-color: #222222 !important;
     }
 
     /* ── Hamburger animated icon ── */
@@ -126,7 +151,7 @@
       transform-origin: center;
     }
     .dark .ham-line {
-      background: #fde047;
+      background: #ffd900;
     }
 
     #hamburger.open .ham-line:nth-child(1) {
@@ -153,20 +178,18 @@
       max-height: 420px;
     }
 
-    /* ── Glassmorphism card ── */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-    }
-
-    /* ── Gradient hero background ── */
+    /* ── Hero & CTA backgrounds ── */
     .hero-bg {
-      background: #1a1a18;
+      background: #ffffff;
     }
-    .dark .hero-bg {
-      background: #111111;
+    html.dark .hero-bg {
+      background: #111111 !important;
+    }
+    .cta-bg {
+      background: #f8fafc;
+    }
+    html.dark .cta-bg {
+      background: #111111 !important;
     }
 
     /* ── Tab underline indicator ── */
@@ -293,49 +316,6 @@
       font-weight: 800 !important;
     }
 
-    /* ── Theme toggle ── */
-    .theme-toggle {
-      position: relative;
-      width: 52px;
-      height: 28px;
-      border-radius: 9999px;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      transition: background 0.3s ease;
-      background: #ffd900;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
-    }
-    .dark .theme-toggle {
-      background: #1e293b;
-    }
-    .theme-toggle-knob {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 1px 4px rgba(0,0,0,.2);
-      transition: transform 0.3s cubic-bezier(.4,0,.2,1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-    }
-    .dark .theme-toggle-knob {
-      transform: translateX(24px);
-      background: #1e293b;
-    }
-    .theme-toggle-knob .icon-sun,
-    .theme-toggle-knob .icon-moon { transition: opacity 0.2s; }
-    .theme-toggle-knob .icon-sun { color: #f59e0b; }
-    .theme-toggle-knob .icon-moon { color: #fed000; position: absolute; }
-    .dark .theme-toggle-knob .icon-sun { opacity: 0; }
-    .theme-toggle-knob .icon-moon { opacity: 0; }
-    .dark .theme-toggle-knob .icon-moon { opacity: 1; }
-
     /* ── Smooth body transition ── */
     body, #navbar, .pricing-card > div, .glass-card {
       transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -348,14 +328,14 @@
   <!-- ════════════════════════════════════════════
      1. NAVBAR – Sticky, responsive with hamburger menu (jQuery)
      ════════════════════════════════════════════ -->
-  <header id="navbar" class="fixed top-0 inset-x-0 z-50 bg-white/95 dark:bg-slate-900/95 border-b border-slate-100 dark:border-slate-800 transition-all duration-300">
-    <nav class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 bg-white/95 dark:bg-[#111111] border-b border-slate-100 dark:border-[#222222] transition-all duration-300">
+    <nav class="w-full px-4 sm:px-8 lg:px-12">
       <div class="flex items-center justify-between h-16">
 
         <!-- Logo -->
         <a href="/" class="flex items-center select-none animate-fadeUp">
-          <img src="{{ asset('logo.png') }}" alt="Testoplay" class="h-12 w-auto object-contain dark:hidden" />
-          <img src="{{ asset('logo-dark.png') }}" alt="Testoplay" class="h-12 w-auto object-contain hidden dark:block" />
+          <img src="{{ asset('logo.png') }}" alt="Testoplay" class="h-8 min-[375px]:h-9 sm:h-12 w-auto object-contain dark:hidden" />
+          <img src="{{ asset('logo-dark.png') }}" alt="Testoplay" class="h-8 min-[375px]:h-9 sm:h-12 w-auto object-contain hidden dark:block" />
         </a>
 
         <!-- Desktop Menu -->
@@ -371,7 +351,7 @@
               {{ __('Lainnya') }}
               <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" id="navDropdownChevron"></i>
             </button>
-            <div id="navDropdownMenu" class="hidden absolute top-full right-0 mt-2 w-52 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-xl py-2 z-50">
+            <div id="navDropdownMenu" class="hidden absolute top-full right-0 mt-2 w-52 bg-white dark:bg-[#1a1a18] border border-slate-100 dark:border-[#2e2e2e] rounded-2xl shadow-xl py-2 z-50">
               <a href="{{ route('kebijakan-privasi') }}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-800 hover:text-brand-600 dark:hover:text-brand-400 transition">
                 <i class="fa-solid fa-shield-halved text-xs w-4 text-center"></i> {{ __('Kebijakan Privasi') }}
               </a>
@@ -391,43 +371,23 @@
 
         <!-- Desktop CTA -->
         <div class="hidden md:flex items-center gap-3">
-          <button onclick="openAuthModal('login')" class="px-4 py-2 text-sm font-semibold text-brand-600 dark:text-brand-400 border-2 border-brand-600 dark:border-brand-500 rounded-xl hover:bg-brand-50 dark:hover:bg-brand-950 transition duration-200">
+          <button onclick="openAuthModal('login')" class="px-4 py-2 text-sm font-bold text-slate-800 dark:text-white border border-slate-300 dark:border-[#333333] rounded-xl hover:bg-slate-100 dark:hover:bg-[#242424] transition duration-200">
             {{ __('Masuk') }}
           </button>
-          <button onclick="openAuthModal('register')" class="px-4 py-2 text-sm font-semibold text-white bg-brand-600 rounded-xl shadow-md hover:bg-brand-700 transition duration-200">
+          <button onclick="openAuthModal('register')" class="px-4 py-2 text-sm font-bold text-[#111111] bg-[#ffd900] rounded-xl shadow-md hover:bg-[#e6c400] transition duration-200">
             {{ __('Daftar') }}
           </button>
 
-          <!-- Theme Toggle -->
-          <button class="theme-toggle ml-1" onclick="toggleTheme()" aria-label="Toggle dark mode">
-            <span class="theme-toggle-knob">
-              <i class="fa-solid fa-sun icon-sun"></i>
-              <i class="fa-solid fa-moon icon-moon"></i>
-            </span>
-          </button>
-
-          <!-- Language Switcher -->
-          @php
-            $currentRoute = Route::currentRouteName();
-            $params = Route::current() ? Route::current()->parameters() : [];
-            $enUrl = $currentRoute ? route($currentRoute, array_merge($params, ['locale' => 'en'])) : url('/en');
-            $idUrl = $currentRoute ? route($currentRoute, array_merge($params, ['locale' => 'id'])) : url('/id');
-          @endphp
-          <div class="flex items-center gap-1.5 ml-2 pl-4 border-l border-slate-200 dark:border-slate-700">
-            <a href="{{ $enUrl }}" class="w-8 h-8 flex items-center justify-center rounded-lg text-[10px] font-black transition {{ App::getLocale() == 'en' ? 'bg-brand-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-600 dark:hover:text-slate-300' }}">EN</a>
-            <a href="{{ $idUrl }}" class="w-8 h-8 flex items-center justify-center rounded-lg text-[10px] font-black transition {{ App::getLocale() == 'id' ? 'bg-brand-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-600 dark:hover:text-slate-300' }}">ID</a>
+          <!-- Language Switcher (Compact Dropdown) -->
+          <div class="ml-2 pl-3 border-l border-slate-200 dark:border-slate-800 flex items-center">
+            <x-language-dropdown />
           </div>
         </div>
 
         <!-- Hamburger (Mobile) -->
         <div class="md:hidden flex items-center gap-2">
-          <!-- Mobile Theme Toggle -->
-          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" style="width:44px;height:24px;">
-            <span class="theme-toggle-knob" style="width:18px;height:18px;font-size:10px;">
-              <i class="fa-solid fa-sun icon-sun"></i>
-              <i class="fa-solid fa-moon icon-moon"></i>
-            </span>
-          </button>
+          <!-- Mobile Language Switcher -->
+          <x-language-dropdown />
           <button id="hamburger" aria-label="Toggle menu" class="flex flex-col gap-[6px] p-2 rounded-lg hover:bg-brand-50 dark:hover:bg-slate-800 transition">
             <span class="ham-line"></span>
             <span class="ham-line"></span>
@@ -464,9 +424,9 @@
             <button onclick="openAuthModal('login')" class="flex-1 text-center px-4 py-2 font-semibold text-brand-600 dark:text-brand-400 border-2 border-brand-600 dark:border-brand-500 rounded-xl hover:bg-brand-50 dark:hover:bg-brand-950 transition">{{ __('Masuk') }}</button>
             <button onclick="openAuthModal('register')" class="flex-1 text-center px-4 py-2 font-semibold text-white bg-brand-600 rounded-xl shadow hover:bg-brand-700 transition">{{ __('Daftar') }}</button>
           </li>
-          <li class="mt-2 flex justify-center gap-4">
-            <a href="{{ $enUrl }}" class="text-xs font-bold {{ App::getLocale() == 'en' ? 'text-brand-600 underline' : 'text-slate-400' }}">English (EN)</a>
-            <a href="{{ $idUrl }}" class="text-xs font-bold {{ App::getLocale() == 'id' ? 'text-brand-600 underline' : 'text-slate-400' }}">Bahasa Indonesia (ID)</a>
+          <li class="mt-2 flex justify-center items-center gap-2">
+            <span class="text-xs text-slate-400 font-semibold">{{ __('Pilih Bahasa:') }}</span>
+            <x-language-dropdown />
           </li>
         </ul>
       </div>
@@ -475,133 +435,61 @@
 
 
   <!-- ════════════════════════════════════════════
-     2. HERO SECTION – Split layout (copy + visual card)
+     2. HERO SECTION – Full-page centered hero layout
      ════════════════════════════════════════════ -->
-  <section id="hero" class="hero-bg min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
+  <section id="hero" class="hero-bg min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-28 pb-20 px-4 sm:px-8 lg:px-12 overflow-hidden relative w-full">
 
-    <!-- Background decoration blobs -->
-    <div class="absolute top-20 right-0 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-10 left-0 w-72 h-72 bg-brand-400/15 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- Subtle ambient lighting (CSS only, no icons/emojis) -->
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-[#ffd900]/[0.04] rounded-full blur-3xl pointer-events-none -z-0"></div>
 
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="w-full max-w-6xl mx-auto text-center space-y-8 relative z-10 px-2 sm:px-4" style="animation: fadeUp 0.8s ease forwards;">
 
-      <!-- ── Left: Copywriting ── -->
-      <div class="text-white space-y-7 pt-2" style="animation: fadeUp 0.8s ease forwards;">
+      <!-- Headline -->
+      <h1 class="text-3xl min-[375px]:text-4xl min-[425px]:text-5xl sm:text-7xl lg:text-8xl font-black leading-[1.12] sm:leading-[1.08] tracking-tight text-white max-w-5xl mx-auto break-words">
+        {{ __('Uji Aplikasi Secara Langsung') }}<br class="hidden sm:inline" />
+        <span class="text-[#ffd900]">{{ __('Face to Face Testing') }}</span>
+      </h1>
 
-        <!-- Headline -->
-        <h1 class="text-4xl sm:text-5xl lg:text-5xl font-black leading-tight tracking-tight">
-          {{ __('Lulus Uji Coba 14 Hari') }}<br />
-          <span class="text-brand-200">{{ __('Closed Testing') }}</span><br />
-          {{ __('di Google Play Tanpa Ribet') }}
-        </h1>
+      <!-- Sub-headline -->
+      <p class="text-sm min-[375px]:text-base sm:text-xl text-zinc-400 leading-relaxed max-w-3xl mx-auto font-normal">
+        {{ __('Testoplay menghubungkan Developer dengan tester yang bersedia hadir langsung di lokasi pengujian. Seleksi pelamar berkualitas, atur jadwal & lokasi fleksibel, dan bayar komisi tunai per tester tanpa sistem poin atau batasan 14 hari.') }}
+      </p>
 
-        <!-- Sub-headline -->
-        <p class="text-lg text-brand-100 leading-relaxed max-w-lg">
-          {{ __('Testoplay adalah platform kolaborasi antara Developer yang membutuhkan tester aktif dan Tester yang ingin berkontribusi sambil belajar langsung lewat pengujian aplikasi nyata.') }}
-        </p>
+      <!-- Dual CTA -->
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 pt-2 w-full max-w-md sm:max-w-none mx-auto">
+        <button onclick="window.location.href='{{ route('filament.developer.auth.login') }}'" 
+          class="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-9 py-3.5 sm:py-4 bg-[#ffd900] text-[#111111] font-bold text-base sm:text-lg rounded-xl shadow-lg shadow-yellow-500/10 hover:bg-[#ffe033] hover:shadow-yellow-500/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer">
+          {{ __('Saya Butuh Tester') }}
+        </button>
+        <button onclick="window.location.href='{{ route('filament.tester.auth.login') }}'" 
+          class="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-9 py-3.5 sm:py-4 bg-zinc-900/90 border border-zinc-700/80 text-zinc-200 hover:text-white hover:border-zinc-500 hover:bg-zinc-800 font-semibold text-base sm:text-lg rounded-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer">
+          {{ __('Saya Ingin Jadi Tester') }}
+        </button>
+      </div>
 
-        <!-- Dual CTA -->
-        <div class="flex flex-col sm:flex-row gap-3.5 pt-1">
-          <button onclick="window.location.href='{{ route('filament.developer.auth.login') }}'" class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-brand-700 font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:bg-brand-50 transition duration-300 text-sm tracking-wide">
-            {{ __('Saya Butuh Tester') }}
-          </button>
-          <button onclick="window.location.href='{{ route('filament.tester.auth.login') }}'" class="inline-flex items-center justify-center px-7 py-3.5 bg-white/10 border border-white/30 text-white font-semibold rounded-2xl hover:bg-white/20 transition duration-300 text-sm backdrop-blur-sm tracking-wide">
-            {{ __('Saya Ingin Jadi Tester') }}
-          </button>
-        </div>
-
-        <!-- Social proof counters -->
-        <div class="flex gap-8 pt-5 border-t border-white/20">
-          <div>
-            <p class="text-3xl font-black">1,200+</p>
-            <p class="text-brand-200 text-xs font-medium mt-0.5">{{ __('Tester Aktif') }}</p>
+      <!-- Social proof metrics card -->
+      <div class="pt-6 w-full max-w-3xl mx-auto">
+        <div class="grid grid-cols-1 min-[425px]:grid-cols-3 gap-3 min-[425px]:gap-0 py-4 sm:py-5 px-4 sm:px-8 rounded-2xl bg-zinc-900/60 border border-zinc-800/90 backdrop-blur-md divide-y min-[425px]:divide-y-0 min-[425px]:divide-x divide-zinc-800/80 shadow-xl shadow-black/20">
+          <div class="text-center px-2 sm:px-4 py-2 min-[425px]:py-0">
+            <p class="text-2xl min-[375px]:text-3xl sm:text-4xl font-black text-white tracking-tight">500+</p>
+            <p class="text-zinc-400 text-xs sm:text-sm font-medium mt-1">{{ __('Pengujian Selesai') }}</p>
           </div>
-          <div class="w-px bg-white/20"></div>
-          <div>
-            <p class="text-3xl font-black">340+</p>
-            <p class="text-brand-200 text-xs font-medium mt-0.5">{{ __('Aplikasi Lulus Uji') }}</p>
+          <div class="text-center px-2 sm:px-4 py-2 min-[425px]:py-0">
+            <p class="text-2xl min-[375px]:text-3xl sm:text-4xl font-black text-white tracking-tight">1,200+</p>
+            <p class="text-zinc-400 text-xs sm:text-sm font-medium mt-1">{{ __('Tester Aktif') }}</p>
           </div>
-          <div class="w-px bg-white/20"></div>
-          <div>
-            <p class="text-3xl font-black">98%</p>
-            <p class="text-brand-200 text-xs font-medium mt-0.5">{{ __('Tingkat Keberhasilan') }}</p>
+          <div class="text-center px-2 sm:px-4 py-2 min-[425px]:py-0">
+            <p class="text-2xl min-[375px]:text-3xl sm:text-4xl font-black text-[#ffd900] tracking-tight">100%</p>
+            <p class="text-zinc-400 text-xs sm:text-sm font-medium mt-1">{{ __('Komisi Tunai') }}</p>
           </div>
         </div>
       </div>
 
-      <!-- ── Right: Glassmorphism Dashboard Card ── -->
-      <div class="flex justify-center lg:justify-end animate-floatY">
-        <div class="glass-card rounded-3xl p-6 w-full max-w-sm shadow-2xl text-white">
-
-          <!-- Card header -->
-          <div class="mb-5 pb-3 border-b border-white/10">
-            <p class="text-xs text-brand-200 font-medium uppercase tracking-widest">{{ __('Kampanye Aktif') }}</p>
-            <p class="text-xl font-bold mt-1 tracking-tight">{{ __('MyApp – Closed Testing') }}</p>
-          </div>
-
-          <!-- 14 Days Progress -->
-          <div class="bg-white/10 rounded-2xl p-4 mb-4">
-            <div class="flex justify-between text-xs font-semibold mb-2">
-              <span class="text-brand-100">{{ __('Progres 14 Hari') }}</span>
-              <span class="text-white">{{ __('Hari') }} 9 / 14</span>
-            </div>
-            <div class="w-full h-3 bg-white/20 rounded-full overflow-hidden">
-              <div class="h-3 bg-green-500 rounded-full progress-fill" style="--fill: 64%;"></div>
-            </div>
-            <p class="text-xs text-brand-200 mt-2">{{ __('64% selesai · diperkirakan lulus dalam') }} <strong class="text-white">5 {{ __('hari lagi') }}</strong></p>
-          </div>
-
-          <!-- Tester count -->
-          <div class="bg-white/10 rounded-2xl p-4 mb-4">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs text-brand-100 font-semibold uppercase tracking-widest">{{ __('Tester Aktif') }}</span>
-              <span class="text-green-400 font-black text-xl">20 / 20</span>
-            </div>
-            <!-- Avatar row -->
-            <div class="flex items-center">
-              <div class="flex -space-x-2">
-                <div class="w-7 h-7 rounded-full bg-pink-400 border-2 border-white/30 flex items-center justify-center text-xs font-bold">A</div>
-                <div class="w-7 h-7 rounded-full bg-yellow-400 border-2 border-white/30 flex items-center justify-center text-xs font-bold">B</div>
-                <div class="w-7 h-7 rounded-full bg-green-400 border-2 border-white/30 flex items-center justify-center text-xs font-bold">C</div>
-                <div class="w-7 h-7 rounded-full bg-purple-400 border-2 border-white/30 flex items-center justify-center text-xs font-bold">D</div>
-                <div class="w-7 h-7 rounded-full bg-brand-300 border-2 border-white/30 flex items-center justify-center text-xs font-bold">+16</div>
-              </div>
-              <span class="ml-3 text-xs text-brand-200">{{ __("Semua tester memenuhi syarat Google") }}</span>
-            </div>
-          </div>
-
-          <!-- Daily chart mini -->
-          <div class="bg-white/10 rounded-2xl p-4">
-            <p class="text-xs text-brand-100 font-semibold uppercase tracking-widest mb-3">{{ __('Aktivitas Harian') }}</p>
-            <div class="flex items-end gap-1.5 h-14">
-              <!-- 14 bar mini chart – all active -->
-              <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:60%;" title="Day 1"></div>
-              <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:80%;" title="Day 2"></div>
-              <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:55%;" title="Day 3"></div>
-              <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:90%;" title="Day 4"></div>
-              <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:70%;" title="Day 5"></div>
-              <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:85%;" title="Day 6"></div>
-              <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:65%;" title="Day 7"></div>
-              <div class="flex-1 bg-green-400/60 rounded-t-sm" style="height:75%;" title="Day 8"></div>
-              <div class="flex-1 bg-white/50 rounded-t-sm" style="height:100%;" title="Day 9 – Today"></div>
-              <div class="flex-1 bg-white/20 rounded-t-sm" style="height:30%;" title="Day 10 – Upcoming"></div>
-              <div class="flex-1 bg-white/20 rounded-t-sm" style="height:20%;"></div>
-              <div class="flex-1 bg-white/20 rounded-t-sm" style="height:20%;"></div>
-              <div class="flex-1 bg-white/20 rounded-t-sm" style="height:20%;"></div>
-              <div class="flex-1 bg-white/20 rounded-t-sm" style="height:20%;"></div>
-            </div>
-            <div class="flex justify-between text-xs text-brand-300 mt-2 font-medium">
-              <span>{{ __('Hari') }} 1</span><span>{{ __('Hari') }} 9 ← {{ __('Anda di sini') }}</span><span>{{ __('Hari') }} 14</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
     </div>
 
     <!-- Wave divider -->
     <div class="absolute bottom-0 left-0 right-0 overflow-hidden leading-none">
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-14 fill-slate-50 dark:fill-slate-950">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-14 fill-[#111111]">
         <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" />
       </svg>
     </div>
@@ -611,36 +499,36 @@
   <!-- ════════════════════════════════════════════
      3. HOW IT WORKS – Steps
      ════════════════════════════════════════════ -->
-  <section id="how-it-works" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-950">
+  <section id="how-it-works" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-[#111111]">
     <div class="max-w-7xl mx-auto">
 
       <div class="text-center mb-14 reveal">
-        <span class="text-brand-600 font-semibold text-sm uppercase tracking-widest">{{ __('Cara Kerja') }}</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-800 dark:text-white mt-2">{{ __('Tiga Langkah Mudah') }}</h2>
-        <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto">{{ __('Proses yang sederhana, transparan, dan terpantau sepenuhnya untuk memastikan aplikasi Anda lulus closed testing dengan sukses.') }}</p>
+        <span class="text-[#ca8a04] dark:text-[#ffd900] font-bold text-sm uppercase tracking-widest">{{ __('Cara Kerja') }}</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-800 dark:text-white mt-2">{{ __('Tiga Langkah Alur Pengujian Langsung') }}</h2>
+        <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto">{{ __('Alur kerja sederhana dan transparan untuk penyelenggaraan pengujian aplikasi tatap muka (face to face).') }}</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
         <!-- Step 1 -->
-        <div class="reveal bg-white dark:bg-slate-900 rounded-2xl pt-9 pb-8 px-8 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition duration-300 relative text-center border border-transparent dark:border-slate-800">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 bg-brand-600 text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg ring-4 ring-slate-50 dark:ring-slate-950">1</div>
-          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Daftar & Unggah Aplikasi') }}</h3>
-          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Developer mendaftar, memilih paket, dan mengirimkan tautan aplikasi Google Play untuk closed testing.') }}</p>
+        <div class="reveal bg-white dark:bg-[#1a1a18] rounded-2xl pt-9 pb-8 px-8 shadow-sm transition duration-300 relative text-center border border-slate-200 dark:border-[#2e2e2e]">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 bg-[#ffd900] text-[#111111] rounded-full flex items-center justify-center font-black text-sm shadow-md ring-4 ring-slate-50 dark:ring-[#111111]">1</div>
+          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Developer Buat Pengujian') }}</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Developer menentukan lokasi fisik, jadwal tanggal & waktu, jumlah tester, persyaratan khusus, serta nominal komisi (min. Rp 20.000).') }}</p>
         </div>
 
         <!-- Step 2 -->
-        <div class="reveal bg-white dark:bg-slate-900 rounded-2xl pt-9 pb-8 px-8 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition duration-300 relative text-center border border-transparent dark:border-slate-800" style="transition-delay: 0.15s;">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 bg-brand-600 text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg ring-4 ring-slate-50 dark:ring-slate-950">2</div>
-          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('20 Tester Bergabung') }}</h3>
-          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Our platform automatically connects 20 verified active testers to your app\'s testing session.') }}</p>
+        <div class="reveal bg-white dark:bg-[#1a1a18] rounded-2xl pt-9 pb-8 px-8 shadow-sm transition duration-300 relative text-center border border-slate-200 dark:border-[#2e2e2e]" style="transition-delay: 0.15s;">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 bg-[#ffd900] text-[#111111] rounded-full flex items-center justify-center font-black text-sm shadow-md ring-4 ring-slate-50 dark:ring-[#111111]">2</div>
+          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Tester Melamar & Seleksi') }}</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Tester membaca syarat, menyetujui komitmen kehadiran, dan melamar (Apply). Developer menyeleksi pendaftar sesuai kuota.') }}</p>
         </div>
 
         <!-- Step 3 -->
-        <div class="reveal bg-white dark:bg-slate-900 rounded-2xl pt-9 pb-8 px-8 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition duration-300 relative text-center border border-transparent dark:border-slate-800" style="transition-delay: 0.3s;">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 bg-brand-600 text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg ring-4 ring-slate-50 dark:ring-slate-950">3</div>
-          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Lulus & Rilis ke Play Store') }}</h3>
-          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Setelah 14 hari berturut-turut dengan 20 tester aktif, aplikasi Anda siap diluncurkan di Google Play Store.') }}</p>
+        <div class="reveal bg-white dark:bg-[#1a1a18] rounded-2xl pt-9 pb-8 px-8 shadow-sm transition duration-300 relative text-center border border-slate-200 dark:border-[#2e2e2e]" style="transition-delay: 0.3s;">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 bg-[#ffd900] text-[#111111] rounded-full flex items-center justify-center font-black text-sm shadow-md ring-4 ring-slate-50 dark:ring-[#111111]">3</div>
+          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Testing di Lokasi & Komisi Cair') }}</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Tester hadir langsung di lokasi sesuai jadwal. Setelah selesai, developer mengonfirmasi kehadiran dan komisi otomatis cair ke dompet tester.') }}</p>
         </div>
 
       </div>
@@ -651,22 +539,22 @@
   <!-- ════════════════════════════════════════════
      4. DUAL INFO SECTION – Tabbed layout (jQuery)
      ════════════════════════════════════════════ -->
-  <section id="benefits" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900">
+  <section id="benefits" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#111111]">
     <div class="max-w-5xl mx-auto">
 
       <div class="text-center mb-10 reveal">
-        <span class="text-brand-600 dark:text-brand-400 font-semibold text-sm uppercase tracking-widest">{{ __('Manfaat') }}</span>
+        <span class="text-[#ca8a04] dark:text-[#ffd900] font-bold text-sm uppercase tracking-widest">{{ __('Manfaat') }}</span>
         <h2 class="text-3xl sm:text-4xl font-black text-slate-800 dark:text-white mt-2">{{ __('Platform untuk Semua Orang') }}</h2>
         <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto">{{ __('Pilih perspektif Anda dan temukan bagaimana Testoplay memberikan nilai nyata.') }}</p>
       </div>
 
       <!-- ── Tab Switcher ── -->
       <div class="flex justify-center mb-10 reveal">
-        <div class="inline-flex bg-slate-100 dark:bg-slate-800 p-1.5 rounded-2xl gap-1">
-          <button class="tab-btn active px-6 py-2.5 rounded-xl text-sm font-semibold transition duration-200 hover:bg-white dark:hover:bg-slate-700 focus:outline-none" data-tab="developer">
-            <i class="fa-solid fa-code mr-2 text-brand-500"></i>{{ __('Untuk Developer') }}
+        <div class="inline-flex bg-slate-100 dark:bg-[#1a1a18] p-1.5 rounded-2xl gap-1 border border-slate-200 dark:border-[#2e2e2e]">
+          <button class="tab-btn active px-6 py-2.5 rounded-xl text-sm font-semibold transition duration-200 hover:bg-white dark:hover:bg-[#242424] focus:outline-none" data-tab="developer">
+            <i class="fa-solid fa-code mr-2 text-[#ffd900]"></i>{{ __('Untuk Developer') }}
           </button>
-          <button class="tab-btn px-6 py-2.5 rounded-xl text-sm font-semibold text-slate-500 dark:text-slate-400 transition duration-200 hover:bg-white dark:hover:bg-slate-700 focus:outline-none" data-tab="tester">
+          <button class="tab-btn px-6 py-2.5 rounded-xl text-sm font-semibold text-slate-500 dark:text-slate-400 transition duration-200 hover:bg-white dark:hover:bg-[#242424] focus:outline-none" data-tab="tester">
             <i class="fa-solid fa-mobile-screen-button mr-2 text-slate-400"></i>{{ __('Untuk Tester') }}
           </button>
         </div>
@@ -677,21 +565,21 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           <!-- Benefit 1 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Cari Tester dengan Mudah') }}</h4>
-            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Tidak perlu mencari manual. Sistem kami secara instan menghubungkan Anda dengan 20 tester aktif terverifikasi.') }}</p>
+          <div class="bg-slate-50 dark:bg-[#1a1a18] rounded-2xl p-7 border border-slate-200 dark:border-[#2e2e2e] transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Lokasi & Jadwal Fleksibel') }}</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Tentukan sendiri tanggal, jam, dan lokasi fisik yang paling sesuai untuk mengadakan sesi pengujian langsung.') }}</p>
           </div>
 
           <!-- Benefit 2 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Validasi 14 Hari Otomatis') }}</h4>
-            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('A real-time dashboard monitors each tester\'s activity for 14 consecutive days as required by Google Play Console.') }}</p>
+          <div class="bg-slate-50 dark:bg-[#1a1a18] rounded-2xl p-7 border border-slate-200 dark:border-[#2e2e2e] transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Kendali Penuh Seleksi Tester') }}</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Tinjau profil dan data kontak pendaftar di daftar antrean. Terima hanya tester yang memenuhi kriteria pengujian Anda.') }}</p>
           </div>
 
           <!-- Benefit 3 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Hindari Penolakan Google') }}</h4>
-            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Our structured process ensures all of Google\'s technical requirements are met so your app won\'t be rejected at launch.') }}</p>
+          <div class="bg-slate-50 dark:bg-[#1a1a18] rounded-2xl p-7 border border-slate-200 dark:border-[#2e2e2e] transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Feedback Nyata Tatap Muka') }}</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Saksikan interaksi langsung tester dengan aplikasi Anda secara real-time untuk menemukan kendala teknis dan UX seketika.') }}</p>
           </div>
 
         </div>
@@ -701,21 +589,21 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           <!-- Benefit 1 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Akses Awal Aplikasi') }}</h4>
-            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Jadilah yang pertama mencoba aplikasi inovatif dari developer Indonesia sebelum resmi diluncurkan ke publik.') }}</p>
+          <div class="bg-slate-50 dark:bg-[#1a1a18] rounded-2xl p-7 border border-slate-200 dark:border-[#2e2e2e] transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Komisi Tunai IDR Pasti') }}</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Dapatkan pembayaran komisi langsung ke Bank, DANA, GoPay, OVO, atau ShopeePay tanpa sistem poin.') }}</p>
           </div>
 
           <!-- Benefit 2 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Pengalaman Belajar Berbasis Proyek') }}</h4>
-            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Tingkatkan keterampilan QA dan pengujian perangkat lunak Anda melalui proyek nyata — pengalaman yang dapat Anda tambahkan langsung ke portofolio.') }}</p>
+          <div class="bg-slate-50 dark:bg-[#1a1a18] rounded-2xl p-7 border border-slate-200 dark:border-[#2e2e2e] transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Pilih Sesi yang Cocok') }}</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Cari pengujian di lokasi terdekat dan waktu luang yang Anda inginkan. Daftarkan diri hanya pada sesi yang siap Anda hadiri.') }}</p>
           </div>
 
           <!-- Benefit 3 -->
-          <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-7 border border-slate-100 dark:border-slate-800/80 hover:border-brand-300 dark:hover:border-brand-500/30 hover:shadow-lg dark:hover:shadow-slate-900/30 transition duration-300">
-            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Komunitas Aktif') }}</h4>
-            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Bergabunglah dengan ribuan tester dan developer di komunitas Testoplay — berbagi pengetahuan, berdiskusi, dan temukan peluang kolaborasi.') }}</p>
+          <div class="bg-slate-50 dark:bg-[#1a1a18] rounded-2xl p-7 border border-slate-200 dark:border-[#2e2e2e] transition duration-300">
+            <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-2.5">{{ __('Pengalaman Nyata QA') }}</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Berinteraksi langsung dengan developer, uji fitur-fitur baru, dan bangun portofolio pengujian perangkat lunak Anda.') }}</p>
           </div>
 
         </div>
@@ -728,102 +616,89 @@
   <!-- ════════════════════════════════════════════
      5. PRICING TABLE – Two cards side by side
      ════════════════════════════════════════════ -->
-  <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
-
-    <!-- Decoration -->
-    <div class="absolute inset-0 bg-brand-500pointer-events-none"></div>
+  <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-[#111111] relative overflow-hidden">
 
     <div class="max-w-5xl mx-auto relative">
 
       <div class="text-center mb-14 reveal">
-        <span class="text-brand-600 dark:text-brand-400 font-semibold text-sm uppercase tracking-widest">{{ __('Harga') }}</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-800 dark:text-white mt-2">{{ __('Pilih Paket Pengujian Anda') }}</h2>
-        <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto">{{ __('Investasi sekali bayar untuk memastikan aplikasi Anda lulus closed testing dengan sukses dan siap diluncurkan ke jutaan pengguna.') }}</p>
+        <span class="text-[#ca8a04] dark:text-[#ffd900] font-bold text-sm uppercase tracking-widest">{{ __('Skema Komisi') }}</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-800 dark:text-white mt-2">{{ __('Biaya Transparan Sesuai Kebutuhan') }}</h2>
+        <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto">{{ __('Tanpa paket langganan kaku. Anda bebas menentukan jumlah tester dan nominal komisi yang ingin diberikan.') }}</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
 
-        <!-- ── Card 1: Starter ── -->
-        <div class="pricing-card reveal bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-lg border border-slate-100 dark:border-slate-800">
+        <!-- ── Card 1: Ketentuan Komisi ── -->
+        <div class="pricing-card reveal bg-white dark:bg-[#1a1a18] rounded-2xl p-8 shadow-sm border border-slate-200 dark:border-[#2e2e2e] flex flex-col justify-between">
 
-          <div class="mb-6">
-            <div class="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
-              <i class="fa-solid fa-seedling text-green-500"></i> {{ __('Paket Starter') }}
+          <div>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">{{ __('Aturan standar sistem pengujian tatap muka yang adil untuk developer dan tester.') }}</p>
+
+            <div class="mb-6 pb-6 border-b border-slate-100 dark:border-[#2e2e2e]">
+              <div class="flex items-baseline gap-1">
+                <span class="text-slate-400 text-sm font-medium">Mulai</span>
+                <span class="text-slate-400 text-sm font-medium ml-1">Rp</span>
+                <span class="text-5xl font-black text-slate-800 dark:text-white">20</span>
+                <span class="text-slate-400 text-lg font-medium">.000</span>
+                <span class="text-slate-400 text-xs font-normal">/ tester</span>
+              </div>
+              <p class="text-slate-400 text-xs mt-1">{{ __('Batas minimum komisi per tester · Bebas biaya admin (Rp 0)') }}</p>
             </div>
-            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Solusi dasar untuk memenuhi persyaratan Google Play Closed Testing.') }}</p>
+
+            <ul class="check-list text-sm text-slate-600 dark:text-slate-300 mb-8 space-y-0">
+              <li><i class="fa-solid fa-circle-check text-green-500"></i><span>{{ __('Bebas Tentukan Jumlah Tester (Mulai dari 1 Orang)') }}</span></li>
+              <li><i class="fa-solid fa-circle-check text-green-500"></i><span>{{ __('Bebas Tentukan Lokasi & Jadwal Tatap Muka') }}</span></li>
+              <li><i class="fa-solid fa-circle-check text-green-500"></i><span>{{ __('Hak Penuh Menyeleksi Calon Tester') }}</span></li>
+              <li><i class="fa-solid fa-circle-check text-green-500"></i><span>{{ __('Komisi Baru Masuk Dompet Setelah Tester Selesai') }}</span></li>
+            </ul>
           </div>
 
-          <!-- Price -->
-          <div class="mb-6 pb-6 border-b border-slate-100 dark:border-slate-800">
-            <div class="flex items-baseline gap-1">
-              <span class="text-slate-400 text-sm font-medium">Rp</span>
-              <span class="text-5xl font-black text-slate-800 dark:text-white">300</span>
-              <span class="text-slate-400 text-lg font-medium">.000</span>
-            </div>
-            <p class="text-slate-400 text-xs mt-1">{{ __('Sekali bayar · akses penuh 14 hari') }}</p>
-          </div>
-
-          <!-- Features -->
-          <ul class="check-list text-sm text-slate-600 dark:text-slate-300 mb-8 space-y-0">
-            <li><i class="fa-solid fa-circle-check text-green-500"></i><span>{{ __('Akses ke 20 Tester Aktif & Terverifikasi') }}</span></li>
-            <li><i class="fa-solid fa-circle-check text-green-500"></i><span>{{ __('14 Hari Pengujian Penuh Berturut-turut') }}</span></li>
-            <li><i class="fa-solid fa-circle-check text-green-500"></i><span>{{ __('Laporan Pengujian Standar') }}</span></li>
-            <li><i class="fa-solid fa-circle-check text-green-500"></i><span>{{ __('Dukungan Komunitas Testoplay') }}</span></li>
-          </ul>
-
-          <a href="#" class="block w-full text-center py-3.5 rounded-xl font-bold text-brand-700 dark:text-brand-400 border-2 border-brand-600 dark:border-brand-500 hover:bg-brand-600 hover:text-white transition duration-300 text-sm">
-            {{ __('Pilih Starter') }}
+          <a href="{{ route('filament.developer.auth.login') }}" class="block w-full text-center py-3.5 rounded-xl font-bold text-slate-800 dark:text-white border border-slate-300 dark:border-[#333333] hover:bg-slate-100 dark:hover:bg-[#242424] transition duration-300 text-sm">
+            {{ __('Mulai Sebagai Developer') }}
           </a>
         </div>
 
-        <!-- ── Card 2: Pro (Best Value) ── -->
+        <!-- ── Card 2: Simulasi Perhitungan Biaya ── -->
         <div class="pricing-card reveal relative" style="transition-delay: 0.15s;">
 
-          <!-- Popular badge floating above card -->
-          <div class="flex justify-center mb-3">
-            <span class="badge-popular">
-              <i class="fa-solid fa-fire mr-1"></i> {{ __('Paling Populer') }}
-            </span>
-          </div>
+          <div class="bg-white dark:bg-[#1a1a18] rounded-2xl p-8 shadow-xl border-2 border-[#ffd900] relative overflow-hidden flex flex-col justify-between h-full">
 
-          <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-2xl border-2 border-brand-600 relative overflow-hidden">
+            <div>
+              <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">{{ __('Total Biaya = (Jumlah Tester × Komisi per Tester) + Biaya Admin (Rp 0)') }}</p>
 
-            <!-- Corner ribbon glow -->
-            <div class="absolute -top-10 -right-10 w-36 h-36 bg-brand-500/10 rounded-full blur-2xl"></div>
+              <!-- Example Simulation Table -->
+              <div class="space-y-3 mb-8">
+                <div class="flex items-center justify-between p-3.5 bg-slate-50 dark:bg-[#242424] rounded-xl border border-slate-200 dark:border-[#333333] text-xs">
+                  <div>
+                    <span class="font-bold text-slate-900 dark:text-white">3 Tester</span>
+                    <span class="text-slate-400"> × Rp 20.000</span>
+                  </div>
+                  <span class="font-black text-[#ca8a04] dark:text-[#ffd900] text-sm">Rp 60.000</span>
+                </div>
 
-            <div class="mb-6 relative">
-              <div class="inline-flex items-center gap-2 bg-brand-600 text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
-                <i class="fa-solid fa-gem"></i> {{ __('Paket Pro') }}
+                <div class="flex items-center justify-between p-3.5 bg-slate-50 dark:bg-[#242424] rounded-xl border border-slate-200 dark:border-[#333333] text-xs">
+                  <div>
+                    <span class="font-bold text-slate-900 dark:text-white">5 Tester</span>
+                    <span class="text-slate-400"> × Rp 25.000</span>
+                  </div>
+                  <span class="font-black text-[#ca8a04] dark:text-[#ffd900] text-sm">Rp 125.000</span>
+                </div>
+
+                <div class="flex items-center justify-between p-3.5 bg-slate-50 dark:bg-[#242424] rounded-xl border border-slate-200 dark:border-[#333333] text-xs">
+                  <div>
+                    <span class="font-bold text-slate-900 dark:text-white">10 Tester</span>
+                    <span class="text-slate-400"> × Rp 30.000</span>
+                  </div>
+                  <span class="font-black text-[#ca8a04] dark:text-[#ffd900] text-sm">Rp 300.000</span>
+                </div>
               </div>
-              <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ __('Solusi premium untuk optimasi lengkap sebelum aplikasi Anda dipublikasikan.') }}</p>
             </div>
 
-            <!-- Price -->
-            <div class="mb-6 pb-6 border-b border-slate-100 dark:border-slate-800 relative">
-              <div class="flex items-baseline gap-1">
-                <span class="text-brand-400 text-sm font-medium">Rp</span>
-                <span class="text-5xl font-black text-brand-700 dark:text-brand-400">500</span>
-                <span class="text-brand-400 text-lg font-medium">.000</span>
-              </div>
-              <p class="text-slate-400 text-xs mt-1">{{ __('Sekali bayar · akses prioritas penuh') }}</p>
+            <div>
+              <a href="{{ route('filament.developer.auth.login') }}" class="relative block w-full text-center py-3.5 rounded-xl font-bold text-[#111111] bg-[#ffd900] shadow-md hover:bg-[#e6c400] transition duration-300 text-sm">
+                <i class="fa-solid fa-plus-circle mr-1"></i> {{ __('Buat Sesi Pengujian Sekarang') }}
+              </a>
             </div>
-
-            <!-- Features -->
-            <ul class="check-list text-sm text-slate-600 dark:text-slate-300 mb-8 relative space-y-0">
-              <li><i class="fa-solid fa-circle-check text-brand-500"></i><span>{{ __('Semua Fitur Paket Starter') }}</span></li>
-              <li><i class="fa-solid fa-circle-check text-brand-500"></i><span>{{ __('Laporan Bug & UX Mendalam per Tester') }}</span></li>
-              <li><i class="fa-solid fa-circle-check text-brand-500"></i><span>{{ __('Antrean Prioritas (Mulai Lebih Cepat)') }}</span></li>
-              <li><i class="fa-solid fa-circle-check text-brand-500"></i><span>{{ __('Review Komprehensif dari Setiap Tester') }}</span></li>
-              <li><i class="fa-solid fa-circle-check text-brand-500"></i><span>{{ __('Dukungan Prioritas via Live Chat') }}</span></li>
-            </ul>
-
-            <a href="#" class="relative block w-full text-center py-3.5 rounded-xl font-bold text-white bg-brand-500 shadow-lg shadow-brand-200 dark:shadow-brand-900/50 hover:shadow-brand-300 hover: hover: transition duration-300 text-sm">
-              <i class="fa-solid fa-bolt mr-1"></i> {{ __('Pilih Pro – Mulai Sekarang') }}
-            </a>
-
-            <p class="text-center text-xs text-slate-400 mt-3">
-              <i class="fa-solid fa-lock text-xs mr-1"></i>{{ __('Pembayaran aman · garansi 7 hari') }}
-            </p>
 
           </div>
         </div>
@@ -834,8 +709,7 @@
       <div class="mt-10 text-center reveal">
         <p class="text-slate-400 text-sm">
           <i class="fa-solid fa-circle-info text-brand-400 mr-1"></i>
-          {{ __('Semua paket termasuk akses ke dasbor pemantauan real-time 14 hari.') }}
-          <a href="#" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline ml-1">{{ __('Lihat perbandingan lengkap →') }}</a>
+          {{ __('Seluruh pembayaran komisi tester dicairkan langsung ke Bank Transfer, DANA, GoPay, OVO, atau ShopeePay.') }}
         </p>
       </div>
 
@@ -846,23 +720,23 @@
   <!-- ════════════════════════════════════════════
      6. TESTIMONIAL (bonus) – Social proof
      ════════════════════════════════════════════ -->
-  <section id="testi" class="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900">
+  <section id="testi" class="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#111111]">
     <div class="max-w-6xl mx-auto">
 
       <div class="text-center mb-10 reveal">
-        <span class="text-brand-600 dark:text-brand-400 font-semibold text-sm uppercase tracking-widest">{{ __('Testimoni') }}</span>
+        <span class="text-[#ca8a04] dark:text-[#ffd900] font-bold text-sm uppercase tracking-widest">{{ __('Testimoni') }}</span>
         <h2 class="text-2xl sm:text-3xl font-black text-slate-800 dark:text-white mt-2">{{ __('Dipercaya oleh Developer & Tester Indonesia') }}</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <div class="reveal bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 shadow-sm hover:shadow-md dark:hover:shadow-slate-900/30 transition duration-300">
-          <div class="flex gap-1 text-yellow-400 mb-3 text-sm">
+        <div class="reveal bg-slate-50 dark:bg-[#1a1a18] border border-slate-200 dark:border-[#2e2e2e] rounded-2xl p-6 shadow-sm transition duration-300">
+          <div class="flex gap-1 text-[#ffd900] mb-3 text-sm">
             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
           </div>
           <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">"{{ __('Saya pernah mencoba platform lain dan gagal. Dengan Testoplay, aplikasi saya lulus dalam 14 hari dan sekarang sudah live di Play Store!') }}"</p>
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 bg-brand-200 dark:bg-brand-900/50 rounded-full flex items-center justify-center font-bold text-brand-700 dark:text-brand-300 text-sm">RD</div>
+            <div class="w-9 h-9 bg-slate-200 dark:bg-[#242424] rounded-full flex items-center justify-center font-bold text-slate-700 dark:text-white text-sm">RD</div>
             <div>
               <p class="font-semibold text-slate-800 dark:text-white text-sm">Rizky D.</p>
               <p class="text-slate-400 text-xs">Developer – Jakarta</p>
@@ -870,13 +744,13 @@
           </div>
         </div>
 
-        <div class="reveal bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 shadow-sm hover:shadow-md dark:hover:shadow-slate-900/30 transition duration-300" style="transition-delay:0.1s;">
-          <div class="flex gap-1 text-yellow-400 mb-3 text-sm">
+        <div class="reveal bg-slate-50 dark:bg-[#1a1a18] border border-slate-200 dark:border-[#2e2e2e] rounded-2xl p-6 shadow-sm transition duration-300" style="transition-delay:0.1s;">
+          <div class="flex gap-1 text-[#ffd900] mb-3 text-sm">
             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
           </div>
           <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">"{{ __('Sebagai tester, saya mendapatkan pengalaman QA nyata dan bisa menambahkannya ke CV saya. Komunitas Testoplay sangat mendukung!') }}"</p>
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 bg-green-200 dark:bg-green-900/50 rounded-full flex items-center justify-center font-bold text-green-700 dark:text-green-300 text-sm">AN</div>
+            <div class="w-9 h-9 bg-slate-200 dark:bg-[#242424] rounded-full flex items-center justify-center font-bold text-slate-700 dark:text-white text-sm">AN</div>
             <div>
               <p class="font-semibold text-slate-800 dark:text-white text-sm">Ari N.</p>
               <p class="text-slate-400 text-xs">Tester – Surabaya</p>
@@ -884,13 +758,13 @@
           </div>
         </div>
 
-        <div class="reveal bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 shadow-sm hover:shadow-md dark:hover:shadow-slate-900/30 transition duration-300" style="transition-delay:0.2s;">
-          <div class="flex gap-1 text-yellow-400 mb-3 text-sm">
+        <div class="reveal bg-slate-50 dark:bg-[#1a1a18] border border-slate-200 dark:border-[#2e2e2e] rounded-2xl p-6 shadow-sm transition duration-300" style="transition-delay:0.2s;">
+          <div class="flex gap-1 text-[#ffd900] mb-3 text-sm">
             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
           </div>
           <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">"{{ __('Dasbor pemantauannya sangat membantu. Saya bisa melacak progres 14 hari secara real-time. Paket Pro sangat layak!') }}"</p>
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 bg-purple-200 dark:bg-purple-900/50 rounded-full flex items-center justify-center font-bold text-purple-700 dark:text-purple-300 text-sm">FH</div>
+            <div class="w-9 h-9 bg-slate-200 dark:bg-[#242424] rounded-full flex items-center justify-center font-bold text-slate-700 dark:text-white text-sm">FH</div>
             <div>
               <p class="font-semibold text-slate-800 dark:text-white text-sm">Fajar H.</p>
               <p class="text-slate-400 text-xs">Developer – Bandung</p>
@@ -906,30 +780,23 @@
   <!-- ════════════════════════════════════════════
      7. CTA BANNER – Bottom call to action
      ════════════════════════════════════════════ -->
-  <section class="py-20 px-4 sm:px-6 lg:px-8 cta-bg relative overflow-hidden">
-
-    <div class="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-100 dark:bg-[#111111] relative overflow-hidden border-t border-slate-200 dark:border-[#2e2e2e]">
 
     <div class="max-w-3xl mx-auto text-center relative reveal">
 
-      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-semibold px-4 py-2 rounded-full mb-6">
-        <i class="fa-solid fa-rocket"></i> {{ __('Mulai perjalanan Anda hari ini') }}
-      </div>
-
-      <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight mb-4">
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white leading-tight mb-4">
         {{ __('Siap Meluncurkan Aplikasi Anda di Play Store?') }}
       </h2>
 
-      <p class="text-brand-100 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-        {{ __('Atau Anda ingin mulai membantu developer lain sambil membangun pengalaman QA Anda? Bergabunglah dengan') }} <strong class="text-white">Testoplay</strong> {{ __('now and become part of Indonesia\'s best testing ecosystem.') }}
+      <p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+        {{ __('Atau Anda ingin mulai membantu developer lain sambil membangun pengalaman QA Anda? Bergabunglah dengan') }} <strong class="text-slate-900 dark:text-white">Testoplay</strong> {{ __('sekarang dan jadilah bagian dari ekosistem pengujian terbaik.') }}
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <button onclick="window.location.href='{{ route('filament.developer.auth.register') }}'" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand-700 font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300">
+        <button onclick="window.location.href='{{ route('filament.developer.auth.register') }}'" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#ffd900] text-[#111111] font-bold rounded-2xl shadow-xl hover:bg-[#e6c400] transition duration-300">
           {{ __('Mulai sebagai Developer') }}
         </button>
-        <button onclick="window.location.href='{{ route('filament.tester.auth.register') }}'" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/30 text-white font-semibold rounded-2xl hover:bg-white/20 transition duration-300 backdrop-blur-sm">
+        <button onclick="window.location.href='{{ route('filament.tester.auth.register') }}'" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-[#242424] border border-slate-300 dark:border-[#333333] text-slate-800 dark:text-white font-semibold rounded-2xl hover:bg-slate-50 dark:hover:bg-[#2e2e2e] transition duration-300">
           {{ __('Daftar sebagai Tester') }}
         </button>
       </div>
@@ -941,7 +808,7 @@
   <!-- ════════════════════════════════════════════
      8. FOOTER
      ════════════════════════════════════════════ -->
-  <footer class="bg-white dark:bg-slate-950 text-slate-500 dark:text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-100 dark:border-slate-800 transition-colors duration-200">
+  <footer class="bg-white dark:bg-[#111111] text-slate-500 dark:text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-200 dark:border-[#2e2e2e] transition-colors duration-200">
     <div class="max-w-7xl mx-auto">
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-slate-100 dark:border-slate-800">
@@ -1011,8 +878,8 @@
     <div class="absolute inset-0 bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeAuthModal()"></div>
 
     <!-- Modal Content -->
-    <div class="bg-white dark:bg-slate-900 rounded-3xl w-full max-w-md relative z-10 shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300 border border-transparent dark:border-slate-800" id="authModalContent">
-      <button onclick="closeAuthModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-800 dark:hover:text-white transition">
+    <div class="bg-white dark:bg-[#1a1a18] rounded-3xl w-full max-w-md relative z-10 shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300 border border-slate-200 dark:border-[#2e2e2e]" id="authModalContent">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-[#242424] text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-[#2e2e2e] hover:text-slate-800 dark:hover:text-white transition">
         <i class="fa-solid fa-xmark"></i>
       </button>
       <div class="p-8">
@@ -1022,26 +889,26 @@
         </div>
         <div class="space-y-4">
           <!-- Developer -->
-          <a id="btnAuthDeveloper" href="#" class="group flex items-center p-4 border-2 border-slate-100 dark:border-slate-800 rounded-2xl hover:border-brand-500 hover:bg-brand-50 dark:hover:bg-brand-950 transition duration-300">
-            <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 group-hover:bg-brand-100 dark:group-hover:bg-brand-900/30 rounded-xl flex items-center justify-center transition duration-300">
-              <i class="fa-solid fa-code text-slate-500 dark:text-slate-400 group-hover:text-brand-600 dark:group-hover:text-brand-400"></i>
+          <a id="btnAuthDeveloper" href="#" class="group flex items-center p-4 border-2 border-slate-200 dark:border-[#2e2e2e] bg-slate-50 dark:bg-[#242424] rounded-2xl hover:border-[#ffd900] transition duration-300">
+            <div class="w-12 h-12 bg-slate-200 dark:bg-[#1a1a18] group-hover:bg-[#ffd900]/20 rounded-xl flex items-center justify-center transition duration-300">
+              <i class="fa-solid fa-code text-slate-600 dark:text-slate-300 group-hover:text-[#ca8a04] dark:group-hover:text-[#ffd900]"></i>
             </div>
             <div class="ml-4 flex-1">
-              <h4 class="font-bold text-slate-800 dark:text-white group-hover:text-brand-700 dark:group-hover:text-brand-400 transition">{{ __('Developer') }}</h4>
+              <h4 class="font-bold text-slate-800 dark:text-white group-hover:text-[#ca8a04] dark:group-hover:text-[#ffd900] transition">{{ __('Developer') }}</h4>
               <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{{ __('Pemilik aplikasi yang butuh tester') }}</p>
             </div>
-            <i class="fa-solid fa-chevron-right text-slate-300 dark:text-slate-600 group-hover:text-brand-500 transition"></i>
+            <i class="fa-solid fa-chevron-right text-slate-400 dark:text-slate-500 group-hover:text-[#ffd900] transition"></i>
           </a>
           <!-- Tester -->
-          <a id="btnAuthTester" href="#" class="group flex items-center p-4 border-2 border-slate-100 dark:border-slate-800 rounded-2xl hover:border-green-500 hover:bg-green-50 dark:hover:bg-green-950 transition duration-300">
-            <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 group-hover:bg-green-100 dark:group-hover:bg-green-900/30 rounded-xl flex items-center justify-center transition duration-300">
-              <i class="fa-solid fa-mobile-screen-button text-slate-500 dark:text-slate-400 group-hover:text-green-600 dark:group-hover:text-green-400"></i>
+          <a id="btnAuthTester" href="#" class="group flex items-center p-4 border-2 border-slate-200 dark:border-[#2e2e2e] bg-slate-50 dark:bg-[#242424] rounded-2xl hover:border-[#ffd900] transition duration-300">
+            <div class="w-12 h-12 bg-slate-200 dark:bg-[#1a1a18] group-hover:bg-[#ffd900]/20 rounded-xl flex items-center justify-center transition duration-300">
+              <i class="fa-solid fa-mobile-screen-button text-slate-600 dark:text-slate-300 group-hover:text-[#ca8a04] dark:group-hover:text-[#ffd900]"></i>
             </div>
             <div class="ml-4 flex-1">
-              <h4 class="font-bold text-slate-800 dark:text-white group-hover:text-green-700 dark:group-hover:text-green-400 transition">{{ __('Tester') }}</h4>
+              <h4 class="font-bold text-slate-800 dark:text-white group-hover:text-[#ca8a04] dark:group-hover:text-[#ffd900] transition">{{ __('Tester') }}</h4>
               <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{{ __('Penguji aplikasi untuk Google Play') }}</p>
             </div>
-            <i class="fa-solid fa-chevron-right text-slate-300 dark:text-slate-600 group-hover:text-green-500 transition"></i>
+            <i class="fa-solid fa-chevron-right text-slate-400 dark:text-slate-500 group-hover:text-[#ffd900] transition"></i>
           </a>
         </div>
       </div>
@@ -1107,21 +974,7 @@
     }
   </script>
 
-  <!-- ════════════════════════════════════════════
-     THEME TOGGLE FUNCTION
-     ════════════════════════════════════════════ -->
   <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      if (html.classList.contains('dark')) {
-        html.classList.remove('dark');
-        localStorage.setItem('pt-theme', 'light');
-      } else {
-        html.classList.add('dark');
-        localStorage.setItem('pt-theme', 'dark');
-      }
-    }
-
     function toggleNavDropdown() {
       var menu = document.getElementById('navDropdownMenu');
       var chevron = document.getElementById('navDropdownChevron');

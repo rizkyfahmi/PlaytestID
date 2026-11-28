@@ -316,7 +316,7 @@ Fonts : Sora (heading), JetBrains Mono (angka), Inter (body)
                 font-weight: 600;
                 padding: 2px 7px;
                 border-radius: 9999px;
-                font-family: 'JetBrains Mono', monospace;
+                font-family: 'Inter', sans-serif;
             }
 
             /* ══ SORT HEADER BUTTON ══ */

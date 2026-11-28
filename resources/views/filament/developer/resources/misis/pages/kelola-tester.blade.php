@@ -1,590 +1,243 @@
 <x-filament-panels::page>
-
-    @push('styles')
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <style>
-        .mp-sora { font-family: 'Sora', sans-serif !important; }
-        .mp-mono { font-family: 'JetBrains Mono', monospace !important; }
-
-        /* ══ ANIMATIONS ══ */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in-up { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-
-        /* ══ STAT CARDS ══ */
-        .mp-stat {
-            background: #fff; border-radius: 14px; padding: 18px 20px;
-            border: 1px solid #e2e8f0; position: relative; overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .mp-stat:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -10px rgba(0,0,0,.1); }
-        .mp-stat::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: #ffd900;
-            transform: skewX(-25deg); transition: 0.75s; z-index: 1; pointer-events: none;
-        }
-        .mp-stat:hover::after { left: 125%; }
-        .mp-stat-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-        .mp-stat-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s ease; }
-        .mp-stat:hover .mp-stat-icon { transform: scale(1.1) rotate(5deg); }
-        .mp-stat-label { font-size: .72rem; color: #64748b; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
-        .mp-stat-value { font-size: 1.4rem; font-weight: 800; color: #0f172a; line-height: 1.1; }
-        .mp-stat-sub   { font-size: .72rem; color: #94a3b8; margin-top: 2px; }
-
-        .mp-grad-orange   { background: #ffd900; }
-        .mp-grad-green  { background: #10b981; }
-        .mp-grad-orange { background: #ffd900; }
-        .mp-grad-rose   { background: #ffd900; }
-
-        .mp-bg-orange   { background: #fefce8; color: #ffd900; }
-        .mp-bg-green  { background: #dcfce7; color: #16a34a; }
-        .mp-bg-orange { background: #fffbeb; color: #d97706; }
-        .mp-bg-rose   { background: #fff1f2; color: #e11d48; }
-
-        /* ══ FILTER BAR ══ */
-        .mp-filter-bar {
-            background: transparent; border-top: 1px solid #e2e8f0; padding: 12px 16px;
-            display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
-        }
-        .mp-search-wrap { position: relative; flex: 2; min-width: 220px; }
-        .mp-search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 1.2rem; transition: color 0.2s; }
-        .mp-search-wrap:focus-within .mp-search-icon { color: #ffd900; }
-        .mp-input, .mp-select {
-            border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 14px; font-size: .85rem; color: #334155;
-            background: #f8fafc; outline: none; transition: all .2s; font-family: 'Inter', sans-serif;
-        }
-        .mp-input:focus, .mp-select:focus { border-color: #ffd900; background: #fff; box-shadow: 0 0 0 3px rgba(255, 217, 0, 0.1); }
-        .mp-search-input { width: 100%; padding-left: 42px !important; }
-
-        .mp-tab {
-            padding: 12px 18px;
-            font-size: .85rem;
-            font-weight: 600;
-            color: #334155;
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .mp-tab.active {
-            border-bottom-color: #ffd900;
-            color: #ffd900;
-            font-weight: 600;
-        }
-
-        .mp-tab.inactive {
-            color: #64748b;
-        }
-
-        .mp-tab.inactive:hover {
-            color: #475569;
-        }
-
-        .mp-count-badge {
-            font-size: 0.65rem;
-            font-weight: 600;
-            padding: 2px 7px;
-            border-radius: 9999px;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* ══ BUTTONS ══ */
-        .mp-btn {
-            padding: 8px 16px; border-radius: 8px; font-size: .85rem; font-weight: 600; cursor: pointer; border: none;
-            transition: all .15s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Inter', sans-serif; display: inline-flex; align-items: center; gap: 6px; justify-content: center;
-        }
-        .mp-btn-ghost { background: #f1f5f9; color: #64748b; }
-        .mp-btn-ghost:hover { background: #e2e8f0; color: #334155; }
-
-        /* ══ SORT HEADER BUTTON ══ */
-        .mp-sort-btn {
-            display: inline-flex; align-items: center; gap: 3px; background: none;
-border: none; cursor: pointer;
-            font-size: .75rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: .07em; padding: 0; transition: color 0.2s; font-family: 'Inter', sans-serif; white-space: nowrap;
-        }
-        .mp-sort-btn:hover, .mp-sort-btn.active { color: #ffd900; }
-        .mp-sort-icon { font-size: .95rem !important; line-height: 1; }
-
-        /* ══ TABLE ══ */
-        .mp-table-wrap { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
-        .mp-table { width: 100%; border-collapse: collapse; }
-        .mp-table thead tr { background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
-        .mp-table th { padding: 12px 16px; text-align: left; white-space: nowrap; }
-        .mp-table td { padding: 14px 16px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; font-size: .85rem; color: #334155; transition: background 0.2s; }
-        .mp-table tbody tr { transition: all .2s; }
-        .mp-table tbody tr td:first-child { border-left: 3px solid transparent; transition: border-color 0.2s; }
-        .mp-table tbody tr:hover { background: #f8fafc; }
-        .mp-table tbody tr:hover td:first-child { border-left-color: #ffd900; }
-        .mp-table tbody tr:last-child td { border-bottom: none; }
-
-        /* ══ BADGES ══ */
-        .mp-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 8px; font-size: 0.7rem; font-weight: 600; white-space: nowrap; }
-        .mp-badge-accepted { background: #dcfce7; color: #16a34a; }
-        .mp-badge-progress { background: #fef9c3; color: #ca8a04; }
-        .mp-badge-selesai { background: #f0fdf4; color: #15803d; }
-        .mp-badge-pending, .mp-badge-reviewing, .mp-badge-submitted { background: #fefce8; color: #ffd900; }
-        .mp-badge-rejected, .mp-badge-failed { background: #fff1f2; color: #be123c; }
-
-        /* ══ ACTION BUTTONS ══ */
-        .mp-action-btn { position: relative; width: 32px; height: 32px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s ease; border: 1px solid transparent; }
-        .mp-action-btn .mp-tooltip { display: none; position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: #1e293b; color: #fff; font-size: 0.65rem; padding: 3px 8px; border-radius: 6px; white-space: nowrap; pointer-events: none; z-index: 50; }
-        .mp-action-btn:hover .mp-tooltip { display: block; }
-        .mp-action-approve { background: #f0fdf4; border-color: #bbf7d0; color: #16a34a; }
-        .mp-action-approve:hover { background: #dcfce7; transform: scale(1.05); }
-        .mp-action-danger { background: #fff1f2; border-color: #fecdd3; color: #e11d48; }
-        .mp-action-danger:hover { background: #ffe4e6; transform: scale(1.05); }
-
-        /* ══ PAGINATION ══ */
-        .mp-pagi { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-top: 1px solid #f1f5f9; font-size: .8rem; color: #64748b; }
-        .mp-pagi-btn { width: 32px; height: 32px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: .85rem; color: #475569; transition: all .15s; }
-        .mp-pagi-btn:hover { background: #fefce8; border-color: #ffd900; color: #ffd900; transform: translateY(-1px); }
-        .mp-pagi-btn.active { background: #ffd900; border-color: #ffd900; color: #fff; box-shadow: 0 4px 10px rgba(255, 217, 0, 0.25); }
-        .mp-pagi-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-
-        /* ══ EMPTY STATE ══ */
-        .mp-empty { padding: 48px 20px; text-align: center; }
-        .mp-empty-icon { width: 56px; height: 56px; background: #f1f5f9; border-radius: 16px; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; }
-
-        [x-cloak] { display: none !important; }
-
-        /* ══ DARK MODE OVERRIDES ══ */
-        .dark .mp-stat, .dark .mp-table-wrap { background: #1e293b; border-color: #334155; }
-        .dark .mp-stat-value { color: #f8fafc !important; }
-        .dark .mp-stat-label, .dark .mp-stat-sub { color: #94a3b8; }
-        .dark .mp-filter-bar { border-color: #334155; }
-        .dark .mp-input, .dark .mp-select { background: #0f172a; border-color: #334155; color: #f8fafc; }
-        .dark .mp-input:focus, .dark .mp-select:focus { background: #1e293b; border-color: #fed000; }
-        .dark .mp-tab { color: #94a3b8; }
-        .dark .mp-tab.active { color: #fed000; border-bottom-color: #fed000; }
-        .dark .mp-tab.inactive:hover { color: #cbd5e1; }
-        .dark .mp-btn-ghost { background: #0f172a; color: #94a3b8; border-color: #334155; }
-        .dark .mp-btn-ghost:hover { background: #334155; color: #f8fafc; }
-        .dark .mp-table thead tr { background: #0f172a; border-color: #334155; }
-        .dark .mp-table td { border-color: #334155; color: #cbd5e1; }
-        .dark .mp-table tbody tr:hover { background: #0f172a; }
-        .dark .mp-sort-btn { color: #94a3b8; }
-        .dark .mp-sort-btn:hover, .dark .mp-sort-btn.active { color: #f8fafc; }
-        .dark .mp-pagi { border-color: #334155; color: #94a3b8; }
-        .dark .mp-pagi-btn { background: #0f172a; border-color: #334155; color: #94a3b8; }
-        .dark .mp-pagi-btn:hover { background: #334155; color: #f8fafc; }
-        .dark .mp-pagi-btn.active { background: #ffd900; color: #fff; border-color: #ffd900; }
-        .dark .mp-empty-icon { background: #0f172a; }
-        
-        .dark .text-slate-900, .dark h1, .dark h3 { color: #f8fafc !important; }
-        .dark .text-slate-800 { color: #e2e8f0 !important; }
-        .dark .text-slate-500 { color: #94a3b8 !important; }
-        .dark p[style*="color:#1e293b"] { color: #f8fafc !important; }
-        .dark p[style*="color:#94a3b8"], .dark span[style*="color:#64748b"] { color: #94a3b8 !important; }
-        .dark div[style*="border-bottom:1px solid #e2e8f0"] { border-color: #334155 !important; }
-        
-        .dark span[style*="background:#f1f5f9"] { background: #334155 !important; color: #cbd5e1 !important; }
-        .dark span[style*="background:#f0fdf4"] { background: rgba(22,163,74,0.2) !important; color: #86efac !important; }
-        .dark span[style*="background:#fffbeb"] { background: rgba(217,119,6,0.2) !important; color: #fcd34d !important; }
-        .dark span[style*="background:#fff1f2"] { background: rgba(225,29,72,0.2) !important; color: #fda4af !important; }
-        
-        .dark .mp-badge-accepted { background: rgba(22,163,74,0.2); color: #86efac; }
-        .dark .mp-badge-progress { background: rgba(202,138,4,0.2); color: #fde047; }
-        .dark .mp-badge-selesai { background: rgba(21,128,61,0.2); color: #86efac; }
-        .dark .mp-badge-pending, .dark .mp-badge-reviewing, .dark .mp-badge-submitted { background: rgba(255, 217, 0, 0.2); color: #fde047; }
-        .dark .mp-badge-rejected, .dark .mp-badge-failed { background: rgba(190,18,60,0.2); color: #fda4af; }
-        
-        .dark .mp-action-approve { background: rgba(22,163,74,0.2); border-color: rgba(74,222,128,0.2); color: #86efac; }
-        .dark .mp-action-approve:hover { background: rgba(22,163,74,0.3); }
-        .dark .mp-action-danger { background: rgba(225,29,72,0.2); border-color: rgba(251,113,133,0.2); color: #fda4af; }
-        .dark .mp-action-danger:hover { background: rgba(225,29,72,0.3); }
-
-        /* Responsive additions */
-        @media (max-width: 640px) {
-            .mp-pagi { flex-direction: column; gap: 1rem; justify-content: center; text-align: center; }
-            .mp-filter-bar { flex-direction: column; align-items: stretch; }
-            .mp-search-wrap, .mp-select, .mp-btn-ghost { width: 100%; max-width: 100% !important; }
-        }
-    </style>
-    @endpush
-
-    @php
-        $stats = $this->getViewData();
-    @endphp
-
-    <div class="space-y-5" x-data="kelolaTesterApp()">
-        {{-- ══ HEADER ══ --}}
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between animate-fade-in-up gap-4 sm:gap-0">
-            <div class="w-full sm:w-auto">
-                <h1 class="mp-sora text-xl font-bold text-slate-900">{{ __('Kelola Daftar Tester :') }} {{ $this->record->nama_aplikasi }}</h1>
-                <p class="text-sm text-slate-500 mt-0.5">{{ __('Kelola persetujuan dan partisipasi tester untuk kampanye ini.') }}</p>
-            </div>
-        </div>
-
-        {{-- ══ STAT CARDS ══ --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 animate-fade-in-up delay-100">
-            <div class="mp-stat">
-                <div class="mp-stat-accent mp-grad-orange"></div>
-                <div class="flex items-start gap-3 mt-1">
-                    <div class="mp-stat-icon mp-bg-orange"><span class="material-symbols-outlined">group</span></div>
-                    <div class="flex-1 min-w-0">
-                        <div class="mp-stat-label">{{ __('Total Tester') }}</div>
-                        <div class="mp-stat-value">{{ $stats['statTotal'] }}</div>
-                        <div class="mp-stat-sub">{{ __('berpartisipasi') }}</div>
+    {{-- Header Banner Info Pengujian --}}
+    <div class="bg-[#1a1a18] border border-[#2a2a26] rounded-2xl p-6 text-white mb-6">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div class="flex items-start gap-4">
+                @if($record->logo)
+                    <img src="/storage/{{ $record->logo }}" alt="{{ $record->nama_aplikasi }}" class="w-16 h-16 rounded-2xl object-cover border border-[#333330] flex-shrink-0">
+                @else
+                    <div class="w-16 h-16 rounded-2xl bg-[#252522] border border-[#333330] text-[#ffd900] font-black text-xl flex items-center justify-center flex-shrink-0">
+                        {{ strtoupper(substr($record->nama_aplikasi, 0, 2)) }}
                     </div>
-                </div>
-            </div>
-            <div class="mp-stat">
-                <div class="mp-stat-accent mp-grad-green"></div>
-                <div class="flex items-start gap-3 mt-1">
-                    <div class="mp-stat-icon mp-bg-green"><span class="material-symbols-outlined">how_to_reg</span></div>
-                    <div>
-                        <div class="mp-stat-label">{{ __('Diterima') }}</div>
-                        <div class="mp-stat-value text-green-700">{{ $stats['statDiterima'] }}</div>
-                        <div class="mp-stat-sub">{{ __('sedang/telah menguji') }}</div>
+                @endif
+                <div>
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <h2 class="text-xl font-bold text-white">{{ $record->nama_aplikasi }}</h2>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#252522] text-[#ffd900] border border-[#3a3a34]">
+                            Face-to-Face Testing
+                        </span>
                     </div>
-                </div>
-            </div>
-            <div class="mp-stat">
-                <div class="mp-stat-accent mp-grad-orange"></div>
-                <div class="flex items-start gap-3 mt-1">
-                    <div class="mp-stat-icon mp-bg-orange"><span class="material-symbols-outlined">pending_actions</span></div>
-                    <div class="flex-1 min-w-0">
-                        <div class="mp-stat-label">{{ __('Menunggu') }}</div>
-                        <div class="mp-stat-value text-amber-600">{{ $stats['statMenunggu'] }}</div>
-                        <div class="mp-stat-sub">{{ __('perlu ditinjau') }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="mp-stat">
-                <div class="mp-stat-accent mp-grad-rose"></div>
-                <div class="flex items-start gap-3 mt-1">
-                    <div class="mp-stat-icon mp-bg-rose"><span class="material-symbols-outlined">block</span></div>
-                    <div>
-                        <div class="mp-stat-label">{{ __('Ditolak') }}</div>
-                        <div class="mp-stat-value" style="color:#e11d48;">{{ $stats['statDitolak'] }}</div>
-                        <div class="mp-stat-sub">{{ __('ditolak / gagal') }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- ══ TABLE SECTION ══ --}}
-        <div class="animate-fade-in-up delay-200">
-
-            <div class="flex items-center justify-between mb-4">
-                <div class="mp-sora font-bold text-slate-900 text-base flex items-center gap-2">
-                    <span class="material-symbols-outlined text-brand-600 text-[1.2rem]">manage_accounts</span>
-                    {{ __('Daftar Tester') }}
-                </div>
-            </div>
-
-            <div class="mp-table-wrap">
-                {{-- Filter Tabs --}}
-                <div style="border-bottom:1px solid #e2e8f0;">
-                    <div class="flex items-center flex-wrap gap-0 px-1">
-                        <button class="mp-tab" :class="filterAktif==='semua' ? 'active' : 'inactive'" @click="setFilter('semua')">
-                            {{ __('Semua') }}
-                            <span class="mp-count-badge" style="background:#f1f5f9;color:#64748b;">{{ $stats['statTotal'] }}</span>
-                        </button>
-                        <button class="mp-tab" :class="filterAktif==='diterima' ? 'active' : 'inactive'" @click="setFilter('diterima')">
-                            {{ __('Diterima') }}
-                            <span class="mp-count-badge" style="background:#f0fdf4;color:#16a34a;">{{ $stats['statDiterima'] }}</span>
-                        </button>
-                        <button class="mp-tab" :class="filterAktif==='menunggu' ? 'active' : 'inactive'" @click="setFilter('menunggu')">
-                            {{ __('Menunggu') }}
-                            <span class="mp-count-badge" style="background:#fffbeb;color:#b45309;">{{ $stats['statMenunggu'] }}</span>
-                        </button>
-                        <button class="mp-tab" :class="filterAktif==='ditolak' ? 'active' : 'inactive'" @click="setFilter('ditolak')">
-                            {{ __('Ditolak') }}
-                            <span class="mp-count-badge" style="background:#fff1f2;color:#e11d48;">{{ $stats['statDitolak'] }}</span>
-                        </button>
-                    </div>
-                </div>
-
-                {{-- Filter Bar --}}
-                <div class="mp-filter-bar">
-                    <div class="mp-search-wrap">
-                        <span class="material-symbols-outlined mp-search-icon">search</span>
-                        <input type="text" class="mp-input mp-search-input" placeholder="{{ __('Cari tester...') }}" x-model.debounce.300ms="cariTeks">
-                    </div>
-                    <select class="mp-select" x-model="filterStatus">
-                        <option value="">{{ __('Semua Status') }}</option>
-                        <option value="accepted">{{ __('Diterima') }}</option>
-                        <option value="pending">{{ __('Menunggu') }}</option>
-                        <option value="progress">{{ __('Berlangsung') }}</option>
-                        <option value="selesai">{{ __('Selesai') }}</option>
-                        <option value="rejected">{{ __('Ditolak') }}</option>
-                    </select>
-                    <select class="mp-select max-w-[120px]" x-model="perPage">
-                        <option value="5">{{ __('5 Data') }}</option>
-                        <option value="10">{{ __('10 Data') }}</option>
-                        <option value="20">{{ __('20 Data') }}</option>
-                        <option value="50">{{ __('50 Data') }}</option>
-                        <option value="1000">{{ __('Semua') }}</option>
-                    </select>
-                    <button class="mp-btn mp-btn-ghost" @click="resetFilter()">{{ __('Reset') }}</button>
-                </div>
-
-                {{-- Table Body --}}
-                <div class="overflow-x-auto">
-                    <table class="mp-table">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <button class="mp-sort-btn" :class="sortCol==='nama'?'active':''" @click="setSort('nama')">
-                                        {{ __('Nama Tester') }}
-                                        <span class="material-symbols-outlined mp-sort-icon" x-text="sortCol!=='nama' ? 'unfold_more' : (sortDir==='asc' ? 'arrow_upward' : 'arrow_downward')"></span>
-                                    </button>
-                                </th>
-                                <th>
-                                    <span class="mp-sort-btn" style="cursor:default;">{{ __('Badge') }}</span>
-                                </th>
-                                <th>
-                                    <button class="mp-sort-btn" :class="sortCol==='status'?'active':''" @click="setSort('status')">
-                                        {{ __('Status') }}
-                                        <span class="material-symbols-outlined mp-sort-icon" x-text="sortCol!=='status' ? 'unfold_more' : (sortDir==='asc' ? 'arrow_upward' : 'arrow_downward')"></span>
-                                    </button>
-                                </th>
-                                <th>
-                                    <button class="mp-sort-btn" :class="sortCol==='tanggal'?'active':''" @click="setSort('tanggal')">
-                                        {{ __('Bergabung Pada') }}
-                                        <span class="material-symbols-outlined mp-sort-icon" x-text="sortCol!=='tanggal' ? 'unfold_more' : (sortDir==='asc' ? 'arrow_upward' : 'arrow_downward')"></span>
-                                    </button>
-                                </th>
-                                <th class="text-center">
-                                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">{{ __('Aksi') }}</span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($stats['testerList'] as $idx => $t)
-                                <tr data-id="{{ $t['id_misi_anggota'] }}"
-                                    data-nama="{{ strtolower($t['nama']) }}" 
-                                    data-status="{{ $t['raw_status'] }}" 
-                                    data-tanggal="{{ \Carbon\Carbon::parse($t['tanggal'])->timestamp }}"
-                                    x-show="tampilRow($el)" x-cloak>
-                                    <td>
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0"
-                                                 style="background:{{ $t['avatarColor'] }};">{{ $t['inisial'] }}</div>
-                                            <div>
-                                                <p class="text-sm font-semibold" style="color:#1e293b;">{{ $t['nama'] }}</p>
-                                                <p class="text-xs" style="color:#94a3b8;">{{ $t['email'] }}</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span style="
-                                            display: inline-flex;
-                                            align-items: center;
-                                            gap: 4px;
-                                            padding: 3px 10px;
-                                            border-radius: 9999px;
-                                            font-size: 11px;
-                                            font-weight: 600;
-                                            color: {{ $t['badgeColor'] }};
-                                            background-color: color-mix(in srgb, {{ $t['badgeColor'] }} 12%, transparent);
-                                            border: 1px solid color-mix(in srgb, {{ $t['badgeColor'] }} 30%, transparent);
-                                            white-space: nowrap;
-                                        ">
-                                            {{ $t['badgeIcon'] }} {{ $t['badgeTier'] }}
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="mp-badge mp-badge-{{ $t['raw_status'] }}">
-                                            {{ $t['status'] }}
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="text-sm mp-mono" style="color:#64748b;">{{ $t['tanggal'] }}</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="flex items-center justify-center gap-2">
-                                            @if(in_array($t['raw_status'], ['pending', 'reviewing']))
-                                                <button class="mp-action-btn mp-action-approve" title="{{ __('Terima') }}" wire:click="terimaTester({{ $t['id_misi_anggota'] }})" wire:loading.attr="disabled">
-                                                    <span class="material-symbols-outlined text-[1.1rem]">check_circle</span>
-                                                    <div class="mp-tooltip">{{ __('Terima Tester') }}</div>
-                                                </button>
-                                                <button class="mp-action-btn mp-action-danger" title="{{ __('Tolak') }}" wire:click="tolakTester({{ $t['id_misi_anggota'] }})" wire:loading.attr="disabled" wire:confirm="{{ __('Yakin ingin menolak tester ini?') }}">
-                                                    <span class="material-symbols-outlined text-[1.1rem]">cancel</span>
-                                                    <div class="mp-tooltip">{{ __('Tolak Tester') }}</div>
-                                                </button>
-                                            @else
-                                                <span class="text-xs text-slate-400 italic">{{ __('-') }}</span>
-                                            @endif
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-
-                    {{-- Empty State --}}
-                    <div class="mp-empty" x-show="!adaHasil()" x-cloak>
-                        <div class="mp-empty-icon">
-                            <span class="material-symbols-outlined text-slate-400 text-3xl">group_off</span>
+                    @if($record->penyelenggara)
+                        <p class="text-xs text-neutral-400 mt-1">Penyelenggara: <strong class="text-neutral-200">{{ $record->penyelenggara }}</strong></p>
+                    @endif
+                    <div class="flex flex-wrap items-center gap-y-2 gap-x-6 mt-3 text-xs text-neutral-300">
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-[#ffd900]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>{{ $record->lokasi ?? 'Lokasi belum ditentukan' }}</span>
                         </div>
-                        <h3 class="text-base font-semibold text-slate-800 mb-1">{{ __('Tidak ada tester') }}</h3>
-                        <p class="text-sm text-slate-500">{{ __('Belum ada tester yang cocok dengan pencarian Anda.') }}</p>
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-[#ffd900]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <span>{{ $record->jadwal_tanggal ? $record->jadwal_tanggal->format('d M Y') : '-' }} &bull; {{ $record->jadwal_waktu ?? '-' }}</span>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                {{-- Pagination --}}
-                <div class="mp-pagi">
-                    <span>
-                        {{ __('Menampilkan') }}
-                        <strong class="text-slate-800 mp-mono" x-text="visibleIds.length"></strong>
-                        {{ __('dari') }} <strong class="text-slate-800 mp-mono" x-text="totalItems"></strong> {{ __('tester') }}
-                    </span>
-                    <div class="flex items-center gap-1.5">
-                        <button class="mp-pagi-btn" :disabled="currentPage<=1" @click="currentPage--; applyFilter()">
-                            <span class="material-symbols-outlined" style="font-size:1.1rem">chevron_left</span>
-                        </button>
-                        <template x-for="p in pageRange" :key="p">
-                            <button class="mp-pagi-btn"
-                                :class="p===currentPage ? 'active' : ''"
-                                :style="p==='…' ? 'cursor:default;border:none;' : ''"
-                                @click="if(p!=='…'){ currentPage=p; applyFilter(); }"
-                                x-text="p">
-                            </button>
-                        </template>
-                        <button class="mp-pagi-btn" :disabled="currentPage>=totalPages" @click="currentPage++; applyFilter()">
-                            <span class="material-symbols-outlined" style="font-size:1.1rem">chevron_right</span>
-                        </button>
-                    </div>
+            <div class="grid grid-cols-3 sm:flex sm:items-center gap-2 sm:gap-4 bg-[#111111] border border-[#2a2a26] p-3 sm:p-4 rounded-xl">
+                <div class="text-center px-2 sm:px-3 border-r border-[#2a2a26]">
+                    <div class="text-xs text-neutral-400">Total Kuota</div>
+                    <div class="text-base sm:text-lg font-black text-white">{{ $kuota }} <span class="text-xs font-normal text-neutral-400">tester</span></div>
+                </div>
+                <div class="text-center px-2 sm:px-3 border-r border-[#2a2a26]">
+                    <div class="text-xs text-neutral-400">Sisa Kuota</div>
+                    <div class="text-base sm:text-lg font-black {{ $sisaKuota > 0 ? 'text-[#ffd900]' : 'text-red-400' }}">{{ $sisaKuota }}</div>
+                </div>
+                <div class="text-center px-2 sm:px-3">
+                    <div class="text-xs text-neutral-400">Komisi/Tester</div>
+                    <div class="text-base sm:text-lg font-black text-[#ffd900]">Rp {{ number_format($record->komisi_per_tester ?? 20000, 0, ',', '.') }}</div>
                 </div>
             </div>
         </div>
     </div>
 
-    @push('scripts')
-    <script>
-        function kelolaTesterApp() {
-            return {
-                filterAktif: 'semua',
-                cariTeks: '',
-                filterStatus: '',
-                sortCol: 'tanggal',
-                sortDir: 'asc',
-                perPage: 10,
-                currentPage: 1,
-                totalPages: 1,
-                totalItems: 0,
-                visibleIds: [],
+    {{-- Stat Badges --}}
+    <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
+        <button wire:click="$set('activeTab', 'semua')" class="p-4 rounded-xl border text-left transition-all {{ $activeTab === 'semua' ? 'bg-[#ffd900] text-black border-[#ffd900]' : 'bg-[#1a1a18] text-neutral-300 border-[#2a2a26] hover:border-neutral-500' }}">
+            <div class="text-xs font-semibold uppercase opacity-75">Semua Pelamar</div>
+            <div class="text-2xl font-black mt-1">{{ $statTotal }}</div>
+        </button>
+        <button wire:click="$set('activeTab', 'menunggu')" class="p-4 rounded-xl border text-left transition-all {{ $activeTab === 'menunggu' ? 'bg-[#ffd900] text-black border-[#ffd900]' : 'bg-[#1a1a18] text-neutral-300 border-[#2a2a26] hover:border-neutral-500' }}">
+            <div class="text-xs font-semibold uppercase opacity-75">Menunggu Seleksi</div>
+            <div class="text-2xl font-black mt-1">{{ $statMenunggu }}</div>
+        </button>
+        <button wire:click="$set('activeTab', 'diterima')" class="p-4 rounded-xl border text-left transition-all {{ $activeTab === 'diterima' ? 'bg-[#ffd900] text-black border-[#ffd900]' : 'bg-[#1a1a18] text-neutral-300 border-[#2a2a26] hover:border-neutral-500' }}">
+            <div class="text-xs font-semibold uppercase opacity-75">Diterima</div>
+            <div class="text-2xl font-black mt-1">{{ $statDiterima }}</div>
+        </button>
+        <button wire:click="$set('activeTab', 'selesai')" class="p-4 rounded-xl border text-left transition-all {{ $activeTab === 'selesai' ? 'bg-[#ffd900] text-black border-[#ffd900]' : 'bg-[#1a1a18] text-neutral-300 border-[#2a2a26] hover:border-neutral-500' }}">
+            <div class="text-xs font-semibold uppercase opacity-75">Hadir & Selesai</div>
+            <div class="text-2xl font-black mt-1">{{ $statSelesai }}</div>
+        </button>
+        <button wire:click="$set('activeTab', 'ditolak')" class="p-4 rounded-xl border text-left transition-all {{ $activeTab === 'ditolak' ? 'bg-[#ffd900] text-black border-[#ffd900]' : 'bg-[#1a1a18] text-neutral-300 border-[#2a2a26] hover:border-neutral-500' }}">
+            <div class="text-xs font-semibold uppercase opacity-75">Ditolak</div>
+            <div class="text-2xl font-black mt-1">{{ $statDitolak }}</div>
+        </button>
+    </div>
 
-                get pageRange() {
-                    const t = this.totalPages, c = this.currentPage;
-                    if (t <= 7) return Array.from({length: t}, (_, i) => i + 1);
-                    const pages = [];
-                    if (c > 3) { pages.push(1); if (c > 4) pages.push('…'); }
-                    for (let i = Math.max(1, c - 2); i <= Math.min(t, c + 2); i++) pages.push(i);
-                    if (c < t - 2) { if (c < t - 3) pages.push('…'); pages.push(t); }
-                    return pages;
-                },
+    {{-- Filter Search --}}
+    <div class="bg-[#1a1a18] border border-[#2a2a26] rounded-2xl p-4 mb-6 flex items-center justify-between gap-4">
+        <div class="relative flex-1">
+            <input type="text" wire:model.live.debounce.300ms="search" placeholder="Cari pelamar berdasarkan nama, email, nomor HP..." class="w-full bg-[#111111] border border-[#333330] rounded-xl px-4 py-2.5 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#ffd900]">
+        </div>
+    </div>
 
-                init() {
-                    this.$watch('cariTeks', () => { this.currentPage = 1; this.applyFilter(); });
-                    this.$watch('filterStatus', () => { this.currentPage = 1; this.applyFilter(); });
-                    this.$watch('perPage', () => { this.currentPage = 1; this.applyFilter(); });
-                    
-                    document.addEventListener('livewire:initialized', () => {
-                        Livewire.hook('morph.updated', ({ el, component }) => {
-                            this.applyFilter();
-                        });
-                    });
+    {{-- Applicant List Table --}}
+    <div class="bg-[#1a1a18] border border-[#2a2a26] rounded-2xl overflow-hidden shadow-sm">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm text-neutral-300 min-w-[700px]">
+                <thead class="bg-[#111111] text-xs uppercase text-neutral-400 font-semibold border-b border-[#2a2a26]">
+                    <tr>
+                        <th class="py-3.5 px-4">Tester / Data Diri</th>
+                        <th class="py-3.5 px-4">Kontak (No. HP)</th>
+                        <th class="py-3.5 px-4">Informasi Pembayaran (Komisi)</th>
+                        <th class="py-3.5 px-4">Waktu Daftar</th>
+                        <th class="py-3.5 px-4">Status & Kehadiran</th>
+                        <th class="py-3.5 px-4 text-right">Aksi Developer</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-[#2a2a26]">
+                    @forelse($testers as $item)
+                        <tr class="hover:bg-[#20201d] transition-colors">
+                            {{-- Profil --}}
+                            <td class="py-4 px-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-[#252522] border border-[#3a3a34] text-[#ffd900] font-bold text-xs flex items-center justify-center flex-shrink-0">
+                                        {{ $item['inisial'] }}
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-white">{{ $item['nama'] }}</div>
+                                        <div class="text-xs text-neutral-400">{{ $item['email'] }}</div>
+                                    </div>
+                                </div>
+                            </td>
 
-                    this.applyFilter();
-                },
+                            {{-- No HP --}}
+                            <td class="py-4 px-4">
+                                @if($item['phone'] && $item['phone'] !== '-')
+                                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $item['phone']) }}" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-[#ffd900] hover:underline font-medium">
+                                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.086-.179.18-.077.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+                                        {{ $item['phone'] }}
+                                    </a>
+                                @else
+                                    <span class="text-xs text-neutral-500">-</span>
+                                @endif
+                            </td>
 
-                setFilter(val) {
-                    this.filterAktif = val;
-                    this.currentPage = 1;
-                    this.applyFilter();
-                },
+                            {{-- Pembayaran --}}
+                            <td class="py-4 px-4">
+                                <div class="text-xs">
+                                    <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#111111] text-[#ffd900] border border-[#333330]">
+                                        {{ $item['payout_method'] }}
+                                        @if($item['payout_bank_name']) ({{ $item['payout_bank_name'] }}) @endif
+                                    </span>
+                                    <div class="text-neutral-200 font-semibold mt-1">{{ $item['payout_account_name'] }}</div>
+                                    <div class="text-neutral-400 font-mono text-[11px]">{{ $item['payout_account_number'] }}</div>
+                                </div>
+                            </td>
 
-                setSort(col) {
-                    if (this.sortCol === col) this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc';
-                    else { this.sortCol = col; this.sortDir = 'asc'; }
-                    this.currentPage = 1;
-                    this.applyFilter();
-                },
+                            {{-- Waktu Daftar --}}
+                            <td class="py-4 px-4 text-xs text-neutral-400">
+                                {{ $item['tanggal_apply'] }}
+                            </td>
 
-                resetFilter() {
-                    this.filterAktif = 'semua';
-                    this.cariTeks = '';
-                    this.filterStatus = '';
-                    this.perPage = 10;
-                    this.sortCol = 'tanggal';
-                    this.sortDir = 'asc';
-                    this.currentPage = 1;
-                    this.applyFilter();
-                },
+                            {{-- Status & Kehadiran --}}
+                            <td class="py-4 px-4">
+                                @if(in_array($item['status'], ['pending', 'reviewing', 'menunggu_seleksi']))
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-950/60 text-amber-300 border border-amber-800">
+                                        Menunggu Seleksi
+                                    </span>
+                                @elseif(in_array($item['status'], ['accepted', 'progress']))
+                                    <div class="flex flex-col gap-1">
+                                        <span class="inline-flex items-center w-fit px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-950/60 text-emerald-300 border border-emerald-800">
+                                            Diterima
+                                        </span>
+                                        @if($item['status_kehadiran'] === 'tidak_hadir')
+                                            <span class="text-[11px] text-red-400 font-semibold">&bull; Dilaporkan Tidak Hadir</span>
+                                        @else
+                                            <span class="text-[11px] text-neutral-400">&bull; Menunggu Kehadiran</span>
+                                        @endif
+                                    </div>
+                                @elseif($item['status'] === 'selesai')
+                                    <div class="flex flex-col gap-1">
+                                        <span class="inline-flex items-center w-fit px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#252522] text-[#ffd900] border border-[#ffd900]/40">
+                                            ✓ Hadir & Selesai
+                                        </span>
+                                        <span class="text-[11px] text-emerald-400 font-semibold">&bull; Komisi Masuk Dompet</span>
+                                    </div>
+                                @elseif(in_array($item['status'], ['rejected', 'cancelled']))
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-red-950/60 text-red-300 border border-red-800">
+                                        Ditolak
+                                    </span>
+                                @endif
+                            </td>
 
-                applyFilter() {
-                    const tbody = document.querySelector('.mp-table tbody');
-                    if (!tbody) return;
-                    const rows = Array.from(tbody.querySelectorAll('tr[data-id]'));
+                            {{-- Aksi --}}
+                            <td class="py-4 px-4 text-right">
+                                @if(in_array($item['status'], ['pending', 'reviewing', 'menunggu_seleksi']))
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button wire:click="terimaTester({{ $item['id'] }})" class="px-3 py-1.5 rounded-lg bg-[#ffd900] text-black text-xs font-bold hover:bg-[#ffe133] transition-colors">
+                                            Terima
+                                        </button>
+                                        <button wire:click="tolakTester({{ $item['id'] }})" class="px-3 py-1.5 rounded-lg bg-[#252522] text-red-400 border border-red-900/50 hover:bg-red-950/40 text-xs font-semibold transition-colors">
+                                            Tolak
+                                        </button>
+                                    </div>
+                                @elseif(in_array($item['status'], ['accepted', 'progress']))
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button wire:click="konfirmasiHadirDanSelesai({{ $item['id'] }})" wire:confirm="Konfirmasi bahwa tester {{ $item['nama'] }} telah hadir langsung di lokasi dan menyelesaikan testing? Komisi Rp {{ number_format($record->komisi_per_tester ?? 20000, 0, ',', '.') }} akan langsung dikreditkan ke saldo dompet tester." class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold transition-colors">
+                                            Konfirmasi Hadir & Selesai
+                                        </button>
+                                        <button wire:click="openReportModal({{ $item['id'] }})" class="px-3 py-1.5 rounded-lg bg-red-950/60 text-red-300 border border-red-800 hover:bg-red-900/60 text-xs font-semibold transition-colors">
+                                            Laporkan Absen
+                                        </button>
+                                    </div>
+                                @else
+                                    <span class="text-xs text-neutral-500">Tidak ada aksi</span>
+                                @endif
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="6" class="py-12 text-center text-neutral-400">
+                                <div class="max-w-xs mx-auto text-center">
+                                    <svg class="w-12 h-12 mx-auto text-neutral-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                    <p class="font-medium text-neutral-300">Belum ada pelamar tester</p>
+                                    <p class="text-xs text-neutral-500 mt-1">Tester yang mengajukan Apply akan muncul pada daftar antrean ini untuk Anda seleksi.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-                    // Sort
-                    const dir = this.sortDir === 'asc' ? 1 : -1;
-                    rows.sort((a, b) => {
-                        switch(this.sortCol) {
-                            case 'nama': return dir * (a.dataset.nama || '').localeCompare(b.dataset.nama || '');
-                            case 'status': return dir * (a.dataset.status || '').localeCompare(b.dataset.status || '');
-                            case 'tanggal': return dir * ((+a.dataset.tanggal) - (+b.dataset.tanggal));
-                            default: return 0;
-                        }
-                    });
-                    rows.forEach(r => tbody.appendChild(r));
+    {{-- Report Modal --}}
+    @if($selectedTesterId)
+        <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+            <div class="bg-[#1a1a18] border border-[#333330] rounded-2xl max-w-md w-full p-6 text-white shadow-2xl">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    Laporkan Ketidakhadiran Tester
+                </h3>
+                <p class="text-xs text-neutral-400 mt-1.5">
+                    Laporan ini akan diteruskan ke Admin untuk dicatat dan diperiksa sebelum sanksi pemblokiran diterapkan sesuai ketentuan.
+                </p>
 
-                    // Filter
-                    const matched = rows.filter(r => this.cocokFilter(r));
-                    
-                    this.totalItems = matched.length;
-                    this.totalPages = Math.ceil(matched.length / this.perPage) || 1;
-                    if (this.currentPage > this.totalPages) this.currentPage = this.totalPages;
-                    if (this.currentPage < 1) this.currentPage = 1;
+                <div class="mt-4">
+                    <label class="block text-xs font-semibold text-neutral-300 mb-1.5">Alasan / Catatan Ketidakhadiran *</label>
+                    <textarea wire:model="alasanPelanggaran" rows="4" placeholder="Jelaskan detail ketidakhadiran (misal: tester tidak datang ke lokasi tanpa kabar, tidak dapat dihubungi melalui nomor telepon yang tertera)..." class="w-full bg-[#111111] border border-[#333330] rounded-xl p-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-red-400"></textarea>
+                </div>
 
-                    const start = (this.currentPage - 1) * parseInt(this.perPage);
-                    this.visibleIds = matched.slice(start, start + parseInt(this.perPage)).map(r => r.dataset.id);
-                },
-
-                cocokFilter(el) {
-                    const status = el.dataset.status || '';
-                    
-                    // Tab filter
-                    if (this.filterAktif === 'diterima' && !['accepted','progress','selesai'].includes(status)) return false;
-                    if (this.filterAktif === 'menunggu' && !['pending','reviewing','submitted'].includes(status)) return false;
-                    if (this.filterAktif === 'ditolak' && !['rejected','failed'].includes(status)) return false;
-
-                    // Dropdown filter
-                    if (this.filterStatus && status !== this.filterStatus.toLowerCase()) return false;
-                    
-                    // Search
-                    if (this.cariTeks) {
-                        const q = this.cariTeks.toLowerCase();
-                        if (!(el.dataset.nama || '').includes(q)) return false;
-                    }
-                    return true;
-                },
-
-                tampilRow($el) {
-                    return this.visibleIds.includes($el.dataset.id);
-                },
-
-                adaHasil() {
-                    return this.visibleIds.length > 0;
-                }
-            };
-        }
-    </script>
-    @endpush
-
+                <div class="flex items-center justify-end gap-3 mt-6">
+                    <button type="button" wire:click="$set('selectedTesterId', null)" class="px-4 py-2 rounded-xl bg-[#252522] text-neutral-300 text-xs font-semibold hover:bg-[#30302c]">
+                        Batal
+                    </button>
+                    <button type="button" wire:click="submitReport" class="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold">
+                        Kirim Laporan ke Admin
+                    </button>
+                </div>
+            </div>
+        </div>
+    @endif
 </x-filament-panels::page>

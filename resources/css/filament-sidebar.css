@@ -166,7 +166,9 @@
     font-weight: 500 !important;
 }
 
-.fi-sidebar-item.fi-active .fi-sidebar-item-label {
+.fi-sidebar-item.fi-active .fi-sidebar-item-label,
+.fi-sidebar-item-btn[aria-current="page"] .fi-sidebar-item-label {
+    color: var(--sidebar-item-active-color) !important;
     font-weight: 600 !important;
 }
 
@@ -175,11 +177,15 @@
 ══════════════════════════════════════ */
 .fi-sidebar-item-badge-ctn .fi-badge {
     transition: all 0.2s ease !important;
+    background-color: rgba(255, 217, 0, 0.15) !important;
+    border: 1px solid rgba(255, 217, 0, 0.35) !important;
+    color: #ffd900 !important;
 }
 
 .dark .fi-sidebar-item-badge-ctn .fi-badge {
-    background-color: rgba(250, 204, 21, 0.2) !important;
-    color: #ef4444 !important;
+    background-color: rgba(255, 217, 0, 0.18) !important;
+    border: 1px solid rgba(255, 217, 0, 0.35) !important;
+    color: #ffd900 !important;
 }
 
 /* ══════════════════════════════════════
@@ -438,9 +444,9 @@
 }
 
 .dark .tsr-btn-laporkan {
-    background: rgba(220, 38, 38, 0.1) !important;
-    color: #ef4444 !important;
-    border-color: rgba(220, 38, 38, 0.3) !important;
+    background: rgba(255, 217, 0, 0.08) !important;
+    color: #ffd900 !important;
+    border-color: rgba(255, 217, 0, 0.25) !important;
 }
 
 .dark .btn-detail {
@@ -1252,10 +1258,17 @@
 /* ════════════════════════════════════
    DEVELOPER DASHBOARD - CSS class fixes
    ════════════════════════════════════ */
-/* Status badges in developer list */
-.dark .status-progress { background: rgba(22, 163, 74, 0.15) !important; color: #86efac !important; border-color: rgba(22, 163, 74, 0.3) !important; }
-.dark .status-pending  { background: rgba(245, 158, 11, 0.15) !important; color: #fcd34d !important; border-color: rgba(245, 158, 11, 0.3) !important; }
-.dark .status-selesai  { background: rgba(139, 92, 246, 0.15) !important; color: #c4b5fd !important; border-color: rgba(139, 92, 246, 0.3) !important; }
+/* Status badges in developer list (Plain text only, no background, no border) */
+.status-badge, .dark .status-badge {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+.status-progress, .dark .status-progress { background: transparent !important; background-color: transparent !important; color: #4ade80 !important; border: none !important; }
+.status-pending, .dark .status-pending   { background: transparent !important; background-color: transparent !important; color: #facc15 !important; border: none !important; }
+.status-selesai, .dark .status-selesai   { background: transparent !important; background-color: transparent !important; color: #c084fc !important; border: none !important; }
 
 /* Icon background chips in developer list */
 .dark .icon-orange   { background: rgba(255, 217, 0, 0.15) !important; color: #fde047 !important; }
@@ -1643,4 +1656,52 @@
 .dark .fi-sidebar-header .fi-icon-btn:hover {
     color: #f1f5f9 !important;
     background-color: #1e293b !important;
+}
+
+/* ═══ PROFILE SAVE BUTTON (Yellow Background + Black Text) ═══ */
+.prof-btn-save,
+.prof-btn-save *,
+button.prof-btn-save {
+    color: #000000 !important;
+}
+
+/* ═══ FULL-WIDTH FORM SECTIONS & PRIMARY BUTTONS ═══ */
+.fi-fo-section,
+.fi-section {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.fi-btn.fi-color-primary,
+.fi-btn[class*="fi-color-primary"],
+.fi-form-actions button[type="submit"] {
+    background-color: #ffd900 !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+.fi-btn.fi-color-primary *,
+.fi-btn[class*="fi-color-primary"] *,
+.fi-form-actions button[type="submit"] * {
+    color: #000000 !important;
+}
+
+.fi-btn.fi-color-primary:hover,
+.fi-btn[class*="fi-color-primary"]:hover,
+.fi-form-actions button[type="submit"]:hover {
+    background-color: #e6c300 !important;
+    color: #000000 !important;
+}
+
+/* ═══ RESPONSIVE SIDEBAR SPECIFICATIONS ═══ */
+@media (max-width: 374px) {
+    .fi-sidebar {
+        max-width: calc(100vw - 44px) !important;
+    }
+    .fi-sidebar-header {
+        padding: 12px 14px !important;
+    }
+    .fi-sidebar-item-button {
+        padding: 8px 10px !important;
+    }
 }

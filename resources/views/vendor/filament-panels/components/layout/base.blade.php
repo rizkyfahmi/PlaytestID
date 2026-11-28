@@ -12,7 +12,7 @@
     dir="{{ __('filament-panels::layout.direction') ?? 'ltr' }}"
     @class([
         'fi',
-        'dark' => filament()->hasDarkMode() && filament()->hasDarkModeForced(),
+        'dark',
     ])
 >
     <head>
@@ -92,34 +92,53 @@
 
         {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::STYLES_AFTER, scopes: $renderHookScopes) }}
 
-        @if (! filament()->hasDarkMode())
-            <script>
-                localStorage.setItem('theme', 'light')
-            </script>
-        @elseif (filament()->hasDarkModeForced())
-            <script>
-                localStorage.setItem('theme', 'dark')
-            </script>
-        @else
-            <script>
-                const loadDarkMode = () => {
-                    window.theme = localStorage.getItem('theme') ?? @js(filament()->getDefaultThemeMode()->value)
+        <script>
+            localStorage.setItem('theme', 'dark');
+            localStorage.setItem('pt-theme', 'dark');
+            document.documentElement.classList.add('dark');
 
-                    if (
-                        window.theme === 'dark' ||
-                        (window.theme === 'system' &&
-                            window.matchMedia('(prefers-color-scheme: dark)')
-                                .matches)
-                    ) {
-                        document.documentElement.classList.add('dark')
-                    }
+            window.toggleAppTheme = function() {
+                // Permanently dark mode
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                localStorage.setItem('pt-theme', 'dark');
+            };
+
+            window.toggleAuthTheme = window.toggleAppTheme;
+            window.toggleTheme = window.toggleAppTheme;
+
+            window.toggleLangMenu = function(btn, e) {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
                 }
+                const wrap = btn.closest('.lang-dropdown-wrapper');
+                if (!wrap) return;
+                const menu = wrap.querySelector('.lang-dropdown-menu');
+                if (!menu) return;
+                const isVisible = menu.style.display === 'flex';
+                window.closeAllLangMenus();
+                menu.style.display = isVisible ? 'none' : 'flex';
+            };
 
-                loadDarkMode()
+            window.closeAllLangMenus = function() {
+                document.querySelectorAll('.lang-dropdown-menu').forEach(function(m) {
+                    m.style.display = 'none';
+                });
+            };
 
-                document.addEventListener('livewire:navigated', loadDarkMode)
-            </script>
-        @endif
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.lang-dropdown-wrapper')) {
+                    window.closeAllLangMenus();
+                }
+            });
+
+            document.addEventListener('livewire:navigated', function() {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                localStorage.setItem('pt-theme', 'dark');
+            });
+        </script>
 
         {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::HEAD_END, scopes: $renderHookScopes) }}
     </head>

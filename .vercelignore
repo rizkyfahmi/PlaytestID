@@ -1,0 +1,8 @@
+.git
+.github
+.env
+.env.backup
+.env.local
+.env.production
+tests
+node_modules

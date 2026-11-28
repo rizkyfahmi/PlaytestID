@@ -1,7 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
+<script>
+    function toggleAuthTheme() {
+        const html = document.documentElement;
+        const isDark = html.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        localStorage.setItem('pt-theme', isDark ? 'dark' : 'light');
+    }
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Verified — Testoplay</title>
@@ -510,18 +518,135 @@ border-radius: 50%;
                 margin-bottom: 0.875rem;
             }
         }
+    
+        /* ════════════════════════════════════════════════════════
+           HELDEN INC DARK MODE FOR AUTH PAGES (#111111 & #1a1a18)
+           ════════════════════════════════════════════════════════ */
+        .dark .fi-simple-layout,
+        .dark .login-page, .dark .register-page, .dark .rrp-page, .dark .rp-page, .dark .ev-page, .dark .ep-page, .dark .ee-page {
+            background: #111111 !important;
+            color: #e2e8f0 !important;
+        }
+
+        .dark .login-hero, .dark .register-hero, .dark .rrp-hero, .dark .rp-hero {
+            background: #141414 !important;
+            border-color: #2a2a2a !important;
+            color: #e2e8f0 !important;
+        }
+
+        .dark .login-card, .dark .register-card, .dark .rrp-card, .dark .rp-card, .dark .ev-card, .dark .ep-card, .dark .ee-card {
+            background: #1a1a18 !important;
+            color: #e2e8f0 !important;
+            border-color: #2e2e2e !important;
+        }
+
+        .dark .login-card-title, .dark .register-card-title, .dark .rrp-card-title, .dark .rp-card-title,
+        .dark .ev-title, .dark .ep-title, .dark .ee-title,
+        .dark .login-hero-title, .dark .register-hero-title, .dark .rrp-hero-title, .dark .rp-hero-title {
+            color: #ffffff !important;
+        }
+
+        .dark .login-card-subtitle, .dark .register-card-subtitle, .dark .rrp-card-subtitle, .dark .rp-card-subtitle,
+        .dark .login-hero-desc, .dark .register-hero-desc, .dark .rrp-hero-desc, .dark .rp-hero-desc,
+        .dark .ev-desc, .dark .ep-desc, .dark .ee-desc,
+        .dark .login-register-link, .dark .register-login-link {
+            color: #94a3b8 !important;
+        }
+
+        .dark .fi-input-wrp {
+            background: #242424 !important;
+            border-color: #333333 !important;
+            color: #ffffff !important;
+        }
+
+        .dark .fi-input-wrp input {
+            background: transparent !important;
+            color: #ffffff !important;
+        }
+
+        .dark .fi-input-wrp input::placeholder {
+            color: #64748b !important;
+        }
+
+        .dark label, .dark .fi-fo-field-wrp-label span {
+            color: #cbd5e1 !important;
+        }
+
+        .dark .login-google-btn, .dark .register-google-btn {
+            background: #242424 !important;
+            border-color: #333333 !important;
+            color: #ffffff !important;
+        }
+        .dark .login-google-btn:hover, .dark .register-google-btn:hover {
+            background: #2e2e2e !important;
+            border-color: #444444 !important;
+        }
+
+        .dark .login-hero-footer, .dark .register-hero-footer, .dark .rrp-hero-footer, .dark .rp-hero-footer {
+            border-color: #2a2a2a !important;
+        }
+
+        .dark .login-mobile-header-logo, .dark .register-mobile-header-logo {
+            background: #1a1a18 !important;
+            border: 1px solid #333333 !important;
+        }
+
+        .dark .login-mobile-features, .dark .register-mobile-features {
+            background: #141414 !important;
+            border-color: #2a2a2a !important;
+        }
+
+        .dark .login-mobile-pill, .dark .register-mobile-pill {
+            background: #242424 !important;
+            color: #fde047 !important;
+            border-color: #333333 !important;
+        }
+
+        .dark .login-topbar a, .dark .login-topbar span, .dark .login-topbar button {
+            color: #cbd5e1 !important;
+        }
+
+        .dark .login-lang-btn {
+            background: #242424 !important;
+            color: #94a3b8 !important;
+        }
+        .dark .login-lang-btn.active {
+            background: #ffd900 !important;
+            color: #111111 !important;
+        }
+
+        .dark .auth-theme-btn {
+            background: #242424 !important;
+            color: #fde047 !important;
+            border-color: #333333 !important;
+        }
+
+        .auth-theme-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.5rem;
+            background: #f1f5f9;
+            color: #f59e0b;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .auth-theme-btn:hover {
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 
 <body>
 
     {{-- Language Switcher (Fixed top right) --}}
-    <div
-        style="position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50; display: flex; gap: 0.375rem; background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); padding: 0.25rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
-        <a href="{{ route('language.switch', 'en') }}"
-            style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'en' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'en' ? '#ffd900' : 'transparent' }};">EN</a>
-        <a href="{{ route('language.switch', 'id') }}"
-            style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'id' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'id' ? '#ffd900' : 'transparent' }};">ID</a>
+    <div class="auth-top-controls"
+        style="position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50;">
+        <x-language-dropdown />
     </div>
 
     <x-auth-mobile-bg />

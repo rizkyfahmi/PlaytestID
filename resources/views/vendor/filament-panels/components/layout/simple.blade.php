@@ -19,24 +19,35 @@
     ])
 
     {{-- ════════════════════════════════════════════════════════
-         FORCE LIGHT THEME ON AUTH PAGES
-         Auth pages (login, register, reset-password, etc.)
-         must always render in light mode regardless of the
-         user's stored theme preference.
+         HELDEN INC DARK THEME SUPPORT ON AUTH PAGES
+         Sync with user theme preference (default to dark)
     ════════════════════════════════════════════════════════ --}}
     @push('scripts')
     <script>
         (function () {
-            var forceLight = function () {
-                document.documentElement.classList.remove('dark');
+            var applyAuthTheme = function () {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                localStorage.setItem('pt-theme', 'dark');
             };
-            // Remove dark class immediately (catches initial page load)
-            forceLight();
-            // Re-remove after Livewire SPA navigations (stays on auth pages)
-            document.addEventListener('livewire:navigated', forceLight);
-            document.addEventListener('DOMContentLoaded', forceLight);
+            applyAuthTheme();
+            document.addEventListener('livewire:navigated', applyAuthTheme);
+            document.addEventListener('DOMContentLoaded', applyAuthTheme);
         })();
     </script>
+    @endpush
+
+    @push('styles')
+    <style>
+        .dark body,
+        .dark .fi-body,
+        .dark .fi-simple-layout,
+        .dark .fi-simple-main-ctn,
+        .dark .fi-simple-main {
+            background-color: #1a1a18 !important;
+            background: #1a1a18 !important;
+        }
+    </style>
     @endpush
 
     <div class="fi-simple-layout">

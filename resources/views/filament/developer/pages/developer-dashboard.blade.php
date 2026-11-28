@@ -76,21 +76,25 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      font-size: 10.5px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: .04em;
-      padding: 3px 9px;
-      border-radius: 999px;
+      padding: 0 !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
     }
 
-    .status-progress { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
-    .dark .status-progress { background: rgba(21,128,61,0.15); color: #86efac; border-color: rgba(74,222,128,0.2); }
+    .status-progress { background: transparent !important; background-color: transparent !important; color: #16a34a !important; border: none !important; }
+    .dark .status-progress { background: transparent !important; background-color: transparent !important; color: #4ade80 !important; border: none !important; }
 
-    .status-pending { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
-    .dark .status-pending { background: rgba(180,83,9,0.15); color: #fde047; border-color: rgba(250,204,21,0.2); }
+    .status-pending { background: transparent !important; background-color: transparent !important; color: #d97706 !important; border: none !important; }
+    .dark .status-pending { background: transparent !important; background-color: transparent !important; color: #facc15 !important; border: none !important; }
 
-    .status-selesai { background: #faf5ff; color: #7e22ce; border: 1px solid #e9d5ff; }
-    .dark .status-selesai { background: rgba(126,34,206,0.15); color: #d8b4fe; border-color: rgba(192,132,252,0.2); }
+    .status-selesai { background: transparent !important; background-color: transparent !important; color: #9333ea !important; border: none !important; }
+    .dark .status-selesai { background: transparent !important; background-color: transparent !important; color: #c084fc !important; border: none !important; }
 
     .app-icon {
       width: 36px;
@@ -117,20 +121,20 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      padding: 5px 12px;
+      padding: 4px 6px;
       font-size: 12px;
       font-weight: 600;
-      color: #64748b;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      background: transparent;
+      color: #94a3b8;
+      border: none !important;
+      border-radius: 6px;
+      background: transparent !important;
       cursor: pointer;
       transition: all .15s;
     }
-    .dark .btn-detail { color: #94a3b8; border-color: #475569; }
+    .dark .btn-detail { color: #94a3b8; border: none !important; background: transparent !important; }
 
-    .btn-detail:hover { background: #fefce8; border-color: #fef08a; color: #ffd900; }
-    .dark .btn-detail:hover { background: rgba(255, 217, 0, 0.15); border-color: #fed000; color: #fde047; }
+    .btn-detail:hover { background: transparent !important; border: none !important; color: #ffd900 !important; }
+    .dark .btn-detail:hover { background: transparent !important; border: none !important; color: #ffd900 !important; }
 
     .day-cell {
       border-radius: 8px;
@@ -378,47 +382,49 @@ border: none;
           </span>
         </div>
       </div>
-      <div class="px-6 py-5 space-y-6 min-w-[700px]">
-        @foreach ($kampanyeList as $idx => $k)
-        @if ($idx > 0)
-        <hr class="border-t border-slate-100 dark:border-slate-800" style="border-bottom:none;border-left:none;border-right:none;">@endif
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-3">
-              @if($k['logo'])
-              <img src="/storage/{{ $k['logo'] }}" alt="Logo" class="w-9 h-9 rounded-xl object-cover flex-shrink-0">
-              @else
-              <div class="app-icon icon-{{ $k['warna'] }}">{{ $k['inisial'] }}</div>
-              @endif
-              <div>
-                <p class="text-slate-800 dark:text-white text-sm font-semibold">{{ $k['nama'] }}</p>
-                <p class="text-slate-500 dark:text-slate-400" style="font-size:11px;">
-                  {{ $k['versi'] }} &middot;
-                  @if($k['status']==='progress') {{ __('Hari ke-:aktif dari :total', ['aktif' => $k['hariAktif'], 'total' => $k['totalHari']]) }}
-                  @else {{ __('Menunggu konfirmasi tester') }} @endif
-                </p>
+      <div class="overflow-x-auto w-full">
+        <div class="px-6 py-5 space-y-6 min-w-[700px]">
+          @foreach ($kampanyeList as $idx => $k)
+          @if ($idx > 0)
+          <hr class="border-t border-slate-100 dark:border-slate-800" style="border-bottom:none;border-left:none;border-right:none;">@endif
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-3">
+                @if($k['logo'])
+                <img src="/storage/{{ $k['logo'] }}" alt="Logo" class="w-9 h-9 rounded-xl object-cover flex-shrink-0">
+                @else
+                <div class="app-icon icon-{{ $k['warna'] }}">{{ $k['inisial'] }}</div>
+                @endif
+                <div>
+                  <p class="text-slate-800 dark:text-white text-sm font-semibold">{{ $k['nama'] }}</p>
+                  <p class="text-slate-500 dark:text-slate-400" style="font-size:11px;">
+                    {{ $k['versi'] }} &middot;
+                    @if($k['status']==='progress') {{ __('Hari ke-:aktif dari :total', ['aktif' => $k['hariAktif'], 'total' => $k['totalHari']]) }}
+                    @else {{ __('Menunggu konfirmasi tester') }} @endif
+                  </p>
+                </div>
               </div>
+              <span class="status-badge status-{{ $k['status'] }}">
+                @if($k['status']==='progress'){{ __('DIPROSES') }}
+                @elseif($k['status']==='pending'){{ __('PENDING') }}
+                @else{{ __('SELESAI') }}@endif
+              </span>
             </div>
-            <span class="status-badge status-{{ $k['status'] }}">
-              @if($k['status']==='progress'){{ __('DIPROSES') }}
-              @elseif($k['status']==='pending'){{ __('PENDING') }}
-              @else{{ __('SELESAI') }}@endif
-            </span>
+            <div class="grid gap-1" style="grid-template-columns:repeat(14,1fr);">
+              @for ($h = 1; $h <= 14; $h++)
+                @php
+                $cls='day-future' ;
+                if ($k['status']==='progress' ) {
+                if ($h < $k['hariAktif']) $cls='day-done' ;
+                elseif ($h===$k['hariAktif']) $cls='day-today' ;
+                } elseif ($k['status']==='selesai' ) { $cls='day-done' ; }
+                @endphp
+                <div class="day-cell {{ $cls }}"><span class="day-num">{{ $h }}</span></div>
+              @endfor
+            </div>
           </div>
-          <div class="grid gap-1" style="grid-template-columns:repeat(14,1fr);">
-            @for ($h = 1; $h <= 14; $h++)
-              @php
-              $cls='day-future' ;
-              if ($k['status']==='progress' ) {
-              if ($h < $k['hariAktif']) $cls='day-done' ;
-              elseif ($h===$k['hariAktif']) $cls='day-today' ;
-              } elseif ($k['status']==='selesai' ) { $cls='day-done' ; }
-              @endphp
-              <div class="day-cell {{ $cls }}"><span class="day-num">{{ $h }}</span></div>
-            @endfor
-          </div>
+          @endforeach
         </div>
-        @endforeach
       </div>
     </div>
 

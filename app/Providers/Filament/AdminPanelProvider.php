@@ -12,7 +12,6 @@ use App\Filament\Admin\Pages\ManajemenPembayaran;
 use App\Filament\Admin\Pages\ManajemenPaket;
 use App\Filament\Admin\Pages\ProfileAdmin;
 use App\Filament\Admin\Pages\ManajemenWithdraw;
-use App\Filament\Admin\Pages\TipsBantuan;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -42,6 +41,8 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login(Login::class)
             ->passwordReset(RequestResetPassword::class, ResetPassword::class)
+            ->darkMode(true, isForced: true)
+            ->defaultThemeMode(\Filament\Enums\ThemeMode::Dark)
 
             // ── Brand & Warna (Helden Inc Theme: Gold/Yellow #ffd900) ──  
             ->colors([
@@ -106,17 +107,12 @@ class AdminPanelProvider extends PanelProvider
                                 ->url(fn() => ManajemenWithdraw::getUrl()),
                         ]),
 
-                    NavigationGroup::make(__('Profil & Bantuan'))
+                    NavigationGroup::make(__('Profil'))
                         ->items([
                             NavigationItem::make(__('Profil Saya'))
                                 ->icon('heroicon-o-user-circle')
                                 ->isActiveWhen(fn() => request()->routeIs('filament.admin.pages.profile-admin'))
                                 ->url(fn() => ProfileAdmin::getUrl()),
-
-                            NavigationItem::make(__('Tips & Bantuan'))
-                                ->icon('heroicon-o-question-mark-circle')
-                                ->isActiveWhen(fn() => request()->routeIs('filament.admin.pages.tips-bantuan'))
-                                ->url(fn() => TipsBantuan::getUrl()),
                         ]),
                 ]);
             })
@@ -130,7 +126,6 @@ class AdminPanelProvider extends PanelProvider
                 ManajemenPaket::class,
                 ProfileAdmin::class,
                 ManajemenWithdraw::class,
-                TipsBantuan::class,
             ])
             ->discoverPages(
                 in: app_path('Filament/Admin/Pages'),
@@ -154,10 +149,6 @@ class AdminPanelProvider extends PanelProvider
             ->renderHook(
                 'panels::head.end',
                 fn(): string => Blade::render("@vite(['resources/css/app.css', 'resources/css/filament-sidebar.css', 'resources/css/filament-topbar.css'])"),
-            )
-            ->renderHook(
-                \Filament\View\PanelsRenderHook::USER_MENU_PROFILE_BEFORE,
-                fn(): string => view('filament.components.language-switcher')->render(),
             )
 
             // ── Middleware ────────────────────────────────────  

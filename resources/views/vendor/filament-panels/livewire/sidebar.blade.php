@@ -201,6 +201,8 @@
                     })
             </script>
 
+
+
             {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::SIDEBAR_NAV_END) }}
         </nav>
 

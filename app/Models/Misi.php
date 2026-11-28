@@ -14,12 +14,29 @@ class Misi extends Model
         'id_user',
         'id_paket',
         'nama_aplikasi',
+        'penyelenggara',
+        'lokasi',
+        'jadwal_tanggal',
+        'jadwal_waktu',
+        'kuota_tester',
+        'komisi_per_tester',
+        'biaya_admin',
+        'total_biaya',
+        'persyaratan',
         'logo',
         'link_aplikasi',
         'instruksi',
         'status',
         'point',
         'kapasitas',
+    ];
+
+    protected $casts = [
+        'jadwal_tanggal' => 'date',
+        'kuota_tester' => 'integer',
+        'komisi_per_tester' => 'integer',
+        'biaya_admin' => 'integer',
+        'total_biaya' => 'integer',
     ];
 
     public function user(): BelongsTo

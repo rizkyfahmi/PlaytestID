@@ -5,7 +5,6 @@ namespace App\Filament\Developer\Resources\Misis\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -15,7 +14,7 @@ class MisisTable
     {
         return $table
             ->columns([
-                \Filament\Tables\Columns\TextColumn::make('logo_view')
+                TextColumn::make('logo_view')
                     ->label('Logo')
                     ->html()
                     ->getStateUsing(function ($record) {
@@ -24,171 +23,79 @@ class MisisTable
                         }
 
                         $inisial = strtoupper(substr($record->nama_aplikasi, 0, 2));
-                        $colors = ['orange', 'amber', 'purple', 'green'];
-                        $warna = $colors[$record->id % count($colors)];
-
-                        $bg = match ($warna) {
-                            'orange' => '#fefce8',
-                            'amber' => '#fffbeb',
-                            'purple' => '#faf5ff',
-                            default => '#f0fdf4',
-                        };
-                        $text = match ($warna) {
-                            'orange' => '#ffd900',
-                            'amber' => '#d97706',
-                            'purple' => '#7e22ce',
-                            default => '#16a34a',
-                        };
-
-                        return '<div style="width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;background:' . $bg . ';color:' . $text . ';">' . $inisial . '</div>';
+                        return '<div style="width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;background:#1a1a18;color:#ffd900;border:1px solid #333330;">' . $inisial . '</div>';
                     }),
 
                 TextColumn::make('nama_aplikasi')
-                    ->label('Nama Aplikasi')
+                    ->label(__('Nama Pengujian'))
+                    ->description(fn($record) => $record->penyelenggara ? __('Oleh: ') . $record->penyelenggara : null)
                     ->searchable()
                     ->sortable()
                     ->weight('semibold'),
 
-                TextColumn::make('paket.name')
-                    ->label('Paket')
-                    ->badge()
-                    ->color(fn($state): string => match (true) {
-                        str_contains(strtolower($state ?? ''), 'premium') => 'success',
-                        str_contains(strtolower($state ?? ''), 'basic') => 'info',
-                        str_contains(strtolower($state ?? ''), 'gratis') => 'gray',
-                        default => 'warning',
-                    })
-                    ->default('-'),
+                TextColumn::make('lokasi')
+                    ->label(__('Lokasi Fisik'))
+                    ->limit(35)
+                    ->tooltip(fn($record) => $record->lokasi)
+                    ->searchable()
+                    ->icon('heroicon-o-map-pin'),
 
-                TextColumn::make('kapasitas')
-                    ->label('Kapasitas')
-                    ->formatStateUsing(fn($state) => $state . '/' . config('missions.max_capacity', 20))
-                    ->suffix(' tester')
+                TextColumn::make('jadwal_tanggal')
+                    ->label(__('Jadwal'))
+                    ->formatStateUsing(function ($record) {
+                        $tgl = $record->jadwal_tanggal ? $record->jadwal_tanggal->format('d M Y') : '-';
+                        $waktu = $record->jadwal_waktu ? ' (' . $record->jadwal_waktu . ')' : '';
+                        return $tgl . $waktu;
+                    })
+                    ->icon('heroicon-o-calendar')
                     ->sortable(),
 
-                TextColumn::make('point')
-                    ->label('Point')
-                    ->suffix(' pt')
+                TextColumn::make('kuota_tester')
+                    ->label(__('Tester'))
+                    ->formatStateUsing(fn($record) => ($record->kapasitas ?? 0) . ' / ' . ($record->kuota_tester ?? 0) . ' orang')
+                    ->badge()
+                    ->color(fn($record) => ($record->kapasitas >= $record->kuota_tester) ? 'danger' : 'success')
+                    ->sortable(),
+
+                TextColumn::make('komisi_per_tester')
+                    ->label(__('Komisi / Org'))
+                    ->formatStateUsing(fn($state) => 'Rp ' . number_format($state ?? 20000, 0, ',', '.'))
+                    ->weight('bold')
+                    ->color('primary')
                     ->sortable(),
 
                 TextColumn::make('status')
-                    ->label('Status')
+                    ->label(__('Status'))
                     ->badge()
+                    ->formatStateUsing(fn(string $state): string => match ($state) {
+                        'open' => __('Membuka Pendaftaran'),
+                        'running' => __('Sedang Berjalan'),
+                        'completed' => __('Selesai'),
+                        'closed' => __('Kuota Penuh'),
+                        default => ucfirst($state),
+                    })
                     ->color(fn(string $state): string => match ($state) {
-                        'active' => 'success',
-                        'pending' => 'warning',
-                        'completed' => 'info',
-                        'cancelled' => 'danger',
+                        'open' => 'success',
+                        'running' => 'info',
+                        'completed' => 'primary',
+                        'closed' => 'warning',
                         default => 'gray',
                     }),
-
-                TextColumn::make('created_at')
-                    ->label('Dibuat')
-                    ->dateTime('d M Y')
-                    ->sortable()
-                    ->toggleable(),
             ])
             ->filters([])
             ->recordActions([
-                \Filament\Actions\Action::make('mulai_misi')
-                    ->label('Mulai Misi')
-                    ->icon('heroicon-o-play')
-                    ->color('success')
-                    ->iconButton()
-                    ->tooltip('Mulai Misi')
-                    ->requiresConfirmation()
-                    ->modalHeading('Mulai Misi')
-                    ->modalDescription('Apakah Anda yakin ingin memulai misi ini? Sistem akan membuatkan sub-misi secara otomatis untuk para tester.')
-                    ->form([
-                        \Filament\Forms\Components\TextInput::make('link_aplikasi')
-                            ->label('Link Aplikasi / Test')
-                            ->placeholder('https://...')
-                            ->url()
-                            ->required()
-                            ->maxLength(255),
-                    ])
-                    ->visible(fn(\App\Models\Misi $record): bool => $record->status === 'closed')
-                    ->action(function (\App\Models\Misi $record, array $data) {
-                        // 1. Jika paket trusted badge = true, ubah semua tester pending/reviewing menjadi accepted
-                        if ($record->paket && $record->paket->trusted_badge) {
-                            \App\Models\MisiAnggota::where('id_misi', $record->id)
-                                ->whereIn('status', ['pending', 'reviewing'])
-                                ->update(['status' => 'accepted']);
-                        }
-
-                        // 2. Ambil semua tester yang sudah accepted (beserta relasi user untuk email)
-                        $acceptedTesters = \App\Models\MisiAnggota::where('id_misi', $record->id)
-                            ->where('status', 'accepted')
-                            ->with('user')
-                            ->get();
-
-                        // 3. Buat 14 sub misi untuk setiap tester yang accepted
-                        $now = \Carbon\Carbon::now();
-                        $subMisis = [];
-                        foreach ($acceptedTesters as $tester) {
-                            for ($i = 1; $i <= 14; $i++) {
-                                $subMisis[] = [
-                                    'id_misi' => $record->id,
-                                    'id_user' => $tester->id_user,
-                                    'hari_ke' => $i,
-                                    'status' => 'notdone',
-                                    'created_at' => $now->copy()->addDays($i - 1),
-                                    'updated_at' => $now->copy()->addDays($i - 1),
-                                ];
-                            }
-                        }
-
-                        if (!empty($subMisis)) {
-                            \App\Models\MisiSub::insert($subMisis);
-                        }
-
-                        // 4. Ubah status misi menjadi running & simpan link
-                        $record->update([
-                            'status' => 'running',
-                            'link_aplikasi' => $data['link_aplikasi'],
-                        ]);
-
-                        // 5. Ubah status tester accepted menjadi progress
-                        \App\Models\MisiAnggota::where('id_misi', $record->id)
-                            ->where('status', 'accepted')
-                            ->update(['status' => 'progress']);
-
-                        // 6. Kirim email notifikasi ke seluruh tester bahwa misi dimulai
-                        foreach ($acceptedTesters as $tester) {
-                            if ($tester->user && $tester->user->email) {
-                                try {
-                                    \Illuminate\Support\Facades\Mail::to($tester->user->email)->send(new \App\Mail\ContactMail(
-                                        'Pengujian Aplikasi Dimulai — Testoplay',
-                                        'Misi Pengujian Dimulai!',
-                                        "Halo {$tester->user->name},\n\nMisi pengujian untuk aplikasi \"{$record->nama_aplikasi}\" telah resmi dimulai oleh developer.\nSilakan mulai mengunduh aplikasi dan selesaikan tugas harian Anda selama 14 hari ke depan.",
-                                        'Lihat Misi Saya',
-                                        url('/tester/misi-saya')
-                                    ));
-                                } catch (\Exception $e) {
-                                    \Illuminate\Support\Facades\Log::error('Gagal mengirim email misi dimulai ke ' . $tester->user->email . ': ' . $e->getMessage());
-                                }
-                            }
-                        }
-
-                        \Filament\Notifications\Notification::make()
-                            ->title('Misi Berhasil Dimulai')
-                            ->body('Status misi telah diubah menjadi running dan sub-misi tester telah dibuat.')
-                            ->success()
-                            ->send();
-                    }),
-
                 \Filament\Actions\Action::make('kelola_tester')
-                    ->label('Kelola Tester')
-                    ->icon('heroicon-o-users')
-                    ->color('info')
-                    ->iconButton()
-                    ->tooltip('Kelola Tester')
+                    ->label(__('Seleksi & Kelola Tester'))
+                    ->icon('heroicon-o-user-group')
+                    ->color('primary')
+                    ->tooltip(__('Periksa antrean pelamar, terima/tolak, dan konfirmasi kehadiran'))
                     ->url(fn(\App\Models\Misi $record): string => \App\Filament\Developer\Resources\Misis\MisiResource::getUrl('kelola-tester', ['record' => $record])),
+
                 EditAction::make()
                     ->iconButton()
                     ->tooltip('Edit'),
             ])
-            ->actionsColumnLabel('Aksi')
+            ->actionsColumnLabel(__('Aksi'))
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),

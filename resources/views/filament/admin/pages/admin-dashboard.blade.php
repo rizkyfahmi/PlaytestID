@@ -853,7 +853,7 @@ border: none;
                     </div>
 
                     <div class="overflow-x-auto">
-                        <table class="adm-table">
+                        <table class="adm-table min-w-[560px]">
                             <thead>
                                 <tr>
                                     <th>

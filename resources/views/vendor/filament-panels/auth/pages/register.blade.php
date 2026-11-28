@@ -262,11 +262,12 @@
         }
 
         .login-card-title {
-            font-size: 1.625rem;
+            font-size: 1.35rem;
             font-weight: 800;
             color: #111827;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
             margin: 0 0 0.3rem;
+            word-break: break-word;
         }
 
         .login-card-subtitle {
@@ -552,7 +553,8 @@
             }
 
             .login-card-title {
-                font-size: 2rem;
+                font-size: 1.625rem !important;
+                white-space: nowrap !important;
             }
 
             .login-mobile-features {
@@ -718,7 +720,228 @@
                 max-width: 50%;
             }
         }
+    
+                        /* ════════════════════════════════════════════════════════
+           HELDEN INC DARK MODE FOR AUTH PAGES (#1a1a18)
+           Matches Image 2 background perfectly across header/body/footer
+           ════════════════════════════════════════════════════════ */
+        html.dark,
+        .dark,
+        .dark body,
+        .dark .fi-body,
+        .dark .fi-simple-layout,
+        .dark .fi-simple-main-ctn,
+        .dark .fi-simple-main,
+        .dark .fi-simple-page,
+        .dark .fi-simple-page-content,
+        .dark .login-page, .dark .register-page, .dark .rrp-page, .dark .rp-page, .dark .ev-page, .dark .ep-page, .dark .ee-page,
+        .dark .login-card-section, .dark .register-card-section, .dark .rrp-card-section, .dark .rp-card-section,
+        .dark .login-card, .dark .register-card, .dark .rrp-card, .dark .rp-card, .dark .ev-card, .dark .ep-card, .dark .ee-card {
+            background: #1a1a18 !important;
+            background-color: #1a1a18 !important;
+            color: #e2e8f0 !important;
+            border-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .dark .login-hero, .dark .register-hero, .dark .rrp-hero, .dark .rp-hero {
+            background: #141414 !important;
+            border-color: #2a2a2a !important;
+            color: #e2e8f0 !important;
+        }
+
+        .dark .login-hero-bg-overlay,
+        .dark .register-hero-bg-overlay,
+        .dark .rrp-hero-bg-overlay,
+        .dark .rp-hero-bg-overlay {
+            background: #141414 !important;
+        }
+
+        .login-social-proof-bold {
+            color: #111827;
+            font-weight: 700;
+        }
+        .dark .login-social-proof-bold {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+
+        .dark .login-card-inner, .dark .register-card-inner, .dark .rrp-card-inner, .dark .rp-card-inner {
+            background: transparent !important;
+        }
+
+        .dark .login-form-wrapper, .dark .register-form-wrapper, .dark .rrp-form-wrapper, .dark .rp-form-wrapper {
+            background: transparent !important;
+        }
+
+        .dark .fi-input-wrp {
+            background: #242424 !important;
+            border-color: #383838 !important;
+            color: #ffffff !important;
+        }
+
+        .dark .fi-input-wrp input {
+            background: transparent !important;
+            color: #ffffff !important;
+        }
+
+        .dark .auth-top-controls {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .auth-top-controls {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #e2e8f0;
+        }
+
+        .auth-theme-toggle-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            color: #64748b;
+            transition: all 0.2s ease;
+        }
+        .auth-theme-toggle-btn:hover {
+            color: #ffd900;
+            background: rgba(255, 217, 0, 0.1);
+        }
+        .dark .auth-theme-toggle-btn {
+            color: #ffd900;
+        }
+
+        .auth-lang-btn {
+            text-decoration: none;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            font-size: 0.625rem;
+            font-weight: 900;
+            transition: all 0.2s;
+            color: #94a3b8;
+            background-color: transparent;
+        }
+        .auth-lang-btn.active {
+            color: #111111 !important;
+            background-color: #ffd900 !important;
+        }
+
+        .dark .login-card-title, .dark .register-card-title, .dark .rrp-card-title, .dark .rp-card-title,
+        .dark .ev-title, .dark .ep-title, .dark .ee-title,
+        .dark .login-hero-title, .dark .register-hero-title, .dark .rrp-hero-title, .dark .rp-hero-title {
+            color: #ffffff !important;
+        }
+
+        .dark .login-card-subtitle, .dark .register-card-subtitle, .dark .rrp-card-subtitle, .dark .rp-card-subtitle,
+        .dark .login-hero-desc, .dark .register-hero-desc, .dark .rrp-hero-desc, .dark .rp-hero-desc,
+        .dark .ev-desc, .dark .ep-desc, .dark .ee-desc,
+        .dark .login-register-link, .dark .register-login-link {
+            color: #94a3b8 !important;
+        }
+
+        .dark .fi-input-wrp {
+            background: #242424 !important;
+            border-color: #333333 !important;
+            color: #ffffff !important;
+        }
+
+        .dark .fi-input-wrp input {
+            background: transparent !important;
+            color: #ffffff !important;
+        }
+
+        .dark .fi-input-wrp input::placeholder {
+            color: #64748b !important;
+        }
+
+        .dark label, .dark .fi-fo-field-wrp-label span {
+            color: #cbd5e1 !important;
+        }
+
+        .dark .login-google-btn, .dark .register-google-btn {
+            background: #242424 !important;
+            border-color: #333333 !important;
+            color: #ffffff !important;
+        }
+        .dark .login-google-btn:hover, .dark .register-google-btn:hover {
+            background: #2e2e2e !important;
+            border-color: #444444 !important;
+        }
+
+        .dark .login-hero-footer, .dark .register-hero-footer, .dark .rrp-hero-footer, .dark .rp-hero-footer {
+            border-color: #2a2a2a !important;
+        }
+
+        .dark .login-mobile-header-logo, .dark .register-mobile-header-logo {
+            background: #1a1a18 !important;
+            border: 1px solid #333333 !important;
+        }
+
+        .dark .login-mobile-features, .dark .register-mobile-features {
+            background: #141414 !important;
+            border-color: #2a2a2a !important;
+        }
+
+        .dark .login-mobile-pill, .dark .register-mobile-pill {
+            background: #242424 !important;
+            color: #fde047 !important;
+            border-color: #333333 !important;
+        }
+
+        .dark .login-topbar a, .dark .login-topbar span, .dark .login-topbar button {
+            color: #cbd5e1 !important;
+        }
+
+        .dark .login-lang-btn {
+            background: #242424 !important;
+            color: #94a3b8 !important;
+        }
+        .dark .login-lang-btn.active {
+            background: #ffd900 !important;
+            color: #111111 !important;
+        }
+
+        .dark .auth-theme-btn {
+            background: #242424 !important;
+            color: #fde047 !important;
+            border-color: #333333 !important;
+        }
+
+        .auth-theme-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.5rem;
+            background: #f1f5f9;
+            color: #f59e0b;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .auth-theme-btn:hover {
+            transform: scale(1.05);
+        }
+
     </style>
+    <script>
+        function toggleAuthTheme() {
+            const html = document.documentElement;
+            const isDark = html.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('pt-theme', isDark ? 'dark' : 'light');
+        }
+    </script>
 @endpush
 
 {{-- ============================================================ --}}
@@ -729,12 +952,9 @@
         <x-auth-mobile-bg />
 
         {{-- Language Switcher (Fixed top right) --}}
-        <div
-            style="position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50; display: flex; gap: 0.375rem; background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); padding: 0.25rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
-            <a href="{{ route('language.switch', 'en') }}"
-                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'en' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'en' ? '#ffd900' : 'transparent' }};">EN</a>
-            <a href="{{ route('language.switch', 'id') }}"
-                style="text-decoration: none; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-size: 0.625rem; font-weight: 900; transition: all 0.2s; color: {{ App::getLocale() == 'id' ? '#ffffff' : '#94a3b8' }}; background-color: {{ App::getLocale() == 'id' ? '#ffd900' : 'transparent' }};">ID</a>
+        <div class="auth-top-controls"
+            style="position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50;">
+            <x-language-dropdown />
         </div>
 
         {{-- ======================================================= --}}
@@ -742,9 +962,10 @@
         {{-- ======================================================= --}}
         <div class="login-mobile-header">
             <div class="login-mobile-header-logo">
-                <img src="{{ asset('logo.png') }}" alt="Testoplay" class="h-10 w-auto object-contain" />
+                <img src="{{ asset('logo.png') }}" alt="Testoplay" class="h-10 w-auto object-contain dark:hidden" />
+                <img src="{{ asset('logo-dark.png') }}" alt="Testoplay" class="h-10 w-auto object-contain hidden dark:block" />
             </div>
-            <p class="login-mobile-header-tagline">{{ __('Lulus Closed Testing Lebih Cepat') }}</p>
+            <p class="login-mobile-header-tagline">{{ __('Pengujian Tatap Muka Terpercaya') }}</p>
         </div>
 
         {{-- ======================================================= --}}
@@ -758,39 +979,17 @@
             <div class="login-hero-content">
                 {{-- Logo --}}
                 <div class="login-logo">
-                    <img src="{{ asset('logo.png') }}" alt="Testoplay" class="h-12 w-auto object-contain" />
+                    <img src="{{ asset('logo.png') }}" alt="Testoplay" class="h-12 w-auto object-contain dark:hidden" />
+                    <img src="{{ asset('logo-dark.png') }}" alt="Testoplay" class="h-12 w-auto object-contain hidden dark:block" />
                 </div>
 
                 {{-- Desktop-only extended hero --}}
                 <div class="login-hero-extended">
                     <h2 class="login-hero-title">
-                        {{ __('Lulus Closed Testing Lebih Cepat.') }}
+                        {{ __('Bergabung Bersama Komunitas Pengujian.') }}
                     </h2>
                     <p class="login-hero-desc">
-                        {{ __('Penuhi syarat 20 tester selama 14 hari dari Google Play tanpa pusing.') }}
-                    </p>
-                </div>
-                <div class="login-hero-pills">
-                    @foreach([__('✓ 20+ Tester Asli'), __('✓ Ulasan Asli'), __('✓ 14 Hari Pengujian'), __('✓ Google Play Console'), __('✓ Akses Instan')] as $feature)
-                        <span class="login-hero-pill">{{ $feature }}</span>
-                    @endforeach
-                </div>
-                {{-- Desktop-only social proof footer --}}
-                <div class="login-hero-footer">
-                    <div class="login-avatars">
-                        @php
-                            $avatarColors = ['#6366f1', '#8b5cf6', '#ec4899', '#f59e0b'];
-                            $avatarInitials = ['JD', 'AK', 'MR', 'ST'];
-                        @endphp
-                        @foreach($avatarInitials as $i => $initials)
-                            <div class="login-avatar-initials" style="background: {{ $avatarColors[$i] }}">
-                                {{ $initials }}
-                            </div>
-                        @endforeach
-                    </div>
-                    <p class="login-social-proof">
-                        {{ __('Digunakan oleh') }} <strong
-                            style="color:#111827; font-weight:700;">{{ __('500+ Developer') }}</strong>
+                        {{ __('Daftar untuk menguji aplikasi secara langsung di lokasi atau dapatkan tester terverifikasi untuk aplikasi Anda.') }}
                     </p>
                 </div>
             </div>
@@ -834,8 +1033,8 @@
 
             {{-- Mobile-only feature pills --}}
             <div class="login-mobile-features">
-                @foreach([__('✓ 20+ Tester'), __('✓ Uji 14 Hari'), __('✓ Akses Instan')] as $feature)
-                    <span class="login-mobile-pill">{{ $feature }}</span>
+                @foreach(['✓ Tatap Muka', '✓ Komisi Tunai', '✓ Langsung Selesai'] as $feature)
+                    <span class="login-mobile-pill">{{ __($feature) }}</span>
                 @endforeach
             </div>
         </div>
@@ -848,16 +1047,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
-    <style>
-        /* Hide mobile logo on desktop */
-        @media (min-width: 1024px) {
-            .lg-hidden-logo {
-                display: none !important;
-            }
-
-            .login-mobile-header {
-                display: none !important;
-            }
+    <script>
+        function toggleAuthTheme() {
+            const html = document.documentElement;
+            const isDark = html.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('pt-theme', isDark ? 'dark' : 'light');
         }
-    </style>
+    </script>
 @endpush

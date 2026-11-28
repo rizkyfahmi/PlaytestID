@@ -4,7 +4,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 .hist-page, .hist-page * { font-family: 'Inter', sans-serif; }
-.font-mono-num { font-family: 'JetBrains Mono', monospace !important; }
+.font-mono-num { font-family: 'Inter', sans-serif !important; font-variant-numeric: tabular-nums; }
 .font-heading  { font-family: 'Plus Jakarta Sans', sans-serif !important; }
 
 /* ── Stat cards ────────────────────────────────── */
@@ -102,13 +102,13 @@
         </div>
 
         <div class="hist-stat">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fef2f2;">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:#ef4444;">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(255, 217, 0, 0.08);">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:#94a3b8;">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
             </div>
             <div>
-                <p class="font-mono-num text-2xl font-bold" style="color:#ef4444;">{{ $gagal }}</p>
+                <p class="font-mono-num text-2xl font-bold" style="color:#94a3b8;">{{ $gagal }}</p>
                 <p class="text-xs font-medium" style="color:#64748b;">{{ __('Misi Gagal') }}</p>
             </div>
         </div>
@@ -195,10 +195,10 @@
                             </div>
                         </div>
 
-                        {{-- Point reward --}}
+                        {{-- Komisi Tunai --}}
                         <div class="text-right flex-shrink-0 hidden sm:block">
-                            <p class="font-mono-num text-sm font-bold" style="color:#10b981;">+{{ $item['point'] }} pts</p>
-                            <p class="text-xs" style="color:#94a3b8;">{{ __('Hadiah') }}</p>
+                            <p class="font-mono-num text-sm font-bold" style="color:#10b981;">+Rp {{ number_format($item['komisi'] ?? $item['point'], 0, ',', '.') }}</p>
+                            <p class="text-xs" style="color:#94a3b8;">{{ __('Komisi') }}</p>
                         </div>
 
                         {{-- Status badge --}}
@@ -222,15 +222,15 @@
 
     {{-- ── INFO BOX: Mengapa bisa gagal ─────────────────────── --}}
     @if($gagal > 0)
-    <div class="mt-4 flex items-start gap-3 px-4 py-3 rounded-xl"
-         style="background:#fef2f2;border:1px solid #fecdd3;">
-        <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:#ef4444;">
+    <div class="mt-4 flex items-start gap-3 px-4 py-3 rounded-xl border"
+         style="background:rgba(255, 217, 0, 0.05);border-color:rgba(255, 217, 0, 0.25);">
+        <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:#ffd900;">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
-        <p class="text-xs leading-relaxed" style="color:#b91c1c;">
-            <strong>{{ __('Mengapa misi berstatus Gagal?') }}</strong>
-            {{ __('Misi dinyatakan gagal jika kamu tidak mengumpulkan laporan harian selama satu hari penuh.') }}
-            {{ __('Pastikan submit screenshot bukti tugas setiap hari agar tidak melewatkan tenggat waktu.') }}
+        <p class="text-xs leading-relaxed text-neutral-300">
+            <strong class="text-[#ffd900]">{{ __('Mengapa misi berstatus Gagal?') }}</strong>
+            {{ __('Misi dinyatakan gagal jika kamu tidak hadir di lokasi pengujian sesuai jadwal yang ditentukan oleh developer.') }}
+            {{ __('Pastikan hadir tepat waktu di lokasi fisik pengujian agar dapat menyelesaikan tugas dan menerima komisi.') }}
         </p>
     </div>
     @endif

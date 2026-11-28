@@ -9,7 +9,6 @@ use App\Filament\Auth\Pages\ResetPassword;
 use App\Filament\Developer\Pages\DeveloperDashboard;
 use App\Filament\Developer\Pages\ProfileDeveloper;
 use App\Filament\Developer\Pages\PantauProgress;
-use App\Filament\Developer\Pages\TipsBantuanDeveloper;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -39,6 +38,8 @@ class DeveloperPanelProvider extends PanelProvider
             ->login(Login::class)
             ->registration(Register::class)
             ->passwordReset(RequestResetPassword::class, ResetPassword::class)
+            ->darkMode(true, isForced: true)
+            ->defaultThemeMode(\Filament\Enums\ThemeMode::Dark)
             // ── Warna sesuai tema Helden Inc (#ffd900) ──  
             ->colors([
                 'primary' => [
@@ -81,17 +82,12 @@ class DeveloperPanelProvider extends PanelProvider
                                 ->isActiveWhen(fn() => request()->routeIs('filament.developer.resources.misis.create')),
                         ]),
 
-                    NavigationGroup::make(__('Profil & Bantuan'))
+                    NavigationGroup::make(__('Profil'))
                         ->items([
                             NavigationItem::make(__('Profil Saya'))
                                 ->icon('heroicon-o-user-circle')
                                 ->url(fn(): string => ProfileDeveloper::getUrl())
                                 ->isActiveWhen(fn() => request()->routeIs('filament.developer.pages.profile-developer')),
-
-                            NavigationItem::make(__('Tips & Bantuan'))
-                                ->icon('heroicon-o-question-mark-circle')
-                                ->url(fn(): string => TipsBantuanDeveloper::getUrl())
-                                ->isActiveWhen(fn() => request()->routeIs('filament.developer.pages.tips-bantuan')),
                         ]),
                 ]);
             })
@@ -100,10 +96,6 @@ class DeveloperPanelProvider extends PanelProvider
             ->renderHook(
                 'panels::head.end',
                 fn(): string => Blade::render("@vite(['resources/css/app.css', 'resources/css/filament-sidebar.css', 'resources/css/filament-topbar.css'])"),
-            )
-            ->renderHook(
-                \Filament\View\PanelsRenderHook::USER_MENU_PROFILE_BEFORE,
-                fn(): string => view('filament.components.language-switcher')->render(),
             )
 
             ->pages([

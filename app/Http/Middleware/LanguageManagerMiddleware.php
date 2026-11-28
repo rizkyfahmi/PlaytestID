@@ -21,7 +21,7 @@ class LanguageManagerMiddleware
         // 1. Cek apakah ada parameter locale di URL (untuk Landing Page)
         $localeFromUrl = $request->segment(1);
         
-        $supportedLocales = ['id', 'en'];
+        $supportedLocales = ['id', 'en', 'nl'];
         $selectedLocale = config('app.fallback_locale'); // Default 'id'
         $isPrefixedUrl = false;
 

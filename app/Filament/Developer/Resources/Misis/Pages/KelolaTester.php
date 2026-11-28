@@ -5,10 +5,12 @@ namespace App\Filament\Developer\Resources\Misis\Pages;
 use App\Filament\Developer\Resources\Misis\MisiResource;
 use App\Models\Misi;
 use App\Models\MisiAnggota;
-use Filament\Resources\Pages\Page;
+use App\Models\PelanggaranTester;
+use App\Models\UserBalance;
 use Filament\Notifications\Notification;
-use Illuminate\Support\Facades\Mail;
+use Filament\Resources\Pages\Page;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
 
 class KelolaTester extends Page
@@ -19,6 +21,12 @@ class KelolaTester extends Page
 
     public Misi $record;
 
+    public string $activeTab = 'semua';
+    public string $search = '';
+
+    public ?int $selectedTesterId = null;
+    public string $alasanPelanggaran = '';
+
     public function mount(Misi $record): void
     {
         $this->record = $record;
@@ -27,253 +35,215 @@ class KelolaTester extends Page
     public function getHeading(): string|\Illuminate\Contracts\Support\Htmlable
     {
         return new \Illuminate\Support\HtmlString('
-            <a href="' . MisiResource::getUrl('index') . '" class="text-base font-bold text-slate-500 hover:text-slate-800 flex items-center gap-2 w-fit transition-colors mt-2 mb-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                ' . __('Kembali') . '
-            </a>
+            <div class="flex items-center gap-3">
+                <a href="' . MisiResource::getUrl('index') . '" class="text-sm font-semibold text-neutral-400 hover:text-white flex items-center gap-1.5 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    ' . __('Kembali ke Daftar Misi') . '
+                </a>
+            </div>
         ');
-    }
-
-    public function getBreadcrumbs(): array
-    {
-        return [];
     }
 
     public function getViewData(): array
     {
-        $testers = MisiAnggota::where('id_misi', $this->record->id)
-            ->where('status', '!=', 'rejected')
-            ->with('user')
-            ->get();
+        $query = MisiAnggota::where('id_misi', $this->record->id)
+            ->with(['user', 'user.userBalance'])
+            ->orderBy('created_at', 'desc');
 
-        $colors = ['#ffd900', '#f59e0b', '#8b5cf6', '#10b981', '#ef4444', '#0ea5e9', '#7c3aed'];
+        if ($this->search) {
+            $s = '%' . $this->search . '%';
+            $query->whereHas('user', function ($q) use ($s) {
+                $q->where('name', 'like', $s)
+                  ->orWhere('email', 'like', $s)
+                  ->orWhere('phone_number', 'like', $s);
+            });
+        }
 
-        $testerList = $testers->map(function ($tester, $idx) use ($colors) {
+        if ($this->activeTab === 'menunggu') {
+            $query->whereIn('status', ['pending', 'reviewing', 'menunggu_seleksi']);
+        } elseif ($this->activeTab === 'diterima') {
+            $query->whereIn('status', ['accepted', 'progress']);
+        } elseif ($this->activeTab === 'selesai') {
+            $query->where('status', 'selesai');
+        } elseif ($this->activeTab === 'ditolak') {
+            $query->whereIn('status', ['rejected', 'cancelled']);
+        }
+
+        $allMembers = MisiAnggota::where('id_misi', $this->record->id)->get();
+
+        $statTotal = $allMembers->count();
+        $statMenunggu = $allMembers->whereIn('status', ['pending', 'reviewing', 'menunggu_seleksi'])->count();
+        $statDiterima = $allMembers->whereIn('status', ['accepted', 'progress'])->count();
+        $statSelesai = $allMembers->where('status', 'selesai')->count();
+        $statDitolak = $allMembers->whereIn('status', ['rejected', 'cancelled'])->count();
+
+        $testers = $query->get()->map(function ($tester) {
             $user = $tester->user;
-            $names = explode(' ', $user->name ?? 'Unknown User');
-            $inisial = strtoupper(substr($names[0], 0, 1) . (isset($names[1]) ? substr($names[1], 0, 1) : ''));
+            $nama = $user->name ?? 'Tester';
+            $inisial = strtoupper(substr($nama, 0, 2));
 
-            // Calculate Badge Tier
-            $balance = \App\Models\UserBalance::where('id_user', $user->id)->first();
-            $badgeCount = $balance->badge ?? 0;
-
-            if ($badgeCount <= 5) {
-                $tierName = 'Beginner';
-                $tierIcon = '🔵';
-                $tierColor = 'rgb(59, 130, 246)'; // blue
-            } elseif ($badgeCount <= 50) {
-                $tierName = 'Intermediate';
-                $tierIcon = '🟡';
-                $tierColor = 'rgb(217, 119, 6)'; // orange
-            } else {
-                $tierName = 'Master';
-                $tierIcon = '🟣';
-                $tierColor = 'rgb(124, 58, 237)'; // purple
-            }
-
-            $statusMap = [
-                'accepted' => __('Diterima'),
-                'progress' => __('Berlangsung'),
-                'submitted' => __('Menunggu'),
-                'selesai' => __('Selesai'),
-                'failed' => __('Gagal'),
-                'rejected' => __('Ditolak'),
-                'pending' => __('Menunggu'),
-                'reviewing' => __('Menunggu'),
-            ];
-
-            $rawStatus = strtolower($tester->status);
+            $payoutMethod = $tester->payout_method ?? $user->payout_method ?? '-';
+            $accountName = $tester->payout_account_name ?? $user->payout_account_name ?? '-';
+            $accountNumber = $tester->payout_account_number ?? $user->payout_account_number ?? '-';
+            $bankName = $tester->payout_bank_name ?? $user->payout_bank_name ?? '';
+            $phone = $tester->phone_number ?? $user->phone_number ?? '-';
 
             return [
-                'id_misi_anggota' => $tester->id,
-                'nama' => $user->name ?? 'Unknown User',
-                'email' => $user->email,
+                'id' => $tester->id,
+                'user_id' => $user->id ?? 0,
+                'nama' => $nama,
+                'email' => $user->email ?? '-',
+                'phone' => $phone,
                 'inisial' => $inisial,
-                'avatarColor' => $colors[$idx % count($colors)],
-                'raw_status' => $rawStatus,
-                'status' => $statusMap[$rawStatus] ?? ucfirst($rawStatus),
-                'tanggal' => $tester->created_at->format('d M Y H:i'),
-                'badgeTier' => $tierName,
-                'badgeIcon' => $tierIcon,
-                'badgeColor' => $tierColor,
+                'payout_method' => strtoupper($payoutMethod),
+                'payout_bank_name' => $bankName,
+                'payout_account_name' => $accountName,
+                'payout_account_number' => $accountNumber,
+                'status' => $tester->status,
+                'status_kehadiran' => $tester->status_kehadiran ?? 'belum_hadir',
+                'status_komisi' => $tester->status_komisi ?? 'belum_dibayar',
+                'tanggal_apply' => $tester->created_at->format('d M Y H:i'),
             ];
-        })->toArray();
+        });
 
         return [
-            'statTotal' => MisiAnggota::where('id_misi', $this->record->id)->count(),
-            'statDiterima' => MisiAnggota::where('id_misi', $this->record->id)
-                ->whereIn('status', ['accepted', 'progress', 'selesai'])
-                ->count(),
-            'statMenunggu' => MisiAnggota::where('id_misi', $this->record->id)
-                ->whereIn('status', ['pending', 'reviewing', 'submitted'])
-                ->count(),
-            'statDitolak' => MisiAnggota::where('id_misi', $this->record->id)
-                ->whereIn('status', ['rejected', 'failed'])
-                ->count(),
-            'testerList' => $testerList,
+            'testers' => $testers,
+            'statTotal' => $statTotal,
+            'statMenunggu' => $statMenunggu,
+            'statDiterima' => $statDiterima,
+            'statSelesai' => $statSelesai,
+            'statDitolak' => $statDitolak,
+            'kuota' => $this->record->kuota_tester ?? 0,
+            'sisaKuota' => max(0, ($this->record->kuota_tester ?? 0) - ($statDiterima + $statSelesai)),
         ];
     }
 
-    public function terimaTester($id)
+    public function terimaTester($id): void
     {
-        $record = MisiAnggota::find($id);
-        if ($record && in_array($record->status, ['pending', 'reviewing'])) {
-            $record->update(['status' => 'accepted']);
-            Notification::make()->title(__('Tester Diterima'))->success()->send();
+        $tester = MisiAnggota::find($id);
+        if (!$tester || !in_array($tester->status, ['pending', 'reviewing', 'menunggu_seleksi'])) {
+            return;
         }
+
+        $acceptedCount = MisiAnggota::where('id_misi', $this->record->id)
+            ->whereIn('status', ['accepted', 'progress', 'selesai'])
+            ->count();
+
+        if ($acceptedCount >= ($this->record->kuota_tester ?? 1)) {
+            Notification::make()
+                ->title(__('Kuota Tester Sudah Terpenuhi'))
+                ->body(__('Pengujian ini sudah mencapai batas kuota tester (:kuota orang).', ['kuota' => $this->record->kuota_tester]))
+                ->warning()
+                ->send();
+            return;
+        }
+
+        $tester->update(['status' => 'accepted']);
+
+        // Update kapasitas misi
+        $newAccepted = $acceptedCount + 1;
+        $this->record->update([
+            'kapasitas' => $newAccepted,
+            'status' => ($newAccepted >= $this->record->kuota_tester) ? 'closed' : 'open',
+        ]);
+
+        Notification::make()
+            ->title(__('Tester Berhasil Diterima! ✅'))
+            ->body(__('Tester telah diterima untuk mengikuti pengujian langsung.'))
+            ->success()
+            ->send();
     }
 
-    public function tolakTester($id)
+    public function tolakTester($id): void
     {
-        $record = MisiAnggota::find($id);
-        if ($record && in_array($record->status, ['pending', 'reviewing'])) {
-            $record->update(['status' => 'rejected']);
+        $tester = MisiAnggota::find($id);
+        if (!$tester) return;
 
-            if ($record->misi) {
-                $record->misi->decrement('kapasitas');
-                $record->misi->update(['status' => 'open']);
-            }
+        $tester->update(['status' => 'rejected']);
 
-            $user = $record->user;
-            $misi = $record->misi;
-            if ($user && $user->email && $misi) {
-                try {
-                    Mail::to($user->email)->send(new ContactMail(
-                        __('Pendaftaran Pengujian Ditolak — Testoplay'),
-                        __('Pendaftaran Ditolak'),
-                        __("Halo :name,\n\nMohon maaf, pendaftaran Anda untuk mengikuti pengujian aplikasi \":aplikasi\" belum diterima oleh developer saat ini.", ['name' => $user->name, 'aplikasi' => $misi->nama_aplikasi]),
-                        __('Cari Misi Lain'),
-                        url('/tester')
-                    ));
-                } catch (\Exception $e) {
-                    Log::error('Gagal mengirim email pendaftaran ditolak ke ' . $user->email . ': ' . $e->getMessage());
-                }
-            }
+        $acceptedCount = MisiAnggota::where('id_misi', $this->record->id)
+            ->whereIn('status', ['accepted', 'progress', 'selesai'])
+            ->count();
 
-            Notification::make()->title(__('Tester Ditolak'))->success()->send();
-        }
+        $this->record->update([
+            'kapasitas' => $acceptedCount,
+            'status' => ($acceptedCount < $this->record->kuota_tester) ? 'open' : 'closed',
+        ]);
+
+        Notification::make()
+            ->title(__('Pengajuan Tester Ditolak'))
+            ->success()
+            ->send();
     }
 
-    protected function getHeaderActions(): array
+    public function konfirmasiHadirDanSelesai($id): void
     {
-        return [
-            \Filament\Actions\Action::make('get_emails')
-                ->label(__('Ambil List Email Tester'))
-                ->icon('heroicon-o-clipboard-document-list')
-                ->color('primary')
-                ->modalHeading(__('Daftar Email Tester'))
-                ->modalDescription(__('Salin daftar email di bawah ini untuk mengundang tester secara massal ke sistem distribusi aplikasi Anda (seperti Google Play Console atau TestFlight).'))
-                ->modalWidth('xl')
-                ->form([
-                    \Filament\Forms\Components\Placeholder::make('emails_view')
-                        ->hiddenLabel()
-                        ->content(function () {
-                            $emails = \App\Models\MisiAnggota::where('id_misi', $this->record->id)
-                                ->whereIn('status', ['accepted', 'progress', 'submitted', 'selesai'])
-                                ->with('user')
-                                ->get()
-                                ->pluck('user.email')
-                                ->filter()
-                                ->unique();
+        $tester = MisiAnggota::find($id);
+        if (!$tester || !in_array($tester->status, ['accepted', 'progress'])) {
+            return;
+        }
 
-                            $text = $emails->isEmpty() ? __('Belum ada tester aktif yang berpartisipasi.') : $emails->implode(', ');
+        $komisi = $this->record->komisi_per_tester ?? 20000;
 
-                            return new \Illuminate\Support\HtmlString('
-                                <div class="relative bg-slate-50 border border-slate-200 rounded-xl p-4 mt-2 overflow-hidden group">
-                                    <textarea readonly id="testerEmailList" class="w-full bg-transparent border-none p-0 text-sm font-mono text-slate-700 resize-none focus:ring-0 m-0" rows="8">' . htmlspecialchars($text) . '</textarea>
-                                    
-                                    <button type="button" onclick="navigator.clipboard.writeText(document.getElementById(\'testerEmailList\').value); const t = this.querySelector(\'.tooltip-text\'); t.classList.remove(\'opacity-0\'); setTimeout(() => t.classList.add(\'opacity-0\'), 2000);" 
-                                            class="absolute top-3 right-3 flex items-center justify-center w-9 h-9 rounded-lg bg-white border border-slate-200 text-slate-500 hover:bg-slate-100 hover:text-brand-600 transition-all shadow-sm focus:outline-none">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                        <span class="tooltip-text absolute -top-8 bg-slate-800 text-white text-xs font-semibold px-2 py-1 rounded opacity-0 transition-opacity whitespace-nowrap pointer-events-none">' . __('Tersalin!') . '</span>
-                                    </button>
-                                </div>
-                            ');
-                        }),
-                ])
-                ->modalSubmitAction(false)
-                ->modalCancelActionLabel(__('Tutup Modal')),
+        $tester->update([
+            'status' => 'selesai',
+            'status_kehadiran' => 'hadir',
+            'status_komisi' => 'masuk_dompet',
+        ]);
 
-            \Filament\Actions\Action::make('input_link')
-                ->label(__('Input Link Aplikasi'))
-                ->icon('heroicon-o-play')
-                ->color('success')
-                ->visible(fn() => in_array($this->record->status, ['open', 'closed']))
-                ->modalHeading(__('Mulai Pengujian'))
-                ->modalDescription(__('Masukkan URL aplikasi Anda (seperti Google Play Store) di bawah ini. Setelah Anda memulai, kami akan mengirim email pemberitahuan ke semua tester yang telah disetujui agar mereka segera mendownload dan menguji aplikasi Anda selama 14 hari.'))
-                ->modalSubmitActionLabel(__('Mulai Misi Sekarang'))
-                ->modalIcon('heroicon-o-rocket-launch')
-                ->form([
-                    \Filament\Forms\Components\TextInput::make('link_aplikasi')
-                        ->label(__('Link Aplikasi (Misal: Google Play URL)'))
-                        ->placeholder('https://play.google.com/store/apps/details?id=com.example.app')
-                        ->required()
-                        ->url()
-                        ->default($this->record->link_aplikasi)
-                        ->helperText(__('Link ini akan dikirimkan dan dilihat oleh seluruh tester aktif Anda.')),
-                ])
-                ->action(function (array $data) {
-                    if ($this->record->paket && $this->record->paket->trusted_badge) {
-                        \App\Models\MisiAnggota::where('id_misi', $this->record->id)
-                            ->whereIn('status', ['pending', 'reviewing'])
-                            ->update(['status' => 'accepted']);
-                    }
+        // Kreditkan komisi IDR ke dompet tester
+        $balance = UserBalance::firstOrCreate(
+            ['id_user' => $tester->id_user],
+            ['point' => 0, 'badge' => 0, 'saldo_rupiah' => 0]
+        );
+        $balance->increment('saldo_rupiah', $komisi);
 
-                    $acceptedTesters = \App\Models\MisiAnggota::where('id_misi', $this->record->id)
-                        ->where('status', 'accepted')
-                        ->with('user')
-                        ->get();
+        Notification::make()
+            ->title(__('Kehadiran Dikonfirmasi & Selesai! 🎉'))
+            ->body(__('Tester telah diverifikasi hadir. Komisi sebesar Rp :nominal telah masuk ke Saldo Dompet Tester.', [
+                'nominal' => number_format($komisi, 0, ',', '.')
+            ]))
+            ->success()
+            ->send();
+    }
 
-                    $now = \Carbon\Carbon::now();
-                    $subMisis = [];
-                    foreach ($acceptedTesters as $tester) {
-                        for ($i = 1; $i <= 14; $i++) {
-                            $subMisis[] = [
-                                'id_misi' => $this->record->id,
-                                'id_user' => $tester->id_user,
-                                'hari_ke' => $i,
-                                'status' => 'notdone',
-                                'created_at' => $now->copy()->addDays($i - 1),
-                                'updated_at' => $now->copy()->addDays($i - 1),
-                            ];
-                        }
-                    }
+    public function openReportModal($id): void
+    {
+        $this->selectedTesterId = $id;
+        $this->alasanPelanggaran = '';
+        $this->dispatch('open-report-modal');
+    }
 
-                    if (!empty($subMisis)) {
-                        \App\Models\MisiSub::insert($subMisis);
-                    }
+    public function submitReport(): void
+    {
+        if (!$this->selectedTesterId || empty(trim($this->alasanPelanggaran))) {
+            Notification::make()->title(__('Mohon isi alasan ketidakhadiran'))->warning()->send();
+            return;
+        }
 
-                    $this->record->update([
-                        'link_aplikasi' => $data['link_aplikasi'],
-                        'status' => 'running',
-                    ]);
+        $tester = MisiAnggota::find($this->selectedTesterId);
+        if (!$tester) return;
 
-                    \App\Models\MisiAnggota::where('id_misi', $this->record->id)
-                        ->where('status', 'accepted')
-                        ->update(['status' => 'progress']);
+        $tester->update([
+            'status_kehadiran' => 'tidak_hadir',
+        ]);
 
-                    foreach ($acceptedTesters as $tester) {
-                        if ($tester->user && $tester->user->email) {
-                            try {
-                                Mail::to($tester->user->email)->send(new ContactMail(
-                                    __('Pengujian Aplikasi Dimulai — Testoplay'),
-                                    __('Misi Pengujian Dimulai!'),
-                                    __("Halo :name,\n\nMisi pengujian untuk aplikasi \":aplikasi\" telah resmi dimulai oleh developer.\nSilakan mulai mengunduh aplikasi dan selesaikan tugas harian Anda selama 14 hari kedepan.", ['name' => $tester->user->name, 'aplikasi' => $this->record->nama_aplikasi]),
-                                    __('Lihat Misi Saya'),
-                                    url('/tester/misi-saya')
-                                ));
-                            } catch (\Exception $e) {
-                                Log::error('Gagal mengirim email misi dimulai ke ' . $tester->user->email . ': ' . $e->getMessage());
-                            }
-                        }
-                    }
+        PelanggaranTester::create([
+            'id_user' => $tester->id_user,
+            'id_developer' => auth()->id(),
+            'id_misi' => $this->record->id,
+            'alasan' => trim($this->alasanPelanggaran),
+            'status' => 'pending',
+        ]);
 
-                    Notification::make()
-                        ->title(__('Misi Berhasil Dimulai'))
-                        ->body(__('Status misi telah diubah menjadi running dan sub-misi tester telah dibuat.'))
-                        ->success()
-                        ->send();
-                }),
-        ];
+        $this->selectedTesterId = null;
+        $this->alasanPelanggaran = '';
+        $this->dispatch('close-report-modal');
+
+        Notification::make()
+            ->title(__('Laporan Ketidakhadiran Terkirim ⚠️'))
+            ->body(__('Laporan telah dicatat dan diteruskan ke Admin untuk ditinjau secara berkala.'))
+            ->warning()
+            ->send();
     }
 }

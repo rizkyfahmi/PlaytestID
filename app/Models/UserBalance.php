@@ -13,6 +13,7 @@ class UserBalance extends Model
         'id_user',
         'point',
         'badge',
+        'saldo_rupiah',
     ];
 
     public function user(): BelongsTo
